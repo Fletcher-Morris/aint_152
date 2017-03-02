@@ -5,10 +5,8 @@ using System.IO;
 
 public class GamePrefs_Script : MonoBehaviour {
 
-    public GamePrefs gamePrefs = new GamePrefs();
-
     void Start()
     {
-        gamePrefs.SavePrefs();
+
     }
 }
