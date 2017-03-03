@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class Ship : MonoBehaviour {
+public class Ship{
 
     public string shipName;
     public int health;
@@ -14,9 +14,19 @@ public class Ship : MonoBehaviour {
 
     public Ship()
     {
-        name = "New Ship";
+        shipName = "New Ship";
 
         health = 100;
+
+        pos = new Vector3(0, 0, 0);
+        rot = new Vector3(0, 0, 0);
+    }
+
+    public Ship(string _name, int _health)
+    {
+        shipName = _name;
+
+        health = _health;
 
         pos = new Vector3(0, 0, 0);
         rot = new Vector3(0, 0, 0);
