@@ -36,7 +36,8 @@ public class World {
         catch (System.Exception)
         {
             Debug.LogWarning("Cannot find world file. Creating a new one.");
-            Directory.CreateDirectory(Application.dataPath + "/Saves/" + worldName + "/world.json");
+            Directory.CreateDirectory(Application.dataPath + "/Saves/" + worldName);
+            SaveWorld();
         }
     }
 

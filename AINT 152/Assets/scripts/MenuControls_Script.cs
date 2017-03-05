@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class MenuControls_Script : MonoBehaviour {
 
@@ -9,6 +11,8 @@ public class MenuControls_Script : MonoBehaviour {
     public GameObject joinGameMenuObject;
     public GameObject loadGameMenuObject;
     public GameObject preferencesMenuObject;
+
+    public GameObject AddressField;
 
     public void ShowMainMenu()
     {
@@ -53,5 +57,10 @@ public class MenuControls_Script : MonoBehaviour {
         joinGameMenuObject.transform.localPosition = new Vector3(1000, 0, 0);
         loadGameMenuObject.transform.localPosition = new Vector3(1000, 0, 0);
         preferencesMenuObject.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    public void SetJoinIp()
+    {
+        GameObject.Find("NM").GetComponent<NetworkManager>().serverBindAddress = AddressField.GetComponent<InputField>().text;
     }
 }
