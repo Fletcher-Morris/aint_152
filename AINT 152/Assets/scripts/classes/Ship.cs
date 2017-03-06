@@ -7,28 +7,36 @@ using System.IO;
 public class Ship{
 
     public string shipName;
-    public int health;
+    public int shipHealth;
 
-    public Vector3 pos;
-    public Vector3 rot;
+	public Reactor shipReactor;
+	public Engine shipEngine;
+	public Shield shipShield;
+
+    public Vector3 shipPos;
+    public Vector3 shipRot;
 
     public Ship()
     {
         shipName = "New Ship";
+        shipHealth = 100;
+		shipReactor = new Reactor ("Magnox Fusion", 1000000000, 2000);
+		shipEngine = new Engine ();
+		shipShield = new Shield ();
 
-        health = 100;
-
-        pos = new Vector3(0, 0, 0);
-        rot = new Vector3(0, 0, 0);
+        shipPos = new Vector3(0, 0, 0);
+        shipRot = new Vector3(0, 0, 0);
     }
 
     public Ship(string _name, int _health)
     {
         shipName = _name;
+        shipHealth = _health;
+		shipReactor = new Reactor ("Antimatter", 2000000000, 1500);
+		shipEngine = new Engine ();
+		shipShield = new Shield ();
 
-        health = _health;
-
-        pos = new Vector3(0, 0, 0);
-        rot = new Vector3(0, 0, 0);
+        shipPos = new Vector3(0, 0, 0);
+        shipRot = new Vector3(0, 0, 0);
     }
 }
