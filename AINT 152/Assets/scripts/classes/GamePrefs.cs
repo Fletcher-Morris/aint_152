@@ -6,22 +6,22 @@ using System.IO;
 [System.Serializable]
 public class GamePrefs{
 
-    public string userName;
+    public string playerName;
     public int sensitivity;
     public int volumeLevel;
-    public string description;
+    public string playerDescrpition;
     public int style;
     public int fpsCap;
     public bool fullscreen;
     public bool vsync;
     public bool msaa;
 
-    public GamePrefs(string _userName, int _sensitivity, int _volumeLevel, string _description, int _style, int _fpsCap, bool _vsync, bool _fullscreen, bool _msaa)
+    public GamePrefs(string _playerName, int _sensitivity, int _volumeLevel, string _playerDescription, int _style, int _fpsCap, bool _vsync, bool _fullscreen, bool _msaa)
     {
-        userName = _userName;
+        playerName = _playerName;
         sensitivity = _sensitivity;
         volumeLevel = _volumeLevel;
-        description = _description;
+        playerDescrpition = _playerDescription;
         style = _style;
         fpsCap = _fpsCap;
         vsync = _vsync;
@@ -31,10 +31,10 @@ public class GamePrefs{
 
     public GamePrefs()
     {
-        userName = "The Name The Player Uses";
+        playerName = "The Name The Player Uses";
         sensitivity = 10;
         volumeLevel = 10;
-        description = "A Description Of The Player";
+        playerDescrpition = "A Description Of The Player";
         style = 1;
         fpsCap = 60;
         vsync = false;
