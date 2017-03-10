@@ -84,6 +84,8 @@
     <Compile Include="Assets\scripts\GamePrefs_Script.cs" />
     <Compile Include="Assets\scripts\MenuControls_Script.cs" />
     <Compile Include="Assets\scripts\NetworkLauncher_Script.cs" />
+    <Compile Include="Assets\scripts\Ship\SpaceshipMovement_Script.cs" />
+    <Compile Include="Assets\scripts\Ship\TurretController_Script.cs" />
     <Compile Include="Assets\scripts\WorldLoader_Script.cs" />
     <Compile Include="Assets\scripts\classes\GamePrefs.cs" />
     <Compile Include="Assets\scripts\classes\Player.cs" />
