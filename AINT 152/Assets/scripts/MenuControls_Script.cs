@@ -13,6 +13,7 @@ public class MenuControls_Script : MonoBehaviour {
     public GameObject preferencesMenuObject;
 
     public GameObject AddressField;
+    public string adderss;
 
     public void ShowMainMenu()
     {
@@ -61,6 +62,12 @@ public class MenuControls_Script : MonoBehaviour {
 
     public void SetJoinIp()
     {
-        GameObject.Find("NM").GetComponent<NetworkManager>().serverBindAddress = AddressField.GetComponent<InputField>().text;
+        adderss = AddressField.GetComponent<InputField>().text;
+        GameObject.Find("NM").GetComponent<NetworkManager>().serverBindAddress = adderss;
+    }
+
+    void Update()
+    {
+        adderss = AddressField.GetComponent<InputField>().text;
     }
 }

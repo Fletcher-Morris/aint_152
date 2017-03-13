@@ -10,12 +10,14 @@ public class World {
     public string[] bannedIp;
 
     public List<Ship> ships;
+    public List<Player> players;
 
     public World()
     {
         worldName = "New World";
         bannedIp = new string[1];
         ships = new List<Ship>();
+        players = new List<Player>();
     }
 
     public World(string _worldName)
@@ -23,6 +25,7 @@ public class World {
         worldName = _worldName;
         bannedIp = new string[1];
         ships = new List<Ship>();
+        players = new List<Player>();
     }
 
     public void SaveWorld()

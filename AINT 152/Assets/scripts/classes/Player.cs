@@ -8,4 +8,7 @@ public class Player
     public int playerId;
     public int playerHealth;
     public string playerSpecialty;
+
+    public string lastShip;
+    public bool isAdmin;
 }
