@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerMovement_Script.cs" />
     <Compile Include="Assets\Scripts\Ship\SpaceshipMovement_Script.cs" />
     <Compile Include="Assets\Scripts\Ship\TurretController_Script.cs" />
+    <Compile Include="Assets\Scripts\ViewTransition_Script.cs" />
     <Compile Include="Assets\Scripts\WorldLoader_Script.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
