@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[RequireComponent(typeof(Rigidbody2D))]
+
 public class TurretController_Script : NetworkBehaviour
 {
 
     public float rotateSpeed = 1;
     public GameObject turretObject;
 
+    public bool canRotate = false;
+
     void Start()
+    {
+        //CheckLocal();
+    }
+
+    void CheckLocal()
     {
         if (!isLocalPlayer)
         {
@@ -21,7 +28,15 @@ public class TurretController_Script : NetworkBehaviour
 
     void Update()
     {
-        LookAtMousePod();
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            canRotate = !canRotate;
+        }
+
+        if (canRotate)
+        {
+            LookAtMousePod();
+        }
     }
 
     void LookAtMousePod()

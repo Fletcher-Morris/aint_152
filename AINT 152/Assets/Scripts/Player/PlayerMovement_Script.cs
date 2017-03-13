@@ -12,14 +12,14 @@ public class PlayerMovement_Script : NetworkBehaviour {
     Vector2 axisNormalized;
     Vector2 axisFinalised;
 
-    public bool canMove = true;
-    public bool canRotate = true;
+    public bool canMove = false;
+    public bool canRotate = false;
 
     public GameObject playerSprite;
 
     void Start()
     {
-        CheckLocal();
+        //CheckLocal();
     }
 
     void CheckLocal()

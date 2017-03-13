@@ -9,8 +9,8 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
     public float rotateSpeed = 0.005f;
     public float moveSpeed = 0.01f;
 
-    public bool canMove = true;
-    public bool canRotate = true;
+    public bool canMove = false;
+    public bool canRotate = false;
 
     Vector2 axisInput;
     Vector2 axisNormalized;
@@ -32,6 +32,11 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            canRotate = !canRotate;
+        }
+
         if (canRotate)
         {
             LookAtMousePod(); 
