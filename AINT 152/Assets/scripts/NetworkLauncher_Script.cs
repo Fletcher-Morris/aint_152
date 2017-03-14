@@ -11,6 +11,11 @@ public class NetworkLauncher_Script : MonoBehaviour {
 
     public World _world;
 
+    void Start()
+    {
+        CheckServer();
+    }
+
 	public void SetupClient(){
 		gameObject.GetComponent<NetworkManager> ().StartClient ();
         Network.Connect(gameObject.GetComponent<NetworkManager>().networkAddress, gameObject.GetComponent<NetworkManager>().networkPort);
@@ -35,5 +40,14 @@ public class NetworkLauncher_Script : MonoBehaviour {
         _world.ships.Add(ship2);
         _world.ships.Add(ship3);
         _world.SaveWorld();
+    }
+
+    void CheckServer()
+    {
+        if (!Network.isServer)
+        {
+            Destroy(this);
+            return;
+        }
     }
 }
