@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class WorldLoader_Script : MonoBehaviour {
+public class WorldLoader_Script : NetworkBehaviour {
 
     public World theWorld;
 

@@ -19,7 +19,8 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     void Start()
     {
-        //CheckLocal();
+        ChildToShip();
+        CheckLocal();
     }
 
     void CheckLocal()
@@ -40,7 +41,8 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
         if (canMove)
         {
-            Movement(); 
+            //Movement();
+            RigidbodyMovement();
         }
     }
 
@@ -49,7 +51,6 @@ public class PlayerMovement_Script : NetworkBehaviour {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        playerSprite.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
     void Movement()
@@ -58,5 +59,24 @@ public class PlayerMovement_Script : NetworkBehaviour {
         axisNormalized = axisInput.normalized;
         axisFinalised = axisNormalized * moveSpeed;
         transform.Translate(axisFinalised.x, axisFinalised.y, 0);
+    }
+    void RigidbodyMovement()
+    {
+        axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        axisNormalized = axisInput.normalized;
+        axisFinalised = axisNormalized * moveSpeed;
+        gameObject.GetComponent<Rigidbody2D>().AddRelativeForce(axisFinalised * moveSpeed);
+    }
+
+    void ChildToShip()
+    {
+        if (GameObject.Find("Ship_Normandy"))
+        {
+            gameObject.transform.parent = GameObject.Find("Ship_Normandy").transform;
+        }
+        else if (GameObject.Find("Ship_Normandy (clone)"))
+        {
+            gameObject.transform.parent = GameObject.Find("Ship_Normandy (clone)").transform;
+        }
     }
 }
