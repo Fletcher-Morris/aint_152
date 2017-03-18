@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class GamePrefs_Script : MonoBehaviour
 {
     public GamePrefs gamePrefs;
+    public Player myPlayer;
 
     void Start()
     {
         gamePrefs = gamePrefs.LoadPrefs();
+        myPlayer = new Player();
     }
 
     public void GetPrefsFromUI()

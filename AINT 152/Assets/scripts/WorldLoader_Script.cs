@@ -19,7 +19,12 @@ public class WorldLoader_Script : NetworkBehaviour {
 
     public void GenerateWorld()
     {
-        foreach(Ship _ship in theWorld.ships)
+        GenerateShips();
+    }
+
+    public void GenerateShips()
+    {
+        foreach (Ship _ship in theWorld.ships)
         {
             GameObject thisShip = GameObject.Instantiate(shipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot));
             thisShip.name = "Ship_" + _ship.shipName;

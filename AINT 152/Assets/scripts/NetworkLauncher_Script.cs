@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class NetworkLauncher_Script : MonoBehaviour {
 
+    public GameObject nmObject;
+
 	NetworkClient _client;
 	public bool isAtStartup = true;
 
@@ -13,17 +15,17 @@ public class NetworkLauncher_Script : MonoBehaviour {
 
     void Start()
     {
-        CheckServer();
+
     }
 
 	public void SetupClient(){
-		gameObject.GetComponent<NetworkManager> ().StartClient ();
+        nmObject.GetComponent<NetworkManager> ().StartClient ();
         Network.Connect(gameObject.GetComponent<NetworkManager>().networkAddress, gameObject.GetComponent<NetworkManager>().networkPort);
 	}
 
     public void SetupHost(){
         TestSave();
-        gameObject.GetComponent<NetworkManager> ().StartHost ();
+        nmObject.GetComponent<NetworkManager> ().StartHost ();
 	}
 
     public void TestSave()
@@ -40,14 +42,5 @@ public class NetworkLauncher_Script : MonoBehaviour {
         _world.ships.Add(ship2);
         _world.ships.Add(ship3);
         _world.SaveWorld();
-    }
-
-    void CheckServer()
-    {
-        if (!Network.isServer)
-        {
-            Destroy(this);
-            return;
-        }
     }
 }

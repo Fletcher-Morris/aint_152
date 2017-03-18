@@ -7,6 +7,9 @@ using System.IO;
 public class Ship{
 
     public string shipName;
+
+    public bool playerShip;
+
     public int shipHealth;
 
 	public Reactor shipReactor;
@@ -19,6 +22,7 @@ public class Ship{
     public Ship()
     {
         shipName = "New Ship";
+        playerShip = false;
         shipHealth = 100;
 		shipReactor = new Reactor ("Magnox Fusion", 1000000000, 2000);
 		shipEngine = new Engine ();
@@ -31,10 +35,24 @@ public class Ship{
     public Ship(string _name, int _health)
     {
         shipName = _name;
+        playerShip = false;
         shipHealth = _health;
 		shipReactor = new Reactor ("Antimatter", 2000000000, 1500);
 		shipEngine = new Engine ();
 		shipShield = new Shield ();
+
+        shipPos = new Vector3(0, 0, 0);
+        shipRot = new Vector3(0, 0, 0);
+    }
+
+    public Ship(string _name, int _health, bool _playerShip)
+    {
+        shipName = _name;
+        playerShip = _playerShip;
+        shipHealth = _health;
+        shipReactor = new Reactor("Antimatter", 2000000000, 1500);
+        shipEngine = new Engine();
+        shipShield = new Shield();
 
         shipPos = new Vector3(0, 0, 0);
         shipRot = new Vector3(0, 0, 0);

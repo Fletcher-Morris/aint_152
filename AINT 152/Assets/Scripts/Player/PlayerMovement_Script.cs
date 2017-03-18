@@ -20,16 +20,6 @@ public class PlayerMovement_Script : NetworkBehaviour {
     void Start()
     {
         ChildToShip();
-        CheckLocal();
-    }
-
-    void CheckLocal()
-    {
-        if (!isLocalPlayer)
-        {
-            Destroy(this);
-            return;
-        }
     }
 
     void Update()
