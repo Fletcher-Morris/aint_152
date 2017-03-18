@@ -31,6 +31,7 @@ public class PlayerSetup_Script : NetworkBehaviour
     void AssignRemoteLayer()
     {
         gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
+        Debug.Log("Set player layer to " + LayerMask.LayerToName(gameObject.layer));
     }
 
     void DisableComponents()

@@ -8,6 +8,7 @@ using System;
 public class Player
 {
     public string playerName;
+    [SyncVar]
     public int uniqueId;
     public int playerHealth;
     public int playerSkin;

@@ -31,8 +31,8 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
         if (canMove)
         {
-            //Movement();
-            RigidbodyMovement();
+            Movement();
+            //RigidbodyMovement();
         }
     }
 
@@ -48,7 +48,7 @@ public class PlayerMovement_Script : NetworkBehaviour {
         axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         axisNormalized = axisInput.normalized;
         axisFinalised = axisNormalized * moveSpeed;
-        transform.Translate(axisFinalised.x, axisFinalised.y, 0);
+        transform.Translate(axisFinalised.x * Time.deltaTime, axisFinalised.y * Time.deltaTime, 0);
     }
     void RigidbodyMovement()
     {
@@ -60,13 +60,6 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     void ChildToShip()
     {
-        if (GameObject.Find("Ship_Normandy"))
-        {
-            gameObject.transform.parent = GameObject.Find("Ship_Normandy").transform;
-        }
-        else if (GameObject.Find("Ship_Normandy (clone)"))
-        {
-            gameObject.transform.parent = GameObject.Find("Ship_Normandy (clone)").transform;
-        }
+
     }
 }
