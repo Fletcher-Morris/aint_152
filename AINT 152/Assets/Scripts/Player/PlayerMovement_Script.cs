@@ -48,7 +48,7 @@ public class PlayerMovement_Script : NetworkBehaviour {
         axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         axisNormalized = axisInput.normalized;
         axisFinalised = axisNormalized * moveSpeed;
-        transform.Translate(axisFinalised.x * Time.deltaTime, axisFinalised.y * Time.deltaTime, 0);
+        gameObject.transform.Translate(axisFinalised.x * Time.deltaTime, axisFinalised.y * Time.deltaTime, 0);
     }
     void RigidbodyMovement()
     {

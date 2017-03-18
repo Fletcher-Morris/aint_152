@@ -9,14 +9,16 @@ public class World {
     public string worldName;
     public string[] bannedIp;
 
-    public List<Ship> ships;
+    public List<Ship> playerShips;
+    public List<Ship> aiShips;
     public List<Player> players;
 
     public World()
     {
         worldName = "New World";
         bannedIp = new string[1];
-        ships = new List<Ship>();
+        playerShips = new List<Ship>();
+        aiShips = new List<Ship>();
         players = new List<Player>();
     }
 
@@ -24,7 +26,8 @@ public class World {
     {
         worldName = _worldName;
         bannedIp = new string[1];
-        ships = new List<Ship>();
+        playerShips = new List<Ship>();
+        aiShips = new List<Ship>();
         players = new List<Player>();
     }
 
@@ -46,6 +49,7 @@ public class World {
 
     public World LoadWorld()
     {
+
         World _world = new World();
         try
         {

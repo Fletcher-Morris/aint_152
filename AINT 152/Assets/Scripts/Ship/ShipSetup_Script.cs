@@ -6,6 +6,10 @@ using UnityEngine.Networking;
 public class ShipSetup_Script : NetworkBehaviour
 {
     [SerializeField]
+    [SyncVar]
+    public Ship shipDetails;
+
+    [SerializeField]
     Behaviour[] componentsToDisable;
 
     [SerializeField]
@@ -21,14 +25,6 @@ public class ShipSetup_Script : NetworkBehaviour
             DisableComponents();
             AssignRemoteLayer();
         }
-
-        RegisterShip();
-    }
-
-    void RegisterShip()
-    {
-        string _ID = "Spaceship " + GetComponent<NetworkIdentity>().netId;
-        transform.name = _ID;
     }
 
     void AssignRemoteLayer()
@@ -43,12 +39,5 @@ public class ShipSetup_Script : NetworkBehaviour
         {
             componentsToDisable[i].enabled = false;
         }
-    }
-
-    [SyncVar]
-    public string m_playerName;
-    [SyncVar]
-    public int m_playerNumber;
-    [SyncVar]
-    public int m_localID;
+    }    
 }

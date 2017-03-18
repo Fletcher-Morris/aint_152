@@ -8,7 +8,6 @@ using System;
 public class Player
 {
     public string playerName;
-    [SyncVar]
     public int uniqueId;
     public int playerHealth;
     public int playerSkin;
@@ -27,7 +26,7 @@ public class Player
         uniqueId = UnityEngine.Random.Range(1, 2147483647);
         if (!Network.isServer)
         {
-            File.WriteAllText(Application.dataPath + "/uniqueID.txt", uniqueId.ToString());
+            File.WriteAllText(Application.dataPath + "/Unique ID.txt", uniqueId.ToString());
             Debug.Log("Generating new unique player ID.");
         }
         return uniqueId;
@@ -36,9 +35,9 @@ public class Player
     public int GetID()
     {
         int value = 0;
-        if (File.Exists(Application.dataPath + "/UniqueID.txt"))
+        if (File.Exists(Application.dataPath + "/Unique ID.txt"))
         {
-            value = Convert.ToInt32(File.ReadAllText(Application.dataPath + "/UniqueID.txt"));
+            value = Convert.ToInt32(File.ReadAllText(Application.dataPath + "/Unique ID.txt"));
         }
         else
         {

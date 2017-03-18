@@ -5,6 +5,15 @@ using UnityEngine.Networking;
 
 public class PlayerSetup_Script : NetworkBehaviour
 {
+    public Player _player;
+
+    [SerializeField]
+    [SyncVar]
+    public int _uniqueID;
+    [SerializeField]
+    [SyncVar]
+    public string _playerName;
+
     [SerializeField]
     Behaviour[] componentsToDisable;
 
@@ -19,13 +28,17 @@ public class PlayerSetup_Script : NetworkBehaviour
             AssignRemoteLayer();
         }
 
-        RegisterPlayer();
+        if (isLocalPlayer)
+        {
+            GetPlayerDetails();
+        }
     }
 
-    void RegisterPlayer()
+    void GetPlayerDetails()
     {
-        string _ID = "Player " + GetComponent<NetworkIdentity>().netId;
-        transform.name = _ID;
+        _player = new Player();
+        _uniqueID = _player.uniqueId;
+        _playerName = _player.playerName;
     }
 
     void AssignRemoteLayer()
@@ -41,11 +54,4 @@ public class PlayerSetup_Script : NetworkBehaviour
             componentsToDisable[i].enabled = false;
         }
     }
-
-    [SyncVar]
-    public string m_playerName;
-    [SyncVar]
-    public int m_playerNumber;
-    [SyncVar]
-    public int m_localID;
 }
