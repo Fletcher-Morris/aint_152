@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Classes\Ship\Ship.cs" />
     <Compile Include="Assets\Scripts\Classes\Weapon.cs" />
     <Compile Include="Assets\Scripts\Classes\World.cs" />
+    <Compile Include="Assets\Scripts\DontDestroyOnLoad_Script.cs" />
     <Compile Include="Assets\Scripts\GamePrefs_Script.cs" />
     <Compile Include="Assets\Scripts\MenuControls_Script.cs" />
     <Compile Include="Assets\Scripts\NetworkLauncher_Script.cs" />
@@ -102,10 +103,9 @@
     <Compile Include="Assets\Scripts\Ship\TurretController_Script.cs" />
     <Compile Include="Assets\Scripts\ShootWeapon.cs" />
     <Compile Include="Assets\Scripts\Singleton_Script.cs" />
-    <Compile Include="Assets\Scripts\WorldLoader_Script.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Unique ID.txt" />
+    <Compile Include="Assets\Scripts\World Processing\SetWorldToLoad_Script.cs" />
+    <Compile Include="Assets\Scripts\World Processing\WorldGenerator_Script.cs" />
+    <Compile Include="Assets\Scripts\World Processing\WorldLoader_Script.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

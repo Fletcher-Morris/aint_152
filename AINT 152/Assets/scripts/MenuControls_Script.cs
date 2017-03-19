@@ -78,10 +78,10 @@ public class MenuControls_Script : MonoBehaviour {
 
     void Start()
     {
-        GetSavedWorlds();
+
     }
 
-    void GetSavedWorlds()
+    public void GetSavedWorlds()
     {
         foreach (Transform child in GameObject.Find("Load World Scroll Content").transform)
         {
@@ -91,7 +91,7 @@ public class MenuControls_Script : MonoBehaviour {
         DirectoryInfo dirInfo = new DirectoryInfo(Application.dataPath + "/Saves");
         DirectoryInfo[] fileInfo = dirInfo.GetDirectories();
 
-        Debug.Log("Found " + fileInfo.Length + " world files.");
+        Debug.Log(gameObject.name + ": Found " + fileInfo.Length + " world files.");
 
         foreach (DirectoryInfo _world in fileInfo)
         {

@@ -21,6 +21,14 @@ public class Player
         playerSpecialty = "";
     }
 
+    public Player(string _playerName)
+    {
+        playerName = _playerName;
+        uniqueId = GetID();
+        playerSkin = 0;
+        playerSpecialty = "";
+    }
+
     public int GenerateNewID()
     {
         uniqueId = UnityEngine.Random.Range(1, 2147483647);

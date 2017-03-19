@@ -63,4 +63,21 @@ public class World {
         Debug.Log("Loading world file.");
         return _world;
     }
+
+    public World LoadWorld(string _worldName)
+    {
+
+        World _world = new World();
+        try
+        {
+            string jsonString = File.ReadAllText(Application.dataPath + "/Saves/" + _worldName + "/world.json");
+            _world = JsonUtility.FromJson<World>(jsonString);
+        }
+        catch (System.Exception)
+        {
+            SaveWorld();
+        }
+        Debug.Log("Loading world file.");
+        return _world;
+    }
 }
