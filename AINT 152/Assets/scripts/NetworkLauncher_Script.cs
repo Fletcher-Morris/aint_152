@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class NetworkLauncher_Script : MonoBehaviour {
 
-    public GameObject nmObject;
-
 	NetworkClient _client;
 	public bool isAtStartup = true;
 
@@ -17,11 +15,11 @@ public class NetworkLauncher_Script : MonoBehaviour {
     }
 
 	public void SetupClient(){
-        nmObject.GetComponent<NetworkManager> ().StartClient ();
-        Network.Connect(gameObject.GetComponent<NetworkManager>().networkAddress, gameObject.GetComponent<NetworkManager>().networkPort);
+        GameObject.Find("NM").GetComponent<NetworkManager> ().StartClient ();
+        Network.Connect(GameObject.Find("NM").GetComponent<NetworkManager>().networkAddress, GameObject.Find("NM").GetComponent<NetworkManager>().networkPort);
 	}
 
     public void SetupHost(){
-        nmObject.GetComponent<NetworkManager> ().StartHost ();
+        GameObject.Find("NM").GetComponent<NetworkManager> ().StartHost ();
 	}
 }

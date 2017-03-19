@@ -9,6 +9,8 @@ public class GamePrefs_Script : MonoBehaviour
     public GamePrefs gamePrefs;
     public Player myPlayer;
 
+    public Behaviour netHud;
+
     void Start()
     {
         gamePrefs = gamePrefs.LoadPrefs();
@@ -29,5 +31,16 @@ public class GamePrefs_Script : MonoBehaviour
     public void SaveChanges()
     {
         gamePrefs.SavePrefs();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand))
+            {
+                netHud.enabled = !netHud.enabled; 
+            }
+        }
     }
 }
