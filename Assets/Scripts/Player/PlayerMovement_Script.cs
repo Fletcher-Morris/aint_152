@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class PlayerMovement_Script : NetworkBehaviour {
 
     public float rotateSpeed = 0.005f;
-    public float moveSpeed = 0.005f;
+    public float moveSpeed = 1f;
 
     Vector2 axisInput;
     Vector2 axisNormalized;
@@ -17,13 +17,27 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     public GameObject playerSprite;
 
+    public GameObject gM;
+
     void Start()
     {
         ChildToShip();
+        gM = GameObject.Find("GM");
     }
 
     void Update()
     {
+        if(gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "UsingTurret" || gM.GetComponent<GameState_Script>().gameState == "FlyingShip")
+        {
+            canMove = false;
+            canRotate = false;
+        }
+        else
+        {
+            canRotate = true;
+            canMove = true;
+        }
+
         if (canRotate)
         {
             LookAtMousePod(); 

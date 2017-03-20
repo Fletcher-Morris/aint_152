@@ -89,20 +89,28 @@ public class MenuControls_Script : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
 
-        DirectoryInfo dirInfo = new DirectoryInfo(Application.dataPath + "/Saves");
-        DirectoryInfo[] fileInfo = dirInfo.GetDirectories();
-
-        Debug.Log(gameObject.name + ": Found " + fileInfo.Length + " world files.");
-
-        foreach (DirectoryInfo _world in fileInfo)
+        if (Directory.Exists(Application.dataPath + "/Saves"))
         {
-            GameObject worldUI = Instantiate(loadWorldUiPrefab) as GameObject;
-            worldUI.transform.SetParent(GameObject.Find("Load World Scroll Content").transform);
-            worldUI.transform.position = GameObject.Find("Load World Scroll Content").transform.position;
-            worldUI.transform.localScale = new Vector3(1, 1, 1);
-            worldUI.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = _world.Name;
-            worldUI.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = _world.CreationTime.ToString();
-            Debug.Log(_world);
+            DirectoryInfo dirInfo = new DirectoryInfo(Application.dataPath + "/Saves");
+            DirectoryInfo[] fileInfo = dirInfo.GetDirectories();
+
+            Debug.Log(gameObject.name + ": Found " + fileInfo.Length + " world files.");
+
+            foreach (DirectoryInfo _world in fileInfo)
+            {
+                GameObject worldUI = Instantiate(loadWorldUiPrefab) as GameObject;
+                worldUI.transform.SetParent(GameObject.Find("Load World Scroll Content").transform);
+                worldUI.transform.position = GameObject.Find("Load World Scroll Content").transform.position;
+                worldUI.transform.localScale = new Vector3(1, 1, 1);
+                worldUI.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = _world.Name;
+                worldUI.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = _world.CreationTime.ToString();
+                Debug.Log(_world);
+            }
+        }
+        else
+        {
+            Directory.CreateDirectory(Application.dataPath + "/Saves");
+            Debug.LogWarning(gameObject.name + ": Saves Directory does not exist, creating a new one.");
         }
     }
 }
