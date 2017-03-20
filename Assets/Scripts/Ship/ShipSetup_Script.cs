@@ -10,6 +10,13 @@ public class ShipSetup_Script : NetworkBehaviour
     public Ship shipDetails;
 
     [SerializeField]
+    [SyncVar]
+    public bool cockpitBeingUsed = false;
+    [SerializeField]
+    [SyncVar]
+    public bool turretBeingUsed = false;
+
+    [SerializeField]
     Behaviour[] componentsToDisable;
 
     [SerializeField]

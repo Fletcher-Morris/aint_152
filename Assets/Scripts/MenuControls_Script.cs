@@ -113,4 +113,20 @@ public class MenuControls_Script : MonoBehaviour
             Debug.LogWarning(gameObject.name + ": Saves Directory does not exist, creating a new one.");
         }
     }
+
+
+    public void CreateWorldRelay()
+    {
+        GameObject.Find("WM").GetComponent<WorldGenerator_Script>().CreateWorld();
+    }
+
+    public void GenerateWorldRelay()
+    {
+        GameObject.Find("WM").GetComponent<WorldLoader_Script>().GenerateWorld();
+    }
+
+    public void SetupHostRelay()
+    {
+        GameObject.Find("WM").GetComponent<NetworkLauncher_Script>().SetupHost();
+    }
 }

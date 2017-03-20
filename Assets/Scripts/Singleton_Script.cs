@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class Singleton_Script : MonoBehaviour {
-string objectTag;
-GameObject[] objectsOfTag;
+public class Singleton_Script : MonoBehaviour
+{
+    string objectTag;
+    GameObject[] objectsOfTag;
 
-bool  destroyOther = true;
 
-void  Start()
+    public bool destroyOther = true;
+
+    void Start()
     {
         objectTag = gameObject.tag;
         objectsOfTag = GameObject.FindGameObjectsWithTag(objectTag);
