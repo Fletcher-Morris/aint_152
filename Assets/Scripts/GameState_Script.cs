@@ -23,12 +23,12 @@ public class GameState_Script : MonoBehaviour {
 
     public void SetStateUsingTurret()
     {
-        gameState = "UsingTurret";
+        gameState = "Using Turret";
     }
 
     public void SetStateFlyingShip()
     {
-        gameState = "FlyingShip";
+        gameState = "Flying Ship";
     }
 
     void Update()

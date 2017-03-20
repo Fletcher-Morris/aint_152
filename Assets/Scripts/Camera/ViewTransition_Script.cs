@@ -11,8 +11,8 @@ public class ViewTransition_Script : MonoBehaviour {
 
     public GameObject cameraObject;
 
-    bool isViewingCrew = false;
-    bool isViewingShip = false;
+    public bool isViewingCrew = false;
+    public bool isViewingShip = false;
     public bool isSwitchingToCrew = false;
     public bool isSwitchingToShip = false;
 
@@ -49,11 +49,6 @@ public class ViewTransition_Script : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            SwitchView();
-        }
-
         if (isSwitchingToShip)
         {
             cameraObject.GetComponent<Camera>().cullingMask = shipLayers;

@@ -39,7 +39,7 @@ public class PauseMenuControls_Script : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.Find("GM").GetComponent<GameState_Script>().GetState() == "paused")
+        if (GameObject.Find("GM").GetComponent<GameState_Script>().GetState() == "Paused")
         {
             if (isShowingPauseMenu == false)
             {
@@ -47,7 +47,7 @@ public class PauseMenuControls_Script : MonoBehaviour
                 isShowingPauseMenu = true;
             }
         }
-        else if (GameObject.Find("GM").GetComponent<GameState_Script>().GetState() == "normal")
+        else if (GameObject.Find("GM").GetComponent<GameState_Script>().GetState() == "Normal")
         {
             if(isShowingPauseMenu == true)
             {

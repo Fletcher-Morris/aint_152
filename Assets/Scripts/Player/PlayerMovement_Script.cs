@@ -19,6 +19,9 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     public GameObject gM;
 
+    public bool isInCockpitTrigger = false;
+    public bool isInTurretTrigger = false;
+
     void Start()
     {
         ChildToShip();
@@ -27,7 +30,7 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     void Update()
     {
-        if(gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "UsingTurret" || gM.GetComponent<GameState_Script>().gameState == "FlyingShip")
+        if(gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "Using Turret" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
         {
             canMove = false;
             canRotate = false;
@@ -48,6 +51,23 @@ public class PlayerMovement_Script : NetworkBehaviour {
             Movement();
             //RigidbodyMovement();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (isInCockpitTrigger)
+            {
+                if (Camera.main.gameObject.GetComponent<ViewTransition_Script>().isViewingCrew)
+                {
+                    gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
+                    Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToShip();
+                }
+                else
+                {
+                    gM.GetComponent<GameState_Script>().gameState = "Normal";
+                    Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToCrew();
+                }
+            }
+        }
     }
 
     void LookAtMousePod()
@@ -64,6 +84,7 @@ public class PlayerMovement_Script : NetworkBehaviour {
         axisFinalised = axisNormalized * moveSpeed;
         gameObject.transform.Translate(axisFinalised.x * Time.deltaTime, axisFinalised.y * Time.deltaTime, 0);
     }
+
     void RigidbodyMovement()
     {
         axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -75,5 +96,33 @@ public class PlayerMovement_Script : NetworkBehaviour {
     void ChildToShip()
     {
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.name == "Cockpit_Trigger")
+        {
+            Debug.Log(gameObject.name + ": entered cockpit trigger.");
+            isInCockpitTrigger = true;
+        }
+        else if (col.gameObject.name == "Turret_Trigger")
+        {
+            Debug.Log(gameObject.name + ": entered turret trigger.");
+            isInTurretTrigger = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.name == "Cockpit_Trigger")
+        {
+            Debug.Log(gameObject.name + ": left cockpit trigger.");
+            isInCockpitTrigger = false;
+        }
+        else if (col.gameObject.name == "Turret_Trigger")
+        {
+            Debug.Log(gameObject.name + ": left turret trigger.");
+            isInTurretTrigger = false;
+        }
     }
 }
