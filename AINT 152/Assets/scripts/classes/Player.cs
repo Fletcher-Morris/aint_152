@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using System.IO;
 using System;
 
+[System.Serializable]
 public class Player
 {
     public string playerName;

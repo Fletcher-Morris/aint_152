@@ -5,7 +5,8 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.IO;
 
-public class MenuControls_Script : MonoBehaviour {
+public class MenuControls_Script : MonoBehaviour
+{
 
     public GameObject mainMenuObject;
     public GameObject newGameMenuObject;
@@ -98,7 +99,7 @@ public class MenuControls_Script : MonoBehaviour {
             GameObject worldUI = Instantiate(loadWorldUiPrefab) as GameObject;
             worldUI.transform.SetParent(GameObject.Find("Load World Scroll Content").transform);
             worldUI.transform.position = GameObject.Find("Load World Scroll Content").transform.position;
-            worldUI.transform.localScale = new Vector3(1,1,1);
+            worldUI.transform.localScale = new Vector3(1, 1, 1);
             worldUI.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = _world.Name;
             worldUI.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = _world.CreationTime.ToString();
             Debug.Log(_world);

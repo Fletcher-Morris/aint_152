@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\GamePrefs_Script.cs" />
     <Compile Include="Assets\Scripts\MenuControls_Script.cs" />
     <Compile Include="Assets\Scripts\NetworkLauncher_Script.cs" />
+    <Compile Include="Assets\Scripts\PauseMenuControls_Script.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement_Script.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSetup_Script.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipSetup_Script.cs" />
