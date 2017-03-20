@@ -3,8 +3,14 @@
 [System.Serializable]
 public class Weapon
 {
-    public string weaponName = "Pulse Laser";
+    public string weaponName;
+    public float weaponDamage;
+    public float weaponRange;
 
-    public float weaponDamage = 10f;
-    public float weaponRange = 100f;
+    public Weapon()
+    {
+        weaponName = "New Weapon";
+        weaponDamage = 10f;
+        weaponRange = 100;
+    }
 }

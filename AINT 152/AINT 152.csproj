@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Classes\Ship\Reactor.cs" />
     <Compile Include="Assets\Scripts\Classes\Ship\Shield.cs" />
     <Compile Include="Assets\Scripts\Classes\Ship\Ship.cs" />
+    <Compile Include="Assets\Scripts\Classes\Ship\Turret.cs" />
     <Compile Include="Assets\Scripts\Classes\Weapon.cs" />
     <Compile Include="Assets\Scripts\Classes\World.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad_Script.cs" />

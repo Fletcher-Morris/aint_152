@@ -17,9 +17,13 @@ public class WorldGenerator_Script : MonoBehaviour {
     {
         _world = new World();
         _world.worldName = GameObject.Find("Save Name Field").GetComponent<InputField>().text;
+        if(_world.worldName == "")
+        {
+            _world.worldName = "New World";
+        }
         _world.players.Add(new Player(new GamePrefs().playerName));
 
-        _world.aiShips.Add(new Ship("The Everest", 1000, false));
+        _world.playerShips.Add(new Ship("The Everest", 1000, false));
 
         _world.SaveWorld();
 
