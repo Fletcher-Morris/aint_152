@@ -25,9 +25,19 @@ public class WorldLoader_Script : MonoBehaviour {
         //CheckClient();
     }
 
-    void OnLevelWasLoaded()
+    void OnLevelWasLoaded(int level)
     {
-        if (SceneManager.GetActiveScene().name == "Game_Scene")
+        if(level == 0)
+        {
+            theWorld.worldName = null;
+            theWorld.bannedIp = null;
+            theWorld.players = null;
+            theWorld.aiShips = null;
+            theWorld.players = null;
+            nameOfWorldToLoad = null;
+        }
+
+        if (level == 1)
         {
             Debug.Log(gameObject.name + ": this is the Game Scene.");
             theWorld = theWorld.LoadWorld(nameOfWorldToLoad);

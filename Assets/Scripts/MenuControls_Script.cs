@@ -129,4 +129,9 @@ public class MenuControls_Script : MonoBehaviour
     {
         GameObject.Find("WM").GetComponent<NetworkLauncher_Script>().SetupHost();
     }
+
+    public void SetupClientRelay()
+    {
+        GameObject.Find("WM").GetComponent<NetworkLauncher_Script>().SetupClient();
+    }
 }
