@@ -16,6 +16,10 @@ public class NetworkLauncher_Script : MonoBehaviour {
 
 	public void SetupClient(){
         GameObject.Find("NM").GetComponent<NetworkManager>().networkAddress = GameObject.Find("Address Field").GetComponent<InputField>().text;
+        if(GameObject.Find("Address Field").GetComponent<InputField>().text == "")
+        {
+            GameObject.Find("NM").GetComponent<NetworkManager>().networkAddress = "localhost";
+        }
         GameObject.Find("NM").GetComponent<NetworkManager> ().StartClient ();
         Network.Connect(GameObject.Find("NM").GetComponent<NetworkManager>().networkAddress, GameObject.Find("NM").GetComponent<NetworkManager>().networkPort);
 	}

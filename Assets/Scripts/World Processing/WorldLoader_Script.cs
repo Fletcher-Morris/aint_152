@@ -57,7 +57,6 @@ public class WorldLoader_Script : MonoBehaviour {
         {
             GameObject thisShip = GameObject.Instantiate(playerShipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot));
             thisShip.GetComponent<ShipSetup_Script>().shipDetails = _ship;
-            thisShip.name = "Ship_" + _ship.shipName;
             NetworkServer.Spawn(thisShip);
         }
     }

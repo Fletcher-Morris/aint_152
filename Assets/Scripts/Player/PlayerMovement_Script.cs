@@ -17,15 +17,17 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     public GameObject playerSprite;
 
-    public GameObject gM;
+    GameObject gM;
+    [SyncVar]
+    GameObject playerShip;
 
     public bool isInCockpitTrigger = false;
     public bool isInTurretTrigger = false;
 
     void Start()
     {
-        ChildToShip();
         gM = GameObject.Find("GM");
+        ChildToShip();
     }
 
     void Update()
@@ -58,12 +60,17 @@ public class PlayerMovement_Script : NetworkBehaviour {
             {
                 if (Camera.main.gameObject.GetComponent<ViewTransition_Script>().isViewingCrew)
                 {
-                    gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
-                    Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToShip();
+                    if (playerShip.GetComponent<ShipSetup_Script>().cockpitBeingUsed == false)
+                    {
+                        gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
+                        playerShip.GetComponent<ShipSetup_Script>().CmdSetCockitBeingUsed(true);
+                        Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToShip(); 
+                    }
                 }
                 else
                 {
                     gM.GetComponent<GameState_Script>().gameState = "Normal";
+                    playerShip.GetComponent<ShipSetup_Script>().CmdSetCockitBeingUsed(false);
                     Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToCrew();
                 }
             }
@@ -95,7 +102,8 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     void ChildToShip()
     {
-
+        gameObject.transform.parent = GameObject.Find("PlayerShip").transform;
+        playerShip = GameObject.Find("PlayerShip");
     }
 
     void OnTriggerEnter2D(Collider2D col)

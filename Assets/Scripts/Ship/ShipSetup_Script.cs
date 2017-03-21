@@ -10,7 +10,7 @@ public class ShipSetup_Script : NetworkBehaviour
     public Ship shipDetails;
 
     [SerializeField]
-    [SyncVar]
+    [SyncVar(hook = "OnCockBitBeingUsedChange")]
     public bool cockpitBeingUsed = false;
     [SerializeField]
     [SyncVar]
@@ -27,6 +27,8 @@ public class ShipSetup_Script : NetworkBehaviour
 
     void Start()
     {
+        gameObject.name = "PlayerShip";
+
         if (!isLocalPlayer)
         {
             DisableComponents();
@@ -48,5 +50,25 @@ public class ShipSetup_Script : NetworkBehaviour
         {
             componentsToDisable[i].enabled = false;
         }
-    }    
+    }
+
+    [Command]
+    public void CmdSetCockitBeingUsed(bool _state)
+    {
+        cockpitBeingUsed = _state;
+        RpcSetCockpitBeingUsed(_state);
+    }
+    [ClientRpc]
+    public void RpcSetCockpitBeingUsed(bool _state)
+    {
+        if (!isServer)
+            return;
+
+        cockpitBeingUsed = _state;
+    }
+    private void OnCockBitBeingUsedChange(bool _state)
+    {
+        cockpitBeingUsed = _state;
+        CmdSetCockitBeingUsed(_state);
+    }
 }
