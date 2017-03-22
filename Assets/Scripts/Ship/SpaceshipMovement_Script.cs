@@ -47,7 +47,7 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
         if (canMove)
         {
-
+            ThrustShip();
         }
     }
 
@@ -69,5 +69,10 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
     void RotateShip()
     {
         gameObject.transform.Rotate(Vector3.back * Time.deltaTime * axisInput.x * rotateSpeed);
+    }
+
+    void ThrustShip()
+    {
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * axisFinalised.y);
     }
 }
