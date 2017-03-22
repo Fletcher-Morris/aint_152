@@ -58,20 +58,26 @@ public class PlayerMovement_Script : NetworkBehaviour {
         {
             if (isInCockpitTrigger)
             {
-                if (Camera.main.gameObject.GetComponent<ViewTransition_Script>().isViewingCrew)
+                if (gameObject.GetComponent<ViewTransition_Script>().isViewingCrew)
                 {
                     if (playerShip.GetComponent<ShipSetup_Script>().cockpitBeingUsed == false)
                     {
                         gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
                         playerShip.GetComponent<ShipSetup_Script>().CmdSetCockitBeingUsed(true);
-                        Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToShip(); 
+                        gameObject.GetComponent<ViewTransition_Script>().SwitchToShip();
+
+                        playerShip.GetComponent<SpaceshipMovement_Script>().canMove = true;
+                        playerShip.GetComponent<SpaceshipMovement_Script>().canRotate = true;
                     }
                 }
                 else
                 {
                     gM.GetComponent<GameState_Script>().gameState = "Normal";
                     playerShip.GetComponent<ShipSetup_Script>().CmdSetCockitBeingUsed(false);
-                    Camera.main.gameObject.GetComponent<ViewTransition_Script>().SwitchToCrew();
+                    gameObject.GetComponent<ViewTransition_Script>().SwitchToCrew();
+
+                    playerShip.GetComponent<SpaceshipMovement_Script>().canMove = false;
+                    playerShip.GetComponent<SpaceshipMovement_Script>().canRotate = false;
                 }
             }
         }

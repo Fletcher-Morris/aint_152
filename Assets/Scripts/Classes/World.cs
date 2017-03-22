@@ -12,6 +12,7 @@ public class World {
     public List<Ship> playerShips;
     public List<Ship> aiShips;
     public List<Player> players;
+    public List<Asteroid> asteroids;
 
     public World()
     {
@@ -20,6 +21,7 @@ public class World {
         playerShips = new List<Ship>();
         aiShips = new List<Ship>();
         players = new List<Player>();
+        asteroids = new List<Asteroid>();
     }
 
     public World(string _worldName)
@@ -29,6 +31,7 @@ public class World {
         playerShips = new List<Ship>();
         aiShips = new List<Ship>();
         players = new List<Player>();
+        asteroids = new List<Asteroid>();
     }
 
     public void SaveWorld()

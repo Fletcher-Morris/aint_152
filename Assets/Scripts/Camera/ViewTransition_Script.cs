@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ViewTransition_Script : MonoBehaviour {
+public class ViewTransition_Script : NetworkBehaviour {
 
     public float crewCamSize = 1.25f;
     public float shipCamSize = 5;
@@ -13,11 +14,23 @@ public class ViewTransition_Script : MonoBehaviour {
 
     public bool isViewingCrew = false;
     public bool isViewingShip = false;
-    public bool isSwitchingToCrew = false;
+    public bool isSwitchingToCrew = true;
     public bool isSwitchingToShip = false;
 
     public LayerMask crewLayers;
     public LayerMask shipLayers;
+
+    public float cameraRotationDiff = 0f;
+
+    void Start()
+    {
+        if (!isLocalPlayer)
+        {
+            //Destroy(this);
+        }
+
+        cameraObject = Camera.main.gameObject;
+    }
 
     public void SwitchView()
     {
@@ -49,6 +62,8 @@ public class ViewTransition_Script : MonoBehaviour {
 
     void Update()
     {
+        cameraRotationDiff = (gameObject.transform.rotation.z - cameraObject.transform.rotation.z);
+
         if (isSwitchingToShip)
         {
             cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
@@ -59,6 +74,8 @@ public class ViewTransition_Script : MonoBehaviour {
             else
             {
                 cameraObject.GetComponent<Camera>().orthographicSize = shipCamSize;
+                cameraObject.transform.rotation = new Quaternion(0,0,0,0);
+                cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
                 isViewingShip = true;
                 isViewingCrew = false;
                 isSwitchingToShip = false;
@@ -74,6 +91,7 @@ public class ViewTransition_Script : MonoBehaviour {
             else
             {
                 cameraObject.GetComponent<Camera>().orthographicSize = crewCamSize;
+                cameraObject.transform.rotation = gameObject.transform.rotation;
                 cameraObject.GetComponent<Camera>().cullingMask = crewLayers;
                 isViewingShip = false;
                 isViewingCrew = true;

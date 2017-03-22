@@ -12,6 +12,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public GameObject playerShipPrefab;
     public GameObject aiShipPrefab;
+    public GameObject asteroidPrefab;
 
     public void LoadSelectedWorld()
     {
@@ -47,7 +48,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void GenerateWorld()
     {
-        GeneratePlayerShips();
+        //  GeneratePlayerShips();
         GenerateAIShips();
     }
 
@@ -70,5 +71,16 @@ public class WorldLoader_Script : MonoBehaviour {
             thisShip.name = "Ship_" + _ship.shipName;
             NetworkServer.Spawn(thisShip);
         }
+    }
+
+    public void GenerateAsteroids()
+    {
+        foreach (Asteroid _asteroid in theWorld.asteroids)
+        {
+            GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+            thisAsteroid.name = "Asteroid";
+            NetworkServer.Spawn(thisAsteroid);
+        }
+
     }
 }

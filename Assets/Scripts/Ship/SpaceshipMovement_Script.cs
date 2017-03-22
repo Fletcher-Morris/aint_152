@@ -37,14 +37,17 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
             canRotate = !canRotate;
         }
 
+        GetAxis();
+
         if (canRotate)
         {
-            LookAtMousePod(); 
+            //  LookAtMousePod();
+            RotateShip();
         }
 
         if (canMove)
         {
-            Movement();
+
         }
     }
 
@@ -56,11 +59,15 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
-    void Movement()
+    void GetAxis()
     {
         axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         axisNormalized = axisInput.normalized;
         axisFinalised = axisNormalized * moveSpeed;
-        transform.Translate(axisFinalised.x, axisFinalised.y, 0);
+    }
+
+    void RotateShip()
+    {
+        gameObject.transform.Rotate(Vector3.back * Time.deltaTime * axisInput.x * rotateSpeed);
     }
 }
