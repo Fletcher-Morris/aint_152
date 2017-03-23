@@ -17,4 +17,20 @@ public class Asteroid
         asteroidPos = new Vector3(0, 0, 0);
         asteroidRot = new Vector3(0, 0, 0);
     }
+
+    public Asteroid(Vector3 _asteroidPos)
+    {
+        asteroidSize = 1;
+        asteroidVariation = 1;
+        asteroidPos = _asteroidPos;
+        asteroidRot = new Vector3(0, 0, 0);
+    }
+
+    public Asteroid(int _asteroidSize, int _asteroidVariation, Vector3 _asteroidPos, Vector3 _asteroidRot)
+    {
+        asteroidSize = _asteroidSize;
+        asteroidVariation = _asteroidVariation;
+        asteroidPos = _asteroidPos;
+        asteroidRot = _asteroidRot;
+    }
 }

@@ -22,8 +22,7 @@ public class WorldGenerator_Script : MonoBehaviour {
             _world.worldName = "New World";
         }
         _world.players.Add(new Player(new GamePrefs().playerName));
-
-        _world.playerShips.Add(new Ship("The Everest", 1000, false));
+        _world.asteroids.Add(new Asteroid(new Vector3(5, 2, 0)));
 
         _world.SaveWorld();
 

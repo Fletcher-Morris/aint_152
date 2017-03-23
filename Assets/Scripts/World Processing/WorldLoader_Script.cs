@@ -50,6 +50,7 @@ public class WorldLoader_Script : MonoBehaviour {
     {
         //  GeneratePlayerShips();
         GenerateAIShips();
+        GenerateAsteroids();
     }
 
     public void GeneratePlayerShips()

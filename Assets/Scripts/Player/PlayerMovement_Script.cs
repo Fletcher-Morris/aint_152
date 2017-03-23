@@ -68,6 +68,8 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
                         playerShip.GetComponent<SpaceshipMovement_Script>().canMove = true;
                         playerShip.GetComponent<SpaceshipMovement_Script>().canRotate = true;
+
+                        gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                     }
                 }
                 else
@@ -78,6 +80,8 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
                     playerShip.GetComponent<SpaceshipMovement_Script>().canMove = false;
                     playerShip.GetComponent<SpaceshipMovement_Script>().canRotate = false;
+
+                    gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
                 }
             }
         }
