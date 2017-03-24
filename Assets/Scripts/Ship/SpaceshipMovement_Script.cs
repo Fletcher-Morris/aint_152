@@ -10,14 +10,14 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
     public GameObject statsUI;
 
     public float rotateSpeed = 0.005f;
-    public float moveSpeed = 0.01f;
+    public float thrustPower = 0.01f;
 
     public bool canMove = false;
     public bool canRotate = false;
 
-    Vector2 axisInput;
-    Vector2 axisNormalized;
-    Vector2 axisFinalised;
+    public Vector2 axisInput;
+    public Vector2 axisNormalized;
+    public Vector2 axisFinalised;
 
     void Start()
     {
@@ -68,7 +68,7 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
     {
         axisInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         axisNormalized = axisInput.normalized;
-        axisFinalised = axisNormalized * moveSpeed;
+        axisFinalised = axisNormalized * thrustPower;
     }
 
     void RotateShip()
@@ -78,6 +78,6 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
     void ThrustShip()
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * axisFinalised.y);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * axisInput.y * thrustPower);
     }
 }
