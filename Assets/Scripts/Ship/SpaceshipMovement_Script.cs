@@ -53,6 +53,16 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
             ThrustShip();
         }
 
+        if(gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.05)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
+
+        if (gameObject.GetComponent<Rigidbody2D>().angularVelocity <= 5)
+        {
+            gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
+        }
+
         statsUI.GetComponent<Text>().text = "Velocity: " + gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
     }
 

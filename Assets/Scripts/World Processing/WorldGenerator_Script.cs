@@ -6,6 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class WorldGenerator_Script : MonoBehaviour {
 
+    public GameObject loadingInfoUi;
+
     public World _world;
 
     int numberOfAsteroids = 100;
@@ -23,8 +25,12 @@ public class WorldGenerator_Script : MonoBehaviour {
         {
             _world.worldName = "New World";
         }
+
+        loadingInfoUi.SetActive(true);
+
         _world.players.Add(new Player(new GamePrefs().playerName));
 
+        loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();
 
         _world.SaveWorld();
