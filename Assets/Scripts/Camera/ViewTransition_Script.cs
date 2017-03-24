@@ -99,5 +99,10 @@ public class ViewTransition_Script : NetworkBehaviour {
                 isSwitchingToCrew = false;
             }
         }
+
+        if (isViewingCrew)
+        {
+            cameraObject.transform.rotation = gameObject.transform.rotation;
+        }
     }
 }

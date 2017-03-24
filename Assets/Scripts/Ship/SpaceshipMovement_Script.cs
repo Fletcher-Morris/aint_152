@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SpaceshipMovement_Script : NetworkBehaviour {
+
+    public GameObject statsUI;
 
     public float rotateSpeed = 0.005f;
     public float moveSpeed = 0.01f;
@@ -49,6 +52,8 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
         {
             ThrustShip();
         }
+
+        statsUI.GetComponent<Text>().text = "Velocity: " + gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
     }
 
     void LookAtMousePod()

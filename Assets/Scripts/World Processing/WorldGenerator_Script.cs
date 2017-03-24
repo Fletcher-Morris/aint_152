@@ -41,7 +41,7 @@ public class WorldGenerator_Script : MonoBehaviour {
 
         while(asteroidsRemaining > 0)
         {
-            _world.asteroids.Add(new Asteroid(new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), 0), new Vector3(0,0, Random.Range(0, 360))));
+            _world.asteroids.Add(new Asteroid(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0,0, Random.Range(0, 360))));
             asteroidsRemaining--;
         }
     }
