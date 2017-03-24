@@ -12,6 +12,8 @@ public class WorldGenerator_Script : MonoBehaviour {
 
     int numberOfAsteroids = 100;
 
+    float uiTimer = 1f;
+
     void Start()
     {
 
@@ -28,11 +30,13 @@ public class WorldGenerator_Script : MonoBehaviour {
 
         loadingInfoUi.SetActive(true);
 
+        loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "ADDING PLAYERS...";
         _world.players.Add(new Player(new GamePrefs().playerName));
 
         loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();
 
+        loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "SAVING THE WORLD...";
         _world.SaveWorld();
 
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().nameOfWorldToLoad = _world.worldName;

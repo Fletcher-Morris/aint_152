@@ -62,7 +62,10 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
             gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
         }
 
-        statsUI.GetComponent<Text>().text = "Velocity: " + gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+        if (statsUI)
+        {
+            statsUI.GetComponent<Text>().text = "Velocity: " + gameObject.GetComponent<Rigidbody2D>().velocity.magnitude; 
+        }
     }
 
     void LookAtMousePod()

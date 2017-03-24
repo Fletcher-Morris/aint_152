@@ -19,6 +19,10 @@ public class MenuControls_Script : MonoBehaviour
 
     public GameObject loadWorldUiPrefab;
 
+    public GameObject titleTextObject;
+    public float titleColourTimer = 1f;
+    float titletimer = 1f;
+
     public void ShowMainMenu()
     {
         mainMenuObject.transform.localPosition = new Vector3(0, 0, 0);
@@ -75,11 +79,49 @@ public class MenuControls_Script : MonoBehaviour
     void Update()
     {
         adderss = AddressField.GetComponent<InputField>().text;
+
+        titletimer = titletimer - 1 * Time.deltaTime;
+
+        if(titletimer <= 0)
+        {
+            titleTextObject.GetComponent<Text>().color = SwapColour(titleTextObject.GetComponent<Text>().color);
+            titletimer = titleColourTimer;
+        }
+    }
+
+    Color SwapColour(Color _colour)
+    {
+        if(_colour == Color.white)
+        {
+            _colour = Color.blue;
+        }
+        else if (_colour == Color.blue)
+        {
+            _colour = Color.green;
+        }
+        else if (_colour == Color.green)
+        {
+            _colour = Color.yellow;
+        }
+        else if (_colour == Color.yellow)
+        {
+            _colour = Color.red;
+        }
+        else if (_colour == Color.red)
+        {
+            _colour = Color.magenta;
+        }
+        else if (_colour == Color.magenta)
+        {
+            _colour = Color.white;
+        }
+
+        return _colour;
     }
 
     void Start()
     {
-
+        titletimer = titleColourTimer;
     }
 
     public void GetSavedWorlds()
