@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6cbb8da8a0564054383731773e627ba0
+timeCreated: 1490387308
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 20
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pixelrom
+  fontNames:
+  - Pixelrom
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 2
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
