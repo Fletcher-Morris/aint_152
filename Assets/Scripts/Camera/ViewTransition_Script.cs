@@ -11,6 +11,7 @@ public class ViewTransition_Script : NetworkBehaviour {
     public float transitionSpeed = 20;
 
     public GameObject cameraObject;
+    public GameObject playerObject;
 
     public bool isViewingCrew = false;
     public bool isViewingShip = false;
@@ -66,7 +67,7 @@ public class ViewTransition_Script : NetworkBehaviour {
 
         if (isSwitchingToShip)
         {
-            gameObject.GetComponent<Collider2D>().isTrigger = true;
+            playerObject.GetComponent<Collider2D>().isTrigger = true;
             cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
             if (cameraObject.GetComponent<Camera>().orthographicSize < shipCamSize)
             {
@@ -85,7 +86,7 @@ public class ViewTransition_Script : NetworkBehaviour {
         }
         else if (isSwitchingToCrew)
         {
-            gameObject.GetComponent<Collider2D>().isTrigger = false;
+            playerObject.GetComponent<Collider2D>().isTrigger = false;
 
             if (cameraObject.GetComponent<Camera>().orthographicSize > crewCamSize)
             {

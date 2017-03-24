@@ -34,6 +34,10 @@ public class ShipSetup_Script : NetworkBehaviour
             DisableComponents();
             AssignRemoteLayer();
         }
+        else
+        {
+            Camera.main.gameObject.GetComponent<ParalaxEffectController_Script>().SetFocusObject(this.gameObject);
+        }
     }
 
     void AssignRemoteLayer()

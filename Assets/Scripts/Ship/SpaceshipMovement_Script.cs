@@ -9,8 +9,8 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
     public GameObject statsUI;
 
-    public float rotateSpeed = 0.005f;
-    public float thrustPower = 0.01f;
+    public float rotateSpeed = 50;
+    public float thrustPower = 50000;
 
     public bool canMove = false;
     public bool canRotate = false;
@@ -21,20 +21,19 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
     void Start()
     {
-        //CheckLocal();
-    }
-
-    void CheckLocal()
-    {
         if (!isLocalPlayer)
         {
-            Destroy(this);
             return;
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             canRotate = !canRotate;
@@ -53,7 +52,7 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
             ThrustShip();
         }
 
-        if(gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.05)
+        if(gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1 && axisInput.magnitude == 0)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
