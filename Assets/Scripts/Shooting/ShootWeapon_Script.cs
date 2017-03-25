@@ -10,6 +10,7 @@ public class ShootWeapon_Script : NetworkBehaviour
 
     public Weapon thisWeapon;
 
+    [SyncVar]
     public int remainingAmmo;
     public float reloadTimer;
     public bool reloading = false;
@@ -40,60 +41,8 @@ public class ShootWeapon_Script : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            isTryingToShoot = true;
+            CmdShoot();
         }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            isTryingToShoot = false;
-        }
-
-        if(remainingAmmo == 0)
-            StartCoroutine(ReloadGun());
-
-        if (isTryingToShoot)
-        {
-            if (thisWeapon.auto)
-            {
-                if (remainingAmmo > 0 && readyToFire && !reloading)
-                {
-                    CmdShoot();
-                }
-
-                ShootDelay();
-            }
-            else
-            {
-                if (remainingAmmo > 0 && readyToFire && !reloading)
-                {
-                    CmdShoot();
-                }
-
-                isTryingToShoot = false;
-
-                ShootDelay();
-            }
-        }
-    }
-
-    void ShootDelay()
-    {
-        readyToFire = false;
-        if(Time.time > (lastShootTime + thisWeapon.shootDelay))
-        {
-            readyToFire = true;
-            lastShootTime = Time.time;
-        }
-    }
-
-    IEnumerator ReloadGun()
-    {
-        reloading = true;
-
-        yield return new WaitForSeconds(thisWeapon.reloadTime);
-
-        remainingAmmo = thisWeapon.clipSize;
-        reloading = false;
     }
 
     [Command]
@@ -104,6 +53,8 @@ public class ShootWeapon_Script : NetworkBehaviour
         GameObject _bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 
         _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * thisWeapon.bulletSpeed;
+        _bullet.GetComponent<Bullet_Script>().damage = thisWeapon.bulletDamage;
+        _bullet.GetComponent<Bullet_Script>().explosionColour = thisWeapon.explosionColour;
 
         NetworkServer.Spawn(_bullet);
 
