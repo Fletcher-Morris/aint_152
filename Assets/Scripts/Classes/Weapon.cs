@@ -12,7 +12,6 @@ public class Weapon
     public int clipSize;
     public float reloadTime;
     public float shootDelay;
-    public Color explosionColour;
 
     public Weapon()
     {
@@ -25,6 +24,5 @@ public class Weapon
         clipSize = 10;
         reloadTime = 3f;
         shootDelay = .2f;
-        explosionColour = Color.blue;
     }
 }

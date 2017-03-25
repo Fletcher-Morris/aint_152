@@ -54,10 +54,9 @@ public class ShootWeapon_Script : NetworkBehaviour
 
         _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * thisWeapon.bulletSpeed;
         _bullet.GetComponent<Bullet_Script>().damage = thisWeapon.bulletDamage;
-        _bullet.GetComponent<Bullet_Script>().explosionColour = thisWeapon.explosionColour;
 
         NetworkServer.Spawn(_bullet);
 
-        Destroy(_bullet, thisWeapon.bulletRange/thisWeapon.bulletSpeed);
+        Destroy(_bullet, thisWeapon.bulletRange / thisWeapon.bulletSpeed);
     }
 }

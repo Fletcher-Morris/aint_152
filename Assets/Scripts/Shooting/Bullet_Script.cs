@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Bullet_Script : MonoBehaviour
+public class Bullet_Script : NetworkBehaviour
 {
 
     public int damage;
-
-    public Color explosionColour;
 
     public GameObject explosionPrefab;
 
@@ -29,7 +28,7 @@ public class Bullet_Script : MonoBehaviour
         }
 
         GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-        explosion.GetComponent<SpriteRenderer>().color = explosionColour;
+        NetworkServer.Spawn(explosion);
 
         Destroy(gameObject);
     }
