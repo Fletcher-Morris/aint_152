@@ -39,37 +39,14 @@ public class PlayerMovement_Script : NetworkBehaviour {
         gM = GameObject.Find("GM");
     }
 
-    void FixedUpdate()
+    private void Update()
     {
         if (!isLocalPlayer)
         {
             return;
         }
 
-        if (gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "Using Turret" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
-        {
-            canMove = false;
-            canRotate = false;
-        }
-        else
-        {
-            canRotate = true;
-            canMove = true;
-        }
-
-        if (canRotate)
-        {
-            LookAtMousePod(); 
-        }
-
-        if (canMove)
-        {
-            Movement();
-            //RigidbodyMovement();
-        }
-
         TestPlayerCockpitDistance();
-        TestPlayerTurretDistanece();
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -104,11 +81,42 @@ public class PlayerMovement_Script : NetworkBehaviour {
         }
     }
 
+    void FixedUpdate()
+    {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "Using Turret" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
+        {
+            canMove = false;
+            canRotate = false;
+        }
+        else
+        {
+            canRotate = true;
+            canMove = true;
+        }
+
+        if (canRotate)
+        {
+            LookAtMousePod(); 
+        }
+
+        if (canMove)
+        {
+            Movement();
+        }
+
+        TestPlayerCockpitDistance();
+        TestPlayerTurretDistance();
+    }
+
     void LookAtMousePod()
     {
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
-        //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
     }
 
     void Movement()
@@ -141,7 +149,7 @@ public class PlayerMovement_Script : NetworkBehaviour {
         }
     }
 
-    void TestPlayerTurretDistanece()
+    void TestPlayerTurretDistance()
     {
         Vector2 playerPos2d = new Vector2(playerObject.transform.position.x, playerObject.transform.position.y);
         Vector2 triggerPos2d = new Vector2(turretTriggerObject.transform.position.x, turretTriggerObject.transform.position.y);

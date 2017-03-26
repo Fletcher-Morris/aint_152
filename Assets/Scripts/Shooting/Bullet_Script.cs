@@ -22,6 +22,14 @@ public class Bullet_Script : NetworkBehaviour
                 health.TakeDamage(damage);
             } 
         }
+        else if(hit.gameObject.tag == "Enemy")
+        {
+            var health = hit.GetComponent<EnemyHealth_Script>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
+        }
         else if(hit.gameObject.tag == "Asteroid")
         {
 

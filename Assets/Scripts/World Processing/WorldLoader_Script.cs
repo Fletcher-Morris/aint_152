@@ -33,7 +33,7 @@ public class WorldLoader_Script : MonoBehaviour {
             theWorld.worldName = null;
             theWorld.bannedIp = null;
             theWorld.players = null;
-            theWorld.aiShips = null;
+            theWorld.enemyShips = null;
             theWorld.players = null;
             nameOfWorldToLoad = null;
         }
@@ -65,7 +65,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void GenerateAIShips()
     {
-        foreach (Ship _ship in theWorld.aiShips)
+        foreach (Ship _ship in theWorld.enemyShips)
         {
             GameObject thisShip = GameObject.Instantiate(aiShipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot));
             thisShip.GetComponent<ShipSetup_Script>().shipDetails = _ship;

@@ -8,11 +8,8 @@ public class Ship
 {
     public string shipName;
 
-    public bool playerShip;
-
     public int shipHealth;
-
-    public Reactor shipReactor;
+    
     public Engine shipEngine;
     public Shield shipShield;
     public Turret shipTurret;
@@ -23,9 +20,7 @@ public class Ship
     public Ship()
     {
         shipName = "New Ship";
-        playerShip = false;
         shipHealth = 100;
-        shipReactor = new Reactor("Magnox Fusion", 1000000000, 2000);
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -37,9 +32,7 @@ public class Ship
     public Ship(string _name, int _health)
     {
         shipName = _name;
-        playerShip = false;
         shipHealth = _health;
-        shipReactor = new Reactor("Antimatter", 2000000000, 1500);
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -48,14 +41,12 @@ public class Ship
         shipRot = new Vector3(0, 0, 0);
     }
 
-    public Ship(string _name, int _health, bool _playerShip)
+    public Ship(string _name, int _health, Engine _engine, Shield _shield, Turret _turret)
     {
         shipName = _name;
-        playerShip = _playerShip;
         shipHealth = _health;
-        shipReactor = new Reactor("Antimatter", 2000000000, 1500);
-        shipEngine = new Engine();
-        shipShield = new Shield();
+        shipEngine = _engine;
+        shipShield = _shield;
         shipTurret = new Turret();
 
         shipPos = new Vector3(0, 0, 0);

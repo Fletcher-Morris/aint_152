@@ -8,9 +8,9 @@ public class World {
 
     public string worldName;
     public string[] bannedIp;
-
+    public int currentWave;
     public List<Ship> playerShips;
-    public List<Ship> aiShips;
+    public List<Ship> enemyShips;
     public List<Player> players;
     public List<Asteroid> asteroids;
 
@@ -18,8 +18,9 @@ public class World {
     {
         worldName = "New World";
         bannedIp = new string[1];
+        currentWave = 1;
         playerShips = new List<Ship>();
-        aiShips = new List<Ship>();
+        enemyShips = new List<Ship>();
         players = new List<Player>();
         asteroids = new List<Asteroid>();
     }
@@ -28,8 +29,9 @@ public class World {
     {
         worldName = _worldName;
         bannedIp = new string[1];
+        currentWave = 1;
         playerShips = new List<Ship>();
-        aiShips = new List<Ship>();
+        enemyShips = new List<Ship>();
         players = new List<Player>();
         asteroids = new List<Asteroid>();
     }
