@@ -8,7 +8,7 @@ public class GamePrefs{
 
     public string playerName;
     public int sensitivity;
-    public int volumeLevel;
+    public float volumeLevel;
     public string playerDescrpition;
     public int style;
     public int fpsCap;
@@ -31,10 +31,10 @@ public class GamePrefs{
 
     public GamePrefs()
     {
-        playerName = "The Name The Player Uses";
+        playerName = "";
         sensitivity = 10;
-        volumeLevel = 10;
-        playerDescrpition = "A Description Of The Player";
+        volumeLevel = 5;
+        playerDescrpition = "";
         style = 1;
         fpsCap = 60;
         vsync = false;

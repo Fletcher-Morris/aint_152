@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ShootWeapon_Script : NetworkBehaviour
 {
@@ -10,7 +11,7 @@ public class ShootWeapon_Script : NetworkBehaviour
 
     public Weapon thisWeapon;
 
-    [SyncVar]
+    [SyncVar(hook = "OnRemainingAmmoChange")]
     public int remainingAmmo;
     public float reloadTimer;
     public bool reloading = false;
@@ -28,6 +29,8 @@ public class ShootWeapon_Script : NetworkBehaviour
 
         remainingAmmo = thisWeapon.clipSize;
         reloadTimer = thisWeapon.reloadTime;
+
+        GameObject.Find("Weapon Ammo Text").GetComponent<Text>().text = remainingAmmo + "/" + thisWeapon.clipSize;
     }
 
     private void Update()
@@ -41,7 +44,18 @@ public class ShootWeapon_Script : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            CmdShoot();
+            if (GetComponent<ShipSetup_Script>().cockpitBeingUsed)
+            {
+                CmdShoot(); 
+            }
+        }
+    }
+
+    void OnRemainingAmmoChange(int _remainingAmmo)
+    {
+        if (isLocalPlayer)
+        {
+            GameObject.Find("Weapon Ammo Text").GetComponent<Text>().text = remainingAmmo + "/" + thisWeapon.clipSize;
         }
     }
 

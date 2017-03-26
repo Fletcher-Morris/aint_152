@@ -12,9 +12,6 @@ public class ShipSetup_Script : NetworkBehaviour
     [SerializeField]
     [SyncVar(hook = "OnCockBitBeingUsedChange")]
     public bool cockpitBeingUsed = false;
-    [SerializeField]
-    [SyncVar]
-    public bool turretBeingUsed = false;
 
     [SerializeField]
     Behaviour[] componentsToDisable;
@@ -37,6 +34,7 @@ public class ShipSetup_Script : NetworkBehaviour
         else
         {
             Camera.main.gameObject.GetComponent<ParalaxEffectController_Script>().SetFocusObject(this.gameObject);
+            GameObject.Find("Minimap Cam").GetComponent<LockTransform_Script>().targetObject = this.gameObject;
         }
     }
 

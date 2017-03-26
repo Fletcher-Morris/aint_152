@@ -25,6 +25,8 @@ public class MenuControls_Script : MonoBehaviour
 
     public void ShowMainMenu()
     {
+        GameObject.Find("GM").GetComponent<GamePrefs_Script>().getPrefsFromUi = false;
+
         mainMenuObject.transform.localPosition = new Vector3(0, 0, 0);
         newGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         joinGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
@@ -63,6 +65,9 @@ public class MenuControls_Script : MonoBehaviour
 
     public void ShowPrefsMenu()
     {
+        GameObject.Find("GM").GetComponent<GamePrefs_Script>().SetPrefsToUI();
+        GameObject.Find("GM").GetComponent<GamePrefs_Script>().getPrefsFromUi = true;
+
         mainMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         newGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         joinGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
@@ -87,6 +92,15 @@ public class MenuControls_Script : MonoBehaviour
             titleTextObject.GetComponent<Text>().color = SwapColour(titleTextObject.GetComponent<Text>().color);
             titletimer = titleColourTimer;
         }
+    }
+
+    public void SavePreferencesChanges()
+    {
+        GameObject.Find("GM").GetComponent<GamePrefs_Script>().SaveChanges();
+    }
+    public void CancelPreferencesChanges()
+    {
+        GameObject.Find("GM").GetComponent<GamePrefs_Script>().CancelChanges();
     }
 
     Color SwapColour(Color _colour)

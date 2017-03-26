@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class WorldGenerator_Script : MonoBehaviour {
 
-    public GameObject loadingInfoUi;
+    //public GameObject loadingInfoUi;
 
     public World _world;
 
@@ -28,15 +28,16 @@ public class WorldGenerator_Script : MonoBehaviour {
             _world.worldName = "New World";
         }
 
-        loadingInfoUi.SetActive(true);
+        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").gameObject.SetActive(true);
+        GameObject.Find("Loading Panel").transform.FindChild("Loading Info Background").gameObject.SetActive(true);
 
-        loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "ADDING PLAYERS...";
+        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "ADDING PLAYERS...";
         _world.players.Add(new Player(new GamePrefs().playerName));
 
-        loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
+        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();
 
-        loadingInfoUi.transform.FindChild("Loading Info").GetComponent<Text>().text = "SAVING THE WORLD...";
+        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "SAVING THE WORLD...";
         _world.SaveWorld();
 
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().nameOfWorldToLoad = _world.worldName;
