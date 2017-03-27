@@ -9,17 +9,6 @@ public class Bullet_Script : MonoBehaviour
 
     public GameObject explosionPrefab;
 
-    public bool playerBullet = false;
-
-    private void Update()
-    {
-        if (playerBullet)
-        {
-            gameObject.layer = 8;
-            GetComponent<SpriteRenderer>().color = Color.green;
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var hit = collision.gameObject;

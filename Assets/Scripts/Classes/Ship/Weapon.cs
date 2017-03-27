@@ -16,9 +16,9 @@ public class Weapon
         weaponName = "New Weapon";
         bulletSpeed = 10f;
         bulletDamage = 10;
-        bulletRange = 100;
+        bulletRange = 30;
         bulletType = "projectile";
         auto = true;
-        shootDelay = 0.1f;
+        shootDelay = 0.2f;
     }
 }

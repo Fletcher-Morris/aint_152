@@ -53,12 +53,6 @@ public class WaveManager_Script : MonoBehaviour
         Ship testShip = new Ship();
         testShip.shipPos = new Vector3(-10, 10, 0);
         testWave.ships.Add(testShip);
-        testShip.shipPos = new Vector3(10, 10, 0);
-        testWave.ships.Add(testShip);
-        testShip.shipPos = new Vector3(-10, -10, 0);
-        testWave.ships.Add(testShip);
-        testShip.shipPos = new Vector3(10, -10, 0);
-        testWave.ships.Add(testShip);
         defaultWaveData.waveList.Add(testWave);
 
         string jsonString = JsonUtility.ToJson(defaultWaveData);

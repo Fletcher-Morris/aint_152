@@ -6,20 +6,20 @@ using UnityEngine;
 public class Shield{
 
 	public string shieldName;
-	public float shieldHealth;
-	public float absorbPercent;
+	public float maxShieldHealth;
+    public float shieldHealth;
+	public int absorbPercent;
 	public float chargeRate;
 	public float chargeDelay;
-	public float powerUse;
-	public int idlePowerUse;
+	public int powerUse;
 
 	public Shield(){
 		shieldName = "New Shield";
-		shieldHealth = 1000;
+        maxShieldHealth = 100;
+        shieldHealth = maxShieldHealth;
 		absorbPercent = 50;
 		chargeRate = 5;
-		chargeDelay = 5;
-		powerUse = 1000;
-		idlePowerUse = 10;
+		chargeDelay = 2;
+		powerUse = 10;
 	}
 }

@@ -7,10 +7,9 @@ public class ShootWeapon_Script : MonoBehaviour
 {
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
-    public int remainingAmmo;
     public bool isTryingToShoot = false;
 
-    public float shootDelayTimer;
+    float shootDelayTimer;
 
     private void Start()
     {
@@ -30,7 +29,6 @@ public class ShootWeapon_Script : MonoBehaviour
                 if (shootDelayTimer == 0)
                 {
                     Shoot();
-                    shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
                 } 
             }
         }
@@ -40,21 +38,21 @@ public class ShootWeapon_Script : MonoBehaviour
             if (shootDelayTimer == 0)
             {
                 Shoot();
-                shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay; 
             }
         }
     }
     public void Shoot()
     {
-        GameObject _bullet = GameObject.Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+        if (shootDelayTimer <= 0)
+        {
+            GameObject _bullet = GameObject.Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 
-        _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed;
-        _bullet.GetComponent<Bullet_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
+            _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed;
+            _bullet.GetComponent<Bullet_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
 
-		if (gameObject.transform.tag == "Player") {
-            _bullet.GetComponent<Bullet_Script>().playerBullet = true;
-		}
+            Destroy(_bullet, GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed);
 
-        Destroy(_bullet, GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed);
+            shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
+        }
     }
 }

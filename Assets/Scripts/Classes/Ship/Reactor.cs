@@ -6,22 +6,24 @@ using UnityEngine;
 public class Reactor{
 
 	public string reactorName;
-	public int maxOutput;
-	public int currentOutput;
-	public int maxHeat;
-	public int currentHeat;
+    public float maxPower;
+    public float currentPower;
+    public float rechargeDelay;
+    public float rechargeRate;
 
 	public Reactor(){
 		reactorName = "New Reactor";
-		maxOutput = 1000000000;
-		currentOutput = 0;
-		maxHeat = 1000;
-		currentHeat = 0;
+        maxPower = 100f;
+        currentPower = maxPower;
+        rechargeDelay = 2f;
+        rechargeRate = 10f;
 	}
 
-	public Reactor(string _name, int _maxOutput, int _maxHeat){
+	public Reactor(string _name, int _maxOutput){
 		reactorName = _name;
-		maxOutput = _maxOutput;
-		maxHeat = _maxHeat;
-	}
+        maxPower = _maxOutput;
+        currentPower = maxPower;
+        rechargeDelay = 2f;
+        rechargeRate = 10f;
+    }
 }

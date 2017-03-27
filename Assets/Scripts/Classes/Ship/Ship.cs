@@ -13,6 +13,7 @@ public class Ship
     public Engine shipEngine;
     public Shield shipShield;
     public Turret shipTurret;
+    public Reactor shipReactor;
 
     public Vector3 shipPos;
     public Vector3 shipRot;
@@ -24,6 +25,7 @@ public class Ship
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
+        shipReactor = new Reactor();
 
         shipPos = new Vector3(0, 0, 0);
         shipRot = new Vector3(0, 0, 0);

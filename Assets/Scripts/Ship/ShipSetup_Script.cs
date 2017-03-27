@@ -14,6 +14,9 @@ public class ShipSetup_Script : MonoBehaviour
 
     public GameObject explosionPrefab;
 
+    float powerRechargeDelayTimer;
+    float shieldRechargeDelayTimer;
+
     void Start()
     {
         if (isPlayer)
@@ -39,21 +42,12 @@ public class ShipSetup_Script : MonoBehaviour
         shipDetails = GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip;
         transform.position = shipDetails.shipPos;
         transform.rotation = Quaternion.Euler(shipDetails.shipRot);
-        shipDetails.shipHealth = 99999999;
-
-        healthUiText = GameObject.Find("Health Text");
-        healthUiText.GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        shipDetails.shipHealth = 100;
     }
 
     public void TakeDamage(int damageAmount)
     {
-        shipDetails.shipHealth -= damageAmount;
-
-        if (isPlayer)
-        {
-            healthUiText = GameObject.Find("Health Text");
-            healthUiText.GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        }
+        shipDetails.shipHealth -= TakeShieldDamage(damageAmount);
 
         if (shipDetails.shipHealth <= 0)
         {
@@ -64,14 +58,91 @@ public class ShipSetup_Script : MonoBehaviour
             explosion.transform.localScale = new Vector3(3,3,3);
             GameObject.Destroy(gameObject);
         }
+
+        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
+        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+    }
+
+    public int TakeShieldDamage(int damageAmount)
+    {
+        if (shipDetails.shipShield.shieldHealth > 0)
+        {
+            shipDetails.shipShield.shieldHealth = (shipDetails.shipShield.shieldHealth - damageAmount);
+            damageAmount = damageAmount - damageAmount / (100 - shipDetails.shipShield.absorbPercent);
+        }
+
+        shieldRechargeDelayTimer = shipDetails.shipShield.chargeDelay;
+
+        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
+        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+
+        return damageAmount;
+    }
+
+    public void TakePower(int powerAmount)
+    {
+        shipDetails.shipReactor.currentPower -= powerAmount;
+
+        powerRechargeDelayTimer = shipDetails.shipReactor.rechargeDelay;
+
+        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
+        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
     }
 
     private void Update()
     {
         if (isPlayer)
         {
-            healthUiText = GameObject.Find("Health Text");
-            healthUiText.GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+            GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+            GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
+            GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
         }
+
+        RechargePower();
+    }
+
+    void RechargePower()
+    {
+        powerRechargeDelayTimer = powerRechargeDelayTimer - 1 * Time.deltaTime;
+        if (powerRechargeDelayTimer <= 0)
+        {
+            powerRechargeDelayTimer = 0;
+            if (shipDetails.shipReactor.currentPower <= shipDetails.shipReactor.maxPower)
+            {
+                shipDetails.shipReactor.currentPower += shipDetails.shipReactor.rechargeRate * Time.deltaTime;
+            }
+            else
+            {
+                shipDetails.shipReactor.currentPower = shipDetails.shipReactor.maxPower;
+            }
+        }
+
+        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
+        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+    }
+
+    void RechargeShield()
+    {
+        shieldRechargeDelayTimer = shieldRechargeDelayTimer - 1 * Time.deltaTime;
+        if (shieldRechargeDelayTimer <= 0)
+        {
+            shieldRechargeDelayTimer = 0;
+            if (shipDetails.shipShield.shieldHealth <= shipDetails.shipShield.maxShieldHealth)
+            {
+                shipDetails.shipShield.shieldHealth += shipDetails.shipShield.chargeRate * Time.deltaTime;
+            }
+            else
+            {
+                shipDetails.shipShield.shieldHealth = shipDetails.shipShield.maxShieldHealth;
+            }
+        }
+
+        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
+        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
     }
 }
