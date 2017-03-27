@@ -65,7 +65,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void SaveTheWorld()
     {
-        theWorld.playerShip = new Ship(theWorld.playerShip.shipName, theWorld.playerShip.shipHealth, true, GameObject.Find("Player Ship").transform.position, GameObject.Find("Player Ship").transform.eulerAngles);
+        theWorld.playerShip = new Ship(theWorld.playerShip.shipName, GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.shipHealth, GameObject.Find("Player Ship").transform.position, GameObject.Find("Player Ship").transform.eulerAngles);
 
         theWorld.asteroids.Clear();
         foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))

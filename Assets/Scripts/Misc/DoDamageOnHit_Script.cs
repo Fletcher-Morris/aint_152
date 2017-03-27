@@ -15,11 +15,22 @@ public class DoDamageOnHit_Script : MonoBehaviour
         {
             if (collision.relativeVelocity.magnitude >= minimumVelocity)
             {
-                var health = hit.GetComponent<ShipHealth_Script>();
+                var health = hit.GetComponent<ShipSetup_Script>();
                 if (health != null)
                 {
                     health.TakeDamage(damageAmount);
                 } 
+            }
+        }
+        else if (hit.gameObject.tag == "Enemy")
+        {
+            if (collision.relativeVelocity.magnitude >= minimumVelocity)
+            {
+                var health = hit.GetComponent<ShipSetup_Script>();
+                if (health != null)
+                {
+                    health.TakeDamage(damageAmount);
+                }
             }
         }
     }

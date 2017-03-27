@@ -15,7 +15,7 @@ public class Bullet_Script : MonoBehaviour
 
         if (hit.gameObject.tag == "Player")
         {
-            var health = hit.GetComponent<ShipHealth_Script>();
+            var health = hit.GetComponent<ShipSetup_Script>();
             if (health != null)
             {
                 health.TakeDamage(damage);
@@ -23,7 +23,7 @@ public class Bullet_Script : MonoBehaviour
         }
         else if(hit.gameObject.tag == "Enemy")
         {
-            var health = hit.GetComponent<EnemyHealth_Script>();
+            var health = hit.GetComponent<ShipSetup_Script>();
             if (health != null)
             {
                 health.TakeDamage(damage);
