@@ -22,7 +22,9 @@ public class ShootWeapon_Script : MonoBehaviour
         remainingAmmo = thisWeapon.clipSize;
         reloadTimer = thisWeapon.reloadTime;
 
-        GameObject.Find("Weapon Ammo Text").GetComponent<Text>().text = remainingAmmo + "/" + thisWeapon.clipSize;
+		if (gameObject.transform.tag == "Player") {
+			GameObject.Find ("Weapon Ammo Text").GetComponent<Text> ().text = remainingAmmo + "/" + thisWeapon.clipSize;
+		}
     }
 
     private void Update()
@@ -32,12 +34,7 @@ public class ShootWeapon_Script : MonoBehaviour
             Shoot();
         }
     }
-
-    void OnRemainingAmmoChange(int _remainingAmmo)
-    {
-        GameObject.Find("Weapon Ammo Text").GetComponent<Text>().text = remainingAmmo + "/" + thisWeapon.clipSize;
-    }
-    void Shoot()
+    public void Shoot()
     {
         remainingAmmo = remainingAmmo - 1;
 
@@ -45,6 +42,10 @@ public class ShootWeapon_Script : MonoBehaviour
 
         _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * thisWeapon.bulletSpeed;
         _bullet.GetComponent<Bullet_Script>().damage = thisWeapon.bulletDamage;
+
+		if (gameObject.transform.tag == "Player") {
+			GameObject.Find ("Weapon Ammo Text").GetComponent<Text> ().text = remainingAmmo + "/" + thisWeapon.clipSize;
+		}
 
         Destroy(_bullet, thisWeapon.bulletRange / thisWeapon.bulletSpeed);
     }

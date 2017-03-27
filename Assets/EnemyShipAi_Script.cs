@@ -8,6 +8,7 @@ public class EnemyShipAi_Script : MonoBehaviour
     public float rotateSpeed = 50f;
     public float rotationSmoothing = 5f;
 
+	public GameObject turretObject;
     public GameObject targetEnemy;
     public float currentEnemyRange;
 
@@ -31,6 +32,8 @@ public class EnemyShipAi_Script : MonoBehaviour
                 //MoveShip();
                 MoveShipRigidbody();
                 RotateShip();
+				AimTurret ();
+				ShootGun ();
             }
         }
     }
@@ -70,8 +73,16 @@ public class EnemyShipAi_Script : MonoBehaviour
         gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * rotationSmoothing);
     }
 
+	void AimTurret(){
+		Vector3 difference = targetEnemy.transform.position - transform.position;
+		difference.Normalize();
+		float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+		Quaternion newRot = Quaternion.Euler(new Vector3(0.0f, 0.0f, rotZ + -90));
+		turretObject.transform.rotation = Quaternion.Lerp(turretObject.transform.rotation, newRot, Time.deltaTime * gameObject.GetComponent<ShipSetup_Script>().shipDetails.shipTurret.rotationSpeed);
+	}
+
     void ShootGun()
     {
-
+		GetComponent<ShootWeapon_Script> ().Shoot ();
     }
 }
