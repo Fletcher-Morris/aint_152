@@ -31,8 +31,4 @@ Shoot your turret gun with Left Mouse Click.
 Save your progress in the pause menu (Esc),
 and load it again in the main menu.
 
-###  ###
-
-Full Screen, Any Resolution.
-
 ### References ###
