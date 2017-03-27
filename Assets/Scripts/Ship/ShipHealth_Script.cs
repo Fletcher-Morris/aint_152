@@ -1,16 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class ShipHealth_Script : NetworkBehaviour
+public class ShipHealth_Script : MonoBehaviour
 {
     [SerializeField]
     public const int MAX_HEALTH = 100;
 
     [SerializeField]
-    [SyncVar(hook = "OnHealthChange")]
     int currentHealth = MAX_HEALTH;
 
     public GameObject healthUiText;
@@ -23,9 +21,6 @@ public class ShipHealth_Script : NetworkBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        if (!isServer)
-            return;
-
         currentHealth -= damageAmount;
 
         if(currentHealth <= 0)
@@ -37,9 +32,6 @@ public class ShipHealth_Script : NetworkBehaviour
 
     void OnHealthChange(int newHealth)
     {
-        if (isLocalPlayer)
-        {
-            healthUiText.GetComponent<Text>().text = "HEALTH: " + newHealth;
-        }
+        healthUiText.GetComponent<Text>().text = "HEALTH: " + newHealth;
     }
 }

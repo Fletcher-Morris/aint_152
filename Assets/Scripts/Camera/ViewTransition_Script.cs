@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class ViewTransition_Script : NetworkBehaviour {
+public class ViewTransition_Script : MonoBehaviour {
 
     public float crewCamSize = 1.25f;
     public float shipCamSize = 5;
@@ -25,11 +24,6 @@ public class ViewTransition_Script : NetworkBehaviour {
 
     void Start()
     {
-        if (!isLocalPlayer)
-        {
-            //Destroy(this);
-        }
-
         cameraObject = Camera.main.gameObject;
     }
 

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 [System.Serializable]
 public class WorldGenerator_Script : MonoBehaviour {
 
-    //public GameObject loadingInfoUi;
-
     public World _world;
 
     int numberOfAsteroids = 100;
@@ -31,8 +29,7 @@ public class WorldGenerator_Script : MonoBehaviour {
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info").gameObject.SetActive(true);
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info Background").gameObject.SetActive(true);
 
-        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "ADDING PLAYERS...";
-        _world.players.Add(new Player(new GamePrefs().playerName));
+        _world.playerData = new Player(new GamePrefs().playerName);
 
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();

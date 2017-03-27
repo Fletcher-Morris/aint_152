@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class Bullet_Script : NetworkBehaviour
+public class Bullet_Script : MonoBehaviour
 {
 
     public int damage;
@@ -36,7 +35,6 @@ public class Bullet_Script : NetworkBehaviour
         }
 
         GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-        NetworkServer.Spawn(explosion);
 
         Destroy(gameObject);
     }

@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class DoDamageOnHit_Script : NetworkBehaviour
+public class DoDamageOnHit_Script : MonoBehaviour
 {
     public int damageAmount = 5;
     public float minimumVelocity = 2f;

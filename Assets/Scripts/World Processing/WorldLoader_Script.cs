@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class WorldLoader_Script : MonoBehaviour {
@@ -10,20 +9,13 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public string nameOfWorldToLoad;
 
-    public GameObject playerShipPrefab;
-    public GameObject aiShipPrefab;
+    public GameObject enemyShipPrefab;
     public GameObject asteroidPrefab;
 
     public void LoadSelectedWorld()
     {
         theWorld = theWorld.LoadWorld(nameOfWorldToLoad);
-        gameObject.GetComponent<NetworkLauncher_Script>().SetupHost();
-        GenerateWorld();
-    }
-
-    void Start()
-    {
-        //CheckClient();
+        SceneManager.LoadScene("Game_Scene");
     }
 
     void OnLevelWasLoaded(int level)
@@ -32,9 +24,9 @@ public class WorldLoader_Script : MonoBehaviour {
         {
             theWorld.worldName = null;
             theWorld.bannedIp = null;
-            theWorld.players = null;
+            theWorld.playerData = null;
             theWorld.enemyShips = null;
-            theWorld.players = null;
+            theWorld.asteroids = null;
             nameOfWorldToLoad = null;
         }
 
@@ -48,29 +40,15 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void GenerateWorld()
     {
-        //  GeneratePlayerShips();
-        GenerateAIShips();
+        GenerateEnemyShips();
         GenerateAsteroids();
     }
 
-    public void GeneratePlayerShips()
+    public void GenerateEnemyShips()
     {
-        foreach (Ship _ship in theWorld.playerShips)
+        foreach (Ship _enemyShip in theWorld.enemyShips)
         {
-            GameObject thisShip = GameObject.Instantiate(playerShipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot));
-            thisShip.GetComponent<ShipSetup_Script>().shipDetails = _ship;
-            NetworkServer.Spawn(thisShip);
-        }
-    }
-
-    public void GenerateAIShips()
-    {
-        foreach (Ship _ship in theWorld.enemyShips)
-        {
-            GameObject thisShip = GameObject.Instantiate(aiShipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot));
-            thisShip.GetComponent<ShipSetup_Script>().shipDetails = _ship;
-            thisShip.name = "Ship_" + _ship.shipName;
-            NetworkServer.Spawn(thisShip);
+            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _enemyShip.shipPos, Quaternion.Euler(_enemyShip.shipRot));
         }
     }
 
@@ -79,9 +57,17 @@ public class WorldLoader_Script : MonoBehaviour {
         foreach (Asteroid _asteroid in theWorld.asteroids)
         {
             GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
-            thisAsteroid.name = "Asteroid";
-            NetworkServer.Spawn(thisAsteroid);
         }
 
+    }
+
+    public void SaveTheWorld()
+    {
+        foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))
+        {
+            theWorld.asteroids.Add(new Asteroid(_asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+        }
+
+        theWorld.SaveWorld(theWorld);
     }
 }

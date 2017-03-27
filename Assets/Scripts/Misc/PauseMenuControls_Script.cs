@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuControls_Script : MonoBehaviour
 {
@@ -51,9 +51,13 @@ public class PauseMenuControls_Script : MonoBehaviour
 
     public void LeaveGame()
     {
-        GameObject.Find("NM").GetComponent<NetworkManager>().StopHost();
-        GameObject.Find("NM").GetComponent<NetworkManager>().StopClient();
+        SceneManager.LoadScene("Menu_Scene");
         GameObject.Find("GM").GetComponent<GameState_Script>().SetStateNormal();
+    }
+
+    public void SaveGameRelay()
+    {
+        GameObject.Find("WM").GetComponent<WorldLoader_Script>().SaveTheWorld();
     }
 
     void Update()

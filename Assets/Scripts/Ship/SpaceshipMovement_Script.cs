@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class SpaceshipMovement_Script : NetworkBehaviour {
+public class SpaceshipMovement_Script : MonoBehaviour
+{
 
     public GameObject statsUI;
 
@@ -21,19 +21,11 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
     void Start()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+
     }
 
     void FixedUpdate()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             canRotate = !canRotate;
@@ -43,7 +35,6 @@ public class SpaceshipMovement_Script : NetworkBehaviour {
 
         if (canRotate)
         {
-            //  LookAtMousePod();
             RotateShip();
         }
 

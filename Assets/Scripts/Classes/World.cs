@@ -9,9 +9,9 @@ public class World {
     public string worldName;
     public string[] bannedIp;
     public int currentWave;
+    public Player playerData;
     public List<Ship> playerShips;
     public List<Ship> enemyShips;
-    public List<Player> players;
     public List<Asteroid> asteroids;
 
     public World()
@@ -19,9 +19,9 @@ public class World {
         worldName = "New World";
         bannedIp = new string[1];
         currentWave = 1;
+        playerData = new Player();
         playerShips = new List<Ship>();
         enemyShips = new List<Ship>();
-        players = new List<Player>();
         asteroids = new List<Asteroid>();
     }
 
@@ -30,9 +30,9 @@ public class World {
         worldName = _worldName;
         bannedIp = new string[1];
         currentWave = 1;
+        playerData = new Player();
         playerShips = new List<Ship>();
         enemyShips = new List<Ship>();
-        players = new List<Player>();
         asteroids = new List<Asteroid>();
     }
 
@@ -49,6 +49,22 @@ public class World {
             Debug.LogWarning("Cannot find world file. Creating a new one.");
             Directory.CreateDirectory(Application.dataPath + "/Saves/" + worldName);
             SaveWorld();
+        }
+    }
+
+    public void SaveWorld(World _world)
+    {
+        string jsonString = JsonUtility.ToJson(_world);
+        try
+        {
+            File.WriteAllText(Application.dataPath + "/Saves/" + _world.worldName + "/world.json", jsonString.ToString());
+            Debug.Log("Saving world file.");
+        }
+        catch (System.Exception)
+        {
+            Debug.LogWarning("Cannot find world file. Creating a new one.");
+            Directory.CreateDirectory(Application.dataPath + "/Saves/" + _world.worldName);
+            SaveWorld(_world);
         }
     }
 

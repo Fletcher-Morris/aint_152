@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class PlayerMovement_Script : NetworkBehaviour {
+public class PlayerMovement_Script : MonoBehaviour
+{
 
     public float rotateSpeed = 0.005f;
     public float moveSpeed = 1f;
@@ -18,7 +18,6 @@ public class PlayerMovement_Script : NetworkBehaviour {
     public GameObject playerObject;
 
     GameObject gM;
-    [SyncVar]
     GameObject playerShip;
 
 
@@ -30,22 +29,11 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     void Start()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
-
         gM = GameObject.Find("GM");
     }
 
     private void Update()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
         TestPlayerCockpitDistance();
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -54,22 +42,17 @@ public class PlayerMovement_Script : NetworkBehaviour {
             {
                 if (gameObject.GetComponent<ViewTransition_Script>().isViewingCrew)
                 {
-                    if (gameObject.GetComponent<ShipSetup_Script>().cockpitBeingUsed == false)
-                    {
-                        gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
-                        gameObject.GetComponent<ShipSetup_Script>().CmdSetCockitBeingUsed(true);
-                        gameObject.GetComponent<ViewTransition_Script>().SwitchToShip();
+                    gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
+                    gameObject.GetComponent<ViewTransition_Script>().SwitchToShip();
 
-                        gameObject.GetComponent<SpaceshipMovement_Script>().canMove = true;
-                        gameObject.GetComponent<SpaceshipMovement_Script>().canRotate = true;
+                    gameObject.GetComponent<SpaceshipMovement_Script>().canMove = true;
+                    gameObject.GetComponent<SpaceshipMovement_Script>().canRotate = true;
 
-                        playerObject.GetComponent<Rigidbody2D>().isKinematic = true;
-                    }
+                    playerObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 }
                 else
                 {
                     gM.GetComponent<GameState_Script>().gameState = "Normal";
-                    gameObject.GetComponent<ShipSetup_Script>().CmdSetCockitBeingUsed(false);
                     gameObject.GetComponent<ViewTransition_Script>().SwitchToCrew();
 
                     gameObject.GetComponent<SpaceshipMovement_Script>().canMove = false;
@@ -83,11 +66,6 @@ public class PlayerMovement_Script : NetworkBehaviour {
 
     void FixedUpdate()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
         if (gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "Using Turret" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
         {
             canMove = false;

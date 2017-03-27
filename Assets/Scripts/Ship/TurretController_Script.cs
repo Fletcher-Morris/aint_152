@@ -1,30 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 
-public class TurretController_Script : NetworkBehaviour
+public class TurretController_Script : MonoBehaviour
 {
 
     public float rotateSpeed = 1;
     public GameObject turretObject;
-
     public bool canRotate = false;
-
-    void Start()
-    {
-        //CheckLocal();
-    }
-
-    void CheckLocal()
-    {
-        if (!isLocalPlayer)
-        {
-            Destroy(this);
-            return;
-        }
-    }
 
     void Update()
     {
