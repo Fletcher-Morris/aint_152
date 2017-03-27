@@ -39,6 +39,7 @@ public class ShipSetup_Script : MonoBehaviour
         shipDetails = GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip;
         transform.position = shipDetails.shipPos;
         transform.rotation = Quaternion.Euler(shipDetails.shipRot);
+        shipDetails.shipHealth = 99999999;
 
         healthUiText = GameObject.Find("Health Text");
         healthUiText.GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
@@ -47,6 +48,12 @@ public class ShipSetup_Script : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         shipDetails.shipHealth -= damageAmount;
+
+        if (isPlayer)
+        {
+            healthUiText = GameObject.Find("Health Text");
+            healthUiText.GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
+        }
 
         if (shipDetails.shipHealth <= 0)
         {

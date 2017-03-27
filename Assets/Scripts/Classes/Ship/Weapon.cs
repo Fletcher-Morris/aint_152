@@ -9,8 +9,6 @@ public class Weapon
     public int bulletDamage;
     public string bulletType;
     public bool auto;
-    public int clipSize;
-    public float reloadTime;
     public float shootDelay;
 
     public Weapon()
@@ -20,9 +18,7 @@ public class Weapon
         bulletDamage = 10;
         bulletRange = 100;
         bulletType = "projectile";
-        auto = false;
-        clipSize = 10;
-        reloadTime = 3f;
-        shootDelay = .2f;
+        auto = true;
+        shootDelay = 0.1f;
     }
 }

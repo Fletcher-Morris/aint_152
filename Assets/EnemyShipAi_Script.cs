@@ -27,13 +27,13 @@ public class EnemyShipAi_Script : MonoBehaviour
                 targetEnemy = null;
             }
 
+            AimTurret();
+            ShootGun();
+
             if (currentEnemyRange >= 3)
             {
-                //MoveShip();
                 MoveShipRigidbody();
                 RotateShip();
-				AimTurret ();
-				ShootGun ();
             }
         }
     }

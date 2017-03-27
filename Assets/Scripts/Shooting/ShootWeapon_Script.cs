@@ -7,46 +7,54 @@ public class ShootWeapon_Script : MonoBehaviour
 {
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
-
-    public Weapon thisWeapon;
     public int remainingAmmo;
-    public float reloadTimer;
-    public bool reloading = false;
-    public bool readyToFire = true;
     public bool isTryingToShoot = false;
 
-    float lastShootTime;
+    public float shootDelayTimer;
 
     private void Start()
     {
-        remainingAmmo = thisWeapon.clipSize;
-        reloadTimer = thisWeapon.reloadTime;
-
-		if (gameObject.transform.tag == "Player") {
-			GameObject.Find ("Weapon Ammo Text").GetComponent<Text> ().text = remainingAmmo + "/" + thisWeapon.clipSize;
-		}
+        shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
     }
 
     private void Update()
     {
+        shootDelayTimer = shootDelayTimer - 1 * Time.deltaTime;
+        if (shootDelayTimer <= 0)
+            shootDelayTimer = 0;
+
+        if (Input.GetMouseButton(0))
+        {
+            if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.auto)
+            {
+                if (shootDelayTimer == 0)
+                {
+                    Shoot();
+                    shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
+                } 
+            }
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            if (shootDelayTimer == 0)
+            {
+                Shoot();
+                shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay; 
+            }
         }
     }
     public void Shoot()
     {
-        remainingAmmo = remainingAmmo - 1;
+        GameObject _bullet = GameObject.Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 
-        GameObject _bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-
-        _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * thisWeapon.bulletSpeed;
-        _bullet.GetComponent<Bullet_Script>().damage = thisWeapon.bulletDamage;
+        _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed;
+        _bullet.GetComponent<Bullet_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
 
 		if (gameObject.transform.tag == "Player") {
-			GameObject.Find ("Weapon Ammo Text").GetComponent<Text> ().text = remainingAmmo + "/" + thisWeapon.clipSize;
+            _bullet.GetComponent<Bullet_Script>().playerBullet = true;
 		}
 
-        Destroy(_bullet, thisWeapon.bulletRange / thisWeapon.bulletSpeed);
+        Destroy(_bullet, GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed);
     }
 }
