@@ -31,7 +31,11 @@ public class Bullet_Script : MonoBehaviour
         }
         else if(hit.gameObject.tag == "Asteroid")
         {
-
+            var health = hit.GetComponent<GenericHealth_Script>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
         }
 
         GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);

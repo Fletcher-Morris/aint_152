@@ -76,7 +76,7 @@ public class WorldLoader_Script : MonoBehaviour {
         theWorld.enemyShips.Clear();
         foreach (GameObject _enemyShipObject in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            theWorld.enemyShips.Add(new Ship(_enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipName, _enemyShipObject.GetComponent<ShipHealth_Script>().currentHealth, _enemyShipObject.transform.position, _enemyShipObject.transform.rotation.eulerAngles));
+            theWorld.enemyShips.Add(new Ship(_enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipName, _enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth, _enemyShipObject.transform.position, _enemyShipObject.transform.rotation.eulerAngles));
         }
 
         theWorld.SaveWorld(theWorld);
