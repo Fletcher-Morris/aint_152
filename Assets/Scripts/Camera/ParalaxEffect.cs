@@ -10,7 +10,7 @@ public class ParalaxEffect : MonoBehaviour
 
     private void Update()
     {
-        focusObject = Camera.main.gameObject.GetComponent<ParalaxEffectController_Script>().paralaxFocus;
+        focusObject = GameObject.Find("Player Ship");
         if(focusObject)
             gameObject.transform.position = focusObject.transform.position * paralaxDepth;
     }

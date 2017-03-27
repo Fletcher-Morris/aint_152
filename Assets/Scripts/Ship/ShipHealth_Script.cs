@@ -5,11 +5,9 @@ using UnityEngine.UI;
 
 public class ShipHealth_Script : MonoBehaviour
 {
-    [SerializeField]
     public const int MAX_HEALTH = 100;
 
-    [SerializeField]
-    int currentHealth = MAX_HEALTH;
+    public int currentHealth = MAX_HEALTH;
 
     public GameObject healthUiText;
     public GameObject ShieldsUiText;

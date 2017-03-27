@@ -12,6 +12,7 @@ public class SetWorldToLoad_Script : MonoBehaviour {
     {
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().nameOfWorldToLoad = worldNameUIObject.GetComponent<Text>().text;
         Debug.Log(gameObject.name + ": World to load set to " + worldNameUIObject.GetComponent<Text>().text + ".");
+        GameObject.Find("WM").GetComponent<WorldLoader_Script>().LoadSelectedWorld();
     }
 
     public void DeleteWorld()

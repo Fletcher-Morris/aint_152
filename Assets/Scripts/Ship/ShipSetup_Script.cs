@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShipSetup_Script : MonoBehaviour
 {
+    public Ship shipDetails;
+
     void Start()
     {
 

@@ -41,6 +41,18 @@ public class Ship
         shipRot = new Vector3(0, 0, 0);
     }
 
+    public Ship(string _name, int _health, Vector3 _pos, Vector3 _rot)
+    {
+        shipName = _name;
+        shipHealth = _health;
+        shipEngine = new Engine();
+        shipShield = new Shield();
+        shipTurret = new Turret();
+
+        shipPos = _pos;
+        shipRot = _rot;
+    }
+
     public Ship(string _name, int _health, Engine _engine, Shield _shield, Turret _turret)
     {
         shipName = _name;
@@ -51,5 +63,17 @@ public class Ship
 
         shipPos = new Vector3(0, 0, 0);
         shipRot = new Vector3(0, 0, 0);
+    }
+
+    public Ship(string _name, int _health, Engine _engine, Shield _shield, Turret _turret, Vector3 _pos, Vector3 _rot)
+    {
+        shipName = _name;
+        shipHealth = _health;
+        shipEngine = _engine;
+        shipShield = _shield;
+        shipTurret = new Turret();
+
+        shipPos = _pos;
+        shipRot = _rot;
     }
 }

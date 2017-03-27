@@ -7,8 +7,9 @@ using System.IO;
 public class World {
 
     public string worldName;
-    public string[] bannedIp;
     public int currentWave;
+    public int highScore;
+    public int money;
     public Player playerData;
     public List<Ship> playerShips;
     public List<Ship> enemyShips;
@@ -17,8 +18,9 @@ public class World {
     public World()
     {
         worldName = "New World";
-        bannedIp = new string[1];
         currentWave = 1;
+        highScore = 0;
+        money = 0;
         playerData = new Player();
         playerShips = new List<Ship>();
         enemyShips = new List<Ship>();
@@ -28,8 +30,9 @@ public class World {
     public World(string _worldName)
     {
         worldName = _worldName;
-        bannedIp = new string[1];
         currentWave = 1;
+        highScore = 0;
+        money = 0;
         playerData = new Player();
         playerShips = new List<Ship>();
         enemyShips = new List<Ship>();

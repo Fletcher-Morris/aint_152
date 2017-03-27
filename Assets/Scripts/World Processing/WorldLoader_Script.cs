@@ -23,7 +23,9 @@ public class WorldLoader_Script : MonoBehaviour {
         if(level == 0)
         {
             theWorld.worldName = null;
-            theWorld.bannedIp = null;
+            theWorld.currentWave = 0;
+            theWorld.highScore = 0;
+            theWorld.money = 0;
             theWorld.playerData = null;
             theWorld.enemyShips = null;
             theWorld.asteroids = null;
@@ -63,9 +65,16 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void SaveTheWorld()
     {
+        theWorld.asteroids.Clear();
         foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))
         {
             theWorld.asteroids.Add(new Asteroid(_asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+        }
+
+        theWorld.enemyShips.Clear();
+        foreach (GameObject _enemyShipObject in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            theWorld.enemyShips.Add(new Ship(_enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipName, _enemyShipObject.GetComponent<ShipHealth_Script>().currentHealth, _enemyShipObject.transform.position, _enemyShipObject.transform.rotation.eulerAngles));
         }
 
         theWorld.SaveWorld(theWorld);
