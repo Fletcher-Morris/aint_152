@@ -26,7 +26,7 @@ public class WorldLoader_Script : MonoBehaviour {
             theWorld.currentWave = 0;
             theWorld.highScore = 0;
             theWorld.money = 0;
-            theWorld.playerData = null;
+            theWorld.playerShip = null;
             theWorld.enemyShips = null;
             theWorld.asteroids = null;
             nameOfWorldToLoad = null;
@@ -65,6 +65,8 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void SaveTheWorld()
     {
+        theWorld.playerShip = new Ship(theWorld.playerShip.shipName, theWorld.playerShip.shipHealth, true, GameObject.Find("Player Ship").transform.position, GameObject.Find("Player Ship").transform.eulerAngles);
+
         theWorld.asteroids.Clear();
         foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))
         {

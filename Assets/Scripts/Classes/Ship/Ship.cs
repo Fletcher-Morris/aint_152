@@ -8,6 +8,8 @@ public class Ship
 {
     public string shipName;
 
+    public bool isPlayer;
+
     public int shipHealth;
     
     public Engine shipEngine;
@@ -20,6 +22,7 @@ public class Ship
     public Ship()
     {
         shipName = "New Ship";
+        isPlayer = false;
         shipHealth = 100;
         shipEngine = new Engine();
         shipShield = new Shield();
@@ -32,6 +35,7 @@ public class Ship
     public Ship(string _name, int _health)
     {
         shipName = _name;
+        isPlayer = false;
         shipHealth = _health;
         shipEngine = new Engine();
         shipShield = new Shield();
@@ -44,6 +48,20 @@ public class Ship
     public Ship(string _name, int _health, Vector3 _pos, Vector3 _rot)
     {
         shipName = _name;
+        isPlayer = false;
+        shipHealth = _health;
+        shipEngine = new Engine();
+        shipShield = new Shield();
+        shipTurret = new Turret();
+
+        shipPos = _pos;
+        shipRot = _rot;
+    }
+
+    public Ship(string _name, int _health, bool _isPlayer, Vector3 _pos, Vector3 _rot)
+    {
+        shipName = _name;
+        isPlayer = _isPlayer;
         shipHealth = _health;
         shipEngine = new Engine();
         shipShield = new Shield();
@@ -56,6 +74,7 @@ public class Ship
     public Ship(string _name, int _health, Engine _engine, Shield _shield, Turret _turret)
     {
         shipName = _name;
+        isPlayer = false;
         shipHealth = _health;
         shipEngine = _engine;
         shipShield = _shield;
@@ -68,6 +87,7 @@ public class Ship
     public Ship(string _name, int _health, Engine _engine, Shield _shield, Turret _turret, Vector3 _pos, Vector3 _rot)
     {
         shipName = _name;
+        isPlayer = false;
         shipHealth = _health;
         shipEngine = _engine;
         shipShield = _shield;

@@ -29,7 +29,7 @@ public class WorldGenerator_Script : MonoBehaviour {
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info").gameObject.SetActive(true);
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info Background").gameObject.SetActive(true);
 
-        _world.playerData = new Player(new GamePrefs().playerName);
+        _world.playerShip = new Ship();
 
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();
