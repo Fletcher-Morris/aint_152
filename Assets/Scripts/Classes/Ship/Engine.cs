@@ -15,7 +15,7 @@ public class Engine
     public Engine()
     {
         engineName = "New Engine";
-        maxThrust = 1000;
+        maxThrust = 200;
         currentThrust = 0;
         maxHeat = 1000;
         currentHeat = 0;

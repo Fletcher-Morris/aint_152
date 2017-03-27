@@ -27,8 +27,8 @@ public class WaveManager_Script : MonoBehaviour
     {
         foreach(Ship _shipData in waveData.waveList[_waveNumber].ships)
         {
-            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, gameObject.transform.position, gameObject.transform.rotation);
-            Debug.Log(gameObject.name + ": Spawned an enemy ship (" + thisShip.name + ").");
+            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _shipData.shipPos, gameObject.transform.rotation);
+            Debug.Log(gameObject.name + ": Spawned an enemy ship (" + thisShip.name + ") at (" + thisShip.transform.position + ").");
         }
     }
 
@@ -51,9 +51,13 @@ public class WaveManager_Script : MonoBehaviour
         defaultWaveData = new WaveList();
         Wave testWave = new Wave();
         Ship testShip = new Ship();
+        testShip.shipPos = new Vector3(-10, 10, 0);
         testWave.ships.Add(testShip);
+        testShip.shipPos = new Vector3(10, 10, 0);
         testWave.ships.Add(testShip);
+        testShip.shipPos = new Vector3(-10, -10, 0);
         testWave.ships.Add(testShip);
+        testShip.shipPos = new Vector3(10, -10, 0);
         testWave.ships.Add(testShip);
         defaultWaveData.waveList.Add(testWave);
 

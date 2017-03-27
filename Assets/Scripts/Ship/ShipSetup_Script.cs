@@ -12,6 +12,8 @@ public class ShipSetup_Script : MonoBehaviour
     public GameObject healthUiText;
     GameObject ShieldsUiText;
 
+    public GameObject explosionPrefab;
+
     void Start()
     {
         if (isPlayer)
@@ -50,6 +52,10 @@ public class ShipSetup_Script : MonoBehaviour
         {
             shipDetails.shipHealth = 0;
             Debug.Log(gameObject.name + " died!");
+            GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
+            explosion.GetComponent<SpriteRenderer>().color = Color.yellow;
+            explosion.transform.localScale = new Vector3(3,3,3);
+            GameObject.Destroy(gameObject);
         }
     }
 

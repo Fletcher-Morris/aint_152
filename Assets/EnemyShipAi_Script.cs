@@ -6,8 +6,7 @@ public class EnemyShipAi_Script : MonoBehaviour
 {
     public float enemyDetectionRange = 30;
     public float rotateSpeed = 50f;
-
-    public Ship shipDetails;
+    public float rotationSmoothing = 5f;
 
     public GameObject targetEnemy;
     public float currentEnemyRange;
@@ -27,7 +26,12 @@ public class EnemyShipAi_Script : MonoBehaviour
                 targetEnemy = null;
             }
 
-            Movement();
+            if (currentEnemyRange >= 3)
+            {
+                //MoveShip();
+                MoveShipRigidbody();
+                RotateShip();
+            }
         }
     }
 
@@ -42,14 +46,28 @@ public class EnemyShipAi_Script : MonoBehaviour
         }
     }
 
-    void Movement()
+    void MoveShip()
     {
-        RotateShip();
+        if (GetComponent<Rigidbody2D>() != null)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            GetComponent<Rigidbody2D>().angularVelocity = 0.0f;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, targetEnemy.transform.position, gameObject.GetComponent<ShipSetup_Script>().shipDetails.shipEngine.maxThrust * 0.01f);
+    }
+
+    void MoveShipRigidbody()
+    {
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * gameObject.GetComponent<ShipSetup_Script>().shipDetails.shipEngine.maxThrust);
     }
 
     void RotateShip()
     {
-
+        Vector3 difference = targetEnemy.transform.position - transform.position;
+        difference.Normalize();
+        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        Quaternion newRot = Quaternion.Euler(new Vector3(0.0f, 0.0f, rotZ + -90));
+        gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * rotationSmoothing);
     }
 
     void ShootGun()
