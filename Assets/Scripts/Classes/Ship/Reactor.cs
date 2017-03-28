@@ -24,6 +24,6 @@ public class Reactor{
         maxPower = _maxOutput;
         currentPower = maxPower;
         rechargeDelay = 2f;
-        rechargeRate = 10f;
+        rechargeRate = 100f;
     }
 }

@@ -23,11 +23,29 @@ public class WaveManager_Script : MonoBehaviour
         roundCountdown = roundCountdown - 1 * Time.deltaTime;
     }
 
+    private void Update()
+    {
+        if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
+            NextRound();
+        }
+    }
+
+    void NextRound()
+    {
+        if(currentRound != numberOfRounds)
+        {
+            currentRound = 0;
+        }
+
+        SpawnWave(currentRound);
+    }
+
     public void SpawnWave(int _waveNumber)
     {
         foreach(Ship _shipData in waveData.waveList[_waveNumber].ships)
         {
-            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _shipData.shipPos, gameObject.transform.rotation);
+            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _shipData.shipPos, Quaternion.Euler(_shipData.shipRot));
             Debug.Log(gameObject.name + ": Spawned an enemy ship (" + thisShip.name + ") at (" + thisShip.transform.position + ").");
         }
     }
@@ -50,9 +68,8 @@ public class WaveManager_Script : MonoBehaviour
     {
         defaultWaveData = new WaveList();
         Wave testWave = new Wave();
-        Ship testShip = new Ship();
-        testShip.shipPos = new Vector3(-10, 10, 0);
-        testWave.ships.Add(testShip);
+        testWave.ships.Add(new Ship(new Vector3(-10, 10, 0)));
+        testWave.ships.Add(new Ship(new Vector3(10, 10, 0)));
         defaultWaveData.waveList.Add(testWave);
 
         string jsonString = JsonUtility.ToJson(defaultWaveData);

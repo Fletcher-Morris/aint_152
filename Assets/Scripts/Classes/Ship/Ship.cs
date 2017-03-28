@@ -43,6 +43,18 @@ public class Ship
         shipRot = new Vector3(0, 0, 0);
     }
 
+    public Ship(Vector3 _pos)
+    {
+        shipName = "New Ship";
+        shipHealth = 100;
+        shipEngine = new Engine();
+        shipShield = new Shield();
+        shipTurret = new Turret();
+
+        shipPos = _pos;
+        shipRot = new Vector3(0, 0, 0);
+    }
+
     public Ship(string _name, int _health, Vector3 _pos, Vector3 _rot)
     {
         shipName = _name;

@@ -42,7 +42,11 @@ public class ShipSetup_Script : MonoBehaviour
         shipDetails = GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip;
         transform.position = shipDetails.shipPos;
         transform.rotation = Quaternion.Euler(shipDetails.shipRot);
-        shipDetails.shipHealth = 100;
+
+        if (isPlayer)
+        {
+            UpdateUI();
+        }
     }
 
     public void TakeDamage(int damageAmount)
@@ -59,9 +63,10 @@ public class ShipSetup_Script : MonoBehaviour
             GameObject.Destroy(gameObject);
         }
 
-        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
-        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+        if (isPlayer)
+        {
+            UpdateUI();
+        }
     }
 
     public int TakeShieldDamage(int damageAmount)
@@ -69,14 +74,15 @@ public class ShipSetup_Script : MonoBehaviour
         if (shipDetails.shipShield.shieldHealth > 0)
         {
             shipDetails.shipShield.shieldHealth = (shipDetails.shipShield.shieldHealth - damageAmount);
-            damageAmount = damageAmount - damageAmount / (100 - shipDetails.shipShield.absorbPercent);
+            damageAmount = damageAmount - (damageAmount * shipDetails.shipShield.absorbPercent/100);
         }
 
         shieldRechargeDelayTimer = shipDetails.shipShield.chargeDelay;
 
-        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
-        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+        if (isPlayer)
+        {
+            UpdateUI();
+        }
 
         return damageAmount;
     }
@@ -86,22 +92,35 @@ public class ShipSetup_Script : MonoBehaviour
         shipDetails.shipReactor.currentPower -= powerAmount;
 
         powerRechargeDelayTimer = shipDetails.shipReactor.rechargeDelay;
+    }
 
+    void UpdateUI()
+    {
         GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
-        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.RoundToInt(shipDetails.shipReactor.currentPower);
+        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.RoundToInt(shipDetails.shipShield.shieldHealth);
     }
 
     private void Update()
     {
         if (isPlayer)
         {
-            GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-            GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
-            GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+            UpdateUI();
         }
 
-        RechargePower();
+        if (shipDetails.shipReactor.currentPower < shipDetails.shipReactor.maxPower)
+        {
+            RechargePower(); 
+        }
+        else
+        {
+            shipDetails.shipReactor.currentPower = shipDetails.shipReactor.maxPower;
+        }
+
+        if(shipDetails.shipReactor.currentPower > 0)
+        {
+            RechargeShield();
+        }
     }
 
     void RechargePower()
@@ -110,7 +129,7 @@ public class ShipSetup_Script : MonoBehaviour
         if (powerRechargeDelayTimer <= 0)
         {
             powerRechargeDelayTimer = 0;
-            if (shipDetails.shipReactor.currentPower <= shipDetails.shipReactor.maxPower)
+            if (shipDetails.shipReactor.currentPower < shipDetails.shipReactor.maxPower)
             {
                 shipDetails.shipReactor.currentPower += shipDetails.shipReactor.rechargeRate * Time.deltaTime;
             }
@@ -120,9 +139,10 @@ public class ShipSetup_Script : MonoBehaviour
             }
         }
 
-        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
-        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+        if (isPlayer)
+        {
+            UpdateUI();
+        }
     }
 
     void RechargeShield()
@@ -131,7 +151,7 @@ public class ShipSetup_Script : MonoBehaviour
         if (shieldRechargeDelayTimer <= 0)
         {
             shieldRechargeDelayTimer = 0;
-            if (shipDetails.shipShield.shieldHealth <= shipDetails.shipShield.maxShieldHealth)
+            if (shipDetails.shipShield.shieldHealth < shipDetails.shipShield.maxShieldHealth)
             {
                 shipDetails.shipShield.shieldHealth += shipDetails.shipShield.chargeRate * Time.deltaTime;
             }
@@ -141,8 +161,14 @@ public class ShipSetup_Script : MonoBehaviour
             }
         }
 
-        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.Floor(shipDetails.shipReactor.currentPower);
-        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.Floor(shipDetails.shipShield.shieldHealth);
+        if(shipDetails.shipShield.shieldHealth >= shipDetails.shipShield.maxShieldHealth)
+        {
+            shipDetails.shipShield.shieldHealth = shipDetails.shipShield.maxShieldHealth;
+        }
+
+        if (isPlayer)
+        {
+            UpdateUI();
+        }
     }
 }

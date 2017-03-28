@@ -10,6 +10,7 @@ public class Weapon
     public string bulletType;
     public bool auto;
     public float shootDelay;
+    public int powerUse;
 
     public Weapon()
     {
@@ -20,5 +21,6 @@ public class Weapon
         bulletType = "projectile";
         auto = true;
         shootDelay = 0.2f;
+        powerUse = 2;
     }
 }
