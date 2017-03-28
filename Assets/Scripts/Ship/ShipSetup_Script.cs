@@ -43,6 +43,8 @@ public class ShipSetup_Script : MonoBehaviour
         transform.position = shipDetails.shipPos;
         transform.rotation = Quaternion.Euler(shipDetails.shipRot);
 
+        Time.timeScale = 1;
+
         if (isPlayer)
         {
             UpdateUI();
