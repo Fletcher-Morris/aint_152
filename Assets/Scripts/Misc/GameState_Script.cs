@@ -30,7 +30,7 @@ public class GameState_Script : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(GetState() == "Normal" || GetState() == "Flying Ship")
+            if(GetState() != "Paused")
             {
                 SetStatePaused();
                 Time.timeScale = 0;
