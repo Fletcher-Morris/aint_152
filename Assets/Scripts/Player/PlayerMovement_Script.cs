@@ -49,6 +49,8 @@ public class PlayerMovement_Script : MonoBehaviour
                     gameObject.GetComponent<SpaceshipMovement_Script>().canRotate = true;
 
                     playerObject.GetComponent<Rigidbody2D>().isKinematic = true;
+
+                    GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
                 }
                 else
                 {

@@ -18,6 +18,8 @@ public class WaveManager_Script : MonoBehaviour
 
     WaveList defaultWaveData;
 
+    public bool doSpawn = false;
+
     public void RoundCountDown()
     {
         roundCountdown = roundCountdown - 1 * Time.deltaTime;
@@ -27,7 +29,10 @@ public class WaveManager_Script : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            NextRound();
+            if (doSpawn)
+            {
+                NextRound(); 
+            }
         }
     }
 
@@ -38,7 +43,10 @@ public class WaveManager_Script : MonoBehaviour
             currentRound = 0;
         }
 
-        SpawnWave(currentRound);
+        if (waveData.waveList.Count > 0)
+        {
+            SpawnWave(currentRound); 
+        }
     }
 
     public void SpawnWave(int _waveNumber)
@@ -57,19 +65,14 @@ public class WaveManager_Script : MonoBehaviour
         waveData = LoadWaveData();
 
         numberOfRounds = waveData.waveList.Count;
-
-        if (waveData.waveList.Count > 0)
-        {
-            SpawnWave(currentRound); 
-        }
     }
 
     public void SaveDefaultWaves()
     {
         defaultWaveData = new WaveList();
         Wave testWave = new Wave();
-        testWave.ships.Add(new Ship(new Vector3(-10, 10, 0)));
-        testWave.ships.Add(new Ship(new Vector3(10, 10, 0)));
+        testWave.ships.Add(new Ship(new Vector3(-20, 20, 0)));
+        testWave.ships.Add(new Ship(new Vector3(20, -20, 0)));
         defaultWaveData.waveList.Add(testWave);
 
         string jsonString = JsonUtility.ToJson(defaultWaveData);

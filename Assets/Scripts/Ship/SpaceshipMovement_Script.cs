@@ -26,11 +26,6 @@ public class SpaceshipMovement_Script : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            canRotate = !canRotate;
-        }
-
         GetAxis();
 
         if (canRotate)

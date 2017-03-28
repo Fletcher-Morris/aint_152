@@ -60,6 +60,9 @@ public class ShipSetup_Script : MonoBehaviour
             GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
             explosion.GetComponent<SpriteRenderer>().color = Color.yellow;
             explosion.transform.localScale = new Vector3(3,3,3);
+
+            GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
+
             GameObject.Destroy(gameObject);
         }
 
@@ -125,6 +128,11 @@ public class ShipSetup_Script : MonoBehaviour
 
     void RechargePower()
     {
+        if(shipDetails.shipReactor.currentPower < 0)
+        {
+            shipDetails.shipReactor.currentPower = 0;
+        }
+
         powerRechargeDelayTimer = powerRechargeDelayTimer - 1 * Time.deltaTime;
         if (powerRechargeDelayTimer <= 0)
         {
@@ -147,6 +155,11 @@ public class ShipSetup_Script : MonoBehaviour
 
     void RechargeShield()
     {
+        if (shipDetails.shipShield.shieldHealth < 0)
+        {
+            shipDetails.shipShield.shieldHealth = 0;
+        }
+
         shieldRechargeDelayTimer = shieldRechargeDelayTimer - 1 * Time.deltaTime;
         if (shieldRechargeDelayTimer <= 0)
         {
