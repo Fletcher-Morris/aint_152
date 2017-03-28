@@ -42,6 +42,7 @@ public class GamePrefs_Script : MonoBehaviour
     public void SaveChanges()
     {
         getPrefsFromUi = false;
+        ApplyChangesLive();
         gamePrefs.SavePrefs();
     }
 
@@ -59,19 +60,9 @@ public class GamePrefs_Script : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftCommand))
-            {
-                netHud.enabled = !netHud.enabled; 
-            }
-        }
-
         if (getPrefsFromUi)
         {
             GetPrefsFromUI(); 
         }
-
-        ApplyChangesLive();
     }
 }

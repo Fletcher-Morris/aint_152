@@ -30,6 +30,9 @@ public class WorldGenerator_Script : MonoBehaviour {
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info Background").gameObject.SetActive(true);
 
         _world.playerShip = new Ship();
+        _world.playerShip.shipTurret.turretWeapon.bulletSpeed = 15;
+        _world.playerShip.shipTurret.turretWeapon.bulletDamage = 15;
+        _world.playerShip.shipTurret.turretWeapon.shootDelay = 0.2f;
 
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();

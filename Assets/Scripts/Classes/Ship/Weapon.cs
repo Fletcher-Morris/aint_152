@@ -20,7 +20,7 @@ public class Weapon
         bulletRange = 30;
         bulletType = "projectile";
         auto = true;
-        shootDelay = 0.2f;
+        shootDelay = 0.3f;
         powerUse = 2;
     }
 }

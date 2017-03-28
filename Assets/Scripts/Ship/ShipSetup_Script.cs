@@ -60,7 +60,7 @@ public class ShipSetup_Script : MonoBehaviour
             shipDetails.shipHealth = 0;
             Debug.Log(gameObject.name + " died!");
             GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
-            explosion.GetComponent<SpriteRenderer>().color = Color.yellow;
+            //explosion.GetComponent<SpriteRenderer>().color = Color.yellow;
             explosion.transform.localScale = new Vector3(3,3,3);
 
             if (isPlayer)
