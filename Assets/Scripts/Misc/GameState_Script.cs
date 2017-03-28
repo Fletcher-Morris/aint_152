@@ -21,11 +21,6 @@ public class GameState_Script : MonoBehaviour {
         gameState = "Normal";
     }
 
-    public void SetStateUsingTurret()
-    {
-        gameState = "Using Turret";
-    }
-
     public void SetStateFlyingShip()
     {
         gameState = "Flying Ship";
@@ -35,13 +30,15 @@ public class GameState_Script : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(GetState() == "Normal")
+            if(GetState() == "Normal" || GetState() == "Flying Ship")
             {
                 SetStatePaused();
+                Time.timeScale = 0;
             }
             else
             {
                 SetStateNormal();
+                Time.timeScale = 1;
             }
         }
     }

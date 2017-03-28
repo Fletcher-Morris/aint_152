@@ -31,6 +31,7 @@ public class WaveManager_Script : MonoBehaviour
         {
             if (doSpawn)
             {
+                currentRound++;
                 NextRound(); 
             }
         }
@@ -38,7 +39,7 @@ public class WaveManager_Script : MonoBehaviour
 
     void NextRound()
     {
-        if(currentRound != numberOfRounds)
+        if(currentRound >= numberOfRounds)
         {
             currentRound = 0;
         }
@@ -65,15 +66,24 @@ public class WaveManager_Script : MonoBehaviour
         waveData = LoadWaveData();
 
         numberOfRounds = waveData.waveList.Count;
+
+        currentRound = numberOfRounds;
     }
 
     public void SaveDefaultWaves()
     {
         defaultWaveData = new WaveList();
-        Wave testWave = new Wave();
-        testWave.ships.Add(new Ship(new Vector3(-20, 20, 0)));
-        testWave.ships.Add(new Ship(new Vector3(20, -20, 0)));
-        defaultWaveData.waveList.Add(testWave);
+        Wave wave1 = new Wave();
+        wave1.ships.Add(new Ship(new Vector3(-20, 20, 0)));
+        wave1.ships.Add(new Ship(new Vector3(20, -20, 0)));
+        defaultWaveData.waveList.Add(wave1);
+
+        Wave wave2 = new Wave();
+        wave2.ships.Add(new Ship(new Vector3(20, 20, 0)));
+        wave2.ships.Add(new Ship(new Vector3(-20, -20, 0)));
+        wave2.ships.Add(new Ship(new Vector3(-20, 20, 0)));
+        wave2.ships.Add(new Ship(new Vector3(20, -20, 0)));
+        defaultWaveData.waveList.Add(wave2);
 
         string jsonString = JsonUtility.ToJson(defaultWaveData);
         try

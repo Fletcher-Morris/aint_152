@@ -61,7 +61,10 @@ public class ShipSetup_Script : MonoBehaviour
             explosion.GetComponent<SpriteRenderer>().color = Color.yellow;
             explosion.transform.localScale = new Vector3(3,3,3);
 
-            GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
+            if (isPlayer)
+            {
+                GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true); 
+            }
 
             GameObject.Destroy(gameObject);
         }
