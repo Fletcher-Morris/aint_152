@@ -22,10 +22,14 @@ public class PlayerMovement_Script : MonoBehaviour
 
 
     public GameObject cockpitTriggerObject;
-    public GameObject turretTriggerObject;
-    public float triggerRange = 0.1f;
+    public GameObject mapTriggerObject;
+    public GameObject computerTriggerObject;
+    public float cockpitRange = 0.1f;
+    public float mapRange = 0.2f;
+    public float computerRange = 0.2f;
     public bool isInCockpitTrigger = false;
-    public bool isInTurretTrigger = false;
+    public bool isInMapTrigger = false;
+    public bool isInComputerTrigger = false;
 
     void Start()
     {
@@ -90,7 +94,8 @@ public class PlayerMovement_Script : MonoBehaviour
         }
 
         TestPlayerCockpitDistance();
-        TestPlayerTurretDistance();
+        TestMapDistance();
+        TestComputerDistance();
     }
 
     void LookAtMousePod()
@@ -119,27 +124,56 @@ public class PlayerMovement_Script : MonoBehaviour
     {
         Vector2 playerPos2d = new Vector2(playerObject.transform.position.x, playerObject.transform.position.y);
         Vector2 triggerPos2d = new Vector2(cockpitTriggerObject.transform.position.x, cockpitTriggerObject.transform.position.y);
-        if(Vector2.Distance(playerPos2d, triggerPos2d) <= triggerRange)
+        if(Vector2.Distance(playerPos2d, triggerPos2d) <= cockpitRange)
         {
             isInCockpitTrigger = true;
+            if (canMove)
+            {
+                GameObject.Find("Cockpit_Trigger").transform.GetChild(0).gameObject.SetActive(true); 
+            }
         }
         else
         {
             isInCockpitTrigger = false;
+            GameObject.Find("Cockpit_Trigger").transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 
-    void TestPlayerTurretDistance()
+    void TestMapDistance()
     {
         Vector2 playerPos2d = new Vector2(playerObject.transform.position.x, playerObject.transform.position.y);
-        Vector2 triggerPos2d = new Vector2(turretTriggerObject.transform.position.x, turretTriggerObject.transform.position.y);
-        if (Vector2.Distance(playerPos2d, triggerPos2d) <= triggerRange)
+        Vector2 triggerPos2d = new Vector2(mapTriggerObject.transform.position.x, mapTriggerObject.transform.position.y);
+        if (Vector2.Distance(playerPos2d, triggerPos2d) <= mapRange)
         {
-            isInTurretTrigger = true;
+            isInMapTrigger = true;
+            if (canMove)
+            {
+                GameObject.Find("Map_Trigger").transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
         else
         {
-            isInTurretTrigger = false;
+            isInMapTrigger = false;
+            GameObject.Find("Map_Trigger").transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    void TestComputerDistance()
+    {
+        Vector2 playerPos2d = new Vector2(playerObject.transform.position.x, playerObject.transform.position.y);
+        Vector2 triggerPos2d = new Vector2(computerTriggerObject.transform.position.x, computerTriggerObject.transform.position.y);
+        if (Vector2.Distance(playerPos2d, triggerPos2d) <= computerRange)
+        {
+            isInComputerTrigger = true;
+            if (canMove)
+            {
+                GameObject.Find("Computer_Trigger").transform.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            isInComputerTrigger = false;
+            GameObject.Find("Computer_Trigger").transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

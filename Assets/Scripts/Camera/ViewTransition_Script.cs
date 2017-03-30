@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ViewTransition_Script : MonoBehaviour {
+public class ViewTransition_Script : MonoBehaviour
+{
 
     public float crewCamSize = 1.25f;
     public float shipCamSize = 5;
@@ -10,6 +11,7 @@ public class ViewTransition_Script : MonoBehaviour {
     public float transitionSpeed = 20;
 
     public GameObject cameraObject;
+    public GameObject uiCameraObject;
     public GameObject playerObject;
 
     public bool isViewingCrew = false;
@@ -25,6 +27,7 @@ public class ViewTransition_Script : MonoBehaviour {
     void Start()
     {
         cameraObject = Camera.main.gameObject;
+        uiCameraObject = cameraObject.transform.GetChild(0).gameObject;
     }
 
     public void SwitchView()
@@ -63,13 +66,16 @@ public class ViewTransition_Script : MonoBehaviour {
         {
             playerObject.GetComponent<Collider2D>().isTrigger = true;
             cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
+            GameObject.Find("Cockpit_Trigger").transform.GetChild(0).gameObject.SetActive(false);
             if (cameraObject.GetComponent<Camera>().orthographicSize < shipCamSize)
             {
                 cameraObject.GetComponent<Camera>().orthographicSize += transitionSpeed * Time.deltaTime;
+                uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
             }
             else
             {
                 cameraObject.GetComponent<Camera>().orthographicSize = shipCamSize;
+                uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
                 cameraObject.transform.rotation = new Quaternion(0,0,0,0);
                 cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
                 isViewingShip = true;
@@ -85,10 +91,12 @@ public class ViewTransition_Script : MonoBehaviour {
             if (cameraObject.GetComponent<Camera>().orthographicSize > crewCamSize)
             {
                 cameraObject.GetComponent<Camera>().orthographicSize -= transitionSpeed * Time.deltaTime;
+                uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
             }
             else
             {
                 cameraObject.GetComponent<Camera>().orthographicSize = crewCamSize;
+                uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
                 cameraObject.transform.rotation = gameObject.transform.rotation;
                 cameraObject.GetComponent<Camera>().cullingMask = crewLayers;
                 isViewingShip = false;

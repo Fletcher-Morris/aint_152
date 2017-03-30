@@ -4,24 +4,23 @@ using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class GamePrefs{
+public class GamePrefs
+{
 
     public string playerName;
     public int sensitivity;
     public float volumeLevel;
-    public string playerDescrpition;
     public int style;
     public int fpsCap;
     public bool fullscreen;
     public bool vsync;
     public bool msaa;
 
-    public GamePrefs(string _playerName, int _sensitivity, int _volumeLevel, string _playerDescription, int _style, int _fpsCap, bool _vsync, bool _fullscreen, bool _msaa)
+    public GamePrefs(string _playerName, int _sensitivity, int _volumeLevel, int _style, int _fpsCap, bool _vsync, bool _fullscreen, bool _msaa)
     {
         playerName = _playerName;
         sensitivity = _sensitivity;
         volumeLevel = _volumeLevel;
-        playerDescrpition = _playerDescription;
         style = _style;
         fpsCap = _fpsCap;
         vsync = _vsync;
@@ -34,7 +33,6 @@ public class GamePrefs{
         playerName = "";
         sensitivity = 10;
         volumeLevel = 5;
-        playerDescrpition = "";
         style = 1;
         fpsCap = 60;
         vsync = false;

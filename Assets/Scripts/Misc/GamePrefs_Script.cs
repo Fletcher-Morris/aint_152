@@ -19,7 +19,6 @@ public class GamePrefs_Script : MonoBehaviour
     public void SetPrefsToUI()
     {
         GameObject.Find("Player Name Field").GetComponent<InputField>().text = gamePrefs.playerName;
-        GameObject.Find("Player Description Field").GetComponent<InputField>().text = gamePrefs.playerDescrpition;
         GameObject.Find("Volume Slider").GetComponent<Slider>().value = gamePrefs.volumeLevel;
         GameObject.Find("Fullscreen Toggle").GetComponent<Toggle>().isOn = gamePrefs.fullscreen;
     }
@@ -28,7 +27,6 @@ public class GamePrefs_Script : MonoBehaviour
     {
         gamePrefs = gamePrefs.LoadPrefs();
         gamePrefs.playerName = GameObject.Find("Player Name Field").GetComponent<InputField>().text;
-        gamePrefs.playerDescrpition = GameObject.Find("Player Description Field").GetComponent<InputField>().text;
         gamePrefs.volumeLevel = GameObject.Find("Volume Slider").GetComponent<Slider>().value;
         gamePrefs.fullscreen = GameObject.Find("Fullscreen Toggle").GetComponent<Toggle>().isOn;
     }
