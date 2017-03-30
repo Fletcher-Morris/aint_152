@@ -7,6 +7,7 @@ public class ShootWeapon_Script : MonoBehaviour
 {
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
+    public bool canShoot = true;
     public bool isTryingToShoot = false;
 
     float shootDelayTimer;
@@ -22,7 +23,7 @@ public class ShootWeapon_Script : MonoBehaviour
         if (shootDelayTimer <= 0)
             shootDelayTimer = 0;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && canShoot)
         {
             if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.auto)
             {
@@ -33,7 +34,7 @@ public class ShootWeapon_Script : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
             if (shootDelayTimer == 0)
             {

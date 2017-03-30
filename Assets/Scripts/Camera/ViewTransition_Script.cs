@@ -67,6 +67,9 @@ public class ViewTransition_Script : MonoBehaviour
             playerObject.GetComponent<Collider2D>().isTrigger = true;
             cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
             GameObject.Find("Cockpit_Trigger").transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.GetComponent<TurretController_Script>().canRotate = true;
+            gameObject.GetComponent<ShootWeapon_Script>().canShoot = true;
+
             if (cameraObject.GetComponent<Camera>().orthographicSize < shipCamSize)
             {
                 cameraObject.GetComponent<Camera>().orthographicSize += transitionSpeed * Time.deltaTime;
@@ -87,6 +90,8 @@ public class ViewTransition_Script : MonoBehaviour
         else if (isSwitchingToCrew)
         {
             playerObject.GetComponent<Collider2D>().isTrigger = false;
+            gameObject.GetComponent<TurretController_Script>().canRotate = false;
+            gameObject.GetComponent<ShootWeapon_Script>().canShoot = false;
 
             if (cameraObject.GetComponent<Camera>().orthographicSize > crewCamSize)
             {
