@@ -11,7 +11,6 @@ public class Shield{
 	public int absorbPercent;
 	public float chargeRate;
 	public float chargeDelay;
-	public int powerUse;
 
 	public Shield(){
 		shieldName = "New Shield";
@@ -20,6 +19,5 @@ public class Shield{
 		absorbPercent = 50;
 		chargeRate = 5;
 		chargeDelay = 2;
-		powerUse = 10;
 	}
 }
