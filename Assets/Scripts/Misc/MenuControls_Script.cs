@@ -12,6 +12,9 @@ public class MenuControls_Script : MonoBehaviour
     public GameObject loadGameMenuObject;
     public GameObject preferencesMenuObject;
 
+	public float cinematicTime = 10f;
+	float cineTimer;
+
     public GameObject loadWorldUiPrefab;
 
     public GameObject titleTextObject;
@@ -66,6 +69,16 @@ public class MenuControls_Script : MonoBehaviour
             titleTextObject.GetComponent<Text>().color = SwapColour(titleTextObject.GetComponent<Text>().color);
             titletimer = titleColourTimer;
         }
+
+		cineTimer = cineTimer - 1 * Time.deltaTime;
+
+		if (cineTimer <= 0) {
+			cineTimer = 0;
+			GetComponent<CanvasGroup> ().alpha += 0.3f * Time.deltaTime;
+		}
+		if (GetComponent<CanvasGroup> ().alpha >= 1) {
+			GetComponent<CanvasGroup> ().alpha = 1;
+		}
     }
 
     public void SavePreferencesChanges()
@@ -110,6 +123,7 @@ public class MenuControls_Script : MonoBehaviour
     void Start()
     {
         titletimer = titleColourTimer;
+		cineTimer = cinematicTime;
     }
 
     public void GetSavedWorlds()
