@@ -33,6 +33,7 @@ public class ShipSetup_Script : MonoBehaviour
     {
         isPlayer = false;
         gameObject.transform.tag = "Enemy";
+		shipDetails.shipTurret.turretWeapon.RandomizeWeapon (0, 200);
     }
 
     void SetupPlayerShip()
