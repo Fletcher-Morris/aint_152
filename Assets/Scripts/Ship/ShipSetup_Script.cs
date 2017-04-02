@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System.IO;
 
 public class ShipSetup_Script : MonoBehaviour
 {
@@ -68,6 +69,9 @@ public class ShipSetup_Script : MonoBehaviour
             {
 				Time.timeScale = 0.2f;
                 GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
+				if (GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hardcore) {
+					Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.worldName, true);
+				}
             }
 
             GameObject.Destroy(gameObject);

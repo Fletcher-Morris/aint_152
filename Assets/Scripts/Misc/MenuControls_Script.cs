@@ -131,6 +131,9 @@ public class MenuControls_Script : MonoBehaviour
 
     void Start()
     {
+		GetComponent<CanvasGroup> ().alpha = 0f;
+		GetComponent<Canvas> ().enabled = false;
+
 		if (GameObject.Find ("Pause Menu Canvas") && skippedIntro == false) {
 			SkipIntro ();
 		}
@@ -149,6 +152,7 @@ public class MenuControls_Script : MonoBehaviour
 		GameObject.Find ("Main Camera").transform.position = new Vector3 (-33.3f, 0f, -10f);
 		GameObject.Destroy (GameObject.Find ("Pause Menu Canvas"));
 		GameObject.Destroy (GameObject.Find ("Press Any Key Canvas"));
+		GetComponent<Canvas> ().enabled = true;
 		GetComponent<CanvasGroup> ().alpha = 1;
 		skippedIntro = true;
 	}

@@ -10,6 +10,7 @@ public class World {
     public int currentWave;
     public int highScore;
     public int money;
+	public bool hardcore;
     public Ship playerShip;
     public List<Ship> enemyShips;
     public List<Asteroid> asteroids;
@@ -20,6 +21,7 @@ public class World {
         currentWave = 1;
         highScore = 0;
         money = 0;
+		hardcore = false;
         playerShip = new Ship();
         enemyShips = new List<Ship>();
         asteroids = new List<Asteroid>();
@@ -31,6 +33,7 @@ public class World {
         currentWave = 1;
         highScore = 0;
         money = 0;
+		hardcore = false;
         playerShip = new Ship();
         enemyShips = new List<Ship>();
         asteroids = new List<Asteroid>();
