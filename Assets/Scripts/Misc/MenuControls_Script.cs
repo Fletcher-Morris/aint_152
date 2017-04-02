@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class MenuControls_Script : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MenuControls_Script : MonoBehaviour
     public GameObject loadGameMenuObject;
     public GameObject preferencesMenuObject;
 
-	public float cinematicTime = 10f;
+	public float cinematicTime = 12f;
 	float cineTimer;
 
     public GameObject loadWorldUiPrefab;
@@ -74,7 +75,7 @@ public class MenuControls_Script : MonoBehaviour
 
 		if (cineTimer <= 0) {
 			cineTimer = 0;
-			GetComponent<CanvasGroup> ().alpha += 0.3f * Time.deltaTime;
+			GetComponent<CanvasGroup> ().alpha += 0.5f * Time.deltaTime;
 		}
 		if (GetComponent<CanvasGroup> ().alpha >= 1) {
 			GetComponent<CanvasGroup> ().alpha = 1;
@@ -122,6 +123,17 @@ public class MenuControls_Script : MonoBehaviour
 
     void Start()
     {
+		if (GameObject.Find ("Pause Menu Canvas")) {
+			GameObject.Find ("Theif 1").SetActive(false);
+			GameObject.Find ("Theif 2").SetActive(false);
+			GameObject.Find ("Police Ship").SetActive(false);
+			GameObject.Find ("Police Ship 2").SetActive(false);
+			GameObject.Find ("Main Camera").GetComponent<Animator>().enabled = false;
+			GameObject.Find ("Main Camera").transform.position = new Vector3 (-33.3f, 0f, -10f);
+			GameObject.Destroy (GameObject.Find ("Pause Menu Canvas"));
+			GetComponent<CanvasGroup> ().alpha = 1;
+		}
+
         titletimer = titleColourTimer;
 		cineTimer = cinematicTime;
     }
