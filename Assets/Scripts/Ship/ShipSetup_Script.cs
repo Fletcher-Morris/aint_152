@@ -66,7 +66,8 @@ public class ShipSetup_Script : MonoBehaviour
 
             if (isPlayer)
             {
-                GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true); 
+				Time.timeScale = 0.2f;
+                GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
             }
 
             GameObject.Destroy(gameObject);

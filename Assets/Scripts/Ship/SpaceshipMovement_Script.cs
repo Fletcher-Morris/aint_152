@@ -33,17 +33,17 @@ public class SpaceshipMovement_Script : MonoBehaviour
             RotateShip();
         }
 
-        if (canMove)
+		if (canMove && GetComponent<Rigidbody2D> ().bodyType == RigidbodyType2D.Dynamic)
         {
             ThrustShip();
         }
 
-        if(gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1 && axisInput.magnitude == 0)
+		if(gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1 && axisInput.magnitude == 0 && GetComponent<Rigidbody2D> ().bodyType == RigidbodyType2D.Dynamic)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        if (gameObject.GetComponent<Rigidbody2D>().angularVelocity <= 5)
+		if (gameObject.GetComponent<Rigidbody2D>().angularVelocity <= 5 && GetComponent<Rigidbody2D> ().bodyType == RigidbodyType2D.Dynamic)
         {
             gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
         }
@@ -52,6 +52,14 @@ public class SpaceshipMovement_Script : MonoBehaviour
         {
             statsUI.GetComponent<Text>().text = "Velocity: " + gameObject.GetComponent<Rigidbody2D>().velocity.magnitude; 
         }
+
+		if (GetComponent<ShipSetup_Script>().isPlayer) {
+			if (GameObject.Find ("GM").GetComponent<GameState_Script> ().gameState == "Flying Ship") {
+				GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
+			} else {
+				GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
+			}
+		}
     }
 
     void LookAtMousePod()
