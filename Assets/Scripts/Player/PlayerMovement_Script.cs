@@ -24,12 +24,14 @@ public class PlayerMovement_Script : MonoBehaviour
     public GameObject cockpitTriggerObject;
     public GameObject mapTriggerObject;
     public GameObject computerTriggerObject;
+	public GameObject engineRoomTriggerObject;
     public float cockpitRange = 0.1f;
     public float mapRange = 0.2f;
     public float computerRange = 0.2f;
     public bool isInCockpitTrigger = false;
     public bool isInMapTrigger = false;
     public bool isInComputerTrigger = false;
+	public bool isInEngineRoomTrigger = false;
 
     void Start()
     {
@@ -42,37 +44,43 @@ public class PlayerMovement_Script : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (isInCockpitTrigger)
-            {
-                if (gameObject.GetComponent<ViewTransition_Script>().isViewingCrew)
-                {
-                    gM.GetComponent<GameState_Script>().gameState = "Flying Ship";
-                    gameObject.GetComponent<ViewTransition_Script>().SwitchToShip();
+			if (isInCockpitTrigger) {
+				if (gameObject.GetComponent<ViewTransition_Script> ().isViewingCrew) {
+					gM.GetComponent<GameState_Script> ().gameState = "Flying Ship";
+					gameObject.GetComponent<ViewTransition_Script> ().SwitchToShip ();
 
-                    gameObject.GetComponent<SpaceshipMovement_Script>().canMove = true;
-                    gameObject.GetComponent<SpaceshipMovement_Script>().canRotate = true;
+					gameObject.GetComponent<SpaceshipMovement_Script> ().canMove = true;
+					gameObject.GetComponent<SpaceshipMovement_Script> ().canRotate = true;
 
-                    playerObject.GetComponent<Rigidbody2D>().isKinematic = true;
+					playerObject.GetComponent<Rigidbody2D> ().isKinematic = true;
 
-                    GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
-                }
-                else
-                {
-                    gM.GetComponent<GameState_Script>().gameState = "Normal";
-                    gameObject.GetComponent<ViewTransition_Script>().SwitchToCrew();
+					GameObject.Find ("RM").GetComponent<WaveManager_Script> ().doSpawn = true;
+				} else {
+					gM.GetComponent<GameState_Script> ().gameState = "Normal";
+					gameObject.GetComponent<ViewTransition_Script> ().SwitchToCrew ();
 
-                    gameObject.GetComponent<SpaceshipMovement_Script>().canMove = false;
-                    gameObject.GetComponent<SpaceshipMovement_Script>().canRotate = false;
+					gameObject.GetComponent<SpaceshipMovement_Script> ().canMove = false;
+					gameObject.GetComponent<SpaceshipMovement_Script> ().canRotate = false;
 
-                    playerObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                }
-            }
+					playerObject.GetComponent<Rigidbody2D> ().isKinematic = false;
+				}
+			} else if (isInEngineRoomTrigger) {
+				if (gameObject.GetComponent<ViewTransition_Script> ().isViewingCrew) {
+					if (gM.GetComponent<GameState_Script> ().gameState == "Normal") {
+						playerObject.GetComponent<Rigidbody2D> ().isKinematic = true;
+						GameObject.Find ("Shop Canvas").GetComponent<Canvas> ().enabled = true;
+						gM.GetComponent<GameState_Script> ().gameState = "In Menu";
+					} else if(gM.GetComponent<GameState_Script> ().gameState == "In Menu"){
+						GameObject.Find ("Shop Canvas").GetComponent<ItemShop_Script> ().CloseItemShop ();
+					}
+				}
+			}
         }
     }
 
     void FixedUpdate()
     {
-        if (gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "Using Turret" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
+        if (gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "In Menu" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
         {
             canMove = false;
             canRotate = false;
@@ -96,6 +104,7 @@ public class PlayerMovement_Script : MonoBehaviour
         TestPlayerCockpitDistance();
         TestMapDistance();
         TestComputerDistance();
+		TestEngineRoomDistance ();
     }
 
     void LookAtMousePod()
@@ -176,4 +185,23 @@ public class PlayerMovement_Script : MonoBehaviour
             GameObject.Find("Computer_Trigger").transform.GetChild(0).gameObject.SetActive(false);
         }
     }
+
+	void TestEngineRoomDistance()
+	{
+		Vector2 playerPos2d = new Vector2(playerObject.transform.position.x, playerObject.transform.position.y);
+		Vector2 triggerPos2d = new Vector2(engineRoomTriggerObject.transform.position.x, engineRoomTriggerObject.transform.position.y);
+		if (Vector2.Distance(playerPos2d, triggerPos2d) <= computerRange)
+		{
+			isInEngineRoomTrigger = true;
+			if (canMove)
+			{
+				GameObject.Find("EngineRoom_Trigger").transform.GetChild(0).gameObject.SetActive(true);
+			}
+		}
+		else
+		{
+			isInEngineRoomTrigger = false;
+			GameObject.Find("EngineRoom_Trigger").transform.GetChild(0).gameObject.SetActive(false);
+		}
+	}
 }

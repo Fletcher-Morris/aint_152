@@ -15,6 +15,7 @@ public class MenuControls_Script : MonoBehaviour
 
 	public float cinematicTime = 12f;
 	float cineTimer;
+	bool skippedIntro = false;
 
     public GameObject loadWorldUiPrefab;
 
@@ -76,9 +77,16 @@ public class MenuControls_Script : MonoBehaviour
 		if (cineTimer <= 0) {
 			cineTimer = 0;
 			GetComponent<CanvasGroup> ().alpha += 0.5f * Time.deltaTime;
+			GetComponent<Canvas> ().enabled = false;
+			GameObject.Destroy (GameObject.Find ("Press Any Key Canvas"));
 		}
 		if (GetComponent<CanvasGroup> ().alpha >= 1) {
 			GetComponent<CanvasGroup> ().alpha = 1;
+			GetComponent<Canvas> ().enabled = true;
+		}
+
+		if (Input.anyKeyDown && skippedIntro == false) {
+			SkipIntro ();
 		}
     }
 
@@ -123,20 +131,27 @@ public class MenuControls_Script : MonoBehaviour
 
     void Start()
     {
-		if (GameObject.Find ("Pause Menu Canvas")) {
-			GameObject.Find ("Theif 1").SetActive(false);
-			GameObject.Find ("Theif 2").SetActive(false);
-			GameObject.Find ("Police Ship").SetActive(false);
-			GameObject.Find ("Police Ship 2").SetActive(false);
-			GameObject.Find ("Main Camera").GetComponent<Animator>().enabled = false;
-			GameObject.Find ("Main Camera").transform.position = new Vector3 (-33.3f, 0f, -10f);
-			GameObject.Destroy (GameObject.Find ("Pause Menu Canvas"));
-			GetComponent<CanvasGroup> ().alpha = 1;
+		if (GameObject.Find ("Pause Menu Canvas") && skippedIntro == false) {
+			SkipIntro ();
 		}
 
         titletimer = titleColourTimer;
 		cineTimer = cinematicTime;
     }
+		
+	public void SkipIntro()
+	{
+		GameObject.Find ("Theif 1").SetActive(false);
+		GameObject.Find ("Theif 2").SetActive(false);
+		GameObject.Find ("Police Ship").SetActive(false);
+		GameObject.Find ("Police Ship 2").SetActive(false);
+		GameObject.Find ("Main Camera").GetComponent<Animator>().enabled = false;
+		GameObject.Find ("Main Camera").transform.position = new Vector3 (-33.3f, 0f, -10f);
+		GameObject.Destroy (GameObject.Find ("Pause Menu Canvas"));
+		GameObject.Destroy (GameObject.Find ("Press Any Key Canvas"));
+		GetComponent<CanvasGroup> ().alpha = 1;
+		skippedIntro = true;
+	}
 
     public void GetSavedWorlds()
     {

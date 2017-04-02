@@ -11,33 +11,18 @@ public class GameState_Script : MonoBehaviour {
         return gameState;
     }
 
-    public void SetStatePaused()
-    {
-        gameState = "Paused";
-    }
-
-    public void SetStateNormal()
-    {
-        gameState = "Normal";
-    }
-
-    public void SetStateFlyingShip()
-    {
-        gameState = "Flying Ship";
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(GetState() != "Paused")
+            if(GetState() == "Normal")
             {
-                SetStatePaused();
+				gameState = "Paused";
                 Time.timeScale = 0;
             }
-            else
+			else if(gameState == "Paused")
             {
-                SetStateNormal();
+				gameState = "Normal";
                 Time.timeScale = 1;
             }
         }
