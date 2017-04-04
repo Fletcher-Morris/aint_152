@@ -8,6 +8,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 {
 
     public GameObject statsUI;
+	public GameObject weaponWheelUI;
 
     public float rotateSpeed = 50;
     public float thrustPower = 50000;
@@ -21,7 +22,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 
     void Start()
     {
-
+		weaponWheelUI = GameObject.Find ("Weapon Wheel Panel");
     }
 
     void FixedUpdate()
@@ -59,6 +60,16 @@ public class SpaceshipMovement_Script : MonoBehaviour
 			} else {
 				GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 			}
+		}
+
+		if (Input.GetKey (KeyCode.Q) && GetComponent<ShipSetup_Script> ().isPlayer) {
+			if (weaponWheelUI.activeInHierarchy == false) {
+				weaponWheelUI.SetActive (true);
+				weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().enabled = true;
+			}
+		} else {
+			weaponWheelUI.SetActive (false);
+			weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().enabled = false;
 		}
     }
 
