@@ -86,6 +86,15 @@ public class WeaponWheel_Script : MonoBehaviour
 			selectorObject.transform.rotation = Quaternion.AngleAxis (270, Vector3.back);
 		}
 
+		item1Object.GetComponent<Image> ().color = normalColour;
+		item2Object.GetComponent<Image> ().color = normalColour;
+		item3Object.GetComponent<Image> ().color = normalColour;
+		item4Object.GetComponent<Image> ().color = normalColour;
+		item5Object.GetComponent<Image> ().color = normalColour;
+		item6Object.GetComponent<Image> ().color = normalColour;
+		item7Object.GetComponent<Image> ().color = normalColour;
+		item8Object.GetComponent<Image> ().color = normalColour;
+
 
 
 		if (hoverItem == 1) {

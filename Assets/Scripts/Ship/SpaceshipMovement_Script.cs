@@ -62,7 +62,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKey (KeyCode.Q) && GetComponent<ShipSetup_Script> ().isPlayer) {
+		if (Input.GetButton("Weapon Wheel") && GetComponent<ShipSetup_Script> ().isPlayer) {
 			if (weaponWheelUI.activeInHierarchy == false) {
 				if (GetComponent<ViewTransition_Script>().isViewingShip) {
 					weaponWheelUI.SetActive (true);
