@@ -13,6 +13,7 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 	public float currentIntensity;
 	public float startAngle = 45;
 	private float angleProgress;
+	public float minAngle = 10;
 
 	public GameObject beam1;
 	public GameObject beam2;
@@ -28,13 +29,13 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		angleProgress = startAngle;
 		currentIntensity = 0;
 
-		beam1.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
-		beam2.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
-		beam3.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
-		beam4.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
-		beam5.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
-		beam6.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
-		beam7.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, beamScale.y, beamScale.z);
+		beam1.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
+		beam2.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
+		beam3.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
+		beam4.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
+		beam5.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
+		beam6.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
+		beam7.transform.GetChild (0).transform.localScale = new Vector3 (beamLength, 0.3f, beamScale.z);
 
 		beam1.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,0,0);
 		beam2.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,0,0);
@@ -51,12 +52,16 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 
 		timeSpentShooting += Time.deltaTime;
 
-		if (angleProgress > 0) {
+		if (angleProgress > minAngle) {
 			angleProgress -= Time.deltaTime * speed;
+		} else {
+			angleProgress = minAngle;
 		}
 
 		if (currentIntensity < maxIntensity) {
 			currentIntensity += 5 * timeSpentShooting;
+		} else {
+			currentIntensity = maxIntensity;
 		}
 
 		beam1.transform.localEulerAngles = new Vector3 (0, 0, transform.parent.transform.rotation.z + (angleProgress * Mathf.Sin(sinSpeed * Time.time + (0f * (Mathf.PI / 2)))));

@@ -30,7 +30,7 @@ public class ShootWeapon_Script : MonoBehaviour
         {
             if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.auto)
             {
-				//Shoot ();
+				AutoShoot ();
             }
         }
 
@@ -45,12 +45,19 @@ public class ShootWeapon_Script : MonoBehaviour
 		}
     }
 
-    public void Shoot()
-    {
+	public void Shoot()
+	{
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
 			ShootIonBlaster ();
 		} else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism") {
 			ShootQuantumPrism ();
+		}
+	}
+
+    public void AutoShoot()
+    {
+		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
+			ShootIonBlaster ();
 		}
     }
 
