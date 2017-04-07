@@ -95,6 +95,8 @@ public class ShootWeapon_Script : MonoBehaviour
 
 			myPrismBeam.GetComponent<QuantumPrismBeam_Script> ().maxIntensity = gameObject.GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletDamage;
 
+			myPrismBeam.GetComponent<QuantumPrismBeam_Script> ().controllerObject = this.gameObject;
+
 		}
 	}
 }

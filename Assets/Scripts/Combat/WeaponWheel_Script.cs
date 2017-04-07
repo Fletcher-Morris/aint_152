@@ -18,23 +18,7 @@ public class WeaponWheel_Script : MonoBehaviour
 	public Color normalColour;
 
 	public GameObject selectorObject;
-	public GameObject item1Object;
-	public GameObject item2Object;
-	public GameObject item3Object;
-	public GameObject item4Object;
-	public GameObject item5Object;
-	public GameObject item6Object;
-	public GameObject item7Object;
-	public GameObject item8Object;
-
-	public string item1;
-	public string item2;
-	public string item3;
-	public string item4;
-	public string item5;
-	public string item6;
-	public string item7;
-	public string item8;
+	public GameObject[] itemObject;
 
 	public void Update()
 	{
@@ -86,96 +70,29 @@ public class WeaponWheel_Script : MonoBehaviour
 			selectorObject.transform.rotation = Quaternion.AngleAxis (270, Vector3.back);
 		}
 
-		item1Object.GetComponent<Image> ().color = normalColour;
-		item2Object.GetComponent<Image> ().color = normalColour;
-		item3Object.GetComponent<Image> ().color = normalColour;
-		item4Object.GetComponent<Image> ().color = normalColour;
-		item5Object.GetComponent<Image> ().color = normalColour;
-		item6Object.GetComponent<Image> ().color = normalColour;
-		item7Object.GetComponent<Image> ().color = normalColour;
-		item8Object.GetComponent<Image> ().color = normalColour;
 
-
-
-		if (hoverItem == 1) {
-			item1Object.GetComponent<Image> ().sprite = fillHex;
-			item1Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item1Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item1Object.GetComponent<Image> ().sprite = hollowHex;
-			item1Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item1Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
+		foreach (GameObject _object in itemObject) {
+			_object.GetComponent<Image> ().color = normalColour;
 		}
 
-		if (hoverItem == 2) {
-			item2Object.GetComponent<Image> ().sprite = fillHex;
-			item2Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item2Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item2Object.GetComponent<Image> ().sprite = hollowHex;
-			item2Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item2Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
+
+		for (int i = 1; i <= itemObject.Length; i++)
+		{
+			if (hoverItem == i) {
+				itemObject[i - 1].GetComponent<Image> ().sprite = fillHex;
+				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
+				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
+			} else {
+				itemObject[i - 1].GetComponent<Image> ().sprite = hollowHex;
+				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
+				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
+			}
 		}
 
-		if (hoverItem == 3) {
-			item3Object.GetComponent<Image> ().sprite = fillHex;
-			item3Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item3Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item3Object.GetComponent<Image> ().sprite = hollowHex;
-			item3Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item3Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
-		}
+	}
 
-		if (hoverItem == 4) {
-			item4Object.GetComponent<Image> ().sprite = fillHex;
-			item4Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item4Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item4Object.GetComponent<Image> ().sprite = hollowHex;
-			item4Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item4Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
-		}
-
-		if (hoverItem == 5) {
-			item5Object.GetComponent<Image> ().sprite = fillHex;
-			item5Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item5Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item5Object.GetComponent<Image> ().sprite = hollowHex;
-			item5Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item5Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
-		}
-
-		if (hoverItem == 6) {
-			item6Object.GetComponent<Image> ().sprite = fillHex;
-			item6Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item6Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item6Object.GetComponent<Image> ().sprite = hollowHex;
-			item6Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item6Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
-		}
-
-		if (hoverItem == 7) {
-			item7Object.GetComponent<Image> ().sprite = fillHex;
-			item7Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item7Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item7Object.GetComponent<Image> ().sprite = hollowHex;
-			item7Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item7Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
-		}
-
-		if (hoverItem == 8) {
-			item8Object.GetComponent<Image> ().sprite = fillHex;
-			item8Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
-			item8Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
-		} else {
-			item8Object.GetComponent<Image> ().sprite = hollowHex;
-			item8Object.transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
-			item8Object.transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
-		}
-
+	public int GetCurrentSelectedWeaponName()
+	{
+		return hoverItem;
 	}
 }

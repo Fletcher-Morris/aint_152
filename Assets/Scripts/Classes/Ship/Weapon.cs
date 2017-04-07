@@ -11,6 +11,7 @@ public class Weapon
     public bool auto;
     public float shootDelay;
     public int powerUse;
+	public int weaponLevel;
 
 	public Item weaponItem;
 
@@ -23,7 +24,7 @@ public class Weapon
         weaponType = "Ion Blaster";
         auto = true;
         shootDelay = 0.2f;
-        powerUse = 2;
+        powerUse = 20;
 
 		weaponItem = new Item (weaponName, "Weapon", Mathf.RoundToInt((bulletSpeed) * (bulletDamage * 3) * (1/shootDelay)), "Dmg: " + bulletDamage.ToString() + ", Speed: " + (1/shootDelay).ToString() + ", Velocity: " + bulletSpeed.ToString());
     }

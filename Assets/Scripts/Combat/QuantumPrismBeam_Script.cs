@@ -9,6 +9,7 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 	public float speed = 10;
 	public float sinSpeed = 5;
 
+	public GameObject controllerObject;
 	public float timeSpentShooting;
 	public float currentIntensity;
 	public float startAngle = 45;
@@ -79,6 +80,8 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		beam5.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
 		beam6.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
 		beam7.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
+
+		controllerObject.GetComponent<ShipSetup_Script> ().TakePower (controllerObject.GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.powerUse * Time.deltaTime);
 
 	}
 }

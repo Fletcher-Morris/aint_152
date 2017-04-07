@@ -100,7 +100,7 @@ public class ShipSetup_Script : MonoBehaviour
         return damageAmount;
     }
 
-    public void TakePower(int powerAmount)
+    public void TakePower(float powerAmount)
     {
         shipDetails.shipReactor.currentPower -= powerAmount;
 
@@ -130,10 +130,11 @@ public class ShipSetup_Script : MonoBehaviour
             shipDetails.shipReactor.currentPower = shipDetails.shipReactor.maxPower;
         }
 
-        if(shipDetails.shipReactor.currentPower > 0)
-        {
-            RechargeShield();
-        }
+		if (shipDetails.shipReactor.currentPower > 0) {
+			RechargeShield ();
+		} else {
+			GetComponent<ShootWeapon_Script> ().StopShoot ();
+		}
     }
 
     void RechargePower()

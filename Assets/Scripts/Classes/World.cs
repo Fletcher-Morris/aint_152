@@ -11,6 +11,15 @@ public class World {
     public int highScore;
     public int money;
 	public bool hardcore;
+
+	public bool hasIonBlaster;
+	public int ionBlasterLvl;
+	public int ionBlasterProgress;
+
+	public bool hasQuantumPrism;
+	public int quantumPrismLvl;
+	public int quantumPrismProgress;
+
     public Ship playerShip;
     public List<Ship> enemyShips;
     public List<Asteroid> asteroids;
@@ -22,6 +31,15 @@ public class World {
         highScore = 0;
         money = 0;
 		hardcore = false;
+
+		hasIonBlaster = true;
+		ionBlasterLvl = 1;
+		ionBlasterProgress = 0;
+
+		hasQuantumPrism = false;
+		quantumPrismLvl = 0;
+		quantumPrismProgress = 0;
+
         playerShip = new Ship();
         enemyShips = new List<Ship>();
         asteroids = new List<Asteroid>();

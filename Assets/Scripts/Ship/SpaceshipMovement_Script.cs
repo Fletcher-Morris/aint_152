@@ -70,6 +70,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 				}
 			}
 		} else {
+			GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList [weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().hoverItem - 1];
 			weaponWheelUI.SetActive (false);
 			weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().enabled = false;
 		}

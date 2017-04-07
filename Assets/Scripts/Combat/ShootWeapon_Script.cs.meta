@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 0ceb964fc76fbaf4ebc2c947e82949e4
-timeCreated: 1490459007
+timeCreated: 1491595447
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletSpawnPoint: {instanceID: 0}
+  - bulletPrefab: {fileID: 1592709747596114, guid: 28068eb3f1f2fc84a856b2b05d915dc8,
+      type: 2}
+  - prismBeamPrefab: {fileID: 1155572966877878, guid: 5d41ddc1b6b234c43a901039c0d066e8,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
