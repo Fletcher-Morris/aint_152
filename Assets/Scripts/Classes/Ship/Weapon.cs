@@ -7,7 +7,7 @@ public class Weapon
     public float bulletSpeed;
     public float bulletRange;
     public int bulletDamage;
-    public string bulletType;
+    public string weaponType;
     public bool auto;
     public float shootDelay;
     public int powerUse;
@@ -20,7 +20,7 @@ public class Weapon
         bulletSpeed = 10f;
         bulletDamage = 10;
         bulletRange = 30;
-        bulletType = "projectile";
+        weaponType = "Ion Blaster";
         auto = true;
         shootDelay = 0.2f;
         powerUse = 2;
