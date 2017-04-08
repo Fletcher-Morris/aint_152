@@ -82,21 +82,19 @@ public class WeaponWheel_Script : MonoBehaviour
 
 		for (int i = 1; i <= weaponList.Length; i++)
 		{
-			if (hoverItem == i) {
-				if (weaponList [i - 1].weaponType == "Ion Blaster") {
-					itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = ionBlasterSprite;
-				} else if (weaponList [i - 1].weaponType == "Quantum Prism") {
-					itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = quantumPrismSprite;
-				} else {
-					itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = nullSprite;
-				}
+			if (weaponList [i - 1].weaponType == "Ion Blaster") {
+				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = ionBlasterSprite;
+			} else if (weaponList [i - 1].weaponType == "Quantum Prism") {
+				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = quantumPrismSprite;
+			} else {
+				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = nullSprite;
 			}
 		}
 
 
 		for (int i = 1; i <= itemObject.Length; i++)
 		{
-			if (hoverItem == i) {
+			if (hoverItem == i && weaponList[i-1].weaponType != "null") {
 				itemObject[i - 1].GetComponent<Image> ().sprite = fillHex;
 				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().material = selectedMat;
 				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().color = selectedColour;
