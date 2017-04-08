@@ -71,7 +71,9 @@ public class SpaceshipMovement_Script : MonoBehaviour
 				}
 			}
 		} else {
-			GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList [weaponWheelUI.GetComponent<WeaponWheel_Script> ().hoverItem - 1];
+			if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList [weaponWheelUI.GetComponent<WeaponWheel_Script> ().hoverItem - 1].weaponType != "null") {
+				GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList [weaponWheelUI.GetComponent<WeaponWheel_Script> ().hoverItem - 1];
+			}
 			weaponWheelUI.transform.GetChild(0).gameObject.SetActive (false);
 			weaponWheelUI.GetComponent<WeaponWheel_Script> ().enabled = false;
 		}
