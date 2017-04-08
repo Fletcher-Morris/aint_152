@@ -9,16 +9,21 @@ public class WeaponWheel_Script : MonoBehaviour
 	public float distanceFromCenter;
 	public float wheelRadius;
 	public float currentAngle;
-	public int hoverItem;
+	public int hoverItem = 1;
 
 	public Sprite hollowHex;
 	public Sprite fillHex;
+	public Sprite nullSprite;
 	public Color selectedColour;
 	public Material selectedMat;
 	public Color normalColour;
 
+	public Sprite ionBlasterSprite;
+	public Sprite quantumPrismSprite;
+
 	public GameObject selectorObject;
 	public GameObject[] itemObject;
+	public Weapon[] weaponList;
 
 	public void Update()
 	{
@@ -73,6 +78,19 @@ public class WeaponWheel_Script : MonoBehaviour
 
 		foreach (GameObject _object in itemObject) {
 			_object.GetComponent<Image> ().color = normalColour;
+		}
+
+		for (int i = 1; i <= weaponList.Length; i++)
+		{
+			if (hoverItem == i) {
+				if (weaponList [i - 1].weaponType == "Ion Blaster") {
+					itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = ionBlasterSprite;
+				} else if (weaponList [i - 1].weaponType == "Quantum Prism") {
+					itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = quantumPrismSprite;
+				} else {
+					itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = nullSprite;
+				}
+			}
 		}
 
 

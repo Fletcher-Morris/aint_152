@@ -29,6 +29,20 @@ public class Weapon
 		weaponItem = new Item (weaponName, "Weapon", Mathf.RoundToInt((bulletSpeed) * (bulletDamage * 3) * (1/shootDelay)), "Dmg: " + bulletDamage.ToString() + ", Speed: " + (1/shootDelay).ToString() + ", Velocity: " + bulletSpeed.ToString());
     }
 
+	public Weapon(string _null)
+	{
+		if (_null == "null") {
+			weaponName = "null";
+			bulletSpeed = 0;
+			bulletDamage = 0;
+			bulletRange = 0;
+			weaponType = "null";
+			auto = false;
+			shootDelay = 0;
+			powerUse = 0;
+		}
+	}
+
 	public void RandomizeWeapon(int minValue, int maxValue)
 	{
 		this.bulletDamage = Mathf.RoundToInt(Random.Range (1, 500));

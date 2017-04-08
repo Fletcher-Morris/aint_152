@@ -22,5 +22,11 @@ public class Turret
 		upgradesList.SetDefaults ();
 		weaponsList [0] = upgradesList.ionBlaster [0];
 		weaponsList [1] = upgradesList.quantumPrism [0];
+		weaponsList [2] = new Weapon("null");
+		weaponsList [3] = new Weapon("null");
+		weaponsList [4] = new Weapon("null");
+		weaponsList [5] = new Weapon("null");
+		weaponsList [6] = new Weapon("null");
+		weaponsList [7] = new Weapon("null");
     }
 }

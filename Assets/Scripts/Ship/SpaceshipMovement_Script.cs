@@ -22,7 +22,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 
     void Start()
     {
-		weaponWheelUI = GameObject.Find ("Weapon Wheel Panel");
+		weaponWheelUI = GameObject.Find ("Weapon Wheel");
     }
 
     void FixedUpdate()
@@ -63,16 +63,17 @@ public class SpaceshipMovement_Script : MonoBehaviour
 		}
 
 		if (Input.GetButton("Weapon Wheel") && GetComponent<ShipSetup_Script> ().isPlayer) {
-			if (weaponWheelUI.activeInHierarchy == false) {
+			if (weaponWheelUI.transform.GetChild(0).gameObject.activeInHierarchy == false) {
 				if (GetComponent<ViewTransition_Script>().isViewingShip) {
-					weaponWheelUI.SetActive (true);
-					weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().enabled = true;
+					weaponWheelUI.GetComponent<WeaponWheel_Script> ().weaponList = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList;
+					weaponWheelUI.transform.GetChild(0).gameObject.SetActive (true);
+					weaponWheelUI.GetComponent<WeaponWheel_Script> ().enabled = true;
 				}
 			}
 		} else {
-			GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList [weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().hoverItem - 1];
-			weaponWheelUI.SetActive (false);
-			weaponWheelUI.transform.parent.GetComponent<WeaponWheel_Script> ().enabled = false;
+			GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList [weaponWheelUI.GetComponent<WeaponWheel_Script> ().hoverItem - 1];
+			weaponWheelUI.transform.GetChild(0).gameObject.SetActive (false);
+			weaponWheelUI.GetComponent<WeaponWheel_Script> ().enabled = false;
 		}
     }
 
