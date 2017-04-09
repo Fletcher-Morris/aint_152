@@ -4,6 +4,7 @@
 public class Weapon
 {
     public string weaponName;
+	public string weaponDescription;
     public float bulletSpeed;
     public float bulletRange;
     public int bulletDamage;
@@ -18,6 +19,7 @@ public class Weapon
     public Weapon()
     {
         weaponName = "New Weapon";
+		weaponDescription = "This peashooter of a gun is so reliable that it even works without a power source. Frankly, our scientists are baffled.";
         bulletSpeed = 10f;
         bulletDamage = 10;
         bulletRange = 30;
@@ -33,6 +35,7 @@ public class Weapon
 	{
 		if (_null == "null") {
 			weaponName = "null";
+			weaponDescription = "null";
 			bulletSpeed = 0;
 			bulletDamage = 0;
 			bulletRange = 0;

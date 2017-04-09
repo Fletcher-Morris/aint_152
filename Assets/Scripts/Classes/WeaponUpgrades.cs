@@ -31,6 +31,7 @@ public class WeaponUpgrades
 		ionBlaster [0].bulletSpeed = 10;
 		ionBlaster [0].powerUse = 2;
 		ionBlaster [0].weaponName = "Ion Blaster";
+		ionBlaster [0].weaponDescription = "This peashooter of a gun is so reliable that it even works without a power source. Frankly, our scientists are baffled.";
 		ionBlaster [0].weaponType = "Ion Blaster";
 		ionBlaster [0].weaponLevel = 1;
 
@@ -40,6 +41,7 @@ public class WeaponUpgrades
 		ionBlaster [1].bulletSpeed = 10;
 		ionBlaster [1].powerUse = 2;
 		ionBlaster [1].weaponName = "Ion Blaster";
+		ionBlaster [1].weaponDescription = "Everybody's favourite weapons-grade peashooter, now in an automatic variety.";
 		ionBlaster [1].weaponType = "Ion Blaster";
 		ionBlaster [1].weaponLevel = 2;
 
@@ -49,6 +51,7 @@ public class WeaponUpgrades
 		ionBlaster [2].bulletSpeed = 10;
 		ionBlaster [2].powerUse = 3;
 		ionBlaster [2].weaponName = "Ion Blaster";
+		ionBlaster [2].weaponDescription = "Ion Blaster lvl 3.";
 		ionBlaster [2].weaponType = "Ion Blaster";
 		ionBlaster [2].weaponLevel = 3;
 
@@ -58,6 +61,7 @@ public class WeaponUpgrades
 		ionBlaster [3].bulletSpeed = 10;
 		ionBlaster [3].powerUse = 3;
 		ionBlaster [3].weaponName = "Ion Blaster";
+		ionBlaster [3].weaponDescription = "Ion Blaster lvl 4.";
 		ionBlaster [3].weaponType = "Ion Blaster";
 		ionBlaster [3].weaponLevel = 4;
 
@@ -67,6 +71,7 @@ public class WeaponUpgrades
 		ionBlaster [4].bulletSpeed = 15;
 		ionBlaster [4].powerUse = 3;
 		ionBlaster [4].weaponName = "Plasma Blaster";
+		ionBlaster [4].weaponDescription = "Now shooting searng-hot rounds of plasma, this blaster is now starting to be banned in schools.";
 		ionBlaster [4].weaponType = "Ion Blaster";
 		ionBlaster [4].weaponLevel = 5;
 
@@ -82,6 +87,7 @@ public class WeaponUpgrades
 		quantumPrism [0].bulletSpeed = 100;
 		quantumPrism [0].powerUse = 20;
 		quantumPrism [0].weaponName = "Quantum Prism";
+		quantumPrism [0].weaponDescription = "The colourful beams cast from this stange object fills even the darkest heart with joy and happiness, before melting it an ripping a hole in the Universe.";
 		quantumPrism [0].weaponType = "Quantum Prism";
 		quantumPrism [0].weaponLevel = 1;
 
@@ -91,6 +97,7 @@ public class WeaponUpgrades
 		quantumPrism [1].bulletSpeed = 100;
 		quantumPrism [1].powerUse = 30;
 		quantumPrism [1].weaponName = "Quantum Prism";
+		quantumPrism [1].weaponDescription = "Quantum Prism lvl 2";
 		quantumPrism [1].weaponType = "Quantum Prism";
 		quantumPrism [1].weaponLevel = 2;
 
@@ -100,6 +107,7 @@ public class WeaponUpgrades
 		quantumPrism [2].bulletSpeed = 100;
 		quantumPrism [2].powerUse = 30;
 		quantumPrism [2].weaponName = "Quantum Prism";
+		quantumPrism [2].weaponDescription = "Quantum Prism lvl 3";
 		quantumPrism [2].weaponType = "Quantum Prism";
 		quantumPrism [2].weaponLevel = 3;
 
@@ -109,6 +117,7 @@ public class WeaponUpgrades
 		quantumPrism [3].bulletSpeed = 100;
 		quantumPrism [3].powerUse = 40;
 		quantumPrism [3].weaponName = "Quantum Prism";
+		quantumPrism [3].weaponDescription = "Quantum Prism lvl 4";
 		quantumPrism [3].weaponType = "Quantum Prism";
 		quantumPrism [3].weaponLevel = 4;
 
@@ -118,6 +127,7 @@ public class WeaponUpgrades
 		quantumPrism [4].bulletSpeed = 100;
 		quantumPrism [4].powerUse = 40;
 		quantumPrism [4].weaponName = "Hyper Prism";
+		quantumPrism [4].weaponDescription = "Quantum Prism lvl 5";
 		quantumPrism [4].weaponType = "Quantum Prism";
 		quantumPrism [4].weaponLevel = 5;
 	}
