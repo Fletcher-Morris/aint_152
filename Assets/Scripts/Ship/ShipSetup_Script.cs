@@ -12,6 +12,9 @@ public class ShipSetup_Script : MonoBehaviour
 
     public GameObject healthUiText;
     GameObject ShieldsUiText;
+	public GameObject shieldOverlaySprite;
+	public Color shieldColour;
+	private float shieldTransparencey = 0f;
 
     public GameObject explosionPrefab;
 	public GameObject damageIndicatorPrefab;
@@ -72,7 +75,7 @@ public class ShipSetup_Script : MonoBehaviour
         {
             shipDetails.shipHealth = 0;
             Debug.Log(gameObject.name + " died!");
-            GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
+			GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.Euler(0,0, Random.Range(0,360)));
             explosion.transform.localScale = new Vector3(3,3,3);
 
             if (isPlayer)
@@ -118,6 +121,9 @@ public class ShipSetup_Script : MonoBehaviour
         {
             shipDetails.shipShield.shieldHealth = (shipDetails.shipShield.shieldHealth - damageAmount);
             damageAmount = damageAmount - (damageAmount * shipDetails.shipShield.absorbPercent/100);
+
+			shieldOverlaySprite.GetComponent<SpriteRenderer> ().color = shieldColour;
+			shieldTransparencey = shieldColour.a;
         }
 
         shieldRechargeDelayTimer = shipDetails.shipShield.chargeDelay;
@@ -167,6 +173,8 @@ public class ShipSetup_Script : MonoBehaviour
 		}
 
 		timeSinceDamageTaken += Time.deltaTime;
+		shieldOverlaySprite.GetComponent<SpriteRenderer> ().color = new Color (shieldColour.r, shieldColour.b, shieldColour.g, shieldTransparencey);
+		shieldTransparencey -= Time.deltaTime * 2;
     }
 
     void RechargePower()
