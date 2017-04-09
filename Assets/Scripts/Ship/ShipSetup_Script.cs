@@ -14,9 +14,14 @@ public class ShipSetup_Script : MonoBehaviour
     GameObject ShieldsUiText;
 
     public GameObject explosionPrefab;
+	public GameObject damageIndicatorPrefab;
 
     float powerRechargeDelayTimer;
     float shieldRechargeDelayTimer;
+
+	private float timeSinceDamageTaken;
+	private float damageCollectionTime = .5f;
+	private float damageTakenInTime = 0;
 
     void Start()
     {
@@ -28,6 +33,8 @@ public class ShipSetup_Script : MonoBehaviour
         {
             SetupEnemyShip();
         }
+
+		timeSinceDamageTaken = damageCollectionTime;
     }
 
     void SetupEnemyShip()
@@ -53,9 +60,13 @@ public class ShipSetup_Script : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damageAmount)
+	public void TakeDamage(float damageAmount)
     {
-        shipDetails.shipHealth -= TakeShieldDamage(damageAmount);
+		shipDetails.shipHealth -= Mathf.RoundToInt(TakeShieldDamage(damageAmount));
+
+		if (damageAmount > 0) {
+			IndicateDamage (damageAmount);
+		}
 
         if (shipDetails.shipHealth <= 0)
         {
@@ -72,7 +83,7 @@ public class ShipSetup_Script : MonoBehaviour
 					Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.worldName, true);
 				}
             }
-
+			ForceIndicateDamage (damageTakenInTime);
             GameObject.Destroy(gameObject);
         }
 
@@ -82,7 +93,26 @@ public class ShipSetup_Script : MonoBehaviour
         }
     }
 
-    public int TakeShieldDamage(int damageAmount)
+	public void IndicateDamage(float rawDamage)
+	{
+		damageTakenInTime += rawDamage;
+
+		if (timeSinceDamageTaken >= damageCollectionTime) {
+			ForceIndicateDamage (damageTakenInTime);
+			damageTakenInTime = 0;
+			timeSinceDamageTaken = 0;
+		}
+	}
+
+	public void ForceIndicateDamage(float _damageTaken)
+	{
+		GameObject dmgIndicator = damageIndicatorPrefab;
+		dmgIndicator.GetComponent<DamageIndicator_Script> ().damageAmount = _damageTaken;
+		Vector2 screenPos = Camera.main.WorldToScreenPoint (new Vector2 (transform.position.x + Random.Range(-.5f, .5f), transform.position.y));
+		GameObject.Instantiate (dmgIndicator, screenPos, Quaternion.Euler(0,0,Random.Range(-10, 10)), GameObject.Find ("Player UI Canvas").transform);
+	}
+
+	public float TakeShieldDamage(float damageAmount)
     {
         if (shipDetails.shipShield.shieldHealth > 0)
         {
@@ -135,6 +165,8 @@ public class ShipSetup_Script : MonoBehaviour
 		} else {
 			GetComponent<ShootWeapon_Script> ().StopShoot ();
 		}
+
+		timeSinceDamageTaken += Time.deltaTime;
     }
 
     void RechargePower()

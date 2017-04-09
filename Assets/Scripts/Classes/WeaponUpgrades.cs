@@ -80,7 +80,7 @@ public class WeaponUpgrades
 		quantumPrism [0].auto = false;
 		quantumPrism [0].bulletDamage = 1;
 		quantumPrism [0].bulletSpeed = 100;
-		quantumPrism [0].powerUse = 0;
+		quantumPrism [0].powerUse = 20;
 		quantumPrism [0].weaponName = "Quantum Prism";
 		quantumPrism [0].weaponType = "Quantum Prism";
 		quantumPrism [0].weaponLevel = 1;
