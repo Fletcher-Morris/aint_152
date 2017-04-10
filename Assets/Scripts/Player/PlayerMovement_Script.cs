@@ -70,6 +70,7 @@ public class PlayerMovement_Script : MonoBehaviour
 						playerObject.GetComponent<Rigidbody2D> ().isKinematic = true;
 						GameObject.Find ("Shop Canvas").GetComponent<Canvas> ().enabled = true;
 						gM.GetComponent<GameState_Script> ().gameState = "In Menu";
+						GameObject.Find ("Shop Canvas").GetComponent<ItemShop_Script> ().OpenShop ();
 					} else if(gM.GetComponent<GameState_Script> ().gameState == "In Menu"){
 						GameObject.Find ("Shop Canvas").GetComponent<ItemShop_Script> ().CloseItemShop ();
 					}

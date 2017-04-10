@@ -16,6 +16,14 @@ public class World {
 	public int ionBlasterLvl;
 	public int ionBlasterProgress;
 
+	public bool hasFusionMine;
+	public int fusionMineLvl;
+	public int fusionMineProgress;
+
+	public bool hasHunterLauncher;
+	public int hunterLauncherLvl;
+	public int hunterLauncherProgress;
+
 	public bool hasQuantumPrism;
 	public int quantumPrismLvl;
 	public int quantumPrismProgress;
@@ -32,9 +40,17 @@ public class World {
         money = 0;
 		hardcore = false;
 
-		hasIonBlaster = true;
-		ionBlasterLvl = 1;
+		hasIonBlaster = false;
+		ionBlasterLvl = 0;
 		ionBlasterProgress = 0;
+
+		hasHunterLauncher = false;
+		hunterLauncherLvl = 0;
+		hunterLauncherProgress = 0;
+
+		hasFusionMine = false;
+		fusionMineLvl = 0;
+		fusionMineProgress = 0;
 
 		hasQuantumPrism = false;
 		quantumPrismLvl = 0;

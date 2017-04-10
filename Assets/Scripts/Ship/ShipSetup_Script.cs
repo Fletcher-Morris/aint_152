@@ -23,7 +23,7 @@ public class ShipSetup_Script : MonoBehaviour
     float shieldRechargeDelayTimer;
 
 	private float timeSinceDamageTaken;
-	private float damageCollectionTime = .5f;
+	public float damageCollectionTime = .5f;
 	private float damageTakenInTime = 0;
 
     void Start()

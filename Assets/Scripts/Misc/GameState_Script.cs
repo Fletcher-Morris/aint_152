@@ -20,11 +20,20 @@ public class GameState_Script : MonoBehaviour {
 				gameState = "Paused";
                 Time.timeScale = 0;
             }
-			else if(gameState == "Paused")
+			else if(GetState() == "Paused")
             {
 				gameState = "Normal";
                 Time.timeScale = 1;
             }
-        }
+			else if(GetState() == "Weapon Wheel")
+			{
+				gameState = "Normal";
+				Time.timeScale = 1;
+			}
+		}
+
+		if (GetState () == "Weapon Wheel") {
+			Time.timeScale = 0.5f;
+		}
     }
 }

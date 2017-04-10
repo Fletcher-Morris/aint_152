@@ -46,13 +46,15 @@ public class GamePrefs
         try
         {
             File.WriteAllText(Application.dataPath + "/Preferences.json", jsonString.ToString());
-            Debug.Log("Saving preferences file.");
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Save Preferences File.");
         }
         catch (System.Exception)
         {
-            Debug.LogWarning("Cannot find preferences file. Creating a new one.");
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT SAVE PREFERENCES FILE, TRYING AGAIN.");
             Directory.CreateDirectory(Application.dataPath + "/Preferences.json");
         }
+
+		Debug.Log(System.DateTime.Now.ToString() + "  Saved Preferences File.");
     }
 
     public void SavePrefs()
@@ -61,13 +63,15 @@ public class GamePrefs
         try
         {
             File.WriteAllText(Application.dataPath + "/Preferences.json", jsonString.ToString());
-            Debug.Log("Saving preferences file.");
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Save Preferences File.");
         }
         catch (System.Exception)
         {
-            Debug.LogWarning("Cannot find preferences file. Creating a new one.");
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT SAVE PREFERENCES FILE, TRYING AGAIN.");
             Directory.CreateDirectory(Application.dataPath + "/Preferences.json");
         }
+
+		Debug.Log(System.DateTime.Now.ToString() + "   Saved Preferences File.");
     }
 
     public GamePrefs LoadPrefs()
@@ -75,14 +79,16 @@ public class GamePrefs
         GamePrefs _gamePrefs = new GamePrefs();
         try
         {
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Load Preferences File.");
             string jsonString = File.ReadAllText(Application.dataPath + "/Preferences.json");
             _gamePrefs = JsonUtility.FromJson<GamePrefs>(jsonString);
         }
         catch (System.Exception)
         {
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT LOAD PREFERENCES FILE, MAKING A NEW ONE.");
             SavePrefs(_gamePrefs);
         }
-        Debug.Log("Loading preferences file.");
+		Debug.Log(System.DateTime.Now.ToString() + "   Loaded Preferences File.");
         return _gamePrefs;
     }
 }

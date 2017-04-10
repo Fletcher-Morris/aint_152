@@ -7,6 +7,8 @@ using System.IO;
 public class WeaponUpgrades
 {
 	public Weapon[] ionBlaster;
+	public Weapon[] fusionMine;
+	public Weapon[] hunterLauncher;
 	public Weapon[] quantumPrism;
 
 	public WeaponUpgrades()
@@ -17,6 +19,8 @@ public class WeaponUpgrades
 	public void SetDefaults()
 	{
 		SetIonBlaster ();
+		SetFusionMine ();
+		SetHunterLauncher ();
 		SetQuantumPrism ();
 	}
 
@@ -77,6 +81,120 @@ public class WeaponUpgrades
 
 	}
 
+	public void SetFusionMine()
+	{
+
+		fusionMine = new Weapon[5];
+
+		fusionMine [0] = new Weapon ();
+		fusionMine [0].auto = false;
+		fusionMine [0].bulletDamage = 5;
+		fusionMine [0].bulletSpeed = 10;
+		fusionMine [0].powerUse = 2;
+		fusionMine [0].weaponName = "Fusion Mine";
+		fusionMine [0].weaponDescription = "Leave these adorably small nuclear explosives behind your spaceship and watch those pesky Pirates fail to avoid them!";
+		fusionMine [0].weaponType = "Fusion Mine";
+		fusionMine [0].weaponLevel = 1;
+
+		fusionMine [1] = new Weapon ();
+		fusionMine [1].auto = false;
+		fusionMine [1].bulletDamage = 5;
+		fusionMine [1].bulletSpeed = 10;
+		fusionMine [1].powerUse = 2;
+		fusionMine [1].weaponName = "Fusion Mine";
+		fusionMine [1].weaponDescription = "Hunter Launcher lvl 2";
+		fusionMine [1].weaponType = "Fusion Mine";
+		fusionMine [1].weaponLevel = 2;
+
+		fusionMine [2] = new Weapon ();
+		fusionMine [2].auto = false;
+		fusionMine [2].bulletDamage = 5;
+		fusionMine [2].bulletSpeed = 10;
+		fusionMine [2].powerUse = 2;
+		fusionMine [2].weaponName = "Fusion Mine";
+		fusionMine [2].weaponDescription = "Hunter Launcher lvl 3";
+		fusionMine [2].weaponType = "Fusion Mine";
+		fusionMine [2].weaponLevel = 3;
+
+		fusionMine [3] = new Weapon ();
+		fusionMine [3].auto = false;
+		fusionMine [3].bulletDamage = 5;
+		fusionMine [3].bulletSpeed = 10;
+		fusionMine [3].powerUse = 2;
+		fusionMine [3].weaponName = "Fusion Mine";
+		fusionMine [3].weaponDescription = "Hunter Launcher lvl 4";
+		fusionMine [3].weaponType = "Fusion Mine";
+		fusionMine [3].weaponLevel = 4;
+
+		fusionMine [4] = new Weapon ();
+		fusionMine [4].auto = false;
+		fusionMine [4].bulletDamage = 5;
+		fusionMine [4].bulletSpeed = 10;
+		fusionMine [4].powerUse = 2;
+		fusionMine [4].weaponName = "Fusion Mine";
+		fusionMine [4].weaponDescription = "Hunter Launcher lvl 5";
+		fusionMine [4].weaponType = "Fusion Mine";
+		fusionMine [4].weaponLevel = 5;
+
+	}
+
+	public void SetHunterLauncher()
+	{
+
+		hunterLauncher = new Weapon[5];
+
+		hunterLauncher [0] = new Weapon ();
+		hunterLauncher [0].auto = false;
+		hunterLauncher [0].bulletDamage = 5;
+		hunterLauncher [0].bulletSpeed = 10;
+		hunterLauncher [0].powerUse = 2;
+		hunterLauncher [0].weaponName = "Hunter Launcher";
+		hunterLauncher [0].weaponDescription = "Description? What description?";
+		hunterLauncher [0].weaponType = "Hunter Launcher";
+		hunterLauncher [0].weaponLevel = 1;
+
+		hunterLauncher [1] = new Weapon ();
+		hunterLauncher [1].auto = false;
+		hunterLauncher [1].bulletDamage = 5;
+		hunterLauncher [1].bulletSpeed = 10;
+		hunterLauncher [1].powerUse = 2;
+		hunterLauncher [1].weaponName = "Hunter Launcher";
+		hunterLauncher [1].weaponDescription = "Hunter Launcher lvl 2";
+		hunterLauncher [1].weaponType = "Hunter Launcher";
+		hunterLauncher [1].weaponLevel = 2;
+
+		hunterLauncher [2] = new Weapon ();
+		hunterLauncher [2].auto = false;
+		hunterLauncher [2].bulletDamage = 5;
+		hunterLauncher [2].bulletSpeed = 10;
+		hunterLauncher [2].powerUse = 2;
+		hunterLauncher [2].weaponName = "Hunter Launcher";
+		hunterLauncher [2].weaponDescription = "Hunter Launcher lvl 3";
+		hunterLauncher [2].weaponType = "Hunter Launcher";
+		hunterLauncher [2].weaponLevel = 3;
+
+		hunterLauncher [3] = new Weapon ();
+		hunterLauncher [3].auto = false;
+		hunterLauncher [3].bulletDamage = 5;
+		hunterLauncher [3].bulletSpeed = 10;
+		hunterLauncher [3].powerUse = 2;
+		hunterLauncher [3].weaponName = "Hunter Launcher";
+		hunterLauncher [3].weaponDescription = "Hunter Launcher lvl 4";
+		hunterLauncher [3].weaponType = "Hunter Launcher";
+		hunterLauncher [3].weaponLevel = 4;
+
+		hunterLauncher [4] = new Weapon ();
+		hunterLauncher [4].auto = false;
+		hunterLauncher [4].bulletDamage = 5;
+		hunterLauncher [4].bulletSpeed = 10;
+		hunterLauncher [4].powerUse = 2;
+		hunterLauncher [4].weaponName = "Hunter Launcher";
+		hunterLauncher [4].weaponDescription = "Hunter Launcher lvl 5";
+		hunterLauncher [4].weaponType = "Hunter Launcher";
+		hunterLauncher [4].weaponLevel = 5;
+
+	}
+
 	public void SetQuantumPrism()
 	{
 		quantumPrism = new Weapon[5];
@@ -87,7 +205,7 @@ public class WeaponUpgrades
 		quantumPrism [0].bulletSpeed = 100;
 		quantumPrism [0].powerUse = 20;
 		quantumPrism [0].weaponName = "Quantum Prism";
-		quantumPrism [0].weaponDescription = "The colourful beams cast from this stange object fills even the darkest heart with joy and happiness, before melting it an ripping a hole in the Universe.";
+		quantumPrism [0].weaponDescription = "The colourful beams cast from this strange object bring love and happiness to even the darkest heart in the universe, before disintegrating it and ripping a hole in reality.";
 		quantumPrism [0].weaponType = "Quantum Prism";
 		quantumPrism [0].weaponLevel = 1;
 
@@ -141,14 +259,16 @@ public class WeaponUpgrades
 		try
 		{
 			File.WriteAllText(Application.dataPath + "/Data/Weapon Data.json", jsonString.ToString());
-			Debug.Log("Saving world file.");
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Save Weapon Upgrades File.");
 		}
 		catch (System.Exception)
 		{
-			Debug.LogWarning("Cannot find world file. Creating a new one.");
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT SAVE WEAPON UPGRADES FILE, TRYING AGAIN.");
 			Directory.CreateDirectory(Application.dataPath + "/Data");
 			SaveUpgrades();
 		}
+
+		Debug.Log(System.DateTime.Now.ToString() + "   Saved Weapon Upgrades File.");
 	}
 
 	public WeaponUpgrades LoadUpgrades()
@@ -156,14 +276,17 @@ public class WeaponUpgrades
 		WeaponUpgrades _upgrades = new WeaponUpgrades();
 		try
 		{
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Load Weapon Upgrades File.");
 			string jsonString = File.ReadAllText(Application.dataPath + "/Data/Weapon Data.json");
 			_upgrades = JsonUtility.FromJson<WeaponUpgrades>(jsonString);
 		}
 		catch (System.Exception)
 		{
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT LOAD WEAPON UPGRADES FILE, MAKING A NEW ONE.");
 			SaveUpgrades();
 		}
-		Debug.Log("Loading world file.");
+
+		Debug.Log(System.DateTime.Now.ToString() + "   Loaded Weapon Upgrades File.");
 		return _upgrades;
 	}
 }

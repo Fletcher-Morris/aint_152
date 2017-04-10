@@ -88,15 +88,17 @@ public class WaveManager_Script : MonoBehaviour
         string jsonString = JsonUtility.ToJson(defaultWaveData);
         try
         {
-            File.WriteAllText(Application.dataPath + "/Wave Editor/Waves.json", jsonString.ToString());
-            Debug.Log("Saving waves file.");
+            File.WriteAllText(Application.dataPath + "/Data/Waves.json", jsonString.ToString());
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Save Waves File.");
         }
         catch (System.Exception)
         {
-            Debug.LogWarning("Cannot find waves file. Creating a new one.");
-            Directory.CreateDirectory(Application.dataPath + "/Wave Editor");
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT SAVE WAVES FILE, TRYING AGAIN.");
+            Directory.CreateDirectory(Application.dataPath + "/Data");
             SaveDefaultWaves();
         }
+
+		Debug.Log (System.DateTime.Now.ToString() + "   Saved Waves File.");
     }
 
     public WaveList LoadWaveData()
@@ -105,14 +107,17 @@ public class WaveManager_Script : MonoBehaviour
 
         try
         {
-            string jsonString = File.ReadAllText(Application.dataPath + "/Wave Editor/Waves.json");
+			Debug.Log(System.DateTime.Now.ToString() + "   Trying To Load Waves File.");
+            string jsonString = File.ReadAllText(Application.dataPath + "/Data/Waves.json");
             _waveData = JsonUtility.FromJson<WaveList>(jsonString);
         }
         catch (System.Exception)
         {
+			Debug.LogWarning(System.DateTime.Now.ToString() + "   COULD NOT LOAD WAVES FILE, MAKING A NEW ONE.");
             SaveDefaultWaves();
         }
-        Debug.Log("Loading wave data file.");
+
+		Debug.Log(System.DateTime.Now.ToString() + "   Loaded Waves File.");
 
         return _waveData;
     }
