@@ -28,6 +28,8 @@ public class ShipSetup_Script : MonoBehaviour
 
     void Start()
     {
+		SetupAllships ();
+
         if (isPlayer)
         {
             SetupPlayerShip();
@@ -36,9 +38,13 @@ public class ShipSetup_Script : MonoBehaviour
         {
             SetupEnemyShip();
         }
-
-		timeSinceDamageTaken = damageCollectionTime;
     }
+
+	void SetupAllships()
+	{
+		shipDetails.shipTurret.weaponsList[0] = (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.ionBlaster [0]);
+		timeSinceDamageTaken = damageCollectionTime;
+	}
 
     void SetupEnemyShip()
     {

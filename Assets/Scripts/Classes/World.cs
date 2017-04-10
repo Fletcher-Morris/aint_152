@@ -40,7 +40,7 @@ public class World {
         money = 0;
 		hardcore = false;
 
-		hasIonBlaster = false;
+		hasIonBlaster = true;
 		ionBlasterLvl = 0;
 		ionBlasterProgress = 0;
 

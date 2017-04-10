@@ -82,12 +82,12 @@ public class ItemShop_Script : MonoBehaviour
 
 	public void Update()
 	{
-		if (selectedItem <= 0) {
+		if (selectedItem <= 0 || selectedItem > buyableWeaponsList.Count) {
 			selectedItem = 1;
 		}
 
 		if (transform.GetChild(0).transform.childCount >= 1 && buyableWeaponsList.Count >= 1) {
-			gameObject.transform.GetChild (1).GetChild (0).GetChild (0).gameObject.GetComponent<Text> ().text = "Cost: " + buyableWeaponsList [selectedItem - 1].weaponItem.itemValue.ToString () + "$";
+			gameObject.transform.GetChild (1).GetChild (0).GetChild (0).gameObject.GetComponent<Text> ().text = "Cost: $" + buyableWeaponsList [selectedItem - 1].weaponValue.ToString ();
 			gameObject.transform.GetChild (1).GetChild (1).GetChild (0).gameObject.GetComponent<Text> ().text = buyableWeaponsList [selectedItem - 1].weaponDescription;
 			
 			for (int i = 1; i <= buyableWeaponsList.Count; i++) {
@@ -116,6 +116,25 @@ public class ItemShop_Script : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void BuySelectedItem()
+	{
+		if (buyableWeaponsList [selectedItem - 1].weaponType == "Ion Blaster") {
+			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasIonBlaster = true;
+		} else if (buyableWeaponsList [selectedItem - 1].weaponType == "Fusion Mine") {
+			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasFusionMine = true;
+		} else if (buyableWeaponsList [selectedItem - 1].weaponType == "Hunter Launcher") {
+			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasHunterLauncher = true;
+		} else if (buyableWeaponsList [selectedItem - 1].weaponType == "Quantum Prism") {
+			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasQuantumPrism = true;
+		}
+
+		GameObject.Find ("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip.shipTurret.AddWeapon(buyableWeaponsList[selectedItem - 1]);
+		//GameObject.Find ("Player Ship").GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.AddWeapon (buyableWeaponsList [selectedItem - 1]);
+
+		buyableWeaponsList.RemoveAt (selectedItem - 1);
+		GameObject.Destroy (transform.GetChild(0).GetChild(selectedItem - 1).gameObject);
 	}
 
 	public void CloseItemShop()

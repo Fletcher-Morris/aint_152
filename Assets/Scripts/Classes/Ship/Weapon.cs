@@ -13,8 +13,7 @@ public class Weapon
     public float shootDelay;
     public int powerUse;
 	public int weaponLevel;
-
-	public Item weaponItem;
+	public int weaponValue;
 
     public Weapon()
     {
@@ -27,9 +26,7 @@ public class Weapon
         auto = true;
         shootDelay = 0.2f;
         powerUse = 20;
-
-		weaponItem = new Item (weaponName, "Weapon", Mathf.RoundToInt((bulletSpeed) * (bulletDamage * 3) * (1/shootDelay)), "Dmg: " + bulletDamage.ToString() + ", Speed: " + (1/shootDelay).ToString() + ", Velocity: " + bulletSpeed.ToString());
-    }
+	}
 
 	public Weapon(string _null)
 	{
@@ -54,17 +51,17 @@ public class Weapon
 
 		this.GenerateWeaponItem ();
 
-		if (this.weaponItem.itemValue < minValue || this.weaponItem.itemValue > maxValue) {
+		if (this.weaponValue < minValue || this.weaponValue > maxValue) {
 			this.RandomizeWeapon (minValue, maxValue);
 		}
 
-		Debug.LogFormat ("Generated Weapon: " + this.weaponItem.itemValue.ToString ());
+		Debug.LogFormat ("Generated Weapon: " + this.weaponValue.ToString ());
 
 		this.GenerateWeaponItem ();
 	}
 
 	public void GenerateWeaponItem()
 	{
-		weaponItem = new Item (weaponName, "Weapon", Mathf.RoundToInt(bulletSpeed * bulletDamage * (1/shootDelay)), "Dmg: " + bulletDamage.ToString() + ", Speed: " + (1/shootDelay).ToString());
+		weaponValue = ((Mathf.RoundToInt(bulletSpeed * bulletDamage * (1/shootDelay))));
 	}
 }

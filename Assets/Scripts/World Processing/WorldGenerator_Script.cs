@@ -31,10 +31,7 @@ public class WorldGenerator_Script : MonoBehaviour {
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info Background").gameObject.SetActive(true);
 
         _world.playerShip = new Ship();
-		_world.playerShip.shipTurret.turretWeapon.weaponType = "Quantum Prism";
-        _world.playerShip.shipTurret.turretWeapon.bulletSpeed = 15;
-        _world.playerShip.shipTurret.turretWeapon.bulletDamage = 1;
-        _world.playerShip.shipTurret.turretWeapon.shootDelay = 0.2f;
+		_world.playerShip.shipTurret.AddWeapon (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.ionBlaster[0]);
 
         GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();

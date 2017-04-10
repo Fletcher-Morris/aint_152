@@ -13,7 +13,7 @@ public class WeaponUpgrades
 
 	public WeaponUpgrades()
 	{
-		this.SetDefaults ();
+		
 	}
 
 	public void SetDefaults()
