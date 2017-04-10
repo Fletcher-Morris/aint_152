@@ -38,6 +38,7 @@ public class WeaponUpgrades
 		ionBlaster [0].weaponDescription = "This peashooter of a gun is so reliable that it even works without a power source. Frankly, our scientists are baffled.";
 		ionBlaster [0].weaponType = "Ion Blaster";
 		ionBlaster [0].weaponLevel = 1;
+		ionBlaster [0].weaponValue = 1000;
 
 		ionBlaster [1] = new Weapon ();
 		ionBlaster [1].auto = true;
@@ -48,6 +49,7 @@ public class WeaponUpgrades
 		ionBlaster [1].weaponDescription = "Everybody's favourite weapons-grade peashooter, now in an automatic variety.";
 		ionBlaster [1].weaponType = "Ion Blaster";
 		ionBlaster [1].weaponLevel = 2;
+		ionBlaster [1].weaponValue = 1000;
 
 		ionBlaster [2] = new Weapon ();
 		ionBlaster [2].auto = true;
@@ -58,6 +60,7 @@ public class WeaponUpgrades
 		ionBlaster [2].weaponDescription = "Ion Blaster lvl 3.";
 		ionBlaster [2].weaponType = "Ion Blaster";
 		ionBlaster [2].weaponLevel = 3;
+		ionBlaster [2].weaponValue = 1000;
 
 		ionBlaster [3] = new Weapon ();
 		ionBlaster [3].auto = true;
@@ -68,6 +71,7 @@ public class WeaponUpgrades
 		ionBlaster [3].weaponDescription = "Ion Blaster lvl 4.";
 		ionBlaster [3].weaponType = "Ion Blaster";
 		ionBlaster [3].weaponLevel = 4;
+		ionBlaster [3].weaponValue = 1000;
 
 		ionBlaster [4] = new Weapon ();
 		ionBlaster [4].auto = true;
@@ -78,6 +82,7 @@ public class WeaponUpgrades
 		ionBlaster [4].weaponDescription = "Now shooting searng-hot rounds of plasma, this blaster is now starting to be banned in schools.";
 		ionBlaster [4].weaponType = "Ion Blaster";
 		ionBlaster [4].weaponLevel = 5;
+		ionBlaster [4].weaponValue = 1000;
 
 	}
 
@@ -95,6 +100,7 @@ public class WeaponUpgrades
 		fusionMine [0].weaponDescription = "Leave these adorably small nuclear explosives behind your spaceship and watch those pesky Pirates fail to avoid them!";
 		fusionMine [0].weaponType = "Fusion Mine";
 		fusionMine [0].weaponLevel = 1;
+		fusionMine [0].weaponValue = 5000;
 
 		fusionMine [1] = new Weapon ();
 		fusionMine [1].auto = false;
@@ -152,6 +158,7 @@ public class WeaponUpgrades
 		hunterLauncher [0].weaponDescription = "Description? What description?";
 		hunterLauncher [0].weaponType = "Hunter Launcher";
 		hunterLauncher [0].weaponLevel = 1;
+		hunterLauncher [0].weaponValue = 15000;
 
 		hunterLauncher [1] = new Weapon ();
 		hunterLauncher [1].auto = false;
@@ -208,6 +215,7 @@ public class WeaponUpgrades
 		quantumPrism [0].weaponDescription = "The colourful beams cast from this strange object bring love and happiness to even the darkest heart in the universe, before disintegrating it and ripping a hole in reality.";
 		quantumPrism [0].weaponType = "Quantum Prism";
 		quantumPrism [0].weaponLevel = 1;
+		quantumPrism [0].weaponValue = 75000;
 
 		quantumPrism [1] = new Weapon ();
 		quantumPrism [1].auto = false;

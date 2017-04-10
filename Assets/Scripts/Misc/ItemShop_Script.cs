@@ -82,6 +82,7 @@ public class ItemShop_Script : MonoBehaviour
 
 	public void Update()
 	{
+
 		if (selectedItem <= 0 || selectedItem > buyableWeaponsList.Count) {
 			selectedItem = 1;
 		}
@@ -99,6 +100,16 @@ public class ItemShop_Script : MonoBehaviour
 			gameObject.transform.GetChild (0).GetChild (selectedItem - 1).gameObject.GetComponent<Image> ().color = selectedColour;
 			gameObject.transform.GetChild (0).GetChild (selectedItem - 1).GetChild (0).gameObject.GetComponent<Image> ().color = selectedTextColour;
 			gameObject.transform.GetChild (0).GetChild (selectedItem - 1).GetChild (1).gameObject.GetComponent<Text> ().color = selectedTextColour;
+
+			if (buyableWeaponsList [selectedItem - 1].weaponValue > GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.money) {
+				gameObject.transform.GetChild (1).GetChild (0).GetChild (0).gameObject.GetComponent<Text> ().color = Color.red;
+				gameObject.transform.GetChild (1).GetChild (2).GetComponent<Button> ().interactable = false;
+				gameObject.transform.GetChild (1).GetChild (2).GetChild (0).gameObject.SetActive (false);
+			} else {
+				gameObject.transform.GetChild (1).GetChild (0).GetChild (0).gameObject.GetComponent<Text> ().color = Color.white;
+				gameObject.transform.GetChild (1).GetChild (2).GetComponent<Button> ().interactable = true;
+				gameObject.transform.GetChild (1).GetChild (2).GetChild (0).gameObject.SetActive (true);
+			}
 		}
 
 		if (Input.GetButtonDown ("Vertical")) {
@@ -131,7 +142,6 @@ public class ItemShop_Script : MonoBehaviour
 		}
 
 		GameObject.Find ("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip.shipTurret.AddWeapon(buyableWeaponsList[selectedItem - 1]);
-		//GameObject.Find ("Player Ship").GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.AddWeapon (buyableWeaponsList [selectedItem - 1]);
 
 		buyableWeaponsList.RemoveAt (selectedItem - 1);
 		GameObject.Destroy (transform.GetChild(0).GetChild(selectedItem - 1).gameObject);
