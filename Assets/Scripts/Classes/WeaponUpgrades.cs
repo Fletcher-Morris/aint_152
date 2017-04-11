@@ -33,6 +33,7 @@ public class WeaponUpgrades
 		ionBlaster [0].auto = false;
 		ionBlaster [0].bulletDamage = 5;
 		ionBlaster [0].bulletSpeed = 10;
+		ionBlaster [0].shootDelay = 0.4f;
 		ionBlaster [0].powerUse = 2;
 		ionBlaster [0].weaponName = "Ion Blaster";
 		ionBlaster [0].weaponDescription = "This peashooter of a gun is so reliable that it even works without a power source. Frankly, our scientists are baffled.";
@@ -44,6 +45,7 @@ public class WeaponUpgrades
 		ionBlaster [1].auto = true;
 		ionBlaster [1].bulletDamage = 7;
 		ionBlaster [1].bulletSpeed = 10;
+		ionBlaster [1].shootDelay = 0.4f;
 		ionBlaster [1].powerUse = 2;
 		ionBlaster [1].weaponName = "Ion Blaster";
 		ionBlaster [1].weaponDescription = "Everybody's favourite weapons-grade peashooter, now in an automatic variety.";
@@ -55,6 +57,7 @@ public class WeaponUpgrades
 		ionBlaster [2].auto = true;
 		ionBlaster [2].bulletDamage = 10;
 		ionBlaster [2].bulletSpeed = 10;
+		ionBlaster [2].shootDelay = 0.4f;
 		ionBlaster [2].powerUse = 3;
 		ionBlaster [2].weaponName = "Ion Blaster";
 		ionBlaster [2].weaponDescription = "Ion Blaster lvl 3.";
@@ -66,6 +69,7 @@ public class WeaponUpgrades
 		ionBlaster [3].auto = true;
 		ionBlaster [3].bulletDamage = 12;
 		ionBlaster [3].bulletSpeed = 10;
+		ionBlaster [3].shootDelay = 0.3f;
 		ionBlaster [3].powerUse = 3;
 		ionBlaster [3].weaponName = "Ion Blaster";
 		ionBlaster [3].weaponDescription = "Ion Blaster lvl 4.";
@@ -77,12 +81,25 @@ public class WeaponUpgrades
 		ionBlaster [4].auto = true;
 		ionBlaster [4].bulletDamage = 15;
 		ionBlaster [4].bulletSpeed = 15;
+		ionBlaster [4].shootDelay = 0.3f;
 		ionBlaster [4].powerUse = 3;
 		ionBlaster [4].weaponName = "Plasma Blaster";
-		ionBlaster [4].weaponDescription = "Now shooting searng-hot rounds of plasma, this blaster is now starting to be banned in schools.";
+		ionBlaster [4].weaponDescription = "Now shooting searng-hot rounds of plasma, this blaster is no longer permitted in schools.";
 		ionBlaster [4].weaponType = "Ion Blaster";
 		ionBlaster [4].weaponLevel = 5;
 		ionBlaster [4].weaponValue = 1000;
+
+		ionBlaster [5] = new Weapon ();
+		ionBlaster [5].auto = true;
+		ionBlaster [5].bulletDamage = 15;
+		ionBlaster [5].bulletSpeed = 15;
+		ionBlaster [5].shootDelay = 0.4f;
+		ionBlaster [5].powerUse = 3;
+		ionBlaster [5].weaponName = "Plasma Blaster";
+		ionBlaster [5].weaponDescription = "The Omega Plasma Blaster fires two extra rounds of super-heated matter with every shot, dramatically increasing the damage output!";
+		ionBlaster [5].weaponType = "Ion Blaster";
+		ionBlaster [5].weaponLevel = 5;
+		ionBlaster [5].weaponValue = 1000;
 
 	}
 

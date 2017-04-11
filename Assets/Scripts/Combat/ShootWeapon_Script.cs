@@ -75,12 +75,33 @@ public class ShootWeapon_Script : MonoBehaviour
 		{
 			GetComponent<ShipSetup_Script>().TakePower(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse);
 
-			GameObject _bullet = GameObject.Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+			if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponLevel != 5) {
+				GameObject _bullet = GameObject.Instantiate (bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
+				
+				_bullet.GetComponent<Rigidbody2D> ().velocity = _bullet.transform.up * GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed;
+				_bullet.GetComponent<Bullet_Script> ().damage = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletDamage;
+				
+				Destroy (_bullet, GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed);
+			} else {
+				
+				GameObject _bullet1 = GameObject.Instantiate (bulletPrefab, bulletSpawnPoint.transform.position, Quaternion.Euler(bulletSpawnPoint.transform.rotation.eulerAngles.x, bulletSpawnPoint.transform.rotation.eulerAngles.y, bulletSpawnPoint.transform.rotation.eulerAngles.z - 10f));
+				GameObject _bullet2 = GameObject.Instantiate (bulletPrefab, bulletSpawnPoint.transform.position, Quaternion.Euler(bulletSpawnPoint.transform.rotation.eulerAngles.x, bulletSpawnPoint.transform.rotation.eulerAngles.y, bulletSpawnPoint.transform.rotation.eulerAngles.z));
+				GameObject _bullet3 = GameObject.Instantiate (bulletPrefab, bulletSpawnPoint.transform.position, Quaternion.Euler(bulletSpawnPoint.transform.rotation.eulerAngles.x, bulletSpawnPoint.transform.rotation.eulerAngles.y, bulletSpawnPoint.transform.rotation.eulerAngles.z + 10f));
 
-			_bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.up * GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed;
-			_bullet.GetComponent<Bullet_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
 
-			Destroy(_bullet, GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletSpeed);
+				_bullet1.GetComponent<Rigidbody2D> ().velocity = _bullet1.transform.up * GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed;
+				_bullet1.GetComponent<Bullet_Script> ().damage = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletDamage / 2;
+				_bullet1.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+				_bullet2.GetComponent<Rigidbody2D> ().velocity = _bullet2.transform.up * GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed;
+				_bullet2.GetComponent<Bullet_Script> ().damage = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletDamage;
+				_bullet3.GetComponent<Rigidbody2D> ().velocity = _bullet3.transform.up * GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed;
+				_bullet3.GetComponent<Bullet_Script> ().damage = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletDamage / 2;
+				_bullet3.transform.localScale = new Vector3 (0.5f, 0.5f, 0.5f);
+
+				Destroy (_bullet1, GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed);
+				Destroy (_bullet2, GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed);
+				Destroy (_bullet3, GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed);
+			}
 
 			shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
 		}
