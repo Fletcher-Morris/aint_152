@@ -142,6 +142,7 @@ public class ItemShop_Script : MonoBehaviour
 		}
 
 		GameObject.Find ("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip.shipTurret.AddWeapon(buyableWeaponsList[selectedItem - 1]);
+		GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.money -= buyableWeaponsList [selectedItem - 1].weaponValue;
 
 		buyableWeaponsList.RemoveAt (selectedItem - 1);
 		GameObject.Destroy (transform.GetChild(0).GetChild(selectedItem - 1).gameObject);
@@ -159,6 +160,6 @@ public class ItemShop_Script : MonoBehaviour
 		}
 
 		GameObject.Find("Player").GetComponent<Rigidbody2D> ().isKinematic = false;
-		GameObject.Find ("GM").GetComponent<GameState_Script> ().gameState = "Normal";
+		GameObject.Find ("GM").GetComponent<GameState_Script> ().SetPlayerState ("Normal");
 	}
 }

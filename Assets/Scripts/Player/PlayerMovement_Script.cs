@@ -46,7 +46,7 @@ public class PlayerMovement_Script : MonoBehaviour
         {
 			if (isInCockpitTrigger) {
 				if (gameObject.GetComponent<ViewTransition_Script> ().isViewingCrew) {
-					gM.GetComponent<GameState_Script> ().gameState = "Flying Ship";
+					gM.GetComponent<GameState_Script> ().SetPlayerState ("Flying Ship");
 					gameObject.GetComponent<ViewTransition_Script> ().SwitchToShip ();
 
 					gameObject.GetComponent<SpaceshipMovement_Script> ().canMove = true;
@@ -56,7 +56,7 @@ public class PlayerMovement_Script : MonoBehaviour
 
 					GameObject.Find ("RM").GetComponent<WaveManager_Script> ().doSpawn = true;
 				} else {
-					gM.GetComponent<GameState_Script> ().gameState = "Normal";
+					gM.GetComponent<GameState_Script> ().SetPlayerState ("Normal");
 					gameObject.GetComponent<ViewTransition_Script> ().SwitchToCrew ();
 
 					gameObject.GetComponent<SpaceshipMovement_Script> ().canMove = false;
@@ -66,12 +66,12 @@ public class PlayerMovement_Script : MonoBehaviour
 				}
 			} else if (isInEngineRoomTrigger) {
 				if (gameObject.GetComponent<ViewTransition_Script> ().isViewingCrew) {
-					if (gM.GetComponent<GameState_Script> ().gameState == "Normal") {
+					if (gM.GetComponent<GameState_Script> ().GetPlayerState() == "Normal") {
 						playerObject.GetComponent<Rigidbody2D> ().isKinematic = true;
 						GameObject.Find ("Shop Canvas").GetComponent<Canvas> ().enabled = true;
-						gM.GetComponent<GameState_Script> ().gameState = "In Menu";
+						gM.GetComponent<GameState_Script> ().SetPlayerState("In Menu");
 						GameObject.Find ("Shop Canvas").GetComponent<ItemShop_Script> ().OpenShop ();
-					} else if(gM.GetComponent<GameState_Script> ().gameState == "In Menu"){
+					} else if(gM.GetComponent<GameState_Script> ().GetPlayerState() == "In Menu"){
 						GameObject.Find ("Shop Canvas").GetComponent<ItemShop_Script> ().CloseItemShop ();
 					}
 				}
@@ -81,7 +81,7 @@ public class PlayerMovement_Script : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (gM.GetComponent<GameState_Script>().gameState == "Paused" || gM.GetComponent<GameState_Script>().gameState == "In Menu" || gM.GetComponent<GameState_Script>().gameState == "Flying Ship")
+		if (gM.GetComponent<GameState_Script>().GetPlayerState() != "Normal")
         {
             canMove = false;
             canRotate = false;

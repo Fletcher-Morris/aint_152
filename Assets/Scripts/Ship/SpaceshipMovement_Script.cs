@@ -55,7 +55,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
         }
 
 		if (GetComponent<ShipSetup_Script>().isPlayer) {
-			if (GameObject.Find ("GM").GetComponent<GameState_Script> ().gameState == "Flying Ship") {
+			if (GameObject.Find ("GM").GetComponent<GameState_Script> ().GetPlayerState() == "Flying Ship") {
 				GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 			} else {
 				GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;

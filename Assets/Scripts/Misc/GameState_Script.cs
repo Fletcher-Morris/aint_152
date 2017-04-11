@@ -5,35 +5,59 @@ using UnityEngine;
 public class GameState_Script : MonoBehaviour {
 
     public string gameState = "Normal";
+	public string previousGameState;
+
+	public string playerState = "Normal";
+	public string previousPlayerState;
 
     public string GetState()
     {
         return gameState;
     }
 
+	public string GetPreviousState()
+	{
+		return previousGameState;
+	}
+
+	public string GetPlayerState()
+	{
+		return playerState;
+	}
+
+	public string GetPreviousPlayerState()
+	{
+		return previousPlayerState;
+	}
+
+	void Start()
+	{
+		previousGameState = gameState;
+	}
+
+	public void SetState(string newState)
+	{
+		previousGameState = gameState;
+		gameState = newState;
+	}
+
+	public void SetPlayerState(string newState)
+	{
+		previousPlayerState = playerState;
+		playerState = newState;
+	}
+
     void Update()
     {
 		if (Input.GetButtonDown("Cancel"))
         {
-            if(GetState() == "Normal")
-            {
-				gameState = "Paused";
-                Time.timeScale = 0;
-            }
-			else if(GetState() == "Paused")
-            {
-				gameState = "Normal";
-                Time.timeScale = 1;
-            }
-			else if(GetState() == "Weapon Wheel")
-			{
-				gameState = "Normal";
-				Time.timeScale = 1;
+			if (GetState () == "Paused") {
+				SetState ("Normal");
+				Time.timeScale = 1f;
+			} else if (GetState () == "Normal") {
+				SetState ("Paused");
+				Time.timeScale = 0f;
 			}
-		}
-
-		if (GetState () == "Weapon Wheel") {
-			Time.timeScale = 0.5f;
 		}
     }
 }

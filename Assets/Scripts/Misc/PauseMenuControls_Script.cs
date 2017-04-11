@@ -16,8 +16,6 @@ public class PauseMenuControls_Script : MonoBehaviour
         backgroundPanelObject.SetActive(true);
         mainPanelObject.SetActive(true);
         prefsPanelObject.SetActive(false);
-
-		GameObject.Find("GM").GetComponent<GameState_Script>().gameState = "Paused";
     }
 
     public void ShowPrefsPanel()
@@ -28,8 +26,6 @@ public class PauseMenuControls_Script : MonoBehaviour
 
         GameObject.Find("GM").GetComponent<GamePrefs_Script>().SetPrefsToUI();
         GameObject.Find("GM").GetComponent<GamePrefs_Script>().getPrefsFromUi = true;
-
-		GameObject.Find("GM").GetComponent<GameState_Script>().gameState = "Paused";
     }
     public void SavePreferencesChanges()
     {
@@ -46,13 +42,13 @@ public class PauseMenuControls_Script : MonoBehaviour
         mainPanelObject.SetActive(false);
         prefsPanelObject.SetActive(false);
 
-		GameObject.Find("GM").GetComponent<GameState_Script>().gameState = "Normal";
+		GameObject.Find ("GM").GetComponent<GameState_Script> ().SetState ("Normal");
     }
 
     public void LeaveGame()
     {
         SceneManager.LoadScene("Menu_Scene");
-		GameObject.Find("GM").GetComponent<GameState_Script>().gameState = "Normal";
+		GameObject.Find("GM").GetComponent<GameState_Script>().SetState ("Normal");
     }
 
     public void SaveGameRelay()
@@ -70,7 +66,7 @@ public class PauseMenuControls_Script : MonoBehaviour
                 isShowingPauseMenu = true;
             }
         }
-        else if (GameObject.Find("GM").GetComponent<GameState_Script>().GetState() == "Normal")
+        else
         {
             if(isShowingPauseMenu == true)
             {

@@ -30,13 +30,13 @@ public class EnemyShipAi_Script : MonoBehaviour
                 targetEnemy = null;
             }
 
-            if (targetEnemy)
+			if (targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
             {
                 AimTurret();
                 ShootGun(); 
             }
 
-            if (currentEnemyRange >= 3 && targetEnemy)
+			if (currentEnemyRange >= 3 && targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
             {
                 MoveShipRigidbody();
                 RotateShip();
