@@ -75,7 +75,7 @@ public class ShootWeapon_Script : MonoBehaviour
 		{
 			GetComponent<ShipSetup_Script>().TakePower(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse);
 
-			if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponLevel != 5) {
+			if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponLevel != 6) {
 				GameObject _bullet = GameObject.Instantiate (bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
 				
 				_bullet.GetComponent<Rigidbody2D> ().velocity = _bullet.transform.up * GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed;

@@ -27,7 +27,7 @@ public class WeaponUpgrades
 	public void SetIonBlaster()
 	{
 
-		ionBlaster = new Weapon[5];
+		ionBlaster = new Weapon[6];
 
 		ionBlaster [0] = new Weapon ();
 		ionBlaster [0].auto = false;

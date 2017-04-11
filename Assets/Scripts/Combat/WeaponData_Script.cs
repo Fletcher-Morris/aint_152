@@ -11,4 +11,9 @@ public class WeaponData_Script : MonoBehaviour
 	{
 		weaponUpgrades = weaponUpgrades.LoadUpgrades ();
 	}
+
+	void Start()
+	{
+		weaponUpgrades = weaponUpgrades.LoadUpgrades ();
+	}
 }
