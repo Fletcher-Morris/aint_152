@@ -24,8 +24,9 @@ public class WorldLoader_Script : MonoBehaviour {
         {
             theWorld.worldName = null;
             theWorld.currentWave = 0;
-            theWorld.highScore = 0;
+			theWorld.score = 0;
             theWorld.money = 0;
+			theWorld.gold = 0;
             theWorld.playerShip = null;
             theWorld.enemyShips = null;
             theWorld.asteroids = null;

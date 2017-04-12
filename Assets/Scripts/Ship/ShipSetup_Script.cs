@@ -158,6 +158,11 @@ public class ShipSetup_Script : MonoBehaviour
         GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
         GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.RoundToInt(shipDetails.shipReactor.currentPower);
         GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.RoundToInt(shipDetails.shipShield.shieldHealth);
+
+		WorldLoader_Script wL = GameObject.Find ("WM").GetComponent<WorldLoader_Script> ();
+		GameObject.Find ("Money Text").GetComponent<Text> ().text = "$" + wL.theWorld.money;
+		GameObject.Find ("Gold Text").GetComponent<Text> ().text = "GOLD: " + wL.theWorld.gold;
+		GameObject.Find ("Score Text").GetComponent<Text> ().text = "SCORE: " + wL.theWorld.score;
     }
 
     private void Update()

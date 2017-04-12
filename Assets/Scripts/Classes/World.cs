@@ -8,8 +8,9 @@ public class World {
 
     public string worldName;
     public int currentWave;
-    public int highScore;
+    public int score;
     public int money;
+	public int gold;
 	public bool hardcore;
 
 	public bool hasIonBlaster;
@@ -36,8 +37,9 @@ public class World {
     {
         worldName = "New World";
         currentWave = 1;
-        highScore = 0;
+		score = 0;
         money = 0;
+		gold = 0;
 		hardcore = false;
 
 		hasIonBlaster = true;
@@ -65,8 +67,9 @@ public class World {
     {
         worldName = _worldName;
         currentWave = 1;
-        highScore = 0;
-        money = 0;
+		score = 0;
+		money = 0;
+		gold = 0;
 		hardcore = false;
         playerShip = new Ship();
         enemyShips = new List<Ship>();
