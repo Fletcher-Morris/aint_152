@@ -92,6 +92,10 @@ public class ShipSetup_Script : MonoBehaviour
 					Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.worldName, true);
 				}
             }
+
+			if (GetComponent<DropOnDeath_Script> ()) {
+				gameObject.GetComponent<DropOnDeath_Script> ().Drop ();
+			}
 			ForceIndicateDamage (damageTakenInTime);
             GameObject.Destroy(gameObject);
         }

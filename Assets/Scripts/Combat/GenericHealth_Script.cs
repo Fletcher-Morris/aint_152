@@ -11,6 +11,7 @@ public class GenericHealth_Script : MonoBehaviour
     public float explosionScale = 1;
 
     public bool destroyOnDeath = true;
+	public bool dropItemsOnDeath = true;
 
 	public GameObject damageIndicatorPrefab;
 	private float timeSinceDamageTaken;
@@ -47,6 +48,10 @@ public class GenericHealth_Script : MonoBehaviour
             {
                 GameObject.Destroy(gameObject);
             }
+
+			if (dropItemsOnDeath && GetComponent<DropOnDeath_Script> ()) {
+				gameObject.GetComponent<DropOnDeath_Script> ().Drop ();
+			}
         }
     }
 
