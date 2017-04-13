@@ -28,8 +28,8 @@ public class WorldLoader_Script : MonoBehaviour {
             theWorld.money = 0;
 			theWorld.gold = 0;
             theWorld.playerShip = null;
-            theWorld.enemyShips = null;
-            theWorld.asteroids = null;
+			theWorld.currentStarSystem.enemyShips = null;
+			theWorld.currentStarSystem.asteroids = null;
             nameOfWorldToLoad = null;
         }
 
@@ -49,7 +49,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void GenerateEnemyShips()
     {
-        foreach (Ship _enemyShip in theWorld.enemyShips)
+		foreach (Ship _enemyShip in theWorld.currentStarSystem.enemyShips)
         {
             GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _enemyShip.shipPos, Quaternion.Euler(_enemyShip.shipRot));
         }
@@ -57,7 +57,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void GenerateAsteroids()
     {
-        foreach (Asteroid _asteroid in theWorld.asteroids)
+		foreach (Asteroid _asteroid in theWorld.currentStarSystem.asteroids)
         {
             GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
         }
@@ -68,16 +68,16 @@ public class WorldLoader_Script : MonoBehaviour {
     {
         theWorld.playerShip = GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails;
 
-        theWorld.asteroids.Clear();
+		theWorld.currentStarSystem.asteroids.Clear();
         foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))
         {
-            theWorld.asteroids.Add(new Asteroid(_asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+			theWorld.currentStarSystem.asteroids.Add(new Asteroid(_asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
         }
 
-        theWorld.enemyShips.Clear();
+		theWorld.currentStarSystem.enemyShips.Clear();
         foreach (GameObject _enemyShipObject in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            theWorld.enemyShips.Add(new Ship(_enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipName, _enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth, _enemyShipObject.transform.position, _enemyShipObject.transform.rotation.eulerAngles));
+			theWorld.currentStarSystem.enemyShips.Add(new Ship(_enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipName, _enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth, _enemyShipObject.transform.position, _enemyShipObject.transform.rotation.eulerAngles));
         }
 
         theWorld.SaveWorld(theWorld);

@@ -30,8 +30,9 @@ public class World {
 	public int quantumPrismProgress;
 
     public Ship playerShip;
-    public List<Ship> enemyShips;
-    public List<Asteroid> asteroids;
+
+	public List<StarSystem> starSystems;
+	public StarSystem currentStarSystem;
 
     public World()
     {
@@ -59,8 +60,8 @@ public class World {
 		quantumPrismProgress = 0;
 
         playerShip = new Ship();
-        enemyShips = new List<Ship>();
-        asteroids = new List<Asteroid>();
+		starSystems = new List<StarSystem> ();
+		currentStarSystem = new StarSystem ();
     }
 
     public World(string _worldName)
@@ -72,8 +73,8 @@ public class World {
 		gold = 0;
 		hardcore = false;
         playerShip = new Ship();
-        enemyShips = new List<Ship>();
-        asteroids = new List<Asteroid>();
+		starSystems = new List<StarSystem> ();
+		currentStarSystem = new StarSystem ();
     }
 
     public void SaveWorld()
