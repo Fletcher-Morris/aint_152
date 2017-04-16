@@ -9,7 +9,7 @@ public class DefaultMissions_Script : MonoBehaviour {
 	public List<Mission> defaultSecondaryMissions;
 	public List<Mission> loadedMissions; 
 
-	void Awake(){
+	void Start(){
 		if (!Directory.Exists (Application.dataPath + "/Data/Missions/")) {
 			Debug.LogWarning ("Missions Directory Does Not Exist, Creating A New One.");
 			Directory.CreateDirectory (Application.dataPath + "/Data/Missions/");
@@ -41,11 +41,15 @@ public class DefaultMissions_Script : MonoBehaviour {
 		List<Mission> _missions = new List<Mission> ();
 
 		foreach(string _directory in Directory.GetFiles(Application.dataPath + "/Data/Missions/")){
-
-			string jsonString = File.ReadAllText (_directory);
-			Mission _mission = JsonUtility.FromJson<Mission> (jsonString);
-			_missions.Add (_mission);
-			Debug.Log ("Loaded mission file (" + _mission.missionName + ").");
+			
+			if (_directory.EndsWith(".json")) {
+				
+				string jsonString = File.ReadAllText (_directory);
+				jsonString = (GetComponent<WordReplacer_Script> ().ReplaceWords (jsonString));
+				Mission _mission = JsonUtility.FromJson<Mission> (jsonString);
+				_missions.Add (_mission);
+				Debug.Log ("Loaded mission file (" + _mission.missionName + ").");
+			}
 		}
 
 		return _missions;

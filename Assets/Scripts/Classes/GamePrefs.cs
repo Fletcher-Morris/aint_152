@@ -30,7 +30,7 @@ public class GamePrefs
 
     public GamePrefs()
     {
-        playerName = "";
+        playerName = "Scott Ace";
         sensitivity = 10;
         volumeLevel = 5;
         style = 1;

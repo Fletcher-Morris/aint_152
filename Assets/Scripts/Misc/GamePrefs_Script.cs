@@ -8,7 +8,6 @@ public class GamePrefs_Script : MonoBehaviour
 {
     public GamePrefs gamePrefs;
     public bool getPrefsFromUi = false;
-    public Behaviour netHud;
 
     void Start()
     {
