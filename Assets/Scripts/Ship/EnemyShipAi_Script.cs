@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyShipAi_Script : MonoBehaviour
 {
     public float enemyDetectionRange = 30;
+	public float enemyShootRange = 8;
     public float rotateSpeed = 50f;
     public float rotationSmoothing = 5f;
 
@@ -33,7 +34,9 @@ public class EnemyShipAi_Script : MonoBehaviour
 			if (targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
             {
                 AimTurret();
-                ShootGun(); 
+				if(currentEnemyRange <= enemyShootRange){
+					ShootGun();
+				}
             }
 
 			if (currentEnemyRange >= 3 && targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
