@@ -19,7 +19,7 @@ public class SetWorldToLoad_Script : MonoBehaviour {
     {
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().nameOfWorldToLoad = worldNameUIObject.GetComponent<Text>().text;
 
-        Directory.Delete(Application.dataPath + "/Saves/" + worldNameUIObject.GetComponent<Text>().text, true);
+		File.Delete(Application.dataPath + "/Data/Saves/" + worldNameUIObject.GetComponent<Text>().text + ".json");
 
         Debug.Log(gameObject.name + ": Deleted " + worldNameUIObject.GetComponent<Text>().text + " save file.");
 

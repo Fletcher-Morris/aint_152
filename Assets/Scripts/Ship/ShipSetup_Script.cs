@@ -50,12 +50,11 @@ public class ShipSetup_Script : MonoBehaviour
     {
         isPlayer = false;
         gameObject.transform.tag = "Enemy";
-		//shipDetails.shipTurret.turretWeapon.RandomizeWeapon (0, 200);
     }
 
     void SetupPlayerShip()
     {
-        isPlayer = true;
+		isPlayer = true;
         gameObject.transform.tag = "Player";
         shipDetails = GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip;
         transform.position = shipDetails.shipPos;
@@ -68,6 +67,12 @@ public class ShipSetup_Script : MonoBehaviour
             UpdateUI();
         }
     }
+
+	public void SavePlayerShip(){
+		shipDetails.shipPos = gameObject.transform.position;
+		shipDetails.shipRot = gameObject.transform.rotation.eulerAngles;
+		GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.playerShip = this.shipDetails;
+	}
 
 	public void TakeDamage(float damageAmount)
     {

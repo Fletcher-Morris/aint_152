@@ -41,9 +41,9 @@ public class DefaultMissions_Script : MonoBehaviour {
 		List<Mission> _missions = new List<Mission> ();
 
 		foreach(string _directory in Directory.GetFiles(Application.dataPath + "/Data/Missions/")){
-			
+
 			if (_directory.EndsWith(".json")) {
-				
+
 				string jsonString = File.ReadAllText (_directory);
 				jsonString = (GetComponent<WordReplacer_Script> ().ReplaceWords (jsonString));
 				Mission _mission = JsonUtility.FromJson<Mission> (jsonString);

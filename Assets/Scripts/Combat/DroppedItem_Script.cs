@@ -22,17 +22,19 @@ public class DroppedItem_Script : MonoBehaviour
 
 	void Update()
 	{
-		if (moveSpeed > 0) {
-			if (Vector2.Distance(transform.position, targetObject.transform.position) <= movementRange) {
-				transform.position = Vector2.MoveTowards (transform.position, targetObject.transform.position, moveSpeed);
+		if (targetObject) {
+			if (moveSpeed > 0) {
+				if (Vector2.Distance (transform.position, targetObject.transform.position) <= movementRange) {
+					transform.position = Vector2.MoveTowards (transform.position, targetObject.transform.position, moveSpeed);
+				}
 			}
-		}
-
-		if (Vector2.Distance (transform.position, targetObject.transform.position) <= pickupRange) {
-			if (dropType == "Money") {
-				GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.money += dropValue;
+			
+			if (Vector2.Distance (transform.position, targetObject.transform.position) <= pickupRange) {
+				if (dropType == "Money") {
+					GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.money += dropValue;
+				}
+				GameObject.Destroy (gameObject);
 			}
-			GameObject.Destroy (gameObject);
 		}
 	}
 }

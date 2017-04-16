@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System.Text;
 
 public class MenuControls_Script : MonoBehaviour
 {
@@ -164,27 +165,32 @@ public class MenuControls_Script : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
 
-        if (Directory.Exists(Application.dataPath + "/Saves"))
+        if (Directory.Exists(Application.dataPath + "/Data/Saves"))
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(Application.dataPath + "/Saves");
-            DirectoryInfo[] fileInfo = dirInfo.GetDirectories();
+			DirectoryInfo dirInfo = new DirectoryInfo(Application.dataPath + "/Data/Saves");
+			FileInfo[] fileInfo = dirInfo.GetFiles();
 
             Debug.Log(gameObject.name + ": Found " + fileInfo.Length + " world files.");
 
-            foreach (DirectoryInfo _world in fileInfo)
+
+			foreach (FileInfo _world in fileInfo)
             {
-                GameObject worldUI = Instantiate(loadWorldUiPrefab) as GameObject;
-                worldUI.transform.SetParent(GameObject.Find("Load World Scroll Content").transform);
-                worldUI.transform.position = GameObject.Find("Load World Scroll Content").transform.position;
-                worldUI.transform.localScale = new Vector3(1, 1, 1);
-                worldUI.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = _world.Name;
-                worldUI.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = _world.CreationTime.ToString();
-                Debug.Log(_world);
+				StringBuilder sb = new StringBuilder();
+
+				if (_world.Name.EndsWith(".json")) {
+					GameObject worldUI = Instantiate (loadWorldUiPrefab) as GameObject;
+					worldUI.transform.SetParent (GameObject.Find ("Load World Scroll Content").transform);
+					worldUI.transform.position = GameObject.Find ("Load World Scroll Content").transform.position;
+					worldUI.transform.localScale = new Vector3 (1, 1, 1);
+					worldUI.transform.GetChild (0).GetChild (0).GetComponent<Text> ().text = sb.Append(Path.GetFileNameWithoutExtension(_world.Name)).ToString();
+					worldUI.transform.GetChild (0).GetChild (1).GetComponent<Text> ().text = _world.CreationTime.ToString ();
+					Debug.Log (_world);
+				}
             }
         }
         else
         {
-            Directory.CreateDirectory(Application.dataPath + "/Saves");
+			Directory.CreateDirectory(Application.dataPath + "/Data/Saves");
             Debug.LogWarning(gameObject.name + ": Saves Directory does not exist, creating a new one.");
         }
     }
