@@ -34,6 +34,9 @@ public class World {
 	public List<StarSystem> starSystems;
 	public StarSystem currentStarSystem;
 
+	public List<Mission> activeMissions;
+	public List<Mission> completedMissions;
+
     public World()
     {
         worldName = "New World";
@@ -62,6 +65,8 @@ public class World {
         playerShip = new Ship();
 		starSystems = new List<StarSystem> ();
 		currentStarSystem = new StarSystem ();
+
+
     }
 
     public World(string _worldName)
@@ -82,13 +87,13 @@ public class World {
         string jsonString = JsonUtility.ToJson(this);
         try
         {
-            File.WriteAllText(Application.dataPath + "/Saves/" + worldName + "/world.json", jsonString.ToString());
+			File.WriteAllText(Application.dataPath + "/Data/Saves/" + worldName + ".json", jsonString.ToString());
             Debug.Log("Saving world file.");
         }
         catch (System.Exception)
         {
             Debug.LogWarning("Cannot find world file. Creating a new one.");
-            Directory.CreateDirectory(Application.dataPath + "/Saves/" + worldName);
+			Directory.CreateDirectory(Application.dataPath + "/Data/Saves/");
             SaveWorld();
         }
     }
@@ -98,13 +103,13 @@ public class World {
         string jsonString = JsonUtility.ToJson(_world);
         try
         {
-            File.WriteAllText(Application.dataPath + "/Saves/" + _world.worldName + "/world.json", jsonString.ToString());
+			File.WriteAllText(Application.dataPath + "/Data/Saves/" + _world.worldName + ".json", jsonString.ToString());
             Debug.Log("Saving world file.");
         }
         catch (System.Exception)
         {
             Debug.LogWarning("Cannot find world file. Creating a new one.");
-            Directory.CreateDirectory(Application.dataPath + "/Saves/" + _world.worldName);
+			Directory.CreateDirectory(Application.dataPath + "/Data/Saves/");
             SaveWorld(_world);
         }
     }
@@ -115,7 +120,7 @@ public class World {
         World _world = new World();
         try
         {
-            string jsonString = File.ReadAllText(Application.dataPath + "/Saves/" + worldName + "/world.json");
+			string jsonString = File.ReadAllText(Application.dataPath + "/Data/Saves/" + worldName + ".json");
             _world = JsonUtility.FromJson<World>(jsonString);
         }
         catch (System.Exception)
@@ -132,7 +137,7 @@ public class World {
         World _world = new World();
         try
         {
-            string jsonString = File.ReadAllText(Application.dataPath + "/Saves/" + _worldName + "/world.json");
+			string jsonString = File.ReadAllText(Application.dataPath + "/Data/Saves/" + _worldName + ".json");
             _world = JsonUtility.FromJson<World>(jsonString);
         }
         catch (System.Exception)
