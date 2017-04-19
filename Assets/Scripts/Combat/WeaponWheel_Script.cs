@@ -80,6 +80,8 @@ public class WeaponWheel_Script : MonoBehaviour
 			_object.GetComponent<Image> ().color = normalColour;
 		}
 
+		gameObject.transform.GetChild(0).GetChild(0).GetComponent<Image> ().color = normalColour;
+
 		for (int i = 1; i <= weaponList.Length; i++)
 		{
 			if (weaponList [i - 1].weaponType == "Ion Blaster") {
@@ -103,6 +105,12 @@ public class WeaponWheel_Script : MonoBehaviour
 				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().material = null;
 				itemObject[i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().color = normalColour;
 			}
+		}
+
+		if (weaponList [hoverItem - 1].weaponName != "null") {
+			gameObject.transform.GetChild (0).GetChild (0).GetChild (0).GetComponent<Text> ().text = weaponList [hoverItem - 1].weaponName + "\n" + "lvl" + weaponList [hoverItem - 1].weaponLevel.ToString ();
+		} else {
+			gameObject.transform.GetChild (0).GetChild (0).GetChild (0).GetComponent<Text> ().text = "";
 		}
 
 	}
