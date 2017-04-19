@@ -39,4 +39,20 @@ public class Turret
 			}
 		}
 	}
+
+	public void AddExperience(){
+		turretWeapon.weaponExperience += 1;
+		if (turretWeapon.weaponExperience >= turretWeapon.experienceCap) {
+			if (turretWeapon.weaponType == "Ion Blaster" && GameObject.Find ("GM").GetComponent<WeaponData_Script> ().ionBlasterUpgrades.Count >= turretWeapon.weaponLevel + 1) {
+				weaponsList[GameObject.Find ("Weapon Wheel").GetComponent<WeaponWheel_Script>().hoverItem - 1] = GameObject.Find ("GM").GetComponent<WeaponData_Script> ().ionBlasterUpgrades [turretWeapon.weaponLevel];
+				weaponsList [GameObject.Find ("Weapon Wheel").GetComponent<WeaponWheel_Script> ().hoverItem - 1].weaponExperience = 0;
+				Debug.Log ("Ion Blaster Leveled Up!");
+			}
+			else if (turretWeapon.weaponType == "Quantum Prism" && GameObject.Find ("GM").GetComponent<WeaponData_Script> ().quantumPrismUpgrades.Count >= turretWeapon.weaponLevel + 1) {
+				weaponsList[GameObject.Find ("Weapon Wheel").GetComponent<WeaponWheel_Script>().hoverItem - 1] = GameObject.Find ("GM").GetComponent<WeaponData_Script> ().quantumPrismUpgrades [turretWeapon.weaponLevel];
+				weaponsList [GameObject.Find ("Weapon Wheel").GetComponent<WeaponWheel_Script> ().hoverItem - 1].weaponExperience = 0;
+				Debug.Log ("Quantum Prism Leveled Up!");
+			}
+		}
+	}
 }

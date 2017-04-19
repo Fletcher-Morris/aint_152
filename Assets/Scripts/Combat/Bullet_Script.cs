@@ -27,6 +27,8 @@ public class Bullet_Script : MonoBehaviour
             if (health != null)
             {
                 health.TakeDamage(damage);
+
+				GameObject.Find ("Player Ship").GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.AddExperience ();
             }
         }
         else if(hit.gameObject.tag == "Asteroid")

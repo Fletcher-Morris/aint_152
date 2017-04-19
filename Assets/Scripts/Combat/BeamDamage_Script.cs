@@ -28,6 +28,8 @@ public class BeamDamage_Script : MonoBehaviour
 			if (health != null)
 			{
 				health.TakeDamage(damageAmount);
+
+				GameObject.Find ("Player Ship").GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.AddExperience ();
 			}
 		}
 		else if (hit.GetComponent<GenericHealth_Script>())

@@ -7,6 +7,7 @@ public class StarSystem
 {
 	public string systemName;
 	public int systemDanger;
+	public Color systemColour;
 	public int systemTheme;
 	public Vector2 systemMapPos;
 	public bool visited;
@@ -18,6 +19,7 @@ public class StarSystem
 	{
 		systemName = "New Star System";
 		systemDanger = 0;
+		systemColour = new Color (11, 17, 27);
 		systemTheme = 0;
 		systemMapPos = new Vector2 (0, 0);
 		visited = false;

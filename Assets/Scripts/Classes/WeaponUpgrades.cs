@@ -98,7 +98,7 @@ public class WeaponUpgrades
 		ionBlaster [5].weaponName = "Plasma Blaster";
 		ionBlaster [5].weaponDescription = "The Omega Plasma Blaster fires two extra rounds of super-heated matter with every shot, dramatically increasing the damage output!";
 		ionBlaster [5].weaponType = "Ion Blaster";
-		ionBlaster [5].weaponLevel = 5;
+		ionBlaster [5].weaponLevel = 6;
 		ionBlaster [5].weaponValue = 1000;
 
 	}
@@ -232,6 +232,7 @@ public class WeaponUpgrades
 		quantumPrism [0].weaponDescription = "The colourful beams cast from this strange object bring love and happiness to even the darkest heart in the universe, before disintegrating it and ripping a hole in reality.";
 		quantumPrism [0].weaponType = "Quantum Prism";
 		quantumPrism [0].weaponLevel = 1;
+		quantumPrism [0].experienceCap = 1000;
 		quantumPrism [0].weaponValue = 75000;
 
 		quantumPrism [1] = new Weapon ();
@@ -243,6 +244,7 @@ public class WeaponUpgrades
 		quantumPrism [1].weaponDescription = "Quantum Prism lvl 2";
 		quantumPrism [1].weaponType = "Quantum Prism";
 		quantumPrism [1].weaponLevel = 2;
+		quantumPrism [1].experienceCap = 2000;
 
 		quantumPrism [2] = new Weapon ();
 		quantumPrism [2].auto = false;
@@ -253,6 +255,7 @@ public class WeaponUpgrades
 		quantumPrism [2].weaponDescription = "Quantum Prism lvl 3";
 		quantumPrism [2].weaponType = "Quantum Prism";
 		quantumPrism [2].weaponLevel = 3;
+		quantumPrism [2].experienceCap = 3000;
 
 		quantumPrism [3] = new Weapon ();
 		quantumPrism [3].auto = false;
@@ -263,6 +266,7 @@ public class WeaponUpgrades
 		quantumPrism [3].weaponDescription = "Quantum Prism lvl 4";
 		quantumPrism [3].weaponType = "Quantum Prism";
 		quantumPrism [3].weaponLevel = 4;
+		quantumPrism [3].experienceCap = 4000;
 
 		quantumPrism [4] = new Weapon ();
 		quantumPrism [4].auto = false;
@@ -273,6 +277,7 @@ public class WeaponUpgrades
 		quantumPrism [4].weaponDescription = "Quantum Prism lvl 5";
 		quantumPrism [4].weaponType = "Quantum Prism";
 		quantumPrism [4].weaponLevel = 5;
+		quantumPrism [4].experienceCap = 5000;
 	}
 
 

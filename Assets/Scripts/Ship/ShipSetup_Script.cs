@@ -42,7 +42,7 @@ public class ShipSetup_Script : MonoBehaviour
 
 	void SetupAllships()
 	{
-		shipDetails.shipTurret.weaponsList[0] = (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.ionBlaster [0]);
+		shipDetails.shipTurret.weaponsList[0] = (GameObject.Find("GM").GetComponent<WeaponData_Script>().ionBlasterUpgrades [0]);
 		timeSinceDamageTaken = damageCollectionTime;
 	}
 

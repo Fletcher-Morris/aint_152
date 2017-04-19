@@ -38,19 +38,19 @@ public class ItemShop_Script : MonoBehaviour
 	public void GetWeaponsToBuy()
 	{
 		if (!GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasIonBlaster) {
-			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.ionBlaster[0]);
+			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().ionBlasterUpgrades[0]);
 		}
 
 		if (!GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasFusionMine) {
-			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.fusionMine[0]);
+			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().fusionMineUpgrades[0]);
 		}
 
 		if (!GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasHunterLauncher) {
-			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.hunterLauncher[0]);
+			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().hunterLauncherUpgrades[0]);
 		}
 
 		if (!GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasQuantumPrism) {
-			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().weaponUpgrades.quantumPrism[0]);
+			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().quantumPrismUpgrades[0]);
 		}
 	}
 

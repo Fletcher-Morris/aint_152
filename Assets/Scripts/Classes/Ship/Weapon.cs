@@ -13,6 +13,8 @@ public class Weapon
     public float shootDelay;
     public int powerUse;
 	public int weaponLevel;
+	public int weaponExperience;
+	public int experienceCap;
 	public int weaponValue;
 
     public Weapon()
@@ -25,6 +27,8 @@ public class Weapon
         weaponType = "Ion Blaster";
         auto = true;
         shootDelay = 0.2f;
+		weaponExperience = 0;
+		experienceCap = 100;
         powerUse = 20;
 	}
 
@@ -39,6 +43,8 @@ public class Weapon
 			weaponType = "null";
 			auto = false;
 			shootDelay = 0;
+			weaponExperience = 0;
+			experienceCap = 0;
 			powerUse = 0;
 		}
 	}
