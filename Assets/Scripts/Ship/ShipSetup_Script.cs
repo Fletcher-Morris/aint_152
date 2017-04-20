@@ -79,7 +79,7 @@ public class ShipSetup_Script : MonoBehaviour
 		shipDetails.shipHealth -= Mathf.RoundToInt(TakeShieldDamage(damageAmount));
 
 		if (damageAmount > 0) {
-			IndicateDamage (damageAmount);
+			IndicateDamage (Mathf.RoundToInt(damageAmount));
 		}
 
         if (shipDetails.shipHealth <= 0)

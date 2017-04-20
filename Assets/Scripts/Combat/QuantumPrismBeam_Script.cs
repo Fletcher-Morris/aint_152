@@ -105,13 +105,13 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		beam6.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((6f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
 		beam7.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((7f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
 
-		beam1.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
-		beam2.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
-		beam3.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
-		beam4.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
-		beam5.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
-		beam6.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
-		beam7.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = Mathf.RoundToInt(currentIntensity);
+		beam1.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
+		beam2.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
+		beam3.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
+		beam4.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
+		beam5.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
+		beam6.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
+		beam7.transform.GetChild (0).GetComponent<BeamDamage_Script> ().damageAmount = currentIntensity;
 
 		beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = new Color(beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.r, beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.b,beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.g, 2/angleProgress);
 		beam2.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = new Color(beam2.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.r, beam2.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.b,beam2.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.g, 2/angleProgress);

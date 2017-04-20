@@ -23,12 +23,12 @@ public class GenericHealth_Script : MonoBehaviour
 		timeSinceDamageTaken = damageCollectionTime;
 	}
 
-    public void TakeDamage(int damageAmount)
+	public void TakeDamage(float damageAmount)
     {
-        currentHealth -= damageAmount;
+		currentHealth -= Mathf.RoundToInt(damageAmount);
 
 		if (damageAmount > 0) {
-			IndicateDamage (damageAmount);
+			IndicateDamage (Mathf.RoundToInt(damageAmount));
 		}
 
         if (currentHealth <= 0)
@@ -36,7 +36,7 @@ public class GenericHealth_Script : MonoBehaviour
             currentHealth = 0;
             Debug.Log(gameObject.name + " died!");
 
-			ForceIndicateDamage (damageTakenInTime);
+			ForceIndicateDamage (Mathf.RoundToInt(damageTakenInTime));
 
             if (explodeOnDeath)
             {

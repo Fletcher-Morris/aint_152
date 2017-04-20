@@ -9,6 +9,8 @@ public class DroppedItem_Script : MonoBehaviour
 	public float movementRange = 5f;
 	public float pickupRange = 0.5f;
 	public float moveSpeed = 0.3f;
+	public float moveSpeedVariation = 0.05f;
+	private float mySpeedVariation;
 
 	GameObject targetObject;
 	public bool targetPlayer = true;
@@ -18,6 +20,8 @@ public class DroppedItem_Script : MonoBehaviour
 		if (targetPlayer) {
 			targetObject = GameObject.Find ("Player Ship");
 		}
+
+		mySpeedVariation = Random.Range (-moveSpeedVariation, moveSpeedVariation);
 	}
 
 	void Update()
@@ -25,7 +29,7 @@ public class DroppedItem_Script : MonoBehaviour
 		if (targetObject) {
 			if (moveSpeed > 0) {
 				if (Vector2.Distance (transform.position, targetObject.transform.position) <= movementRange) {
-					transform.position = Vector2.MoveTowards (transform.position, targetObject.transform.position, moveSpeed);
+					transform.position = Vector2.MoveTowards (transform.position, targetObject.transform.position, moveSpeed + mySpeedVariation);
 				}
 			}
 			
