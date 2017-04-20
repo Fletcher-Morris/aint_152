@@ -20,6 +20,7 @@ public class GamePrefs_Script : MonoBehaviour
         GameObject.Find("Player Name Field").GetComponent<InputField>().text = gamePrefs.playerName;
         GameObject.Find("Volume Slider").GetComponent<Slider>().value = gamePrefs.volumeLevel;
         GameObject.Find("Fullscreen Toggle").GetComponent<Toggle>().isOn = gamePrefs.fullscreen;
+		GameObject.Find("MSAA Toggle").GetComponent<Toggle>().isOn = gamePrefs.msaa;
     }
 
     public void GetPrefsFromUI()
@@ -28,6 +29,7 @@ public class GamePrefs_Script : MonoBehaviour
         gamePrefs.playerName = GameObject.Find("Player Name Field").GetComponent<InputField>().text;
         gamePrefs.volumeLevel = GameObject.Find("Volume Slider").GetComponent<Slider>().value;
         gamePrefs.fullscreen = GameObject.Find("Fullscreen Toggle").GetComponent<Toggle>().isOn;
+		gamePrefs.msaa = GameObject.Find("MSAA Toggle").GetComponent<Toggle>().isOn;
     }
 
     public void CancelChanges()
@@ -53,6 +55,18 @@ public class GamePrefs_Script : MonoBehaviour
         {
             Screen.SetResolution(Screen.resolutions[Screen.resolutions.Length - 1].width / 2, Screen.resolutions[Screen.resolutions.Length - 1].height / 2, false);
         }
+
+		if (gamePrefs.msaa) {
+			QualitySettings.antiAliasing = 8;
+		} else {
+			QualitySettings.antiAliasing = 0;
+		}
+
+		if (gamePrefs.vsync) {
+			QualitySettings.vSyncCount = 1;
+		} else {
+			QualitySettings.vSyncCount = 0;
+		}
     }
 
     void Update()

@@ -68,6 +68,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 					weaponWheelUI.GetComponent<WeaponWheel_Script> ().weaponList = GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.weaponsList;
 					weaponWheelUI.transform.GetChild(0).gameObject.SetActive (true);
 					weaponWheelUI.GetComponent<WeaponWheel_Script> ().enabled = true;
+					GameObject.Find ("GM").GetComponent<GameState_Script> ().isUsingWeaponWheel = true;
 				}
 			}
 		} else {
@@ -76,6 +77,7 @@ public class SpaceshipMovement_Script : MonoBehaviour
 			}
 			weaponWheelUI.transform.GetChild(0).gameObject.SetActive (false);
 			weaponWheelUI.GetComponent<WeaponWheel_Script> ().enabled = false;
+			GameObject.Find ("GM").GetComponent<GameState_Script> ().isUsingWeaponWheel = false;
 		}
     }
 

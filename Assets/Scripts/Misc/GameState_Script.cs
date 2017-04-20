@@ -10,6 +10,8 @@ public class GameState_Script : MonoBehaviour {
 	public string playerState = "Normal";
 	public string previousPlayerState;
 
+	public bool isUsingWeaponWheel = false;
+
     public string GetState()
     {
         return gameState;
@@ -58,6 +60,12 @@ public class GameState_Script : MonoBehaviour {
 				SetState ("Paused");
 				Time.timeScale = 0f;
 			}
+		}
+
+		if (GetState () == "Normal" && isUsingWeaponWheel) {
+			Time.timeScale = 0.25f;
+		} else if (GetState () == "Normal" && !isUsingWeaponWheel) {
+			Time.timeScale = 1;
 		}
     }
 }

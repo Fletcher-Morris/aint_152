@@ -11,18 +11,16 @@ public class GamePrefs
     public int sensitivity;
     public float volumeLevel;
     public int style;
-    public int fpsCap;
     public bool fullscreen;
     public bool vsync;
     public bool msaa;
 
-    public GamePrefs(string _playerName, int _sensitivity, int _volumeLevel, int _style, int _fpsCap, bool _vsync, bool _fullscreen, bool _msaa)
+    public GamePrefs(string _playerName, int _sensitivity, int _volumeLevel, int _style, bool _vsync, bool _fullscreen, bool _msaa)
     {
         playerName = _playerName;
         sensitivity = _sensitivity;
         volumeLevel = _volumeLevel;
         style = _style;
-        fpsCap = _fpsCap;
         vsync = _vsync;
         fullscreen = _fullscreen;
         msaa = _msaa;
@@ -34,7 +32,6 @@ public class GamePrefs
         sensitivity = 10;
         volumeLevel = 5;
         style = 1;
-        fpsCap = 60;
         vsync = false;
         fullscreen = false;
         msaa = false;
