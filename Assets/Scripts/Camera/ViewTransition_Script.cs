@@ -24,6 +24,8 @@ public class ViewTransition_Script : MonoBehaviour
 
     public float cameraRotationDiff = 0f;
 
+	public float zAngle;
+
     void Start()
     {
         cameraObject = Camera.main.gameObject;
@@ -50,30 +52,32 @@ public class ViewTransition_Script : MonoBehaviour
     {
         isSwitchingToCrew = true;
         isSwitchingToShip = false;
+		GetZAngle ();
     }
 
     public void SwitchToShip()
     {
         isSwitchingToCrew = false;
         isSwitchingToShip = true;
+		GetZAngle ();
     }
 
     void Update()
     {
-        cameraRotationDiff = (gameObject.transform.rotation.z - cameraObject.transform.rotation.z);
-
+		
         if (isSwitchingToShip)
         {
-            playerObject.GetComponent<Collider2D>().isTrigger = true;
+			playerObject.GetComponent<Collider2D>().isTrigger = true;
             cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
             GameObject.Find("Cockpit_Trigger").transform.GetChild(0).gameObject.SetActive(false);
             gameObject.GetComponent<TurretController_Script>().canRotate = true;
             gameObject.GetComponent<ShootWeapon_Script>().canShoot = true;
 
-            if (cameraObject.GetComponent<Camera>().orthographicSize < shipCamSize)
+			if (cameraObject.GetComponent<Camera>().orthographicSize < shipCamSize - 0.01f)
             {
-                cameraObject.GetComponent<Camera>().orthographicSize += transitionSpeed * Time.deltaTime;
+				cameraObject.GetComponent<Camera> ().orthographicSize = Mathf.Lerp (cameraObject.GetComponent<Camera> ().orthographicSize, shipCamSize, 1/transitionSpeed);
                 uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
+				cameraObject.transform.eulerAngles = new Vector3 (0,0,Mathf.Lerp (GetZAngle(cameraObject.transform.eulerAngles.z), 0, 1/transitionSpeed));
             }
             else
             {
@@ -93,10 +97,12 @@ public class ViewTransition_Script : MonoBehaviour
             gameObject.GetComponent<TurretController_Script>().canRotate = false;
             gameObject.GetComponent<ShootWeapon_Script>().canShoot = false;
 
-            if (cameraObject.GetComponent<Camera>().orthographicSize > crewCamSize)
+            if (cameraObject.GetComponent<Camera>().orthographicSize > crewCamSize + 0.01f)
             {
-                cameraObject.GetComponent<Camera>().orthographicSize -= transitionSpeed * Time.deltaTime;
+				cameraObject.GetComponent<Camera> ().orthographicSize = Mathf.Lerp (cameraObject.GetComponent<Camera> ().orthographicSize, crewCamSize, 1/transitionSpeed);
+                //cameraObject.GetComponent<Camera>().orthographicSize -= transitionSpeed * Time.deltaTime;
                 uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
+				cameraObject.transform.eulerAngles = new Vector3 (0,0,Mathf.Lerp (GetZAngle(cameraObject.transform.eulerAngles.z), GetZAngle(transform.eulerAngles.z), 1/transitionSpeed));
             }
             else
             {
@@ -116,4 +122,30 @@ public class ViewTransition_Script : MonoBehaviour
             cameraObject.transform.rotation = gameObject.transform.rotation;
         }
     }
+
+	void GetZAngle(){
+		
+		if (transform.eulerAngles.z >= 180f) {
+			zAngle = -(360 - transform.eulerAngles.z);
+		} else if (transform.eulerAngles.z <= -180f) {
+			zAngle = -(360 - transform.eulerAngles.z);
+		} else {
+			zAngle = transform.eulerAngles.z;
+		}
+	}
+
+	float GetZAngle(float rawAngle){
+
+		float _zAngle = rawAngle;
+
+		if (rawAngle >= 180f) {
+			_zAngle = -(360 - rawAngle);
+		} else if (rawAngle <= -180f) {
+			_zAngle = -(360 - rawAngle);
+		} else {
+			_zAngle = rawAngle;
+		}
+
+		return _zAngle;
+	}
 }
