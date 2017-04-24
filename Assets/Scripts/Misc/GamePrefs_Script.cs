@@ -12,6 +12,7 @@ public class GamePrefs_Script : MonoBehaviour
     void Start()
     {
         gamePrefs = gamePrefs.LoadPrefs();
+        ApplyChangesLive();
         SetPrefsToUI();
     }
 
