@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System.IO;
+using UnityStandardAssets.ImageEffects;
 
 public class ShipSetup_Script : MonoBehaviour
 {
     public Ship shipDetails;
     public bool isPlayer = false;
+    public float healthPercentage;
 
     public GameObject healthUiText;
     GameObject ShieldsUiText;
@@ -174,12 +176,22 @@ public class ShipSetup_Script : MonoBehaviour
 		GameObject.Find ("Money Text").GetComponent<Text> ().text = "$" + wL.theWorld.money;
 		GameObject.Find ("Gold Text").GetComponent<Text> ().text = "GOLD: " + wL.theWorld.gold;
 		GameObject.Find ("Score Text").GetComponent<Text> ().text = "SCORE: " + wL.theWorld.score;
+
+        if(healthPercentage <= 20 && healthPercentage > 0)
+        {
+            Camera.main.gameObject.GetComponent<NoiseAndScratches>().grainIntensityMax = (1 / healthPercentage) * 5;
+        }
+        else
+        {
+            Camera.main.gameObject.GetComponent<NoiseAndScratches>().grainIntensityMax = 0;
+        }
     }
 
     private void Update()
     {
         if (isPlayer)
         {
+            healthPercentage = (float.Parse(shipDetails.shipHealth.ToString()) / float.Parse(shipDetails.maxShipHealth.ToString()) * 100);
             UpdateUI();
         }
 
