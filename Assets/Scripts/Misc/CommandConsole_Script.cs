@@ -110,23 +110,28 @@ public class CommandConsole_Script : MonoBehaviour {
     public void MotherlodeCheat()
     {
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.money += motherlodeValue;
+        gameObject.GetComponent<InputField>().text = "";
     }
     public void GoldRushCheat()
     {
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.gold += goldRushValue;
+        gameObject.GetComponent<InputField>().text = "";
     }
     public void HealCheat()
     {
         GameObject shipObject = GameObject.Find("Player Ship");
         shipObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth = shipObject.GetComponent<ShipSetup_Script>().shipDetails.maxShipHealth;
         shipObject.GetComponent<ShipSetup_Script>().shipDetails.shipShield.shieldHealth = shipObject.GetComponent<ShipSetup_Script>().shipDetails.shipShield.maxShieldHealth;
+        gameObject.GetComponent<InputField>().text = "";
     }
     public void UndyingCheat()
     {
         GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.invincible = true;
+        gameObject.GetComponent<InputField>().text = "";
     }
     public void MortalCheat()
     {
         GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.invincible = false;
+        gameObject.GetComponent<InputField>().text = "";
     }
 }
