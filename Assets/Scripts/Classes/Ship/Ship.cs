@@ -10,6 +10,7 @@ public class Ship
 
     public int maxShipHealth;
     public int shipHealth;
+    public bool invincible;
     
     public Engine shipEngine;
     public Shield shipShield;
@@ -24,6 +25,7 @@ public class Ship
         shipName = "New Ship";
         maxShipHealth = 100;
         shipHealth = 100;
+        invincible = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -38,6 +40,7 @@ public class Ship
         shipName = _name;
         maxShipHealth = _health;
         shipHealth = _health;
+        invincible = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -51,6 +54,7 @@ public class Ship
         shipName = "New Ship";
         maxShipHealth = 100;
         shipHealth = 100;
+        invincible = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -64,6 +68,7 @@ public class Ship
         shipName = _name;
         maxShipHealth = _health;
         shipHealth = _health;
+        invincible = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -77,6 +82,7 @@ public class Ship
         shipName = _name;
         maxShipHealth = _health;
         shipHealth = _health;
+        invincible = false;
         shipEngine = _engine;
         shipShield = _shield;
         shipTurret = new Turret();
@@ -90,6 +96,7 @@ public class Ship
         shipName = _name;
         maxShipHealth = _health;
         shipHealth = _health;
+        invincible = false;
         shipEngine = _engine;
         shipShield = _shield;
         shipTurret = new Turret();

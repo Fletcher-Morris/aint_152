@@ -76,38 +76,44 @@ public class ShipSetup_Script : MonoBehaviour
 
 	public void TakeDamage(float damageAmount)
     {
-		shipDetails.shipHealth -= Mathf.RoundToInt(TakeShieldDamage(damageAmount));
-
-		if (damageAmount > 0) {
-			IndicateDamage (Mathf.RoundToInt(damageAmount));
-		}
-
-        if (shipDetails.shipHealth <= 0)
+        if (shipDetails.invincible == false)
         {
-            shipDetails.shipHealth = 0;
-            Debug.Log(gameObject.name + " died!");
-			GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.Euler(0,0, Random.Range(0,360)));
-            explosion.transform.localScale = new Vector3(3,3,3);
+            shipDetails.shipHealth -= Mathf.RoundToInt(TakeShieldDamage(damageAmount));
+
+            if (damageAmount > 0)
+            {
+                IndicateDamage(Mathf.RoundToInt(damageAmount));
+            }
+
+            if (shipDetails.shipHealth <= 0)
+            {
+                shipDetails.shipHealth = 0;
+                Debug.Log(gameObject.name + " died!");
+                GameObject explosion = GameObject.Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+                explosion.transform.localScale = new Vector3(3, 3, 3);
+
+                if (isPlayer)
+                {
+                    Time.timeScale = 0.2f;
+                    GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
+                    if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hardcore)
+                    {
+                        Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.worldName, true);
+                    }
+                }
+
+                if (GetComponent<DropOnDeath_Script>())
+                {
+                    gameObject.GetComponent<DropOnDeath_Script>().Drop();
+                }
+                ForceIndicateDamage(damageTakenInTime);
+                GameObject.Destroy(gameObject);
+            }
 
             if (isPlayer)
             {
-				Time.timeScale = 0.2f;
-                GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
-				if (GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hardcore) {
-					Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.worldName, true);
-				}
-            }
-
-			if (GetComponent<DropOnDeath_Script> ()) {
-				gameObject.GetComponent<DropOnDeath_Script> ().Drop ();
-			}
-			ForceIndicateDamage (damageTakenInTime);
-            GameObject.Destroy(gameObject);
-        }
-
-        if (isPlayer)
-        {
-            UpdateUI();
+                UpdateUI();
+            } 
         }
     }
 

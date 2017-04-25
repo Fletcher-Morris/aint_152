@@ -93,6 +93,18 @@ public class CommandConsole_Script : MonoBehaviour {
         {
             GoldRushCheat();
         }
+        else if (enteredCommand == "heal" || enteredCommand == "Heal")
+        {
+            HealCheat();
+        }
+        else if (enteredCommand == "immortal" || enteredCommand == "Immortal" || enteredCommand == "undying" || enteredCommand == "Undying" || enteredCommand == "invincible" || enteredCommand == "Invincible")
+        {
+            UndyingCheat();
+        }
+        else if (enteredCommand == "Mortal" || enteredCommand == "mortal")
+        {
+            MortalCheat();
+        }
     }
 
     public void MotherlodeCheat()
@@ -102,5 +114,19 @@ public class CommandConsole_Script : MonoBehaviour {
     public void GoldRushCheat()
     {
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.gold += goldRushValue;
+    }
+    public void HealCheat()
+    {
+        GameObject shipObject = GameObject.Find("Player Ship");
+        shipObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth = shipObject.GetComponent<ShipSetup_Script>().shipDetails.maxShipHealth;
+        shipObject.GetComponent<ShipSetup_Script>().shipDetails.shipShield.shieldHealth = shipObject.GetComponent<ShipSetup_Script>().shipDetails.shipShield.maxShieldHealth;
+    }
+    public void UndyingCheat()
+    {
+        GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.invincible = true;
+    }
+    public void MortalCheat()
+    {
+        GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.invincible = false;
     }
 }
