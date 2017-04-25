@@ -69,8 +69,8 @@ public class MenuControls_Script : MonoBehaviour
 
         if(titletimer <= 0)
         {
-            titleTextObject.GetComponent<Text>().color = SwapColour(titleTextObject.GetComponent<Text>().color);
-            titletimer = titleColourTimer;
+            //titleTextObject.GetComponent<Text>().color = SwapColour(titleTextObject.GetComponent<Text>().color);
+            //titletimer = titleColourTimer;
         }
 
 		cineTimer = cineTimer - 1 * Time.deltaTime;
@@ -78,7 +78,7 @@ public class MenuControls_Script : MonoBehaviour
 		if (cineTimer <= 0) {
 			cineTimer = 0;
 			GetComponent<CanvasGroup> ().alpha += 0.5f * Time.deltaTime;
-			GetComponent<Canvas> ().enabled = false;
+			GetComponent<Canvas> ().enabled = true;
 			GameObject.Destroy (GameObject.Find ("Press Any Key Canvas"));
 		}
 		if (GetComponent<CanvasGroup> ().alpha >= 1) {

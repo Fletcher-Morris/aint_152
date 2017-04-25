@@ -75,9 +75,13 @@ public class ViewTransition_Script : MonoBehaviour
 
 			if (cameraObject.GetComponent<Camera>().orthographicSize < shipCamSize - 0.01f)
             {
-				cameraObject.GetComponent<Camera> ().orthographicSize = Mathf.Lerp (cameraObject.GetComponent<Camera> ().orthographicSize, shipCamSize, 1/transitionSpeed);
+                Debug.Log("Trying To Switch To Ship View.");
+				cameraObject.GetComponent<Camera> ().orthographicSize = Mathf.Lerp (cameraObject.GetComponent<Camera> ().orthographicSize, shipCamSize, transitionSpeed);
+                //cameraObject.GetComponent<Camera>().orthographicSize += transitionSpeed * Time.deltaTime;
                 uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
-				cameraObject.transform.eulerAngles = new Vector3 (0,0,Mathf.Lerp (GetZAngle(cameraObject.transform.eulerAngles.z), 0, 1/transitionSpeed));
+                cameraObject.transform.eulerAngles = new Vector3(0, 0, (cameraObject.transform.eulerAngles.z + 1));
+                //cameraObject.transform.eulerAngles = new Vector3 (0,0,Mathf.Lerp (cameraObject.transform.eulerAngles.z, 0, transitionSpeed));
+                cameraObject.GetComponent<Camera>().cullingMask = shipLayers;
             }
             else
             {
@@ -99,10 +103,11 @@ public class ViewTransition_Script : MonoBehaviour
 
             if (cameraObject.GetComponent<Camera>().orthographicSize > crewCamSize + 0.01f)
             {
-				cameraObject.GetComponent<Camera> ().orthographicSize = Mathf.Lerp (cameraObject.GetComponent<Camera> ().orthographicSize, crewCamSize, 1/transitionSpeed);
+				cameraObject.GetComponent<Camera> ().orthographicSize = Mathf.Lerp (cameraObject.GetComponent<Camera> ().orthographicSize, crewCamSize, transitionSpeed);
                 //cameraObject.GetComponent<Camera>().orthographicSize -= transitionSpeed * Time.deltaTime;
                 uiCameraObject.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
-				cameraObject.transform.eulerAngles = new Vector3 (0,0,Mathf.Lerp (GetZAngle(cameraObject.transform.eulerAngles.z), GetZAngle(transform.eulerAngles.z), 1/transitionSpeed));
+				cameraObject.transform.eulerAngles = new Vector3 (0,0,Mathf.Lerp (GetZAngle(cameraObject.transform.eulerAngles.z), GetZAngle(transform.eulerAngles.z), transitionSpeed));
+                cameraObject.GetComponent<Camera>().cullingMask = crewLayers;
             }
             else
             {
