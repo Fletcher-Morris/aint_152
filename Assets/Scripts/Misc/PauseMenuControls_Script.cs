@@ -11,6 +11,11 @@ public class PauseMenuControls_Script : MonoBehaviour
 
     bool isShowingPauseMenu = false;
 
+    public void ResumeGame()
+    {
+        GameObject.Find("GM").GetComponent<GameState_Script>().UnPause();
+    }
+
     public void ShowMainPanel()
     {
         backgroundPanelObject.SetActive(true);

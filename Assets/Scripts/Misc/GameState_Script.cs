@@ -49,6 +49,14 @@ public class GameState_Script : MonoBehaviour {
 		playerState = newState;
 	}
 
+    public void UnPause()
+    {
+        if(GetState() == "Paused")
+        {
+            SetState("Normal");
+        }
+    }
+
     void Update()
     {
 		if (Input.GetButtonDown("Cancel"))

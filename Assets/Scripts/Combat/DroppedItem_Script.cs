@@ -28,16 +28,32 @@ public class DroppedItem_Script : MonoBehaviour
 	{
 		if (targetObject) {
 			if (moveSpeed > 0) {
-				if (Vector2.Distance (transform.position, targetObject.transform.position) <= movementRange) {
-					transform.position = Vector2.MoveTowards (transform.position, targetObject.transform.position, moveSpeed + mySpeedVariation);
-				}
+                if (dropType != "Health")
+                {
+                    if (Vector2.Distance(transform.position, targetObject.transform.position) <= movementRange)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, targetObject.transform.position, moveSpeed + mySpeedVariation);
+                    } 
+                }
+                else
+                {
+                    if (Vector2.Distance(transform.position, targetObject.transform.position) <= movementRange && targetObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth < targetObject.GetComponent<ShipSetup_Script>().shipDetails.maxShipHealth)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, targetObject.transform.position, moveSpeed + mySpeedVariation);
+                    }
+                }
 			}
 			
 			if (Vector2.Distance (transform.position, targetObject.transform.position) <= pickupRange) {
 				if (dropType == "Money") {
 					GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.money += dropValue;
-				}
-				GameObject.Destroy (gameObject);
+                    GameObject.Destroy(gameObject);
+                }
+                if (dropType == "Health" && targetObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth < targetObject.GetComponent<ShipSetup_Script>().shipDetails.maxShipHealth)
+                {
+                    targetObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth += 10;
+                    GameObject.Destroy(gameObject);
+                }
 			}
 		}
 	}

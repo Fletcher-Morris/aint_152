@@ -204,6 +204,11 @@ public class ShipSetup_Script : MonoBehaviour
             shipDetails.shipReactor.currentPower = shipDetails.shipReactor.maxPower;
         }
 
+        if(shipDetails.shipHealth >= shipDetails.maxShipHealth)
+        {
+            shipDetails.shipHealth = shipDetails.maxShipHealth;
+        }
+
 		if (shipDetails.shipReactor.currentPower > 0) {
 			RechargeShield ();
 		} else {
