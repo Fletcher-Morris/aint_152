@@ -32,7 +32,7 @@ public class GamePrefs
         sensitivity = 10;
         volumeLevel = 5;
         style = 1;
-        vsync = false;
+        vsync = true;
         fullscreen = false;
         msaa = false;
     }
