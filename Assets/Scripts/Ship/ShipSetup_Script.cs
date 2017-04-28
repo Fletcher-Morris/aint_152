@@ -28,6 +28,9 @@ public class ShipSetup_Script : MonoBehaviour
 	public float damageCollectionTime = .5f;
 	private float damageTakenInTime = 0;
 
+    public float shakeDuration = .1f;
+    public float shakeMagnitude = 1f;
+
     void Start()
     {
 		SetupAllships ();
@@ -154,6 +157,7 @@ public class ShipSetup_Script : MonoBehaviour
         if (isPlayer)
         {
             UpdateUI();
+            StartCoroutine(ShakeCamera());
         }
 
         return damageAmount;
@@ -277,5 +281,34 @@ public class ShipSetup_Script : MonoBehaviour
         {
             UpdateUI();
         }
+    }
+
+    IEnumerator ShakeCamera()
+    {
+
+        float elapsed = 0.0f;
+
+        Vector3 originalCamPos = GameObject.Find("Cameras").transform.position;
+
+        while (elapsed < shakeDuration)
+        {
+
+            elapsed += Time.deltaTime;
+
+            float percentComplete = elapsed / shakeDuration;
+            float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
+
+            // map value to [-1, 1]
+            float x = Random.value * .2f - .1f;
+            float y = Random.value * .2f - .1f;
+            x *= shakeMagnitude * damper;
+            y *= shakeMagnitude * damper;
+
+            GameObject.Find("Cameras").transform.position = new Vector3(x, y, originalCamPos.z);
+
+            yield return null;
+        }
+
+        GameObject.Find("Cameras").transform.position = originalCamPos;
     }
 }

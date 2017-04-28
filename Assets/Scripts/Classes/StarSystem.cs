@@ -14,6 +14,7 @@ public class StarSystem
 
 	public List<Ship> enemyShips;
 	public List<Asteroid> asteroids;
+    public List<WorldObject> objects;
 
 	public StarSystem()
 	{
@@ -26,5 +27,6 @@ public class StarSystem
 
 		enemyShips = new List<Ship>();
 		asteroids = new List<Asteroid>();
+        objects = new List<WorldObject>();
 	}
 }

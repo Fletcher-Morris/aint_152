@@ -8,6 +8,8 @@ public class ShootWeapon_Script : MonoBehaviour
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
 	public GameObject prismBeamPrefab;
+    public GameObject audioObjectPrefab;
+    public AudioClip bulletSound1;
     public bool canShoot = true;
     public bool isTryingToShoot = false;
 
@@ -102,6 +104,11 @@ public class ShootWeapon_Script : MonoBehaviour
 				Destroy (_bullet2, GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed);
 				Destroy (_bullet3, GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletRange / GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.bulletSpeed);
 			}
+
+            GameObject bulletAudioObject = GameObject.Instantiate(audioObjectPrefab, gameObject.transform.position, gameObject.transform.rotation);
+            bulletAudioObject.GetComponent<AudioSource>().volume = GameObject.Find("GM").GetComponent<GamePrefs_Script>().gamePrefs.volumeLevel / 20;
+            bulletAudioObject.GetComponent<AudioSource>().PlayOneShot(bulletSound1);
+            bulletAudioObject.GetComponent<AutoDestroy_Script>().destroyTime = bulletSound1.length + 0.5f;
 
 			shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
 		}

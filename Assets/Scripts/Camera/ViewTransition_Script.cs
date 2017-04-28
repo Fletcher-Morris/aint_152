@@ -29,7 +29,7 @@ public class ViewTransition_Script : MonoBehaviour
     void Start()
     {
         cameraObject = Camera.main.gameObject;
-        uiCameraObject = cameraObject.transform.GetChild(0).gameObject;
+        uiCameraObject = cameraObject.transform.parent.GetChild(1).gameObject;
     }
 
     public void SwitchView()
