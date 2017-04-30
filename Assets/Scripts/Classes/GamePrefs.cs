@@ -9,17 +9,19 @@ public class GamePrefs
 
     public string playerName;
     public int sensitivity;
-    public float volumeLevel;
+    public float musicVolumeLevel;
+    public float effectVolumeLevel;
     public int style;
     public bool fullscreen;
     public bool vsync;
     public bool msaa;
 
-    public GamePrefs(string _playerName, int _sensitivity, int _volumeLevel, int _style, bool _vsync, bool _fullscreen, bool _msaa)
+    public GamePrefs(string _playerName, int _sensitivity, int _musicVolumeLevel, int _effectVolumeLevel, int _style, bool _vsync, bool _fullscreen, bool _msaa)
     {
         playerName = _playerName;
         sensitivity = _sensitivity;
-        volumeLevel = _volumeLevel;
+        musicVolumeLevel = _musicVolumeLevel;
+        effectVolumeLevel = _effectVolumeLevel;
         style = _style;
         vsync = _vsync;
         fullscreen = _fullscreen;
@@ -30,7 +32,8 @@ public class GamePrefs
     {
         playerName = "Scott Ace";
         sensitivity = 10;
-        volumeLevel = 5;
+        musicVolumeLevel = 5;
+        effectVolumeLevel = 5;
         style = 1;
         vsync = true;
         fullscreen = false;

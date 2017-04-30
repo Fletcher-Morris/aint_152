@@ -117,7 +117,7 @@ public class ShootWeapon_Script : MonoBehaviour
 			}
 
             GameObject bulletAudioObject = GameObject.Instantiate(audioObjectPrefab, gameObject.transform.position, gameObject.transform.rotation);
-            bulletAudioObject.GetComponent<AudioSource>().volume = GameObject.Find("GM").GetComponent<GamePrefs_Script>().gamePrefs.volumeLevel / 20;
+            bulletAudioObject.GetComponent<AudioSource>().volume = GameObject.Find("GM").GetComponent<GamePrefs_Script>().gamePrefs.musicVolumeLevel / 20;
             bulletAudioObject.GetComponent<AudioSource>().PlayOneShot(bulletSound1);
             bulletAudioObject.GetComponent<AutoDestroy_Script>().destroyTime = bulletSound1.length + 0.5f;
 

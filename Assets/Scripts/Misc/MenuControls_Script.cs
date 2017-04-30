@@ -67,12 +67,6 @@ public class MenuControls_Script : MonoBehaviour
     {
         titletimer = titletimer - 1 * Time.deltaTime;
 
-        if(titletimer <= 0)
-        {
-            //titleTextObject.GetComponent<Text>().color = SwapColour(titleTextObject.GetComponent<Text>().color);
-            //titletimer = titleColourTimer;
-        }
-
 		cineTimer = cineTimer - 1 * Time.deltaTime;
 
 		if (cineTimer <= 0) {

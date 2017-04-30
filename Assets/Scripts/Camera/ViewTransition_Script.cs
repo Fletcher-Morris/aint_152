@@ -12,6 +12,7 @@ public class ViewTransition_Script : MonoBehaviour
 
     public GameObject cameraObject;
     public GameObject uiCameraObject;
+    public GameObject backgroundCameraObject;
     public GameObject playerObject;
 
     public bool isViewingCrew = false;
@@ -30,6 +31,7 @@ public class ViewTransition_Script : MonoBehaviour
     {
         cameraObject = Camera.main.gameObject;
         uiCameraObject = cameraObject.transform.parent.GetChild(1).gameObject;
+        backgroundCameraObject = cameraObject.transform.parent.GetChild(3).gameObject;
     }
 
     public void SwitchView()
@@ -59,7 +61,7 @@ public class ViewTransition_Script : MonoBehaviour
     {
         isSwitchingToCrew = false;
         isSwitchingToShip = true;
-		GetZAngle ();
+        GetZAngle ();
     }
 
     void Update()
@@ -94,6 +96,8 @@ public class ViewTransition_Script : MonoBehaviour
                 isSwitchingToShip = false;
                 isSwitchingToCrew = false;
             }
+
+            backgroundCameraObject.transform.rotation = cameraObject.transform.rotation;
         }
         else if (isSwitchingToCrew)
         {
@@ -120,6 +124,8 @@ public class ViewTransition_Script : MonoBehaviour
                 isSwitchingToShip = false;
                 isSwitchingToCrew = false;
             }
+
+            backgroundCameraObject.transform.rotation = cameraObject.transform.rotation;
         }
 
         if (isViewingCrew)

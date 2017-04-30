@@ -19,7 +19,8 @@ public class GamePrefs_Script : MonoBehaviour
     public void SetPrefsToUI()
     {
         GameObject.Find("Player Name Field").GetComponent<InputField>().text = gamePrefs.playerName;
-        GameObject.Find("Volume Slider").GetComponent<Slider>().value = gamePrefs.volumeLevel;
+        GameObject.Find("Music Volume Slider").GetComponent<Slider>().value = gamePrefs.musicVolumeLevel;
+        GameObject.Find("Effects Volume Slider").GetComponent<Slider>().value = gamePrefs.effectVolumeLevel;
         GameObject.Find("Fullscreen Toggle").GetComponent<Toggle>().isOn = gamePrefs.fullscreen;
 		GameObject.Find("MSAA Toggle").GetComponent<Toggle>().isOn = gamePrefs.msaa;
     }
@@ -28,7 +29,8 @@ public class GamePrefs_Script : MonoBehaviour
     {
         gamePrefs = gamePrefs.LoadPrefs();
         gamePrefs.playerName = GameObject.Find("Player Name Field").GetComponent<InputField>().text;
-        gamePrefs.volumeLevel = GameObject.Find("Volume Slider").GetComponent<Slider>().value;
+        gamePrefs.musicVolumeLevel = GameObject.Find("Music Volume Slider").GetComponent<Slider>().value;
+        gamePrefs.effectVolumeLevel = GameObject.Find("Effects Volume Slider").GetComponent<Slider>().value;
         gamePrefs.fullscreen = GameObject.Find("Fullscreen Toggle").GetComponent<Toggle>().isOn;
 		gamePrefs.msaa = GameObject.Find("MSAA Toggle").GetComponent<Toggle>().isOn;
     }

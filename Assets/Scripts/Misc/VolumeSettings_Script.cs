@@ -3,14 +3,19 @@
 public class VolumeSettings_Script : MonoBehaviour {
 
     public float volume;
-    public bool useGameSettings = true;
+    public bool useMusicVolumeSettings = false;
+    public bool useEffectVolumeSettings = true;
     public float multiplier = 1;
 
     private void Update()
     {
-        if (useGameSettings)
+        if (useEffectVolumeSettings)
         {
-            volume = (GameObject.Find("GM").GetComponent<GamePrefs_Script>().gamePrefs.volumeLevel / 10) * multiplier;
+            volume = (GameObject.Find("GM").GetComponent<GamePrefs_Script>().gamePrefs.effectVolumeLevel / 10) * multiplier;
+        }
+        else if (useMusicVolumeSettings)
+        {
+            volume = (GameObject.Find("GM").GetComponent<GamePrefs_Script>().gamePrefs.musicVolumeLevel / 10) * multiplier;
         }
         else
         {
