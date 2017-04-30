@@ -9,6 +9,9 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 	public float speed = 10;
 	public float sinSpeed = 5;
 
+    public AudioClip chargeUpAudio;
+    public AudioClip loopAudio;
+
 	public GameObject controllerObject;
 	public float timeSpentShooting;
 	public float currentIntensity = 0;
@@ -27,7 +30,9 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 	public GameObject whiteBeam;
 
 	void Start(){
-		
+
+        StartCoroutine(SwapAudio());
+
 		Vector3 beamScale = transform.localScale;
 		angleProgress = startAngle;
 		currentIntensity = 0;
@@ -127,4 +132,14 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		controllerObject.GetComponent<ShipSetup_Script> ().TakePower (controllerObject.GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.powerUse * Time.deltaTime);
 
 	}
+
+    public IEnumerator SwapAudio()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+
+        audio.Play();
+        yield return new WaitForSeconds(audio.clip.length);
+        audio.clip = loopAudio;
+        audio.Play();
+    }
 }

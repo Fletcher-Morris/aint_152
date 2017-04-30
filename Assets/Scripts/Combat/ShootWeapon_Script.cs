@@ -7,6 +7,7 @@ public class ShootWeapon_Script : MonoBehaviour
 {
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
+    public GameObject fusionMinePrefab;
 	public GameObject prismBeamPrefab;
     public GameObject audioObjectPrefab;
     public AudioClip bulletSound1;
@@ -51,7 +52,13 @@ public class ShootWeapon_Script : MonoBehaviour
 	{
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
 			ShootIonBlaster ();
-		} else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism") {
+		}
+        else if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Fusion Mine")
+        {
+            ShootFusionMine();
+        }
+        else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism")
+        {
 			ShootQuantumPrism ();
 		}
 	}
@@ -61,6 +68,10 @@ public class ShootWeapon_Script : MonoBehaviour
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
 			ShootIonBlaster ();
 		}
+        else if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Fusion Mine")
+        {
+            ShootFusionMine();
+        }
     }
 
 	public void StopShoot()
@@ -113,6 +124,16 @@ public class ShootWeapon_Script : MonoBehaviour
 			shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
 		}
 	}
+
+
+    public void ShootFusionMine()
+    {
+        if(shootDelayTimer <= 0 && GetComponent<ShipSetup_Script>().shipDetails.shipReactor.currentPower >= GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse)
+        {
+            GetComponent<ShipSetup_Script>().TakePower(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse);
+            GameObject.Instantiate(fusionMinePrefab, transform.position, transform.rotation);
+        }
+    }
 
 
 	public void ShootQuantumPrism()

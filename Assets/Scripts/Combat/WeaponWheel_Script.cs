@@ -19,9 +19,11 @@ public class WeaponWheel_Script : MonoBehaviour
 	public Color normalColour;
 
 	public Sprite ionBlasterSprite;
-	public Sprite quantumPrismSprite;
+	public Sprite fusionMineSprite;
+    public Sprite hunterLauncherSprite;
+    public Sprite quantumPrismSprite;
 
-	public GameObject selectorObject;
+    public GameObject selectorObject;
 	public GameObject[] itemObject;
 	public Weapon[] weaponList;
 
@@ -86,7 +88,16 @@ public class WeaponWheel_Script : MonoBehaviour
 		{
 			if (weaponList [i - 1].weaponType == "Ion Blaster") {
 				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = ionBlasterSprite;
-			} else if (weaponList [i - 1].weaponType == "Quantum Prism") {
+			}
+            else if (weaponList[i - 1].weaponType == "Fusion Mine")
+            {
+                itemObject[i - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = fusionMineSprite;
+            }
+            else if (weaponList[i - 1].weaponType == "Hunter Launcher")
+            {
+                itemObject[i - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = hunterLauncherSprite;
+            }
+            else if (weaponList [i - 1].weaponType == "Quantum Prism") {
 				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = quantumPrismSprite;
 			} else {
 				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = nullSprite;

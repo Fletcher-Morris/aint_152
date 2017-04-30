@@ -11,7 +11,8 @@ public class TurretController_Script : MonoBehaviour
     public bool canRotate = false;
 
 	public Sprite ionBlasterTurretSprite;
-	public Sprite quantumPrismTurretSprite;
+    public Sprite fusionMineTurretSprite;
+    public Sprite quantumPrismTurretSprite;
 
     void Update()
     {
@@ -28,7 +29,14 @@ public class TurretController_Script : MonoBehaviour
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
 			turretObject.GetComponent<SpriteRenderer> ().sprite = ionBlasterTurretSprite;
 			turretObject.transform.GetChild (0).gameObject.transform.localPosition = new Vector3 (0,0.2f,0);
-		} else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism") {
+		}
+        else if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Fusion Mine")
+        {
+            turretObject.GetComponent<SpriteRenderer>().sprite = fusionMineTurretSprite;
+            turretObject.transform.GetChild(0).gameObject.transform.localPosition = new Vector3(0, 0, 0);
+        }
+        else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism")
+        {
 			turretObject.GetComponent<SpriteRenderer> ().sprite = quantumPrismTurretSprite;
 			turretObject.transform.GetChild (0).gameObject.transform.localPosition = new Vector3 (0,0,0);
 		}
