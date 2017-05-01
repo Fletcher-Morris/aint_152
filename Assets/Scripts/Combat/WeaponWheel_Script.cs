@@ -119,7 +119,7 @@ public class WeaponWheel_Script : MonoBehaviour
 		}
 
 		if (weaponList [hoverItem - 1].weaponName != "null") {
-			gameObject.transform.GetChild (0).GetChild (0).GetChild (0).GetComponent<Text> ().text = weaponList [hoverItem - 1].weaponName + "\n" + "lvl" + weaponList [hoverItem - 1].weaponLevel.ToString ();
+			gameObject.transform.GetChild (0).GetChild (0).GetChild (0).GetComponent<Text> ().text = weaponList [hoverItem - 1].weaponName + "\n" + "lvl " + weaponList [hoverItem - 1].weaponLevel.ToString ();
 		} else {
 			gameObject.transform.GetChild (0).GetChild (0).GetChild (0).GetComponent<Text> ().text = "";
 		}

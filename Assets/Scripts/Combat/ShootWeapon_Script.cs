@@ -8,9 +8,11 @@ public class ShootWeapon_Script : MonoBehaviour
     public GameObject bulletSpawnPoint;
     public GameObject bulletPrefab;
     public GameObject fusionMinePrefab;
+    public GameObject hunterMissilePrefab;
 	public GameObject prismBeamPrefab;
     public GameObject audioObjectPrefab;
     public AudioClip bulletSound1;
+    public AudioClip negativeToneSound;
     public bool canShoot = true;
     public bool isTryingToShoot = false;
 
@@ -68,6 +70,10 @@ public class ShootWeapon_Script : MonoBehaviour
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
 			ShootIonBlaster ();
 		}
+        else if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Hunter Launcher")
+        {
+            ChargeHunterLauncher();
+        }
         else if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Fusion Mine")
         {
             ShootFusionMine();
@@ -79,6 +85,10 @@ public class ShootWeapon_Script : MonoBehaviour
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism") {
 			GameObject.Destroy (myPrismBeam);
 		}
+        else if(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Hunter Launcher")
+        {
+            ReleaseHunterLauncher();
+        }
 	}
 
 
@@ -131,12 +141,74 @@ public class ShootWeapon_Script : MonoBehaviour
         if(shootDelayTimer <= 0 && GetComponent<ShipSetup_Script>().shipDetails.shipReactor.currentPower >= GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse)
         {
             GetComponent<ShipSetup_Script>().TakePower(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse);
-            GameObject.Instantiate(fusionMinePrefab, transform.position, transform.rotation);
+            GameObject fusionMineObject = GameObject.Instantiate(fusionMinePrefab, transform.position, transform.rotation);
+            fusionMineObject.GetComponent<FusionMine_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
+
+            shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
+        }
+        else if(gameObject.transform.tag == "Player")
+        {
+            GetComponent<AudioSource>().PlayOneShot(negativeToneSound);
+        }
+    }
+
+    public void ChargeHunterLauncher()
+    {
+        if (GetComponent<ShipSetup_Script>().shipDetails.shipReactor.currentPower >= GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse)
+        {
+            if (shootDelayTimer <= 0)
+            {
+                List<GameObject> hunterObjects = new List<GameObject>();
+
+                GetComponent<ShipSetup_Script>().TakePower(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse);
+                GameObject hunterMissile = GameObject.Instantiate(hunterMissilePrefab, transform.position, transform.rotation, gameObject.transform);
+                Destroy(hunterMissile.GetComponent<Rigidbody2D>());
+                hunterMissile.GetComponent<AutoDestroy_Script>().enabled = false;
+                hunterMissile.GetComponent<HunterMissile_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
+                hunterMissile.GetComponent<Collider2D>().enabled = false;
+
+                foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+                {
+                    if (gameObj.name == "Hunter Missile(Clone)" && gameObj.transform.IsChildOf(gameObj.transform))
+                    {
+                        hunterObjects.Add(gameObj);
+                    }
+                }
+
+                hunterMissile.transform.localPosition = new Vector3(NumberToMissilePos(hunterObjects.Count),0,0);
+
+                hunterMissile.GetComponent<HunterMissile_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
+                shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
+            }
+        }
+        else
+        {
+            if (!GetComponent<AudioSource>().isPlaying && gameObject.transform.tag == "Player")
+            {
+                GetComponent<AudioSource>().PlayOneShot(negativeToneSound); 
+            }
+
+            ReleaseHunterLauncher();
+        }
+    }
+
+    public void ReleaseHunterLauncher()
+    {
+        foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+        {
+            if (gameObj.name == "Hunter Missile(Clone)")
+            {
+                gameObj.AddComponent<Rigidbody2D>();
+                gameObj.transform.parent = null;
+                gameObj.GetComponent<AutoDestroy_Script>().enabled = true;
+                gameObj.GetComponent<HunterMissile_Script>().active = true;
+                gameObj.GetComponent<Collider2D>().enabled = true;
+            }
         }
     }
 
 
-	public void ShootQuantumPrism()
+    public void ShootQuantumPrism()
 	{
 		if (GetComponent<ShipSetup_Script> ().shipDetails.shipReactor.currentPower > 0) {
 			
@@ -148,4 +220,22 @@ public class ShootWeapon_Script : MonoBehaviour
 
 		}
 	}
+
+    public int NumberToMissilePos(int input)
+    {
+        float temp = input;
+
+        if(input >= 3)
+        {
+            temp -= 0.5f;
+        }
+
+        if(input % 2 == 0)
+        {
+            temp -= 1;
+            temp *= -1;
+        }
+
+        return Mathf.RoundToInt(temp);
+    }
 }

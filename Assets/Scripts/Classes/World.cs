@@ -29,6 +29,8 @@ public class World {
 	public int quantumPrismLvl;
 	public int quantumPrismProgress;
 
+    public bool tutorialComplete;
+
     public Ship playerShip;
 
 	public List<StarSystem> starSystems;
@@ -61,6 +63,8 @@ public class World {
 		hasQuantumPrism = false;
 		quantumPrismLvl = 0;
 		quantumPrismProgress = 0;
+
+        tutorialComplete = false;
 
         playerShip = new Ship();
 		starSystems = new List<StarSystem> ();

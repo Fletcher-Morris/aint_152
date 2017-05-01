@@ -12,6 +12,8 @@ public class FusionMine_Script : MonoBehaviour {
 
     public GameObject explosionPrefab;
 
+    public int damage;
+
     private void Update()
     {
         if (!targetObject)
@@ -68,7 +70,12 @@ public class FusionMine_Script : MonoBehaviour {
 
     public void Explode()
     {
-        GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
+        GameObject explosionObject = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
+        explosionObject.GetComponent<DoDamageOnHit_Script>().damageAmount = damage;
+        if (GameObject.Find("Player Ship"))
+        {
+            GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.shipTurret.AddExperience();
+        }
         Destroy(gameObject);
     }
 }
