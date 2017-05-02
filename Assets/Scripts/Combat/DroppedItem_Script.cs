@@ -32,14 +32,14 @@ public class DroppedItem_Script : MonoBehaviour
                 {
                     if (Vector2.Distance(transform.position, targetObject.transform.position) <= movementRange)
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, targetObject.transform.position, moveSpeed + mySpeedVariation);
+						transform.position = Vector2.MoveTowards(transform.position, targetObject.transform.position, (moveSpeed + mySpeedVariation) * Time.deltaTime);
                     } 
                 }
                 else
                 {
                     if (Vector2.Distance(transform.position, targetObject.transform.position) <= movementRange && targetObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth < targetObject.GetComponent<ShipSetup_Script>().shipDetails.maxShipHealth)
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, targetObject.transform.position, moveSpeed + mySpeedVariation);
+						transform.position = Vector2.MoveTowards(transform.position, targetObject.transform.position, (moveSpeed + mySpeedVariation) * Time.deltaTime);
                     }
                 }
 			}
