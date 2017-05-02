@@ -17,8 +17,6 @@ public class DefaultMissions_Script : MonoBehaviour {
 		}
 
 		loadedMissions = LoadMissions ();
-
-
 	}
 
 	void SaveDefaults(){
@@ -54,4 +52,17 @@ public class DefaultMissions_Script : MonoBehaviour {
 
 		return _missions;
 	}
+
+    public Mission Find(string _name)
+    {
+        foreach (Mission _mission in loadedMissions)
+        {
+            if(_mission.missionName == _name)
+            {
+                return _mission;
+            }
+        }
+
+        return null;
+    }
 }

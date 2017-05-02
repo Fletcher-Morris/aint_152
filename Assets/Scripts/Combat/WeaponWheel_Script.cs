@@ -22,6 +22,7 @@ public class WeaponWheel_Script : MonoBehaviour
 	public Sprite fusionMineSprite;
     public Sprite hunterLauncherSprite;
     public Sprite quantumPrismSprite;
+    public Sprite refractionMatrixSprite;
 
     public GameObject selectorObject;
 	public GameObject[] itemObject;
@@ -99,7 +100,12 @@ public class WeaponWheel_Script : MonoBehaviour
             }
             else if (weaponList [i - 1].weaponType == "Quantum Prism") {
 				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = quantumPrismSprite;
-			} else {
+			}
+            else if (weaponList[i - 1].weaponType == "Refraction Matrix")
+            {
+                itemObject[i - 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = refractionMatrixSprite;
+            }
+            else {
 				itemObject [i - 1].transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = nullSprite;
 			}
 		}

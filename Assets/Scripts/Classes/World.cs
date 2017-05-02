@@ -11,7 +11,10 @@ public class World {
     public int score;
     public int money;
 	public int gold;
+
 	public bool hardcore;
+    public int asteroidsDestroyed;
+    public int enemiesDestroyed;
 
 	public bool hasIonBlaster;
 	public int ionBlasterLvl;
@@ -28,6 +31,10 @@ public class World {
 	public bool hasQuantumPrism;
 	public int quantumPrismLvl;
 	public int quantumPrismProgress;
+
+    public bool hasRefractionMatrix;
+    public int refractionMatrixLvl;
+    public int refractionMatrixProgress;
 
     public bool tutorialComplete;
 

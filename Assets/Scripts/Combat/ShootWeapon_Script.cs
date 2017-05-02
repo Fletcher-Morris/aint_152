@@ -63,6 +63,16 @@ public class ShootWeapon_Script : MonoBehaviour
         {
 			ShootQuantumPrism ();
 		}
+        else if(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Hunter Launcher")
+        {
+            if (!GetComponent<AudioSource>().isPlaying && gameObject.transform.tag == "Player")
+            {
+                if (GetComponent<ShipSetup_Script>().shipDetails.shipReactor.currentPower < GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(negativeToneSound); 
+                }
+            }
+        }
 	}
 
     public void AutoShoot()
@@ -148,7 +158,10 @@ public class ShootWeapon_Script : MonoBehaviour
         }
         else if(gameObject.transform.tag == "Player")
         {
-            GetComponent<AudioSource>().PlayOneShot(negativeToneSound);
+            if (!GetComponent<AudioSource>().isPlaying && gameObject.transform.tag == "Player")
+            {
+                GetComponent<AudioSource>().PlayOneShot(negativeToneSound);
+            }
         }
     }
 
@@ -183,11 +196,6 @@ public class ShootWeapon_Script : MonoBehaviour
         }
         else
         {
-            if (!GetComponent<AudioSource>().isPlaying && gameObject.transform.tag == "Player")
-            {
-                GetComponent<AudioSource>().PlayOneShot(negativeToneSound); 
-            }
-
             ReleaseHunterLauncher();
         }
     }
@@ -203,6 +211,8 @@ public class ShootWeapon_Script : MonoBehaviour
                 gameObj.GetComponent<AutoDestroy_Script>().enabled = true;
                 gameObj.GetComponent<HunterMissile_Script>().active = true;
                 gameObj.GetComponent<Collider2D>().enabled = true;
+                gameObj.GetComponent<AudioSource>().enabled = true;
+                gameObj.GetComponent<AudioSource>().Play();
             }
         }
     }

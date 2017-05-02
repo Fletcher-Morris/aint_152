@@ -15,6 +15,7 @@ public class ItemShop_Script : MonoBehaviour
 	public Sprite fusionMineSprite;
 	public Sprite hunterLauncherSprite;
 	public Sprite quantumPrismSprite;
+    public Sprite refractionMatrixSprite;
 
 	public Color normalColour;
 	public Color normalTextColour;
@@ -52,7 +53,12 @@ public class ItemShop_Script : MonoBehaviour
 		if (!GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasQuantumPrism) {
 			buyableWeaponsList.Add (GameObject.Find("GM").GetComponent<WeaponData_Script>().quantumPrismUpgrades[0]);
 		}
-	}
+
+        if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hasRefractionMatrix)
+        {
+            buyableWeaponsList.Add(GameObject.Find("GM").GetComponent<WeaponData_Script>().refractionMatrixUpgrades[0]);
+        }
+    }
 
 	public void InstantiateUIObjects()
 	{
@@ -62,15 +68,22 @@ public class ItemShop_Script : MonoBehaviour
 
 			if (weaponItem.weaponType == "Ion Blaster") {
 				newObject.transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = ionBlasterSprite;
-			} else if (weaponItem.weaponType == "Fusion Mine") {
+			}
+            else if (weaponItem.weaponType == "Fusion Mine") {
 				newObject.transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = fusionMineSprite;
-			} else if (weaponItem.weaponType == "Hunter Launcher") {
+			}
+            else if (weaponItem.weaponType == "Hunter Launcher") {
 				newObject.transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = hunterLauncherSprite;
-			} else if (weaponItem.weaponType == "Quantum Prism") {
+			}
+            else if (weaponItem.weaponType == "Quantum Prism") {
 				newObject.transform.GetChild (0).gameObject.GetComponent<Image> ().sprite = quantumPrismSprite;
 			}
+            else if (weaponItem.weaponType == "Refraction Matrix")
+            {
+                newObject.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = refractionMatrixSprite;
+            }
 
-			newObject.transform.GetChild (1).gameObject.GetComponent<Text> ().text = weaponItem.weaponName;
+            newObject.transform.GetChild (1).gameObject.GetComponent<Text> ().text = weaponItem.weaponName;
 
 			GameObject spawnedObject = GameObject.Instantiate (newObject, Vector3.zero, Quaternion.identity, gameObject.transform.GetChild(0).transform);
 
@@ -133,15 +146,22 @@ public class ItemShop_Script : MonoBehaviour
 	{
 		if (buyableWeaponsList [selectedItem - 1].weaponType == "Ion Blaster") {
 			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasIonBlaster = true;
-		} else if (buyableWeaponsList [selectedItem - 1].weaponType == "Fusion Mine") {
+		}
+        else if (buyableWeaponsList [selectedItem - 1].weaponType == "Fusion Mine") {
 			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasFusionMine = true;
-		} else if (buyableWeaponsList [selectedItem - 1].weaponType == "Hunter Launcher") {
+		}
+        else if (buyableWeaponsList [selectedItem - 1].weaponType == "Hunter Launcher") {
 			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasHunterLauncher = true;
-		} else if (buyableWeaponsList [selectedItem - 1].weaponType == "Quantum Prism") {
+		}
+        else if (buyableWeaponsList [selectedItem - 1].weaponType == "Quantum Prism") {
 			GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.hasQuantumPrism = true;
 		}
+        else if (buyableWeaponsList[selectedItem - 1].weaponType == "Refraction Matrix")
+        {
+            GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hasRefractionMatrix = true;
+        }
 
-		GameObject.Find ("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip.shipTurret.AddWeapon(buyableWeaponsList[selectedItem - 1]);
+        GameObject.Find ("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip.shipTurret.AddWeapon(buyableWeaponsList[selectedItem - 1]);
 		GameObject.Find ("WM").GetComponent<WorldLoader_Script> ().theWorld.money -= buyableWeaponsList [selectedItem - 1].weaponValue;
 
 		buyableWeaponsList.RemoveAt (selectedItem - 1);

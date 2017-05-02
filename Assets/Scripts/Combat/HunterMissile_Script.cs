@@ -68,7 +68,7 @@ public class HunterMissile_Script : MonoBehaviour {
                 }
             }
 
-            GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
 
             Destroy(gameObject); 
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WorldLoader_Script : MonoBehaviour {
 
@@ -38,6 +39,8 @@ public class WorldLoader_Script : MonoBehaviour {
             Debug.Log(gameObject.name + ": this is the Game Scene.");
             theWorld = theWorld.LoadWorld(nameOfWorldToLoad);
             GenerateWorld();
+
+            ActivateMission("Get To The Cockpit");
         }
     }
 
@@ -81,5 +84,80 @@ public class WorldLoader_Script : MonoBehaviour {
         }
 
         theWorld.SaveWorld(theWorld);
+    }
+
+    public void ActivateMission(Mission _mission)
+    {
+        theWorld.activeMissions.Add(_mission);
+
+        string missionUiText = _mission.missionName + "\n\n" + _mission.missionDescription + "\n\n" + "Reward: $" + _mission.missionReward;
+
+        GameObject.Find("Player UI Canvas").transform.GetChild(6).gameObject.SetActive(true);
+        GameObject.Find("Player UI Canvas").transform.GetChild(6).GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = missionUiText;
+    }
+
+    public void ActivateMission(string _missionName)
+    {
+        ActivateMission(GameObject.Find("GM").GetComponent<DefaultMissions_Script>().Find(_missionName));
+    }
+
+    public Mission FindMission(string _name)
+    {
+        foreach (Mission _mission in theWorld.activeMissions)
+        {
+            if (_mission.missionName == _name)
+            {
+                return _mission;
+            }
+        }
+
+        foreach (Mission _mission in theWorld.completedMissions)
+        {
+            if (_mission.missionName == _name)
+            {
+                return _mission;
+            }
+        }
+
+        return null;
+    }
+
+    public bool MissionExists(string _name)
+    {
+        foreach (Mission _mission in theWorld.activeMissions)
+        {
+            if (_mission.missionName == _name)
+            {
+                return true;
+            }
+        }
+
+        foreach (Mission _mission in theWorld.completedMissions)
+        {
+            if (_mission.missionName == _name)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void CompleteMission(string _name)
+    {
+        FindMission(_name).completed = true;
+
+        theWorld.completedMissions.Add(FindMission(_name));
+
+        theWorld.activeMissions.Remove(FindMission(_name));
+
+        theWorld.money += FindMission(_name).missionReward;
+    }
+
+    public void SkipTutorial()
+    {
+        CompleteMission("Get To The Cockpit");
+        CompleteMission("Destroy Three Asteroids");
+        CompleteMission("Destroy The Theif");
     }
 }

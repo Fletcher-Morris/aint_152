@@ -55,7 +55,14 @@ public class PlayerMovement_Script : MonoBehaviour
 					playerObject.GetComponent<Rigidbody2D> ().isKinematic = true;
 
 					GameObject.Find ("RM").GetComponent<WaveManager_Script> ().doSpawn = true;
-				} else {
+
+                    if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Get To The Cockpit").completed)
+                    {
+                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Get To The Cockpit");
+                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy Three Asteroids");
+                    }
+
+                } else {
 					gM.GetComponent<GameState_Script> ().SetPlayerState ("Normal");
 					gameObject.GetComponent<ViewTransition_Script> ().SwitchToCrew ();
 

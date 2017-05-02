@@ -44,14 +44,35 @@ public class GenericHealth_Script : MonoBehaviour
                 explosion.transform.localScale = new Vector3(explosionScale, explosionScale, explosionScale);
             }
 
+            if (dropItemsOnDeath && GetComponent<DropOnDeath_Script>())
+            {
+                gameObject.GetComponent<DropOnDeath_Script>().Drop();
+            }
+
+            if(gameObject.tag == "Asteroid")
+            {
+                GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed ++;
+                if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed >= 3)
+                {
+                    if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Destroy Three Asteroids"))
+                    {
+                        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Destroy Three Asteroids").completed == false)
+                        {
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy Three Asteroids");
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy The Theif");
+                        } 
+                    }
+                }
+            }
+            else if(gameObject.tag == "Enemy")
+            {
+                GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed++;
+            }
+
             if (destroyOnDeath)
             {
                 GameObject.Destroy(gameObject);
             }
-
-			if (dropItemsOnDeath && GetComponent<DropOnDeath_Script> ()) {
-				gameObject.GetComponent<DropOnDeath_Script> ().Drop ();
-			}
         }
     }
 

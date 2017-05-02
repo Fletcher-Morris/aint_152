@@ -10,13 +10,15 @@ public class WeaponData_Script : MonoBehaviour
 	public List<Weapon> fusionMineUpgrades;
 	public List<Weapon> hunterLauncherUpgrades;
 	public List<Weapon> quantumPrismUpgrades;
+    public List<Weapon> refractionMatrixUpgrades;
 
-	public List<Weapon> defaultIonBlasterUpgrades;
+    public List<Weapon> defaultIonBlasterUpgrades;
 	public List<Weapon> defautFusionMineUpgrades;
 	public List<Weapon> defaultHunterLauncherUpgrades;
 	public List<Weapon> defaultQuantumPrismUpgrades;
+    public List<Weapon> defaultRefractionMatrixUpgrades;
 
-	void Start()
+    void Start()
 	{
 		if (!Directory.Exists (Application.dataPath + "/Data/Weapons/")) {
 			Debug.LogWarning ("Weapons Directory Does Not Exist, Creating A New One.");
@@ -76,7 +78,21 @@ public class WeaponData_Script : MonoBehaviour
 				Debug.Log ("Saving mission file (" + _weapon.weaponName + ").");
 			}
 		}
-	}
+
+        foreach (Weapon _weapon in defaultRefractionMatrixUpgrades)
+        {
+            if (_weapon.weaponType != "")
+            {
+                string jsonString = JsonUtility.ToJson(_weapon);
+
+                if (!Directory.Exists(Application.dataPath + "/Data/Weapons/" + _weapon.weaponType + "/"))
+                    Directory.CreateDirectory(Application.dataPath + "/Data/Weapons/" + _weapon.weaponType + "/");
+
+                File.WriteAllText(Application.dataPath + "/Data/Weapons/" + _weapon.weaponType + "/" + _weapon.weaponLevel + ".json", jsonString.ToString());
+                Debug.Log("Saving mission file (" + _weapon.weaponName + ").");
+            }
+        }
+    }
 
 	public void LoadWeapons(){
 
@@ -98,8 +114,10 @@ public class WeaponData_Script : MonoBehaviour
 						hunterLauncherUpgrades.Add (_weapon);
 					else if (_weapon.weaponType == "Quantum Prism")
 						quantumPrismUpgrades.Add (_weapon);
+                    else if (_weapon.weaponType == "Refraction Matrix")
+                        refractionMatrixUpgrades.Add(_weapon);
 
-					Debug.Log ("Loaded Weapon File (" + _weapon.weaponName + ").");
+                    Debug.Log ("Loaded Weapon File (" + _weapon.weaponName + ").");
 				}
 			}
 		}

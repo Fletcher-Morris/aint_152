@@ -106,12 +106,25 @@ public class ShipSetup_Script : MonoBehaviour
                         Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.worldName, true);
                     }
                 }
+                else
+                {
+                    GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed++;
+
+                    if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Destroy The Theif"))
+                    {
+                        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Destroy The Theif").completed == false)
+                        {
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Theif");
+                        } 
+                    }
+                }
 
                 if (GetComponent<DropOnDeath_Script>())
                 {
                     gameObject.GetComponent<DropOnDeath_Script>().Drop();
                 }
                 ForceIndicateDamage(damageTakenInTime);
+
                 GameObject.Destroy(gameObject);
             }
 
