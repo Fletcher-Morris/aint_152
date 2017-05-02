@@ -59,7 +59,8 @@ public class GenericHealth_Script : MonoBehaviour
                         if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Destroy Three Asteroids").completed == false)
                         {
                             GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy Three Asteroids");
-                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy The Theif");
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy The Thief");
+                            GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
                         } 
                     }
                 }

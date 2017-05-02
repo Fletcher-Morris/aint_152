@@ -166,7 +166,17 @@ public class ItemShop_Script : MonoBehaviour
 
 		buyableWeaponsList.RemoveAt (selectedItem - 1);
 		GameObject.Destroy (transform.GetChild(0).GetChild(selectedItem - 1).gameObject);
-	}
+
+        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Buy A New Weapon"))
+        {
+            if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Buy A New Weapon").completed == false)
+            {
+                GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Buy A New Weapon");
+                GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy The Thieves");
+                GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
+            }
+        }
+    }
 
 	public void CloseItemShop()
 	{

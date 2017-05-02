@@ -108,14 +108,12 @@ public class ShipSetup_Script : MonoBehaviour
                 }
                 else
                 {
-                    GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed++;
-
-                    if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Destroy The Theif"))
+                    if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed == 0)
                     {
-                        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Destroy The Theif").completed == false)
-                        {
-                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Theif");
-                        } 
+                        //GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Thief");
+                        GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = false;
+                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Buy A New Weapon");
+                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.money += 1000;
                     }
                 }
 
@@ -124,6 +122,8 @@ public class ShipSetup_Script : MonoBehaviour
                     gameObject.GetComponent<DropOnDeath_Script>().Drop();
                 }
                 ForceIndicateDamage(damageTakenInTime);
+
+                GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed++;
 
                 GameObject.Destroy(gameObject);
             }

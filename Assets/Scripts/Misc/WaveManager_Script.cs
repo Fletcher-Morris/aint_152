@@ -75,13 +75,11 @@ public class WaveManager_Script : MonoBehaviour
         defaultWaveData = new WaveList();
         Wave wave1 = new Wave();
         wave1.ships.Add(new Ship(new Vector3(-20, 20, 0)));
-        wave1.ships.Add(new Ship(new Vector3(20, -20, 0)));
         defaultWaveData.waveList.Add(wave1);
 
         Wave wave2 = new Wave();
         wave2.ships.Add(new Ship(new Vector3(20, 20, 0)));
         wave2.ships.Add(new Ship(new Vector3(-20, -20, 0)));
-        wave2.ships.Add(new Ship(new Vector3(-20, 20, 0)));
         wave2.ships.Add(new Ship(new Vector3(20, -20, 0)));
         defaultWaveData.waveList.Add(wave2);
 

@@ -54,8 +54,6 @@ public class PlayerMovement_Script : MonoBehaviour
 
 					playerObject.GetComponent<Rigidbody2D> ().isKinematic = true;
 
-					GameObject.Find ("RM").GetComponent<WaveManager_Script> ().doSpawn = true;
-
                     if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Get To The Cockpit").completed)
                     {
                         GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Get To The Cockpit");
