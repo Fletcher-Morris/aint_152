@@ -185,14 +185,32 @@ public class ShipSetup_Script : MonoBehaviour
 
     void UpdateUI()
     {
-        GameObject.Find("Health Text").GetComponent<Text>().text = "HEALTH: " + shipDetails.shipHealth;
-        GameObject.Find("Power Text").GetComponent<Text>().text = "POWER: " + Mathf.RoundToInt(shipDetails.shipReactor.currentPower);
-        GameObject.Find("Shield Text").GetComponent<Text>().text = "SHIELD: " + Mathf.RoundToInt(shipDetails.shipShield.shieldHealth);
+        GameObject powerTextObject = GameObject.Find("Power Text");
+        GameObject shieldTextObject = GameObject.Find("Shield Text");
+        GameObject healthTextObject = GameObject.Find("Health Text");
 
+        float maxHealth = shipDetails.maxShipHealth;
+        float currentHealth = shipDetails.shipHealth;
+        healthTextObject.GetComponent<Text>().text = currentHealth.ToString();
+        healthTextObject.transform.parent.GetChild(1).GetChild(0).GetChild(0).GetComponent<Slider>().value = currentHealth / maxHealth;
+        healthTextObject.transform.parent.GetChild(2).GetComponent<Slider>().value = 1 - (currentHealth / maxHealth);
+
+        float maxPower = shipDetails.shipReactor.maxPower;
+        float currentPower = shipDetails.shipReactor.currentPower;
+        powerTextObject.GetComponent<Text>().text = Mathf.RoundToInt(currentPower).ToString();
+        powerTextObject.transform.parent.GetChild(1).GetChild(0).GetChild(0).GetComponent<Slider>().value = currentPower / maxPower;
+        powerTextObject.transform.parent.GetChild(2).GetComponent<Slider>().value = 1 - (currentPower / maxPower);
+
+        float maxShield = shipDetails.shipShield.maxShieldHealth;
+        float currentShield = shipDetails.shipShield.shieldHealth;
+        shieldTextObject.GetComponent<Text>().text = Mathf.RoundToInt(currentShield).ToString();
+        shieldTextObject.transform.parent.GetChild(1).GetChild(0).GetChild(0).GetComponent<Slider>().value = currentShield / maxShield;
+        shieldTextObject.transform.parent.GetChild(2).GetComponent<Slider>().value = 1 - (currentShield / maxShield);
+        
 		WorldLoader_Script wL = GameObject.Find ("WM").GetComponent<WorldLoader_Script> ();
-		GameObject.Find ("Money Text").GetComponent<Text> ().text = "$" + wL.theWorld.money;
-		GameObject.Find ("Gold Text").GetComponent<Text> ().text = "GOLD: " + wL.theWorld.gold;
-		GameObject.Find ("Score Text").GetComponent<Text> ().text = "SCORE: " + wL.theWorld.score;
+		GameObject.Find ("Money Text").GetComponent<Text> ().text = wL.theWorld.money.ToString();
+		GameObject.Find ("Gold Text").GetComponent<Text> ().text = wL.theWorld.gold.ToString();
+		GameObject.Find ("Score Text").GetComponent<Text> ().text = wL.theWorld.score.ToString();
 
         if(healthPercentage <= 20 && healthPercentage > 0)
         {

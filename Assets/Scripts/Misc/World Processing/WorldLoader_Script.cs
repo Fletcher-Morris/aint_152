@@ -92,8 +92,8 @@ public class WorldLoader_Script : MonoBehaviour {
 
         string missionUiText = _mission.missionName + "\n\n" + _mission.missionDescription + "\n\n" + "Reward: $" + _mission.missionReward;
 
-        GameObject.Find("Player UI Canvas").transform.GetChild(6).gameObject.SetActive(true);
-        GameObject.Find("Player UI Canvas").transform.GetChild(6).GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = missionUiText;
+        GameObject.Find("Player UI Canvas").transform.GetChild(5).gameObject.SetActive(true);
+        GameObject.Find("Player UI Canvas").transform.GetChild(5).GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = missionUiText;
     }
 
     public void ActivateMission(string _missionName)
