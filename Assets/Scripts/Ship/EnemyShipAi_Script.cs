@@ -20,7 +20,7 @@ public class EnemyShipAi_Script : MonoBehaviour
     {
         if (!targetEnemy)
         {
-            SearchForEnemy();
+            targetEnemy = SearchForTarget();
         }
         else
         {
@@ -55,14 +55,33 @@ public class EnemyShipAi_Script : MonoBehaviour
 		}
     }
 
-    void SearchForEnemy()
+    GameObject SearchForTarget()
     {
+        GameObject newTarget = new GameObject();
+
         foreach (GameObject _foundObject in GameObject.FindGameObjectsWithTag("Player"))
         {
-            if(Vector2.Distance(_foundObject.transform.position, gameObject.transform.position) <= enemyDetectionRange)
+            if (Vector2.Distance(_foundObject.transform.position, gameObject.transform.position) <= enemyDetectionRange)
             {
-                targetEnemy = _foundObject;
+                newTarget = _foundObject;
             }
+        }
+
+        if (newTarget.tag != "Player")
+        {
+            foreach (GameObject _foundObject in GameObject.FindGameObjectsWithTag("Objective"))
+            {
+                newTarget = _foundObject;
+            } 
+        }
+
+        if (newTarget.tag != "Untagged")
+        {
+            return newTarget;
+        }
+        else
+        {
+            return null;
         }
     }
 

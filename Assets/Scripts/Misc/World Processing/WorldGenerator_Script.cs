@@ -31,16 +31,11 @@ public class WorldGenerator_Script : MonoBehaviour {
             _world.worldName = "New World";
         }
 
-        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").gameObject.SetActive(true);
-        GameObject.Find("Loading Panel").transform.FindChild("Loading Info Background").gameObject.SetActive(true);
-
         _world.playerShip = new Ship();
 		_world.playerShip.shipTurret.AddWeapon (GameObject.Find("GM").GetComponent<WeaponData_Script>().ionBlasterUpgrades[0]);
 
-        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "GENERATING ASTEROIDS...";
         CreateAsteroids();
-
-        GameObject.Find("Loading Panel").transform.FindChild("Loading Info").GetComponent<Text>().text = "SAVING THE WORLD...";
+        
         _world.SaveWorld();
 
         GameObject.Find("WM").GetComponent<WorldLoader_Script>().nameOfWorldToLoad = _world.worldName;
