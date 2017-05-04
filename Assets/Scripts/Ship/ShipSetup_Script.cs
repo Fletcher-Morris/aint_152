@@ -103,7 +103,7 @@ public class ShipSetup_Script : MonoBehaviour
                     GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
                     if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hardcore)
                     {
-                        Directory.Delete(Application.dataPath + "/Saves/" + GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.worldName, true);
+                        File.Delete(Application.dataPath + "/Data/Saves/" + GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.worldName);
                     }
                 }
                 else
