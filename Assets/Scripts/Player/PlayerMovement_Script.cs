@@ -59,6 +59,19 @@ public class PlayerMovement_Script : MonoBehaviour
                         GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Get To The Cockpit");
                         GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy Three Asteroids");
                     }
+                    else if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Buy A New Weapon"))
+                    {
+                        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Buy A New Weapon").completed)
+                        {
+                            if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Protect The Bank"))
+                            {
+                                GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Protect The Bank");
+                                GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
+                                GameObject.Find("Space Bank").tag = "Objective";
+                                GameObject.Find("Space Bank").GetComponent<GenericHealth_Script>().enabled = true;
+                            }
+                        }
+                    }
 
                 } else {
 					gM.GetComponent<GameState_Script> ().SetPlayerState ("Normal");

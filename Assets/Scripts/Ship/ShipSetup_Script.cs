@@ -110,7 +110,7 @@ public class ShipSetup_Script : MonoBehaviour
                 {
                     if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed == 0)
                     {
-                        //GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Thief");
+                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Thief");
                         GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = false;
                         GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Buy A New Weapon");
                         GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.money += 1000;
@@ -121,7 +121,11 @@ public class ShipSetup_Script : MonoBehaviour
                 {
                     gameObject.GetComponent<DropOnDeath_Script>().Drop();
                 }
-                ForceIndicateDamage(damageTakenInTime);
+
+                if (timeSinceDamageTaken < damageCollectionTime)
+                {
+                    ForceIndicateDamage(Mathf.RoundToInt(damageTakenInTime));
+                }
 
                 GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed++;
 
@@ -140,9 +144,12 @@ public class ShipSetup_Script : MonoBehaviour
 		damageTakenInTime += rawDamage;
 
 		if (timeSinceDamageTaken >= damageCollectionTime) {
-			ForceIndicateDamage (damageTakenInTime);
-			damageTakenInTime = 0;
-			timeSinceDamageTaken = 0;
+            if (damageTakenInTime >= 1)
+            {
+                ForceIndicateDamage(damageTakenInTime);
+                damageTakenInTime = 0;
+                timeSinceDamageTaken = 0;
+            }
 		}
 	}
 
@@ -151,8 +158,11 @@ public class ShipSetup_Script : MonoBehaviour
 		GameObject dmgIndicator = damageIndicatorPrefab;
 		dmgIndicator.GetComponent<DamageIndicator_Script> ().damageAmount = _damageTaken;
 		Vector2 screenPos = Camera.main.WorldToScreenPoint (new Vector2 (transform.position.x + Random.Range(-.5f, .5f), transform.position.y));
-		GameObject.Instantiate (dmgIndicator, screenPos, Quaternion.Euler(0,0,Random.Range(-10, 10)), GameObject.Find ("Player UI Canvas").transform);
-	}
+        if (_damageTaken >= 1)
+        {
+            GameObject.Instantiate(dmgIndicator, screenPos, Quaternion.Euler(0, 0, Random.Range(-10, 10)), GameObject.Find("Player UI Canvas").transform);
+        }
+    }
 
 	public float TakeShieldDamage(float damageAmount)
     {

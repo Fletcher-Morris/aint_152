@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GenericHealth_Script : MonoBehaviour
 {
     public int currentHealth = 100;
+    public int maxHealth = 100;
 
     public bool explodeOnDeath = true;
     public GameObject explosionPrefab;
@@ -20,6 +22,7 @@ public class GenericHealth_Script : MonoBehaviour
 
 	public void Start()
 	{
+        currentHealth = maxHealth;
 		timeSinceDamageTaken = damageCollectionTime;
 	}
 
@@ -36,7 +39,10 @@ public class GenericHealth_Script : MonoBehaviour
             currentHealth = 0;
             Debug.Log(gameObject.name + " died!");
 
-			ForceIndicateDamage (Mathf.RoundToInt(damageTakenInTime));
+            if(timeSinceDamageTaken < damageCollectionTime)
+            {
+                ForceIndicateDamage(Mathf.RoundToInt(damageTakenInTime));
+            }
 
             if (explodeOnDeath)
             {
@@ -82,9 +88,12 @@ public class GenericHealth_Script : MonoBehaviour
 		damageTakenInTime += rawDamage;
 
 		if (timeSinceDamageTaken >= damageCollectionTime) {
-			ForceIndicateDamage (damageTakenInTime);
-			damageTakenInTime = 0;
-			timeSinceDamageTaken = 0;
+            if (damageTakenInTime >= 1)
+            {
+                ForceIndicateDamage(damageTakenInTime);
+                damageTakenInTime = 0;
+                timeSinceDamageTaken = 0;
+            }
 		}
 	}
 
@@ -93,12 +102,27 @@ public class GenericHealth_Script : MonoBehaviour
 		GameObject dmgIndicator = damageIndicatorPrefab;
 		dmgIndicator.GetComponent<DamageIndicator_Script> ().damageAmount = _damageTaken;
 		Vector2 screenPos = Camera.main.WorldToScreenPoint (new Vector2 (transform.position.x + Random.Range(-.5f, .5f), transform.position.y));
-		GameObject.Instantiate (dmgIndicator, screenPos, Quaternion.Euler(0,0,Random.Range(-10, 10)), GameObject.Find ("Player UI Canvas").transform);
+        if (_damageTaken >= 1)
+        {
+            GameObject.Instantiate(dmgIndicator, screenPos, Quaternion.Euler(0, 0, Random.Range(-10, 10)), GameObject.Find("Player UI Canvas").transform); 
+        }
 	}
 
 
     private void Update()
     {
         timeSinceDamageTaken += Time.deltaTime;
+
+        if (gameObject.tag == "Objective" && GameObject.Find("Player UI Canvas"))
+        {
+            float fCurrent = currentHealth;
+            float fMax = maxHealth;
+
+            GameObject objectiveHealthBar = GameObject.Find("Player UI Canvas").transform.GetChild(6).gameObject;
+            objectiveHealthBar.SetActive(true);
+
+            objectiveHealthBar.GetComponent<Slider>().value = (fCurrent / fMax);
+            objectiveHealthBar.transform.GetChild(3).gameObject.GetComponent<Text>().text = "Objective Health";
+        }
     }
 }

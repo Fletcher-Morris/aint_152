@@ -34,11 +34,14 @@ public class Bullet_Script : MonoBehaviour
                 }
             }
         }
-        else if(hit.gameObject.tag == "Asteroid")
+        else if (hit.GetComponent<GenericHealth_Script>())
         {
+
             var health = hit.GetComponent<GenericHealth_Script>();
+
             if (health != null)
             {
+
                 health.TakeDamage(damage);
             }
         }

@@ -172,8 +172,6 @@ public class ItemShop_Script : MonoBehaviour
             if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Buy A New Weapon").completed == false)
             {
                 GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Buy A New Weapon");
-                GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Protect The Bank");
-                GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
             }
         }
     }

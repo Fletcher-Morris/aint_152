@@ -9,7 +9,15 @@ public class EnemyShipAi_Script : MonoBehaviour
     public float rotateSpeed = 50f;
     public float rotationSmoothing = 5f;
 
-	public GameObject turretObject;
+    public float playerPriority = 4;
+    public float objectivePriority = 1f;
+    public float priorityRatio = 0;
+    public float objectiveDistance = 0;
+    public float playerDistance = 0;
+    GameObject playerTarget;
+    GameObject objectiveTarget;
+
+    public GameObject turretObject;
     public GameObject targetEnemy;
     public float currentEnemyRange;
 
@@ -18,35 +26,31 @@ public class EnemyShipAi_Script : MonoBehaviour
 
     private void Update()
     {
-        if (!targetEnemy)
+        targetEnemy = SearchForTarget();
+
+        currentEnemyRange = Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position);
+
+        if (Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position) > enemyDetectionRange)
         {
-            targetEnemy = SearchForTarget();
+            targetEnemy = null;
         }
-        else
+
+        if (targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
         {
-            currentEnemyRange = Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position);
-
-            if (Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position) > enemyDetectionRange)
+            AimTurret();
+            if (currentEnemyRange <= enemyShootRange)
             {
-                targetEnemy = null;
-            }
-
-			if (targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
-            {
-                AimTurret();
-				if(currentEnemyRange <= enemyShootRange){
-					ShootGun();
-				}
-            }
-
-			if (currentEnemyRange >= 3 && targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
-            {
-                MoveShipRigidbody();
-                RotateShip();
+                ShootGun();
             }
         }
 
-		if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
+        if (currentEnemyRange >= 3 && targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
+        {
+            MoveShipRigidbody();
+            RotateShip();
+        }
+
+        if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
 			turretObject.GetComponent<SpriteRenderer> ().sprite = ionBlasterTurretSprite;
 			turretObject.transform.GetChild (0).gameObject.transform.localPosition = new Vector3 (0,0.2f,0);
 		} else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism") {
@@ -57,27 +61,41 @@ public class EnemyShipAi_Script : MonoBehaviour
 
     GameObject SearchForTarget()
     {
-        GameObject newTarget = new GameObject();
+        priorityRatio = playerPriority / objectivePriority;
 
         foreach (GameObject _foundObject in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (Vector2.Distance(_foundObject.transform.position, gameObject.transform.position) <= enemyDetectionRange)
             {
-                newTarget = _foundObject;
+                playerTarget = _foundObject;
+                playerDistance = Vector2.Distance(_foundObject.transform.position, gameObject.transform.position);
             }
         }
 
-        if (newTarget.tag != "Player")
+        foreach (GameObject _foundObject in GameObject.FindGameObjectsWithTag("Objective"))
         {
-            foreach (GameObject _foundObject in GameObject.FindGameObjectsWithTag("Objective"))
-            {
-                newTarget = _foundObject;
-            } 
+            objectiveTarget = _foundObject;
+            objectiveDistance = Vector2.Distance(_foundObject.transform.position, gameObject.transform.position);
         }
 
-        if (newTarget.tag != "Untagged")
+        if (playerTarget && objectiveTarget)
         {
-            return newTarget;
+            if(playerDistance <= objectiveDistance * priorityRatio)
+            {
+                return playerTarget;
+            }
+            else
+            {
+                return objectiveTarget;
+            }
+        }
+        else if (objectiveTarget)
+        {
+            return objectiveTarget;
+        }
+        else if (playerTarget)
+        {
+            return playerTarget;
         }
         else
         {
