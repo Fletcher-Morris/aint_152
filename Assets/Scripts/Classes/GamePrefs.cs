@@ -30,7 +30,7 @@ public class GamePrefs
 
     public GamePrefs()
     {
-        playerName = "Scott Ace";
+        playerName = "Ace";
         sensitivity = 10;
         musicVolumeLevel = 5;
         effectVolumeLevel = 5;

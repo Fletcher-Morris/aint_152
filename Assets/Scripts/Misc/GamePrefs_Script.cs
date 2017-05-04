@@ -74,7 +74,7 @@ public class GamePrefs_Script : MonoBehaviour
 
     void Update()
     {
-        if (getPrefsFromUi)
+        if (getPrefsFromUi && GameObject.Find("Preferences Panel"))
         {
             GetPrefsFromUI(); 
         }

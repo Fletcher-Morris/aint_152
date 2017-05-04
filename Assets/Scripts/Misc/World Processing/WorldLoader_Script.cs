@@ -90,7 +90,16 @@ public class WorldLoader_Script : MonoBehaviour {
     {
         theWorld.activeMissions.Add(_mission);
 
-        string missionUiText = _mission.missionName + "\n\n" + _mission.missionDescription + "\n\n" + "Reward: $" + _mission.missionReward;
+        string missionUiText = "";
+
+        if (_mission.missionReward >= 1)
+        {
+            missionUiText = _mission.missionName + "\n\n" + GameObject.Find("GM").GetComponent<WordReplacer_Script>().ReplaceWords(_mission.missionDescription) + "\n\n" + "Reward: $" + _mission.missionReward; 
+        }
+        else
+        {
+            missionUiText = _mission.missionName + "\n\n" + GameObject.Find("GM").GetComponent<WordReplacer_Script>().ReplaceWords(_mission.missionDescription);
+        }
 
         GameObject.Find("Player UI Canvas").transform.GetChild(5).gameObject.SetActive(true);
         GameObject.Find("Player UI Canvas").transform.GetChild(5).GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = missionUiText;

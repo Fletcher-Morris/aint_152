@@ -14,8 +14,8 @@ public class GenericHealth_Script : MonoBehaviour
 	public bool dropItemsOnDeath = true;
 
 	public GameObject damageIndicatorPrefab;
-	private float timeSinceDamageTaken;
-	private float damageCollectionTime = .5f;
+    public float timeSinceDamageTaken;
+	public float damageCollectionTime = .2f;
 	private float damageTakenInTime = 0;
 
 	public void Start()
@@ -95,4 +95,10 @@ public class GenericHealth_Script : MonoBehaviour
 		Vector2 screenPos = Camera.main.WorldToScreenPoint (new Vector2 (transform.position.x + Random.Range(-.5f, .5f), transform.position.y));
 		GameObject.Instantiate (dmgIndicator, screenPos, Quaternion.Euler(0,0,Random.Range(-10, 10)), GameObject.Find ("Player UI Canvas").transform);
 	}
+
+
+    private void Update()
+    {
+        timeSinceDamageTaken += Time.deltaTime;
+    }
 }
