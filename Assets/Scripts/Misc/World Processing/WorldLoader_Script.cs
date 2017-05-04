@@ -32,6 +32,7 @@ public class WorldLoader_Script : MonoBehaviour {
 			theWorld.currentStarSystem.enemyShips = null;
 			theWorld.currentStarSystem.asteroids = null;
             nameOfWorldToLoad = null;
+            ClearMissions();
         }
 
         if (level == 1)
@@ -40,7 +41,21 @@ public class WorldLoader_Script : MonoBehaviour {
             theWorld = theWorld.LoadWorld(nameOfWorldToLoad);
             GenerateWorld();
 
-            ActivateMission("Get To The Cockpit");
+            if (MissionExists("Get To The Cockpit") == true)
+            {
+                if (FindMission("Get To The Cockpit").completed == false)
+                {
+                    ActivateMission("Get To The Cockpit"); 
+                }
+                else
+                {
+                    DisplayMission(theWorld.activeMissions[0]);
+                }
+            }
+            else
+            {
+                ActivateMission("Get To The Cockpit");
+            }
         }
     }
 
@@ -90,19 +105,7 @@ public class WorldLoader_Script : MonoBehaviour {
     {
         theWorld.activeMissions.Add(_mission);
 
-        string missionUiText = "";
-
-        if (_mission.missionReward >= 1)
-        {
-            missionUiText = _mission.missionName + "\n\n" + GameObject.Find("GM").GetComponent<WordReplacer_Script>().ReplaceWords(_mission.missionDescription) + "\n\n" + "Reward: $" + _mission.missionReward; 
-        }
-        else
-        {
-            missionUiText = _mission.missionName + "\n\n" + GameObject.Find("GM").GetComponent<WordReplacer_Script>().ReplaceWords(_mission.missionDescription);
-        }
-
-        GameObject.Find("Player UI Canvas").transform.GetChild(5).gameObject.SetActive(true);
-        GameObject.Find("Player UI Canvas").transform.GetChild(5).GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = missionUiText;
+        DisplayMission(_mission);
     }
 
     public void ActivateMission(string _missionName)
@@ -154,13 +157,36 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void CompleteMission(string _name)
     {
-        FindMission(_name).completed = true;
-
         theWorld.completedMissions.Add(FindMission(_name));
 
         theWorld.activeMissions.Remove(FindMission(_name));
 
+        FindMission(_name).completed = true;
+
         theWorld.money += FindMission(_name).missionReward;
+    }
+
+    public void ClearMissions()
+    {
+        theWorld.activeMissions.Clear();
+        theWorld.completedMissions.Clear();
+    }
+
+    public void DisplayMission(Mission _mission)
+    {
+        string missionUiText = "";
+
+        if (_mission.missionReward >= 1)
+        {
+            missionUiText = _mission.missionName + "\n\n" + GameObject.Find("GM").GetComponent<WordReplacer_Script>().ReplaceWords(_mission.missionDescription) + "\n\n" + "Reward: $" + _mission.missionReward;
+        }
+        else
+        {
+            missionUiText = _mission.missionName + "\n\n" + GameObject.Find("GM").GetComponent<WordReplacer_Script>().ReplaceWords(_mission.missionDescription);
+        }
+
+        GameObject.Find("Player UI Canvas").transform.GetChild(5).gameObject.SetActive(true);
+        GameObject.Find("Player UI Canvas").transform.GetChild(5).GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = missionUiText;
     }
 
     public void SkipTutorial()

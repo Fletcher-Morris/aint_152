@@ -28,9 +28,12 @@ public class EnemyShipAi_Script : MonoBehaviour
     {
         targetEnemy = SearchForTarget();
 
-        currentEnemyRange = Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position);
+        if (targetEnemy)
+        {
+            currentEnemyRange = Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position); 
+        }
 
-        if (Vector2.Distance(targetEnemy.transform.position, gameObject.transform.position) > enemyDetectionRange)
+        if (currentEnemyRange > enemyDetectionRange)
         {
             targetEnemy = null;
         }
@@ -44,7 +47,7 @@ public class EnemyShipAi_Script : MonoBehaviour
             }
         }
 
-        if (currentEnemyRange >= 3 && targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship")
+        if (currentEnemyRange >= 3 && targetEnemy && GameObject.Find("GM").GetComponent<GameState_Script>().GetPlayerState() == "Flying Ship" && targetEnemy)
         {
             MoveShipRigidbody();
             RotateShip();
