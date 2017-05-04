@@ -1,0 +1,1057 @@
+Mono path[0] = 'C:/Users/odmoa_000/Documents/aint-152/ALPHA BUILD/STARSHIPS_Data/Managed'
+Mono path[1] = 'C:/Users/odmoa_000/Documents/aint-152/ALPHA BUILD/STARSHIPS_Data/Mono'
+Mono config path = 'C:/Users/odmoa_000/Documents/aint-152/ALPHA BUILD/STARSHIPS_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/odmoa_000/Documents/aint-152/ALPHA BUILD/STARSHIPS_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55450
+Multi-casting "[IP] 100.67.104.29 [Port] 55450 [Flags] 2 [Guid] 3420275287 [EditorId] 2386441179 [Version] 1048832 [Id] WindowsPlayer(THEBLACKBEAST) [Debug] 0" to [225.0.0.222:54997]...
+Started listening to [0.0.0.0:55450]
+PlayerConnection already initialized - listening to [0.0.0.0:55450]
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7892
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.022 seconds
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\odmoa_000\Documents\aint-152\ALPHA BUILD\STARSHIPS_Data\Managed\System.dll (this message is harmless)
+OnLevelWasLoaded was found on WorldLoader_Script
+This message has been deprecated and will be removed in a later version of Unity.
+Add a delegate to SceneManager.sceneLoaded instead to get notifications after scene loading has completed
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoScriptCache.cpp Line: 382)
+
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 144Hz; virtual: 3840x1156 at -1920,0
+<RI> Initialized touch support.
+UnloadTime: 0.938156 ms
+Missions Directory Does Not Exist, Creating A New One.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:13)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 13)
+
+Saving mission file (Get To The Cockpit).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:26)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:15)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 26)
+
+Saving mission file (Destroy Three Asteroids).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:26)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:15)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 26)
+
+Saving mission file (Destroy The Thief).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:26)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:15)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 26)
+
+Saving mission file (Buy A New Weapon).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:26)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:15)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 26)
+
+Saving mission file (Protect The Bank).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:26)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:15)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 26)
+
+Loaded mission file (Buy A New Weapon).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:LoadMissions() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:42)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:18)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 42)
+
+Loaded mission file (Destroy The Thief).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:LoadMissions() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:42)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:18)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 42)
+
+Loaded mission file (Destroy Three Asteroids).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:LoadMissions() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:42)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:18)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 42)
+
+Loaded mission file (Get To The Cockpit).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:LoadMissions() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:42)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:18)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 42)
+
+Loaded mission file (Protect The Bank).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+DefaultMissions_Script:LoadMissions() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:42)
+DefaultMissions_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\DefaultMissions_Script.cs:18)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/DefaultMissions_Script.cs Line: 42)
+
+Weapons Directory Does Not Exist, Creating A New One.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:24)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 24)
+
+Saving mission file (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:42)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 42)
+
+Saving mission file (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:42)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 42)
+
+Saving mission file (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:42)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 42)
+
+Saving mission file (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:42)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 42)
+
+Saving mission file (Plasma Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:42)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 42)
+
+Saving mission file (Omega Plasma Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:42)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 42)
+
+Saving mission file (Fusion Mine).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:54)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 54)
+
+Saving mission file (Fusion Mine).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:54)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 54)
+
+Saving mission file (Hunter Launcher).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:66)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 66)
+
+Saving mission file (Quantum Prism).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:78)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 78)
+
+Saving mission file (Quantum Prism).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:78)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 78)
+
+Saving mission file (Refraction Matrix).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:SaveDefaults() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:92)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:26)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 92)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Fusion Mine).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Fusion Mine).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Hunter Launcher).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Ion Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Plasma Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Omega Plasma Blaster).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Quantum Prism).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Quantum Prism).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+Replaced [[name]] with Scott Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with .
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:106)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Loaded Weapon File (Refraction Matrix).
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WeaponData_Script:LoadWeapons() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:120)
+WeaponData_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Combat\WeaponData_Script.cs:29)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Combat/WeaponData_Script.cs Line: 120)
+
+5/4/2017 3:43:03 PM   Trying To Load Preferences File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GamePrefs:LoadPrefs() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:82)
+GamePrefs_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\GamePrefs_Script.cs:14)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/GamePrefs.cs Line: 82)
+
+5/4/2017 3:43:03 PM   COULD NOT LOAD PREFERENCES FILE, MAKING A NEW ONE.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+GamePrefs:LoadPrefs() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:88)
+GamePrefs_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\GamePrefs_Script.cs:14)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/GamePrefs.cs Line: 88)
+
+5/4/2017 3:43:03 PM   Trying To Save Preferences File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GamePrefs:SavePrefs(GamePrefs) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:49)
+GamePrefs:LoadPrefs() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:89)
+GamePrefs_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\GamePrefs_Script.cs:14)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/GamePrefs.cs Line: 49)
+
+5/4/2017 3:43:03 PM  Saved Preferences File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GamePrefs:SavePrefs(GamePrefs) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:57)
+GamePrefs:LoadPrefs() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:89)
+GamePrefs_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\GamePrefs_Script.cs:14)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/GamePrefs.cs Line: 57)
+
+5/4/2017 3:43:03 PM   Loaded Preferences File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GamePrefs:LoadPrefs() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\GamePrefs.cs:91)
+GamePrefs_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\GamePrefs_Script.cs:14)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/GamePrefs.cs Line: 91)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: afbc -> priority: 1 
+  Thread -> id: 3e50 -> priority: 1 
+Cannot find world file. Creating a new one.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+World:SaveWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\World.cs:106)
+WorldGenerator_Script:CreateWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldGenerator_Script.cs:39)
+MenuControls_Script:CreateWorldRelay() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\MenuControls_Script.cs:195)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:153)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/World.cs Line: 106)
+
+Saving world file.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+World:SaveWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\World.cs:102)
+World:SaveWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\World.cs:108)
+WorldGenerator_Script:CreateWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldGenerator_Script.cs:39)
+MenuControls_Script:CreateWorldRelay() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\MenuControls_Script.cs:195)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:153)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/World.cs Line: 102)
+
+WM: World to load set to New World.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WorldGenerator_Script:CreateWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldGenerator_Script.cs:42)
+MenuControls_Script:CreateWorldRelay() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\MenuControls_Script.cs:195)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:153)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/WorldGenerator_Script.cs Line: 42)
+
+Loading world file.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+World:LoadWorld(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\World.cs:158)
+WorldLoader_Script:LoadSelectedWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:21)
+WorldGenerator_Script:CreateWorld() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldGenerator_Script.cs:44)
+MenuControls_Script:CreateWorldRelay() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\MenuControls_Script.cs:195)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:153)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:634)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:769)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:531)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:430)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:410)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:184)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:287)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/World.cs Line: 158)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.550787 ms
+WM: this is the Game Scene.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WorldLoader_Script:OnLevelWasLoaded(Int32) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:43)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/World Processing/WorldLoader_Script.cs Line: 43)
+
+Loading world file.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+World:LoadWorld(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Classes\World.cs:158)
+WorldLoader_Script:OnLevelWasLoaded(Int32) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:44)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Classes/World.cs Line: 158)
+
+Replaced [[name]] with Ace.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WorldLoader_Script:DisplayMission(Mission) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:188)
+WorldLoader_Script:ActivateMission(Mission) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:111)
+WorldLoader_Script:ActivateMission(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:116)
+WorldLoader_Script:OnLevelWasLoaded(Int32) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:60)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system1]] with New Star System.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WorldLoader_Script:DisplayMission(Mission) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:188)
+WorldLoader_Script:ActivateMission(Mission) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:111)
+WorldLoader_Script:ActivateMission(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:116)
+WorldLoader_Script:OnLevelWasLoaded(Int32) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:60)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+Replaced [[system2]] with New Star System.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WordReplacer_Script:ReplaceWords(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WordReplacer_Script.cs:24)
+WorldLoader_Script:DisplayMission(Mission) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:188)
+WorldLoader_Script:ActivateMission(Mission) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:111)
+WorldLoader_Script:ActivateMission(String) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:116)
+WorldLoader_Script:OnLevelWasLoaded(Int32) (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\World Processing\WorldLoader_Script.cs:60)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WordReplacer_Script.cs Line: 24)
+
+System memory in use before: 30.6 MB.
+System memory in use after: 30.8 MB.
+
+Unloading 58 unused Assets to reduce memory usage. Loaded Objects now: 4725.
+Total: 1.435593 ms (FindLiveObjects: 0.168111 ms CreateObjectMapping: 0.068471 ms MarkObjects: 1.001517 ms  DeleteObjects: 0.196982 ms)
+
+5/4/2017 3:43:07 PM   Trying To Save Waves File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WaveManager_Script:SaveDefaultWaves() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:90)
+WaveManager_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:64)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WaveManager_Script.cs Line: 90)
+
+5/4/2017 3:43:07 PM   Saved Waves File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WaveManager_Script:SaveDefaultWaves() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:99)
+WaveManager_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:64)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WaveManager_Script.cs Line: 99)
+
+5/4/2017 3:43:07 PM   Trying To Load Waves File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WaveManager_Script:LoadWaveData() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:108)
+WaveManager_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:66)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WaveManager_Script.cs Line: 108)
+
+5/4/2017 3:43:07 PM   Loaded Waves File.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+WaveManager_Script:LoadWaveData() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:118)
+WaveManager_Script:Start() (at C:\Users\odmoa_000\Documents\aint-152\Assets\Scripts\Misc\WaveManager_Script.cs:66)
+ 
+(Filename: C:/Users/odmoa_000/Documents/aint-152/Assets/Scripts/Misc/WaveManager_Script.cs Line: 118)
+

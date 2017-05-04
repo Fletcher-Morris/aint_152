@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// This Script Handles Loading  and Saving World Data.
+// It also takes care of MIssion Handeling.
+
 public class WorldLoader_Script : MonoBehaviour {
 
     public World theWorld;

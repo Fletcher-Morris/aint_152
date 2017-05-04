@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//  Need some random object to have health?
+//  Just add this script to it.
+
 public class GenericHealth_Script : MonoBehaviour
 {
     public int currentHealth = 100;
