@@ -8,6 +8,8 @@ public class FusionMine_Script : MonoBehaviour {
     public float explosionRange = 1;
     public float moveSpeed = .05f;
 
+    public bool targetPlayer = false;
+
     public GameObject targetObject;
 
     public GameObject explosionPrefab;
@@ -48,6 +50,14 @@ public class FusionMine_Script : MonoBehaviour {
             }
         }
 
+        if (targetPlayer)
+        {
+            if (GameObject.Find("Player"))
+            {
+                avaliableTargets.Add(GameObject.Find("Player"));
+            }
+        }
+
         int chosenIndex = Random.Range(0, avaliableTargets.Count - 1);
 
         if (avaliableTargets.Count >= 1)
@@ -72,9 +82,13 @@ public class FusionMine_Script : MonoBehaviour {
     {
         GameObject explosionObject = GameObject.Instantiate(explosionPrefab, transform.position, transform.rotation);
         explosionObject.GetComponent<DoDamageOnHit_Script>().damageAmount = damage;
-        if (GameObject.Find("Player Ship"))
+        if (GameObject.Find("Player Ship") && !targetPlayer)
         {
             GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().shipDetails.shipTurret.AddExperience();
+        }
+        if (targetPlayer)
+        {
+            explosionObject.GetComponent<DoDamageOnHit_Script>().damagePlayer = true;
         }
         Destroy(gameObject);
     }
