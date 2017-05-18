@@ -38,8 +38,6 @@ public class FusionMine_Script : MonoBehaviour {
 
     public GameObject SearchForTarget()
     {
-        GameObject tempTarget = new GameObject();
-
         List<GameObject> avaliableTargets = new List<GameObject>();
 
         foreach(GameObject possibbleTarget in GameObject.FindGameObjectsWithTag("Enemy"))

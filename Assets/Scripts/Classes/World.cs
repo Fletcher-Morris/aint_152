@@ -16,6 +16,7 @@ public class World {
     public bool autoSave;
     public int asteroidsDestroyed;
     public int enemiesDestroyed;
+    public bool hasBoughtWeapon;
 
 	public bool hasIonBlaster;
 	public int ionBlasterLvl;

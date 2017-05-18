@@ -167,12 +167,9 @@ public class ItemShop_Script : MonoBehaviour
 		buyableWeaponsList.RemoveAt (selectedItem - 1);
 		GameObject.Destroy (transform.GetChild(0).GetChild(selectedItem - 1).gameObject);
 
-        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Buy A New Weapon"))
+        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hasBoughtWeapon == false)
         {
-            if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Buy A New Weapon").completed == false)
-            {
-                GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Buy A New Weapon");
-            }
+            (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hasBoughtWeapon) = true;
         }
     }
 
@@ -189,5 +186,33 @@ public class ItemShop_Script : MonoBehaviour
 
 		GameObject.Find("Player").GetComponent<Rigidbody2D> ().isKinematic = false;
 		GameObject.Find ("GM").GetComponent<GameState_Script> ().SetPlayerState ("Normal");
-	}
+
+        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hasBoughtWeapon == true)
+        {
+            if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Buy A New Weapon"))
+            {
+                if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Buy A New Weapon").completed == false)
+                {
+                    GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Buy A New Weapon");
+                }
+            }
+        }
+
+        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hasBoughtWeapon)
+        {
+            if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Buy A New Weapon"))
+            {
+                if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Buy A New Weapon").completed)
+                {
+                    if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Protect The Bank"))
+                    {
+                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Protect The Bank");
+                        GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
+                        GameObject.Find("Space Bank").tag = "Objective";
+                        GameObject.Find("Space Bank").GetComponent<GenericHealth_Script>().enabled = true;
+                    }
+                }
+            }
+        }
+    }
 }

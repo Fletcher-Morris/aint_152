@@ -113,7 +113,6 @@ public class WorldLoader_Script : MonoBehaviour {
         if (theWorld.autoSave)
         {
             SaveTheWorld();
-
         }
     }
 
