@@ -22,6 +22,7 @@ public class WorldGenerator_Script : MonoBehaviour {
         _world = new World();
         _world.worldName = GameObject.Find("Save Name Field").GetComponent<InputField>().text;
 		_world.hardcore = GameObject.Find ("Hardcore Toggle").GetComponent<Toggle>().isOn;
+        _world.autoSave = GameObject.Find("Autosave Toggle").GetComponent<Toggle>().isOn;
 
 		_world.starSystems.Add (new StarSystem ());
 		_world.starSystems.Add (new StarSystem ());

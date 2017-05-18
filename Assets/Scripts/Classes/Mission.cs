@@ -8,15 +8,13 @@ public class Mission{
 	public string missionName;
 	public string missionDescription;
 	public int missionReward;
-	public bool started;
 	public bool completed;
 	public int missionLocation;
 
 	public Mission(){
 		missionName = "New Mission";
 		missionDescription = "A shiney new mission.";
-		missionReward = 10000;
-		started = true;
+		missionReward = 1000;
 		completed = false;
 		missionLocation = 0;
 	}

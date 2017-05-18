@@ -13,6 +13,7 @@ public class World {
 	public int gold;
 
 	public bool hardcore;
+    public bool autoSave;
     public int asteroidsDestroyed;
     public int enemiesDestroyed;
 
@@ -54,6 +55,7 @@ public class World {
         money = 0;
 		gold = 0;
 		hardcore = false;
+        autoSave = true;
 
 		hasIonBlaster = true;
 		ionBlasterLvl = 0;

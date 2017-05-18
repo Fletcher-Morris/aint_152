@@ -109,6 +109,12 @@ public class WorldLoader_Script : MonoBehaviour {
         theWorld.activeMissions.Add(_mission);
 
         DisplayMission(_mission);
+
+        if (theWorld.autoSave)
+        {
+            SaveTheWorld();
+
+        }
     }
 
     public void ActivateMission(string _missionName)
@@ -167,6 +173,11 @@ public class WorldLoader_Script : MonoBehaviour {
         FindMission(_name).completed = true;
 
         theWorld.money += FindMission(_name).missionReward;
+
+        if (theWorld.autoSave)
+        {
+            SaveTheWorld();
+        }
     }
 
     public void ClearMissions()
