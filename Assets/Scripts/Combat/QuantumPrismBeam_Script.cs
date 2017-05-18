@@ -56,13 +56,13 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		beam6.transform.localEulerAngles = new Vector3 (0, 0, transform.parent.transform.rotation.z + (angleProgress * Mathf.Sin(sinSpeed * Time.time + ((6f/7f) * 4f * (Mathf.PI / 2)))));
 		beam7.transform.localEulerAngles = new Vector3 (0, 0, transform.parent.transform.rotation.z + (angleProgress * Mathf.Sin(sinSpeed * Time.time + ((7f/7f) * 4f * (Mathf.PI / 2)))));
 
-		beam1.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((1f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
-		beam2.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((2f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
-		beam3.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((3f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
-		beam4.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((4f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
-		beam5.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((5f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
-		beam6.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((6f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
-		beam7.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((7f/7f) * 4f * (Mathf.PI / 2))) / 2,0);
+		beam1.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((1f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((1f / 7f) * 4f * (Mathf.PI / 2))) / 2);
+		beam2.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((2f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((2f / 7f) * 4f * (Mathf.PI / 2))) / 2);
+		beam3.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((3f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((3f / 7f) * 4f * (Mathf.PI / 2))) / 2);
+		beam4.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((4f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((4f / 7f) * 4f * (Mathf.PI / 2))) / 2);
+		beam5.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((5f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((5f / 7f) * 4f * (Mathf.PI / 2))) / 2);
+		beam6.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((6f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((6f / 7f) * 4f * (Mathf.PI / 2))) / 2);
+		beam7.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,-Mathf.Sin(sinSpeed * Time.time + ((7f/7f) * 4f * (Mathf.PI / 2))) / 2, -Mathf.Sin(sinSpeed * Time.time + ((7f / 7f) * 4f * (Mathf.PI / 2))) / 2);
 		whiteBeam.transform.GetChild (0).transform.localPosition = new Vector3 (-beamLength / 6.25f,0,0);
 
 		beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = new Color(beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.r, beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.b,beam1.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.g, 3/angleProgress);
@@ -91,8 +91,10 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		progressPercent = (startAngle - angleProgress) / startAngle;
 
 		if (currentIntensity < maxIntensity) {
-			currentIntensity = maxIntensity * progressPercent;
-		} else {
+			//currentIntensity = maxIntensity * progressPercent;
+            currentIntensity = maxIntensity;
+
+        } else {
 			currentIntensity = maxIntensity;
 		}
 

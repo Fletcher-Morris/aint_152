@@ -12,6 +12,7 @@ public class ViewTransition_Script : MonoBehaviour
 
     public GameObject cameraObject;
     public GameObject uiCameraObject;
+    public GameObject orthoUICamera;
     public GameObject backgroundCameraObject;
     public GameObject playerObject;
 
@@ -132,6 +133,10 @@ public class ViewTransition_Script : MonoBehaviour
         {
             cameraObject.transform.rotation = gameObject.transform.rotation;
         }
+
+        orthoUICamera.transform.position = cameraObject.transform.position;
+        orthoUICamera.transform.rotation = cameraObject.transform.rotation;
+        orthoUICamera.GetComponent<Camera>().orthographicSize = cameraObject.GetComponent<Camera>().orthographicSize;
     }
 
 	void GetZAngle(){
