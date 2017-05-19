@@ -17,6 +17,8 @@ public class GenericHealth_Script : MonoBehaviour
 
     public bool destroyOnDeath = true;
 	public bool dropItemsOnDeath = true;
+    public bool gameOverOnDeath = false;
+    public string gameOverMessage;
 
 	public GameObject damageIndicatorPrefab;
     public float timeSinceDamageTaken;
@@ -58,7 +60,7 @@ public class GenericHealth_Script : MonoBehaviour
                 gameObject.GetComponent<DropOnDeath_Script>().Drop();
             }
 
-            if(gameObject.tag == "Asteroid")
+            if(gameObject.name == "Asteroid(Clone)")
             {
                 GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed ++;
                 if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed >= 3)
@@ -78,6 +80,11 @@ public class GenericHealth_Script : MonoBehaviour
             else if(gameObject.tag == "Enemy")
             {
                 GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed++;
+            }
+
+            if (gameOverOnDeath)
+            {
+                GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().GameOver(gameOverMessage);
             }
 
             if (destroyOnDeath)

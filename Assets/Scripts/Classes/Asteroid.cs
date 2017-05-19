@@ -5,14 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class Asteroid
 {
-    public int asteroidSize;
+    public string asteroidSize;
     public int asteroidVariation;
     public Vector3 asteroidPos;
     public Vector3 asteroidRot;
 
     public Asteroid()
     {
-        asteroidSize = 1;
+        asteroidSize = "Large";
         asteroidVariation = 1;
         asteroidPos = new Vector3(0, 0, 0);
         asteroidRot = new Vector3(0, 0, 0);
@@ -20,7 +20,7 @@ public class Asteroid
 
     public Asteroid(Vector3 _asteroidPos)
     {
-        asteroidSize = 1;
+        asteroidSize = "Large";
         asteroidVariation = 1;
         asteroidPos = _asteroidPos;
         asteroidRot = new Vector3(0, 0, 0);
@@ -28,13 +28,21 @@ public class Asteroid
 
     public Asteroid(Vector3 _asteroidPos, Vector3 _asteroidRot)
     {
-        asteroidSize = 1;
+        asteroidSize = "Large";
         asteroidVariation = 1;
         asteroidPos = _asteroidPos;
         asteroidRot = _asteroidRot;
     }
 
-    public Asteroid(int _asteroidSize, int _asteroidVariation, Vector3 _asteroidPos, Vector3 _asteroidRot)
+    public Asteroid(string _asteroidsSize, Vector3 _asteroidPos, Vector3 _asteroidRot)
+    {
+        asteroidSize = _asteroidsSize;
+        asteroidVariation = 1;
+        asteroidPos = _asteroidPos;
+        asteroidRot = _asteroidRot;
+    }
+
+    public Asteroid(string _asteroidSize, int _asteroidVariation, Vector3 _asteroidPos, Vector3 _asteroidRot)
     {
         asteroidSize = _asteroidSize;
         asteroidVariation = _asteroidVariation;

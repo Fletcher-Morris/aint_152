@@ -13,6 +13,10 @@ public class DropOnDeath_Script : MonoBehaviour
 	public float dropChance = 0.5f;
 	public GameObject healthPrefab;
 
+    public bool dropCustom = false;
+    public GameObject customDropPrefab;
+    public int customDropQuantity = 4;
+
 	public float positionVariation = 1f;
 
 	public void Drop()
@@ -33,5 +37,13 @@ public class DropOnDeath_Script : MonoBehaviour
                 GameObject.Instantiate(healthPrefab, new Vector3(gameObject.transform.position.x + Random.Range(0, positionVariation), gameObject.transform.position.y + Random.Range(0, positionVariation), 0), transform.rotation);
             }
 		}
+
+        if(dropCustom && customDropPrefab)
+        {
+            for(int i = 0; i < customDropQuantity; i++)
+            {
+                GameObject.Instantiate(customDropPrefab, new Vector3(gameObject.transform.position.x + Random.Range(0, positionVariation), gameObject.transform.position.y + Random.Range(0, positionVariation), 0), transform.rotation);
+            }
+        }
 	}
 }

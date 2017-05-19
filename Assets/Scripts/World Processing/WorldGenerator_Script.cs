@@ -10,8 +10,6 @@ public class WorldGenerator_Script : MonoBehaviour {
 
     int numberOfAsteroids = 100;
 
-    float uiTimer = 1f;
-
     void Start()
     {
 

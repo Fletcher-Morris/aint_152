@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // This Script Handles Loading  and Saving World Data.
-// It also takes care of MIssion Handeling.
+// It also takes care of Mission Handeling.
 
 public class WorldLoader_Script : MonoBehaviour {
 
@@ -15,6 +15,7 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public GameObject enemyShipPrefab;
     public GameObject asteroidPrefab;
+    public GameObject mediumAsteroidPrefab;
 
     public void LoadSelectedWorld()
     {
@@ -80,7 +81,14 @@ public class WorldLoader_Script : MonoBehaviour {
     {
 		foreach (Asteroid _asteroid in theWorld.currentStarSystem.asteroids)
         {
-            GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+            if (_asteroid.asteroidSize == "Medium")
+            {
+                GameObject thisAsteroid = GameObject.Instantiate(mediumAsteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+            }
+            else
+            {
+                GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+            }
         }
 
     }
@@ -92,10 +100,17 @@ public class WorldLoader_Script : MonoBehaviour {
 		theWorld.currentStarSystem.asteroids.Clear();
         foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))
         {
-			theWorld.currentStarSystem.asteroids.Add(new Asteroid(_asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            if (_asteroidObject.name == "Asteroid Medium(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Medium", _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+            else
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Large", _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
         }
 
-		theWorld.currentStarSystem.enemyShips.Clear();
+        theWorld.currentStarSystem.enemyShips.Clear();
         foreach (GameObject _enemyShipObject in GameObject.FindGameObjectsWithTag("Enemy"))
         {
 			theWorld.currentStarSystem.enemyShips.Add(new Ship(_enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipName, _enemyShipObject.GetComponent<ShipSetup_Script>().shipDetails.shipHealth, _enemyShipObject.transform.position, _enemyShipObject.transform.rotation.eulerAngles));

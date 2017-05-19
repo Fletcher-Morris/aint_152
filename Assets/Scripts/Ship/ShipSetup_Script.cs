@@ -99,12 +99,7 @@ public class ShipSetup_Script : MonoBehaviour
 
                 if (isPlayer)
                 {
-                    Time.timeScale = 0.2f;
-                    GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject.SetActive(true);
-                    if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hardcore)
-                    {
-                        File.Delete(Application.dataPath + "/Data/Saves/" + GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.worldName);
-                    }
+                    GameOver("YOUR SHIP WAS DESTROYED");
                 }
                 else
                 {
@@ -136,6 +131,20 @@ public class ShipSetup_Script : MonoBehaviour
             {
                 UpdateUI();
             } 
+        }
+    }
+
+    public void GameOver(string causeMessage)
+    {
+        GameObject gameOverPanel = GameObject.Find("Pause Menu Canvas").transform.GetChild(3).gameObject;
+        Time.timeScale = 0.2f;
+
+        gameOverPanel.transform.gameObject.SetActive(true);
+        gameOverPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = causeMessage;
+
+        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hardcore)
+        {
+            File.Delete(Application.dataPath + "/Data/Saves/" + GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.worldName);
         }
     }
 

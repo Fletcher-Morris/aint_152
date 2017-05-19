@@ -151,7 +151,7 @@ public class ShootWeapon_Script : MonoBehaviour
         if(shootDelayTimer <= 0 && GetComponent<ShipSetup_Script>().shipDetails.shipReactor.currentPower >= GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse)
         {
             GetComponent<ShipSetup_Script>().TakePower(GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.powerUse);
-            GameObject fusionMineObject = GameObject.Instantiate(fusionMinePrefab, transform.position, transform.rotation);
+            GameObject fusionMineObject = GameObject.Instantiate(fusionMinePrefab, transform.position + new Vector3(0,0,1), transform.rotation);
             fusionMineObject.GetComponent<FusionMine_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
 
             shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
