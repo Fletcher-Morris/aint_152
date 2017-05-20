@@ -6,6 +6,7 @@ public class ExpandingCollider_Script : MonoBehaviour {
 
     public float expansionSpeed = 1f;
     public float maxExpansionFactor = 5f;
+    public bool removeColliderWhenDone = true;
     public bool destroyWhenDone = true;
 
     float currentExpansionFactor;
@@ -23,9 +24,17 @@ public class ExpandingCollider_Script : MonoBehaviour {
         {
             Expand();
         }
-        else if (destroyWhenDone)
+        else
         {
-            Destroy(gameObject);
+            if (removeColliderWhenDone)
+            {
+                GetComponent<Collider2D>().enabled = false;
+            }
+
+            if (destroyWhenDone)
+            {
+                Destroy(gameObject); 
+            }
         }
     }
 

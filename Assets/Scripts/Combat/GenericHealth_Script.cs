@@ -60,7 +60,7 @@ public class GenericHealth_Script : MonoBehaviour
                 gameObject.GetComponent<DropOnDeath_Script>().Drop();
             }
 
-            if(gameObject.name == "Asteroid(Clone)")
+            if(gameObject.name == "Asteroid(Clone)" || gameObject.name == "Asteroid 2(Clone)")
             {
                 GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed ++;
                 if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.asteroidsDestroyed >= 3)

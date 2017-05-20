@@ -42,6 +42,14 @@ public class Asteroid
         asteroidRot = _asteroidRot;
     }
 
+    public Asteroid(int _asteroidVariation, Vector3 _asteroidPos, Vector3 _asteroidRot)
+    {
+        asteroidSize = "Large";
+        asteroidVariation = _asteroidVariation;
+        asteroidPos = _asteroidPos;
+        asteroidRot = _asteroidRot;
+    }
+
     public Asteroid(string _asteroidSize, int _asteroidVariation, Vector3 _asteroidPos, Vector3 _asteroidRot)
     {
         asteroidSize = _asteroidSize;

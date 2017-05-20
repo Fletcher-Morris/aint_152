@@ -17,6 +17,8 @@ public class DropOnDeath_Script : MonoBehaviour
     public GameObject customDropPrefab;
     public int customDropQuantity = 4;
 
+    public bool dropWithCurrentVelocity = true;
+
 	public float positionVariation = 1f;
 
 	public void Drop()
@@ -42,7 +44,11 @@ public class DropOnDeath_Script : MonoBehaviour
         {
             for(int i = 0; i < customDropQuantity; i++)
             {
-                GameObject.Instantiate(customDropPrefab, new Vector3(gameObject.transform.position.x + Random.Range(0, positionVariation), gameObject.transform.position.y + Random.Range(0, positionVariation), 0), transform.rotation);
+                GameObject droppedObject = GameObject.Instantiate(customDropPrefab, new Vector3(gameObject.transform.position.x + Random.Range(0, positionVariation), gameObject.transform.position.y + Random.Range(0, positionVariation), 0), transform.rotation);
+                if (dropWithCurrentVelocity && droppedObject.GetComponent<Rigidbody2D>())
+                {
+                    droppedObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+                }
             }
         }
 	}

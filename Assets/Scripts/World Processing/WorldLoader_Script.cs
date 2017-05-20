@@ -15,7 +15,10 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public GameObject enemyShipPrefab;
     public GameObject asteroidPrefab;
-    public GameObject mediumAsteroidPrefab;
+    public GameObject asteroid1Fragment1;
+    public GameObject asteroid1Fragment2;
+    public GameObject asteroid1Fragment3;
+    public GameObject asteroid2Prefab;
 
     public void LoadSelectedWorld()
     {
@@ -81,13 +84,31 @@ public class WorldLoader_Script : MonoBehaviour {
     {
 		foreach (Asteroid _asteroid in theWorld.currentStarSystem.asteroids)
         {
-            if (_asteroid.asteroidSize == "Medium")
+            if (_asteroid.asteroidSize == "Fragment")
             {
-                GameObject thisAsteroid = GameObject.Instantiate(mediumAsteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                if (_asteroid.asteroidVariation == 1)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid1Fragment1, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot)); 
+                }
+                else if (_asteroid.asteroidVariation == 2)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid1Fragment2, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                }
+                else if (_asteroid.asteroidVariation == 3)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid1Fragment3, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                }
             }
             else
             {
-                GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                if (_asteroid.asteroidVariation == 1)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot)); 
+                }
+                else
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid2Prefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                }
             }
         }
 

@@ -49,10 +49,10 @@ public class WorldGenerator_Script : MonoBehaviour {
 
         while(asteroidsRemaining > 0)
         {
-            Asteroid newAsteroid = new Asteroid(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
+            Asteroid newAsteroid = new Asteroid(Random.Range(1, 3), new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
             while(newAsteroid.asteroidPos.x <= 5f && newAsteroid.asteroidPos.x >= -5f || newAsteroid.asteroidPos.y <= 5f && newAsteroid.asteroidPos.y >= -5f)
             {
-                newAsteroid = new Asteroid(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
+                newAsteroid = new Asteroid(Random.Range(1, 3), new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
             }
 			_world.currentStarSystem.asteroids.Add(newAsteroid);
             asteroidsRemaining--;
