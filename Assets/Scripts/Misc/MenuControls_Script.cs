@@ -13,6 +13,7 @@ public class MenuControls_Script : MonoBehaviour
     public GameObject newGameMenuObject;
     public GameObject loadGameMenuObject;
     public GameObject preferencesMenuObject;
+    public GameObject helpMenuObject;
 
 	public float cinematicTime = 12f;
 	float cineTimer;
@@ -32,6 +33,7 @@ public class MenuControls_Script : MonoBehaviour
         newGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         loadGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         preferencesMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        helpMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
     }
 
     public void ShowNewGameMenu()
@@ -40,6 +42,7 @@ public class MenuControls_Script : MonoBehaviour
         newGameMenuObject.transform.localPosition = new Vector3(0, 0, 0);
         loadGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         preferencesMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        helpMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
     }
 
     public void ShowLoadGameMenu()
@@ -50,6 +53,7 @@ public class MenuControls_Script : MonoBehaviour
         newGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         loadGameMenuObject.transform.localPosition = new Vector3(0, 0, 0);
         preferencesMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        helpMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
     }
 
     public void ShowPrefsMenu()
@@ -61,6 +65,16 @@ public class MenuControls_Script : MonoBehaviour
         newGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         loadGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
         preferencesMenuObject.transform.localPosition = new Vector3(0, 0, 0);
+        helpMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+    }
+
+    public void ShowHelpMenu()
+    {
+        mainMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        newGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        loadGameMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        preferencesMenuObject.transform.localPosition = new Vector3(10000, 0, 0);
+        helpMenuObject.transform.localPosition = new Vector3(0, 0, 0);
     }
 
     void Update()
