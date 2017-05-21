@@ -19,6 +19,9 @@ public class WorldLoader_Script : MonoBehaviour {
     public GameObject asteroid1Fragment2;
     public GameObject asteroid1Fragment3;
     public GameObject asteroid2Prefab;
+    public GameObject asteroid2Fragment1;
+    public GameObject asteroid2Fragment2;
+    public GameObject asteroid2Fragment3;
 
     public void LoadSelectedWorld()
     {
@@ -98,6 +101,18 @@ public class WorldLoader_Script : MonoBehaviour {
                 {
                     GameObject thisAsteroid = GameObject.Instantiate(asteroid1Fragment3, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
                 }
+                else if (_asteroid.asteroidVariation == 4)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid2Fragment1, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                }
+                else if (_asteroid.asteroidVariation == 5)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid2Fragment3, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                }
+                else if (_asteroid.asteroidVariation == 6)
+                {
+                    GameObject thisAsteroid = GameObject.Instantiate(asteroid2Fragment3, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
+                }
             }
             else
             {
@@ -105,7 +120,7 @@ public class WorldLoader_Script : MonoBehaviour {
                 {
                     GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot)); 
                 }
-                else
+                else if(_asteroid.asteroidVariation == 2)
                 {
                     GameObject thisAsteroid = GameObject.Instantiate(asteroid2Prefab, _asteroid.asteroidPos, Quaternion.Euler(_asteroid.asteroidRot));
                 }
@@ -121,13 +136,39 @@ public class WorldLoader_Script : MonoBehaviour {
 		theWorld.currentStarSystem.asteroids.Clear();
         foreach(GameObject _asteroidObject in GameObject.FindGameObjectsWithTag("Asteroid"))
         {
-            if (_asteroidObject.name == "Asteroid Medium(Clone)")
+            if (_asteroidObject.name == "Asteroid" || _asteroidObject.name == "Asteroid(Clone)")
             {
-                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Medium", _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Normal", 1, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
             }
-            else
+            else if (_asteroidObject.name == "Asteroid 2" || _asteroidObject.name == "Asteroid 2(Clone)")
             {
-                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Large", _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Normal", 2, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+
+            if (_asteroidObject.name == "Asteroid 1 Fragment 1" || _asteroidObject.name == "Asteroid 1 Fragment 1(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Fragment", 1, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+            else if (_asteroidObject.name == "Asteroid 1 Fragment 2" || _asteroidObject.name == "Asteroid 1 Fragment 2(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Fragment", 2, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+            else if (_asteroidObject.name == "Asteroid 1 Fragment 3" || _asteroidObject.name == "Asteroid 1 Fragment 3(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Fragment", 3, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+
+            if (_asteroidObject.name == "Asteroid 2 Fragment 1" || _asteroidObject.name == "Asteroid 2 Fragment 1(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Fragment", 4, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+            else if (_asteroidObject.name == "Asteroid 2 Fragment 2" || _asteroidObject.name == "Asteroid 2 Fragment 2(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Fragment", 5, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
+            }
+            else if (_asteroidObject.name == "Asteroid 2 Fragment 3" || _asteroidObject.name == "Asteroid 2 Fragment 3(Clone)")
+            {
+                theWorld.currentStarSystem.asteroids.Add(new Asteroid("Fragment", 6, _asteroidObject.transform.position, _asteroidObject.transform.rotation.eulerAngles));
             }
         }
 
