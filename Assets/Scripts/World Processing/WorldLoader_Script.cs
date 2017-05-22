@@ -285,4 +285,24 @@ public class WorldLoader_Script : MonoBehaviour {
         CompleteMission("Destroy Three Asteroids");
         CompleteMission("Destroy The Theif");
     }
+
+    public void CreateNewAsteroid()
+    {
+        Asteroid newAsteroid = new Asteroid(Random.Range(1, 3), new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
+        while (newAsteroid.asteroidPos.x <= 5f && newAsteroid.asteroidPos.x >= -5f || newAsteroid.asteroidPos.y <= 5f && newAsteroid.asteroidPos.y >= -5f)
+        {
+            newAsteroid = new Asteroid(Random.Range(1, 3), new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
+        }
+
+        theWorld.currentStarSystem.asteroids.Add(newAsteroid);
+
+        if (newAsteroid.asteroidVariation == 1)
+        {
+            GameObject thisAsteroid = GameObject.Instantiate(asteroidPrefab, newAsteroid.asteroidPos, Quaternion.Euler(newAsteroid.asteroidRot));
+        }
+        else if (newAsteroid.asteroidVariation == 2)
+        {
+            GameObject thisAsteroid = GameObject.Instantiate(asteroid2Prefab, newAsteroid.asteroidPos, Quaternion.Euler(newAsteroid.asteroidRot));
+        }
+    }
 }

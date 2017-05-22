@@ -105,10 +105,13 @@ public class ShipSetup_Script : MonoBehaviour
                 {
                     if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.enemiesDestroyed == 0)
                     {
-                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Thief");
-                        GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = false;
-                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Buy A New Weapon");
-                        GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.money += 1000;
+                        if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Destroy The Thief"))
+                        {
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Thief");
+                            GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = false;
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Buy A New Weapon");
+                            GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.money += 1000; 
+                        }
                     }
                 }
 

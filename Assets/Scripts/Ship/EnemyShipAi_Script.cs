@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyShipAi_Script : MonoBehaviour
 {
+    public string shipType = "Normal";
     public float enemyDetectionRange = 30;
 	public float enemyShootRange = 8;
     public float rotateSpeed = 50f;
@@ -53,13 +54,19 @@ public class EnemyShipAi_Script : MonoBehaviour
             RotateShip();
         }
 
-        if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster") {
-			turretObject.GetComponent<SpriteRenderer> ().sprite = ionBlasterTurretSprite;
-			turretObject.transform.GetChild (0).gameObject.transform.localPosition = new Vector3 (0,0.2f,0);
-		} else if (GetComponent<ShipSetup_Script> ().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism") {
-			turretObject.GetComponent<SpriteRenderer> ().sprite = quantumPrismTurretSprite;
-			turretObject.transform.GetChild (0).gameObject.transform.localPosition = new Vector3 (0,0,0);
-		}
+        if (shipType == "Normal")
+        {
+            if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster")
+            {
+                turretObject.GetComponent<SpriteRenderer>().sprite = ionBlasterTurretSprite;
+                turretObject.transform.GetChild(0).gameObject.transform.localPosition = new Vector3(0, 0.2f, 0);
+            }
+            else if (GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism")
+            {
+                turretObject.GetComponent<SpriteRenderer>().sprite = quantumPrismTurretSprite;
+                turretObject.transform.GetChild(0).gameObject.transform.localPosition = new Vector3(0, 0, 0);
+            } 
+        }
     }
 
     GameObject SearchForTarget()

@@ -76,6 +76,7 @@ public class GenericHealth_Script : MonoBehaviour
                         } 
                     }
                 }
+                GameObject.Find("WM").GetComponent<WorldLoader_Script>().CreateNewAsteroid();
             }
             else if(gameObject.tag == "Enemy")
             {
