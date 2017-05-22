@@ -14,6 +14,7 @@ public class WorldLoader_Script : MonoBehaviour {
     public string nameOfWorldToLoad;
 
     public GameObject enemyShipPrefab;
+    public GameObject smallEnemyShipPrefab;
     public GameObject asteroidPrefab;
     public GameObject asteroid1Fragment1;
     public GameObject asteroid1Fragment2;
@@ -43,6 +44,8 @@ public class WorldLoader_Script : MonoBehaviour {
 			theWorld.currentStarSystem.asteroids = null;
             nameOfWorldToLoad = null;
             ClearMissions();
+
+            GetComponent<WaveManager_Script>().enabled = false;
         }
 
         if (level == 1)
@@ -66,6 +69,8 @@ public class WorldLoader_Script : MonoBehaviour {
             {
                 ActivateMission("Get To The Cockpit");
             }
+
+            GetComponent<WaveManager_Script>().enabled = true;
         }
     }
 
@@ -79,7 +84,14 @@ public class WorldLoader_Script : MonoBehaviour {
     {
 		foreach (Ship _enemyShip in theWorld.currentStarSystem.enemyShips)
         {
-            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _enemyShip.shipPos, Quaternion.Euler(_enemyShip.shipRot));
+            if (_enemyShip.shipName == "Normal Ship")
+            {
+                GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _enemyShip.shipPos, Quaternion.Euler(_enemyShip.shipRot)); 
+            }
+            else if (_enemyShip.shipName == "Small Ship")
+            {
+                GameObject thisShip = GameObject.Instantiate(smallEnemyShipPrefab, _enemyShip.shipPos, Quaternion.Euler(_enemyShip.shipRot));
+            }
         }
     }
 
@@ -286,7 +298,7 @@ public class WorldLoader_Script : MonoBehaviour {
         CompleteMission("Destroy The Theif");
     }
 
-    public void CreateNewAsteroid()
+    public void SpawnNewAsteroid()
     {
         Asteroid newAsteroid = new Asteroid(Random.Range(1, 3), new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0), new Vector3(0, 0, Random.Range(0, 360)));
         while (newAsteroid.asteroidPos.x <= 5f && newAsteroid.asteroidPos.x >= -5f || newAsteroid.asteroidPos.y <= 5f && newAsteroid.asteroidPos.y >= -5f)
@@ -304,5 +316,19 @@ public class WorldLoader_Script : MonoBehaviour {
         {
             GameObject thisAsteroid = GameObject.Instantiate(asteroid2Prefab, newAsteroid.asteroidPos, Quaternion.Euler(newAsteroid.asteroidRot));
         }
+    }
+
+    public void SpawnNewShip(Ship _ship)
+    {
+        if (_ship.shipName == "Normal Ship")
+        {
+            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot)); 
+        }
+        else if (_ship.shipName == "Small Ship")
+        {
+            GameObject thisShip = GameObject.Instantiate(smallEnemyShipPrefab, _ship.shipPos, Quaternion.Euler(_ship.shipRot));
+        }
+
+        Debug.Log(gameObject.name + ": Spawned an enemy ship (" + _ship.shipName + ") at (" + _ship.shipPos + ").");
     }
 }

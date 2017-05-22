@@ -16,8 +16,6 @@ public class WaveManager_Script : MonoBehaviour
 
     public WaveList waveData;
 
-    WaveList defaultWaveData;
-
     public bool doSpawn = false;
 
     public void RoundCountDown()
@@ -54,8 +52,7 @@ public class WaveManager_Script : MonoBehaviour
     {
         foreach(Ship _shipData in waveData.waveList[_waveNumber].ships)
         {
-            GameObject thisShip = GameObject.Instantiate(enemyShipPrefab, _shipData.shipPos, Quaternion.Euler(_shipData.shipRot));
-            Debug.Log(gameObject.name + ": Spawned an enemy ship (" + thisShip.name + ") at (" + thisShip.transform.position + ").");
+            GetComponent<WorldLoader_Script>().SpawnNewShip(_shipData);
         }
     }
 
@@ -72,18 +69,7 @@ public class WaveManager_Script : MonoBehaviour
 
     public void SaveDefaultWaves()
     {
-        defaultWaveData = new WaveList();
-        Wave wave1 = new Wave();
-        wave1.ships.Add(new Ship(new Vector3(-20, 20, 0)));
-        defaultWaveData.waveList.Add(wave1);
-
-        Wave wave2 = new Wave();
-        wave2.ships.Add(new Ship(new Vector3(20, 20, 0)));
-        wave2.ships.Add(new Ship(new Vector3(-20, -20, 0)));
-        wave2.ships.Add(new Ship(new Vector3(20, -20, 0)));
-        defaultWaveData.waveList.Add(wave2);
-
-        string jsonString = JsonUtility.ToJson(defaultWaveData);
+        string jsonString = JsonUtility.ToJson(waveData);
         try
         {
             File.WriteAllText(Application.dataPath + "/Data/Waves.json", jsonString.ToString());

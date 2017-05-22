@@ -31,6 +31,11 @@ public class ShipSetup_Script : MonoBehaviour
     public float shakeDuration = .1f;
     public float shakeMagnitude = 1f;
 
+    public Sprite invertedIonBlaster;
+    public Sprite invertedFusionMine;
+    public Sprite invertedHunterLauncherSprite;
+    public Sprite invertedQuantumPrismSprite;
+
     void Start()
     {
 		SetupAllships ();
@@ -108,7 +113,7 @@ public class ShipSetup_Script : MonoBehaviour
                         if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Destroy The Thief"))
                         {
                             GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy The Thief");
-                            GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = false;
+                            GameObject.Find("WM").GetComponent<WaveManager_Script>().doSpawn = false;
                             GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Buy A New Weapon");
                             GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.money += 1000; 
                         }
@@ -231,10 +236,35 @@ public class ShipSetup_Script : MonoBehaviour
         
 		WorldLoader_Script wL = GameObject.Find ("WM").GetComponent<WorldLoader_Script> ();
 		GameObject.Find ("Money Text").GetComponent<Text> ().text = wL.theWorld.money.ToString();
-		GameObject.Find ("Gold Text").GetComponent<Text> ().text = wL.theWorld.gold.ToString();
-		GameObject.Find ("Score Text").GetComponent<Text> ().text = wL.theWorld.score.ToString();
 
-        if(healthPercentage <= 20 && healthPercentage > 0)
+        float _currentWeaponProgress = SafeDivideByZero(shipDetails.shipTurret.turretWeapon.weaponExperience, shipDetails.shipTurret.turretWeapon.experienceCap);
+
+        GameObject.Find ("Weapon Progress Text").GetComponent<Text> ().text = Mathf.RoundToInt(_currentWeaponProgress * 100).ToString() + "%";
+        GameObject.Find("Weapon Progress Text").transform.parent.GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<Slider>().value = _currentWeaponProgress;
+        GameObject.Find("Weapon Progress Text").transform.parent.GetChild(1).gameObject.GetComponent<Slider>().value = 1-_currentWeaponProgress;
+
+        if (shipDetails.shipTurret.turretWeapon.weaponType == "Ion Blaster")
+        {
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(1).gameObject.GetComponent<Image>().sprite = GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().ionBlasterSprite;
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = invertedIonBlaster;
+        }
+        else if (shipDetails.shipTurret.turretWeapon.weaponType == "Fusion Mine")
+        {
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(1).gameObject.GetComponent<Image>().sprite = GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().fusionMineSprite;
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = invertedFusionMine;
+        }
+        else if (shipDetails.shipTurret.turretWeapon.weaponType == "Hunter Launcher")
+        {
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(1).gameObject.GetComponent<Image>().sprite = GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().hunterLauncherSprite;
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = invertedHunterLauncherSprite;
+        }
+        else if (shipDetails.shipTurret.turretWeapon.weaponType == "Quantum Prism")
+        {
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(1).gameObject.GetComponent<Image>().sprite = GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().quantumPrismSprite;
+            GameObject.Find("Weapon Progress Text").transform.parent.GetChild(0).GetChild(0).gameObject.GetComponent<Image>().sprite = invertedQuantumPrismSprite;
+        }
+
+        if (healthPercentage <= 20 && healthPercentage > 0)
         {
             Camera.main.gameObject.GetComponent<NoiseAndScratches>().grainIntensityMax = (1 / healthPercentage) * 5;
         }
@@ -363,5 +393,17 @@ public class ShipSetup_Script : MonoBehaviour
         }
 
         GameObject.Find("Cameras").transform.position = originalCamPos;
+    }
+
+    public float SafeDivideByZero(float a, float b)
+    {
+        if(b != 0)
+        {
+            return (a / b);
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

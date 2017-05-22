@@ -207,7 +207,7 @@ public class ItemShop_Script : MonoBehaviour
                     if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().MissionExists("Protect The Bank"))
                     {
                         GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Protect The Bank");
-                        GameObject.Find("RM").GetComponent<WaveManager_Script>().doSpawn = true;
+                        GameObject.Find("WM").GetComponent<WaveManager_Script>().doSpawn = true;
                         GameObject.Find("Space Bank").tag = "Objective";
                         GameObject.Find("Space Bank").GetComponent<GenericHealth_Script>().enabled = true;
                     }
