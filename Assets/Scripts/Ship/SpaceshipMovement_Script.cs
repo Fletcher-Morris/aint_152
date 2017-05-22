@@ -15,10 +15,12 @@ public class SpaceshipMovement_Script : MonoBehaviour
 
     public bool canMove = false;
     public bool canRotate = false;
+    public bool useAlternativeMovement = false;
 
     public Vector2 axisInput;
     public Vector2 axisNormalized;
     public Vector2 axisFinalised;
+    public float desiredAngle;
 
     void Start()
     {
@@ -31,12 +33,26 @@ public class SpaceshipMovement_Script : MonoBehaviour
 
         if (canRotate)
         {
-            RotateShip();
+            if (!useAlternativeMovement)
+            {
+                RotateShip(axisInput.x * 2f); 
+            }
+            else
+            {
+                AlternativeMovement();
+            }
         }
 
 		if (canMove && GetComponent<Rigidbody2D> ().bodyType == RigidbodyType2D.Dynamic)
         {
-            ThrustShip();
+            if (!useAlternativeMovement)
+            {
+                ThrustShip(axisInput.y); 
+            }
+            else
+            {
+                AlternativeMovement();
+            }
         }
 
 		if(gameObject.GetComponent<Rigidbody2D>().velocity.magnitude <= 0.1 && axisInput.magnitude == 0 && GetComponent<Rigidbody2D> ().bodyType == RigidbodyType2D.Dynamic)
@@ -79,6 +95,11 @@ public class SpaceshipMovement_Script : MonoBehaviour
 			weaponWheelUI.GetComponent<WeaponWheel_Script> ().enabled = false;
 			GameObject.Find ("GM").GetComponent<GameState_Script> ().isUsingWeaponWheel = false;
 		}
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            useAlternativeMovement = !useAlternativeMovement;
+        }
     }
 
     void LookAtMousePod()
@@ -96,13 +117,55 @@ public class SpaceshipMovement_Script : MonoBehaviour
         axisFinalised = axisNormalized * thrustPower;
     }
 
-    void RotateShip()
+    void RotateShip(float amount)
     {
-        gameObject.transform.Rotate(Vector3.back * Time.deltaTime * axisInput.x * rotateSpeed);
+        gameObject.transform.Rotate(Vector3.back * Time.deltaTime * amount * rotateSpeed);
     }
 
-    void ThrustShip()
+    void ThrustShip(float amount)
     {
-        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * axisInput.y * thrustPower);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * amount * thrustPower);
+    }
+
+    void AlternativeMovement()
+    {
+        float magicNumber = -57.4f;
+
+        desiredAngle = Mathf.Atan2(axisNormalized.x, axisNormalized.y) * magicNumber;
+
+        if (axisInput.magnitude != 0)
+        {
+            if (GetZAngle(transform.eulerAngles.z) >= desiredAngle + 1)
+            {
+                RotateShip(1);
+            }
+            else if (GetZAngle(transform.eulerAngles.z) <= desiredAngle - 1)
+            {
+                RotateShip(-1);
+            }
+        }
+
+        ThrustShip(axisNormalized.magnitude * .5f);
+    }
+
+    float GetZAngle(float rawAngle)
+    {
+
+        float _zAngle = rawAngle;
+
+        if (rawAngle >= 180f)
+        {
+            _zAngle = -(360 - rawAngle);
+        }
+        else if (rawAngle <= -180f)
+        {
+            _zAngle = -(360 - rawAngle);
+        }
+        else
+        {
+            _zAngle = rawAngle;
+        }
+
+        return _zAngle;
     }
 }
