@@ -70,6 +70,11 @@ public class WorldLoader_Script : MonoBehaviour {
                 ActivateMission("Get To The Cockpit");
             }
 
+            if(theWorld.activeMissions.Count >= 1 && FindMission("Get To The Cockpit").completed == true)
+            {
+                ReactivateMission(theWorld.activeMissions[0]);
+            }
+
             GetComponent<WaveManager_Script>().enabled = true;
         }
     }
@@ -272,6 +277,20 @@ public class WorldLoader_Script : MonoBehaviour {
     {
         theWorld.activeMissions.Clear();
         theWorld.completedMissions.Clear();
+    }
+
+    public void ReactivateMission(Mission _mission)
+    {
+        theWorld.activeMissions.Remove(_mission);
+        ActivateMission(_mission);
+    }
+
+    public void ReactivateMission(string _missionName)
+    {
+        Mission _mission = FindMission(_missionName);
+
+        theWorld.activeMissions.Remove(_mission);
+        ActivateMission(_mission);
     }
 
     public void DisplayMission(Mission _mission)

@@ -13,10 +13,13 @@ public class ShootWeapon_Script : MonoBehaviour
     public GameObject audioObjectPrefab;
     public AudioClip bulletSound1;
     public AudioClip negativeToneSound;
+    public AudioClip toneSound;
     public bool canShoot = true;
     public bool isTryingToShoot = false;
 
     float shootDelayTimer;
+
+    float pitchMultiplier = 1;
 
 	private GameObject myPrismBeam;
 
@@ -48,6 +51,8 @@ public class ShootWeapon_Script : MonoBehaviour
 		{
 			StopShoot ();
 		}
+
+        GetComponent<AudioSource>().pitch = pitchMultiplier;
     }
 
 	public void Shoot()
@@ -192,11 +197,15 @@ public class ShootWeapon_Script : MonoBehaviour
 
                 hunterMissile.GetComponent<HunterMissile_Script>().damage = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.bulletDamage;
                 shootDelayTimer = GetComponent<ShipSetup_Script>().shipDetails.shipTurret.turretWeapon.shootDelay;
+
+                pitchMultiplier += 0.2f;
+                GetComponent<AudioSource>().PlayOneShot(toneSound);
             }
         }
         else
         {
             ReleaseHunterLauncher();
+            pitchMultiplier = 1f;
         }
     }
 
@@ -215,6 +224,8 @@ public class ShootWeapon_Script : MonoBehaviour
                 gameObj.GetComponent<AudioSource>().Play();
             }
         }
+
+        pitchMultiplier = 1f;
     }
 
 
