@@ -8,6 +8,9 @@ public class FusionMine_Script : MonoBehaviour {
     public float explosionRange = 1;
     public float moveSpeed = .05f;
 
+    public Sprite dormantSprite;
+    public Sprite activeSprite;
+
     public bool targetPlayer = false;
 
     public GameObject targetObject;
@@ -20,11 +23,14 @@ public class FusionMine_Script : MonoBehaviour {
     {
         if (!targetObject)
         {
+            gameObject.GetComponent<SpriteRenderer>().sprite = dormantSprite;
             targetObject = SearchForTarget();
         }
         else
         {
-            if(Vector2.Distance(targetObject.transform.position, gameObject.transform.position) <= explosionRange)
+            gameObject.GetComponent<SpriteRenderer>().sprite = activeSprite;
+
+            if (Vector2.Distance(targetObject.transform.position, gameObject.transform.position) <= explosionRange)
             {
                 Explode();
             }

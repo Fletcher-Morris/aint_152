@@ -141,6 +141,7 @@ public class ShipSetup_Script : MonoBehaviour
         Time.timeScale = 0.2f;
 
         gameOverPanel.transform.gameObject.SetActive(true);
+        GameObject.Find("Death Panel").transform.GetChild(3).gameObject.SetActive(false);
         gameOverPanel.transform.GetChild(1).gameObject.GetComponent<Text>().text = causeMessage;
 
         if (GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.hardcore)
@@ -373,8 +374,6 @@ public class ShipSetup_Script : MonoBehaviour
 
             float percentComplete = elapsed / shakeDuration;
             float damper = 1.0f - Mathf.Clamp(4.0f * percentComplete - 3.0f, 0.0f, 1.0f);
-
-            // map value to [-1, 1]
             float x = Random.value * .2f - .1f;
             float y = Random.value * .2f - .1f;
             x *= shakeMagnitude * damper;

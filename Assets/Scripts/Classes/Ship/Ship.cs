@@ -11,6 +11,7 @@ public class Ship
     public int maxShipHealth;
     public int shipHealth;
     public bool invincible;
+    public bool randomPosition;
     
     public Engine shipEngine;
     public Shield shipShield;
@@ -26,6 +27,7 @@ public class Ship
         maxShipHealth = 100;
         shipHealth = 100;
         invincible = false;
+        randomPosition = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -41,6 +43,7 @@ public class Ship
         maxShipHealth = _health;
         shipHealth = _health;
         invincible = false;
+        randomPosition = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -55,6 +58,7 @@ public class Ship
         maxShipHealth = 100;
         shipHealth = 100;
         invincible = false;
+        randomPosition = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -69,6 +73,7 @@ public class Ship
         maxShipHealth = _health;
         shipHealth = _health;
         invincible = false;
+        randomPosition = false;
         shipEngine = new Engine();
         shipShield = new Shield();
         shipTurret = new Turret();
@@ -83,6 +88,7 @@ public class Ship
         maxShipHealth = _health;
         shipHealth = _health;
         invincible = false;
+        randomPosition = false;
         shipEngine = _engine;
         shipShield = _shield;
         shipTurret = new Turret();
@@ -97,6 +103,7 @@ public class Ship
         maxShipHealth = _health;
         shipHealth = _health;
         invincible = false;
+        randomPosition = false;
         shipEngine = _engine;
         shipShield = _shield;
         shipTurret = new Turret();

@@ -69,7 +69,6 @@ public class GenericHealth_Script : MonoBehaviour
                     {
                         if (!GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Destroy Three Asteroids").completed)
                         {
-                            //GameObject.Find("WM").GetComponent<WorldLoader_Script>().FindMission("Destroy Three Asteroids").completed = true;
                             GameObject.Find("WM").GetComponent<WorldLoader_Script>().CompleteMission("Destroy Three Asteroids");
                             GameObject.Find("WM").GetComponent<WorldLoader_Script>().ActivateMission("Destroy The Thief");
                             GameObject.Find("WM").GetComponent<WaveManager_Script>().doSpawn = true;
@@ -86,6 +85,7 @@ public class GenericHealth_Script : MonoBehaviour
             if (gameOverOnDeath)
             {
                 GameObject.Find("Player Ship").GetComponent<ShipSetup_Script>().GameOver(gameOverMessage);
+                GameObject.Find("Death Panel").transform.GetChild(3).gameObject.SetActive(true);
             }
 
             if (destroyOnDeath)

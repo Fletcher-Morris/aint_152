@@ -52,6 +52,11 @@ public class WaveManager_Script : MonoBehaviour
     {
         foreach(Ship _shipData in waveData.waveList[_waveNumber].ships)
         {
+            if (_shipData.randomPosition)
+            {
+                _shipData.shipPos = new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), 0);
+            }
+
             GetComponent<WorldLoader_Script>().SpawnNewShip(_shipData);
         }
     }

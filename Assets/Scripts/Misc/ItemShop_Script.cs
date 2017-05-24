@@ -210,6 +210,7 @@ public class ItemShop_Script : MonoBehaviour
                         GameObject.Find("WM").GetComponent<WaveManager_Script>().doSpawn = true;
                         GameObject.Find("Space Bank").tag = "Objective";
                         GameObject.Find("Space Bank").GetComponent<GenericHealth_Script>().enabled = true;
+                        GameObject.Find("Objective Health Bar Text").GetComponent<Text>().text = "STATION HEALTH";
                     }
                 }
             }
