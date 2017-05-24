@@ -81,8 +81,17 @@ public class WorldLoader_Script : MonoBehaviour {
 
     public void GenerateWorld()
     {
+        GeneratePlayerShip();
         GenerateEnemyShips();
         GenerateAsteroids();
+    }
+
+    public void GeneratePlayerShip()
+    {
+        GameObject playerShipObject = GameObject.Find("Player Ship");
+        playerShipObject.transform.position = theWorld.playerShip.shipPos;
+        playerShipObject.transform.eulerAngles = theWorld.playerShip.shipRot;
+        playerShipObject.GetComponent<ShipSetup_Script>().shipDetails = theWorld.playerShip;
     }
 
     public void GenerateEnemyShips()

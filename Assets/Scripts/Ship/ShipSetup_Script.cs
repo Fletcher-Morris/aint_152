@@ -65,17 +65,10 @@ public class ShipSetup_Script : MonoBehaviour
     void SetupPlayerShip()
     {
 		isPlayer = true;
-        gameObject.transform.tag = "Player";
-        shipDetails = GameObject.Find("WM").GetComponent<WorldLoader_Script>().theWorld.playerShip;
-        transform.position = shipDetails.shipPos;
-        transform.rotation = Quaternion.Euler(shipDetails.shipRot);
 
         Time.timeScale = 1;
 
-        if (isPlayer)
-        {
-            UpdateUI();
-        }
+        UpdateUI();
     }
 
 	public void SavePlayerShip(){

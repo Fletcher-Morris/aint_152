@@ -178,7 +178,7 @@ public class MenuControls_Script : MonoBehaviour
 			DirectoryInfo dirInfo = new DirectoryInfo(Application.dataPath + "/Data/Saves");
 			FileInfo[] fileInfo = dirInfo.GetFiles();
 
-            Debug.Log(gameObject.name + ": Found " + fileInfo.Length + " world files.");
+            Debug.Log(gameObject.name + ": Found " + fileInfo.Length + " files in the world folder.");
 
 
 			foreach (FileInfo _world in fileInfo)

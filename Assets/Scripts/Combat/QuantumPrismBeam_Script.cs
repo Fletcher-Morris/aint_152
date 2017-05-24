@@ -6,6 +6,7 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 {
 	public float beamLength;
 	public float maxIntensity = 1;
+    public int damageFrequency = 10;
 	public float speed = 10;
 	public float sinSpeed = 5;
 
@@ -73,7 +74,15 @@ public class QuantumPrismBeam_Script : MonoBehaviour
 		beam6.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = new Color(beam6.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.r, beam6.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.b,beam6.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.g, 3/angleProgress);
 		beam7.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = new Color(beam7.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.r, beam7.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.b,beam7.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color.g, 3/angleProgress);
 		whiteBeam.transform.GetChild (0).gameObject.GetComponent<SpriteRenderer> ().color = new Color (0,0,0,0);
-	}
+
+        beam1.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+        beam2.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+        beam3.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+        beam4.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+        beam5.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+        beam6.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+        beam7.transform.GetChild(0).gameObject.GetComponent<BeamDamage_Script>().damageSync = damageFrequency;
+    }
 
 	void Update()
 	{
