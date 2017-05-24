@@ -114,6 +114,32 @@ public class PlayerMovement_Script : MonoBehaviour
         axisNormalized = axisInput.normalized;
         axisFinalised = axisNormalized * moveSpeed;
         playerObject.transform.Translate(axisFinalised.x * Time.deltaTime, axisFinalised.y * Time.deltaTime, 0);
+
+        if (axisFinalised.magnitude != 0)
+        {
+            if (axisFinalised.y == 0)
+            {
+                if (axisFinalised.x >= 0)
+                {
+                    playerObject.transform.GetChild(0).localEulerAngles = new Vector3(0, 0, -90f);
+                }
+                else
+                {
+                    playerObject.transform.GetChild(0).localEulerAngles = new Vector3(0, 0, 90f);
+                } 
+            }
+            else
+            {
+                if (axisFinalised.y >= 0)
+                {
+                    playerObject.transform.GetChild(0).localEulerAngles = new Vector3(0, 0, 0);
+                }
+                else
+                {
+                    playerObject.transform.GetChild(0).localEulerAngles = new Vector3(0, 0, 180);
+                }
+            }            
+        }
     }
 
     void RigidbodyMovement()
@@ -122,6 +148,7 @@ public class PlayerMovement_Script : MonoBehaviour
         axisNormalized = axisInput.normalized;
         axisFinalised = axisNormalized * moveSpeed;
         playerObject.GetComponent<Rigidbody2D>().AddRelativeForce(axisFinalised * moveSpeed);
+        playerObject.transform.rotation = Quaternion.LookRotation(axisFinalised);
     }
 
     void TestPlayerCockpitDistance()
