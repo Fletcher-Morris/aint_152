@@ -55,6 +55,12 @@ public class Turret
                 weaponsList[GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().hoverItem - 1].weaponExperience = 0;
                 Debug.Log("Fusion Mine Leveled Up!");
             }
+            else if (turretWeapon.weaponType == "Hunter Launcher" && GameObject.Find("GM").GetComponent<WeaponData_Script>().hunterLauncherUpgrades.Count >= turretWeapon.weaponLevel + 1)
+            {
+                weaponsList[GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().hoverItem - 1] = GameObject.Find("GM").GetComponent<WeaponData_Script>().hunterLauncherUpgrades[turretWeapon.weaponLevel];
+                weaponsList[GameObject.Find("Weapon Wheel").GetComponent<WeaponWheel_Script>().hoverItem - 1].weaponExperience = 0;
+                Debug.Log("Hunter Launcher Leveled Up!");
+            }
             else if (turretWeapon.weaponType == "Quantum Prism" && GameObject.Find ("GM").GetComponent<WeaponData_Script> ().quantumPrismUpgrades.Count >= turretWeapon.weaponLevel + 1)
             {
 				weaponsList[GameObject.Find ("Weapon Wheel").GetComponent<WeaponWheel_Script>().hoverItem - 1] = GameObject.Find ("GM").GetComponent<WeaponData_Script> ().quantumPrismUpgrades [turretWeapon.weaponLevel];
